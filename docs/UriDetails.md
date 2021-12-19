@@ -1,0 +1,390 @@
+# UriDetails
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Aadhaar** | Pointer to **NullableString** |  | [optional] 
+**Uri** | Pointer to **NullableString** |  | [optional] 
+**DocType** | Pointer to **NullableString** |  | [optional] 
+**DocName** | Pointer to **NullableString** |  | [optional] 
+**DocId** | Pointer to **NullableString** |  | [optional] 
+**IssuedOn** | Pointer to **NullableString** |  | [optional] 
+**ValidFrom** | Pointer to **NullableString** |  | [optional] 
+**ValidTo** | Pointer to **NullableString** |  | [optional] 
+**Timestamp** | Pointer to **NullableString** |  | [optional] 
+**Action** | Pointer to **NullableString** |  | [optional] 
+
+## Methods
+
+### NewUriDetails
+
+`func NewUriDetails() *UriDetails`
+
+NewUriDetails instantiates a new UriDetails object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewUriDetailsWithDefaults
+
+`func NewUriDetailsWithDefaults() *UriDetails`
+
+NewUriDetailsWithDefaults instantiates a new UriDetails object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetAadhaar
+
+`func (o *UriDetails) GetAadhaar() string`
+
+GetAadhaar returns the Aadhaar field if non-nil, zero value otherwise.
+
+### GetAadhaarOk
+
+`func (o *UriDetails) GetAadhaarOk() (*string, bool)`
+
+GetAadhaarOk returns a tuple with the Aadhaar field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAadhaar
+
+`func (o *UriDetails) SetAadhaar(v string)`
+
+SetAadhaar sets Aadhaar field to given value.
+
+### HasAadhaar
+
+`func (o *UriDetails) HasAadhaar() bool`
+
+HasAadhaar returns a boolean if a field has been set.
+
+### SetAadhaarNil
+
+`func (o *UriDetails) SetAadhaarNil(b bool)`
+
+ SetAadhaarNil sets the value for Aadhaar to be an explicit nil
+
+### UnsetAadhaar
+`func (o *UriDetails) UnsetAadhaar()`
+
+UnsetAadhaar ensures that no value is present for Aadhaar, not even an explicit nil
+### GetUri
+
+`func (o *UriDetails) GetUri() string`
+
+GetUri returns the Uri field if non-nil, zero value otherwise.
+
+### GetUriOk
+
+`func (o *UriDetails) GetUriOk() (*string, bool)`
+
+GetUriOk returns a tuple with the Uri field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUri
+
+`func (o *UriDetails) SetUri(v string)`
+
+SetUri sets Uri field to given value.
+
+### HasUri
+
+`func (o *UriDetails) HasUri() bool`
+
+HasUri returns a boolean if a field has been set.
+
+### SetUriNil
+
+`func (o *UriDetails) SetUriNil(b bool)`
+
+ SetUriNil sets the value for Uri to be an explicit nil
+
+### UnsetUri
+`func (o *UriDetails) UnsetUri()`
+
+UnsetUri ensures that no value is present for Uri, not even an explicit nil
+### GetDocType
+
+`func (o *UriDetails) GetDocType() string`
+
+GetDocType returns the DocType field if non-nil, zero value otherwise.
+
+### GetDocTypeOk
+
+`func (o *UriDetails) GetDocTypeOk() (*string, bool)`
+
+GetDocTypeOk returns a tuple with the DocType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDocType
+
+`func (o *UriDetails) SetDocType(v string)`
+
+SetDocType sets DocType field to given value.
+
+### HasDocType
+
+`func (o *UriDetails) HasDocType() bool`
+
+HasDocType returns a boolean if a field has been set.
+
+### SetDocTypeNil
+
+`func (o *UriDetails) SetDocTypeNil(b bool)`
+
+ SetDocTypeNil sets the value for DocType to be an explicit nil
+
+### UnsetDocType
+`func (o *UriDetails) UnsetDocType()`
+
+UnsetDocType ensures that no value is present for DocType, not even an explicit nil
+### GetDocName
+
+`func (o *UriDetails) GetDocName() string`
+
+GetDocName returns the DocName field if non-nil, zero value otherwise.
+
+### GetDocNameOk
+
+`func (o *UriDetails) GetDocNameOk() (*string, bool)`
+
+GetDocNameOk returns a tuple with the DocName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDocName
+
+`func (o *UriDetails) SetDocName(v string)`
+
+SetDocName sets DocName field to given value.
+
+### HasDocName
+
+`func (o *UriDetails) HasDocName() bool`
+
+HasDocName returns a boolean if a field has been set.
+
+### SetDocNameNil
+
+`func (o *UriDetails) SetDocNameNil(b bool)`
+
+ SetDocNameNil sets the value for DocName to be an explicit nil
+
+### UnsetDocName
+`func (o *UriDetails) UnsetDocName()`
+
+UnsetDocName ensures that no value is present for DocName, not even an explicit nil
+### GetDocId
+
+`func (o *UriDetails) GetDocId() string`
+
+GetDocId returns the DocId field if non-nil, zero value otherwise.
+
+### GetDocIdOk
+
+`func (o *UriDetails) GetDocIdOk() (*string, bool)`
+
+GetDocIdOk returns a tuple with the DocId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDocId
+
+`func (o *UriDetails) SetDocId(v string)`
+
+SetDocId sets DocId field to given value.
+
+### HasDocId
+
+`func (o *UriDetails) HasDocId() bool`
+
+HasDocId returns a boolean if a field has been set.
+
+### SetDocIdNil
+
+`func (o *UriDetails) SetDocIdNil(b bool)`
+
+ SetDocIdNil sets the value for DocId to be an explicit nil
+
+### UnsetDocId
+`func (o *UriDetails) UnsetDocId()`
+
+UnsetDocId ensures that no value is present for DocId, not even an explicit nil
+### GetIssuedOn
+
+`func (o *UriDetails) GetIssuedOn() string`
+
+GetIssuedOn returns the IssuedOn field if non-nil, zero value otherwise.
+
+### GetIssuedOnOk
+
+`func (o *UriDetails) GetIssuedOnOk() (*string, bool)`
+
+GetIssuedOnOk returns a tuple with the IssuedOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIssuedOn
+
+`func (o *UriDetails) SetIssuedOn(v string)`
+
+SetIssuedOn sets IssuedOn field to given value.
+
+### HasIssuedOn
+
+`func (o *UriDetails) HasIssuedOn() bool`
+
+HasIssuedOn returns a boolean if a field has been set.
+
+### SetIssuedOnNil
+
+`func (o *UriDetails) SetIssuedOnNil(b bool)`
+
+ SetIssuedOnNil sets the value for IssuedOn to be an explicit nil
+
+### UnsetIssuedOn
+`func (o *UriDetails) UnsetIssuedOn()`
+
+UnsetIssuedOn ensures that no value is present for IssuedOn, not even an explicit nil
+### GetValidFrom
+
+`func (o *UriDetails) GetValidFrom() string`
+
+GetValidFrom returns the ValidFrom field if non-nil, zero value otherwise.
+
+### GetValidFromOk
+
+`func (o *UriDetails) GetValidFromOk() (*string, bool)`
+
+GetValidFromOk returns a tuple with the ValidFrom field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValidFrom
+
+`func (o *UriDetails) SetValidFrom(v string)`
+
+SetValidFrom sets ValidFrom field to given value.
+
+### HasValidFrom
+
+`func (o *UriDetails) HasValidFrom() bool`
+
+HasValidFrom returns a boolean if a field has been set.
+
+### SetValidFromNil
+
+`func (o *UriDetails) SetValidFromNil(b bool)`
+
+ SetValidFromNil sets the value for ValidFrom to be an explicit nil
+
+### UnsetValidFrom
+`func (o *UriDetails) UnsetValidFrom()`
+
+UnsetValidFrom ensures that no value is present for ValidFrom, not even an explicit nil
+### GetValidTo
+
+`func (o *UriDetails) GetValidTo() string`
+
+GetValidTo returns the ValidTo field if non-nil, zero value otherwise.
+
+### GetValidToOk
+
+`func (o *UriDetails) GetValidToOk() (*string, bool)`
+
+GetValidToOk returns a tuple with the ValidTo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValidTo
+
+`func (o *UriDetails) SetValidTo(v string)`
+
+SetValidTo sets ValidTo field to given value.
+
+### HasValidTo
+
+`func (o *UriDetails) HasValidTo() bool`
+
+HasValidTo returns a boolean if a field has been set.
+
+### SetValidToNil
+
+`func (o *UriDetails) SetValidToNil(b bool)`
+
+ SetValidToNil sets the value for ValidTo to be an explicit nil
+
+### UnsetValidTo
+`func (o *UriDetails) UnsetValidTo()`
+
+UnsetValidTo ensures that no value is present for ValidTo, not even an explicit nil
+### GetTimestamp
+
+`func (o *UriDetails) GetTimestamp() string`
+
+GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
+
+### GetTimestampOk
+
+`func (o *UriDetails) GetTimestampOk() (*string, bool)`
+
+GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimestamp
+
+`func (o *UriDetails) SetTimestamp(v string)`
+
+SetTimestamp sets Timestamp field to given value.
+
+### HasTimestamp
+
+`func (o *UriDetails) HasTimestamp() bool`
+
+HasTimestamp returns a boolean if a field has been set.
+
+### SetTimestampNil
+
+`func (o *UriDetails) SetTimestampNil(b bool)`
+
+ SetTimestampNil sets the value for Timestamp to be an explicit nil
+
+### UnsetTimestamp
+`func (o *UriDetails) UnsetTimestamp()`
+
+UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
+### GetAction
+
+`func (o *UriDetails) GetAction() string`
+
+GetAction returns the Action field if non-nil, zero value otherwise.
+
+### GetActionOk
+
+`func (o *UriDetails) GetActionOk() (*string, bool)`
+
+GetActionOk returns a tuple with the Action field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAction
+
+`func (o *UriDetails) SetAction(v string)`
+
+SetAction sets Action field to given value.
+
+### HasAction
+
+`func (o *UriDetails) HasAction() bool`
+
+HasAction returns a boolean if a field has been set.
+
+### SetActionNil
+
+`func (o *UriDetails) SetActionNil(b bool)`
+
+ SetActionNil sets the value for Action to be an explicit nil
+
+### UnsetAction
+`func (o *UriDetails) UnsetAction()`
+
+UnsetAction ensures that no value is present for Action, not even an explicit nil
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
