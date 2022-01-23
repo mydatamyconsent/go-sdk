@@ -1,4 +1,4 @@
-# MyDataMyConsent\DataProcessingAgreementsApi
+# \DataProcessingAgreementsApi
 
 All URIs are relative to *http://localhost*
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## V1DataAgreementsGet
 
-> DataProcessingAgreementPaginatedList V1DataAgreementsGet(ctx).PageNo(pageNo).PageSize(pageSize).Execute()
+> DataProcessingAgreementDtoPaginatedList V1DataAgreementsGet(ctx).PageNo(pageNo).PageSize(pageSize).Execute()
 
 Get all data processing agreements.
 
@@ -42,7 +42,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.V1DataAgreementsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `V1DataAgreementsGet`: DataProcessingAgreementPaginatedList
+    // response from `V1DataAgreementsGet`: DataProcessingAgreementDtoPaginatedList
     fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.V1DataAgreementsGet`: %v\n", resp)
 }
 ```
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataProcessingAgreementPaginatedList**](DataProcessingAgreementPaginatedList.md)
+[**DataProcessingAgreementDtoPaginatedList**](DataProcessingAgreementDtoPaginatedList.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -138,7 +138,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -147,7 +147,7 @@ No authorization required
 
 ## V1DataAgreementsIdGet
 
-> DataProcessingAgreement V1DataAgreementsIdGet(ctx, id).Execute()
+> DataProcessingAgreementDto V1DataAgreementsIdGet(ctx, id).Execute()
 
 Get data processing agreement by Id.
 
@@ -173,7 +173,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.V1DataAgreementsIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `V1DataAgreementsIdGet`: DataProcessingAgreement
+    // response from `V1DataAgreementsIdGet`: DataProcessingAgreementDto
     fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.V1DataAgreementsIdGet`: %v\n", resp)
 }
 ```
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataProcessingAgreement**](DataProcessingAgreement.md)
+[**DataProcessingAgreementDto**](DataProcessingAgreementDto.md)
 
 ### Authorization
 
@@ -206,7 +206,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -215,7 +215,7 @@ No authorization required
 
 ## V1DataAgreementsIdPut
 
-> DataProcessingAgreement V1DataAgreementsIdPut(ctx, id).DataProcessingAgreement(dataProcessingAgreement).Execute()
+> DataProcessingAgreementDto V1DataAgreementsIdPut(ctx, id).UpdateDataProcessingAgreementRequestModel(updateDataProcessingAgreementRequestModel).Execute()
 
 Update a data processing agreement.
 
@@ -233,16 +233,16 @@ import (
 
 func main() {
     id := TODO // string | 
-    dataProcessingAgreement := *openapiclient.NewDataProcessingAgreement() // DataProcessingAgreement |  (optional)
+    updateDataProcessingAgreementRequestModel := *openapiclient.NewUpdateDataProcessingAgreementRequestModel("Version_example", "Body_example", "AttachmentUrl_example") // UpdateDataProcessingAgreementRequestModel |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DataProcessingAgreementsApi.V1DataAgreementsIdPut(context.Background(), id).DataProcessingAgreement(dataProcessingAgreement).Execute()
+    resp, r, err := api_client.DataProcessingAgreementsApi.V1DataAgreementsIdPut(context.Background(), id).UpdateDataProcessingAgreementRequestModel(updateDataProcessingAgreementRequestModel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.V1DataAgreementsIdPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `V1DataAgreementsIdPut`: DataProcessingAgreement
+    // response from `V1DataAgreementsIdPut`: DataProcessingAgreementDto
     fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.V1DataAgreementsIdPut`: %v\n", resp)
 }
 ```
@@ -263,11 +263,11 @@ Other parameters are passed through a pointer to a apiV1DataAgreementsIdPutReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **dataProcessingAgreement** | [**DataProcessingAgreement**](DataProcessingAgreement.md) |  | 
+ **updateDataProcessingAgreementRequestModel** | [**UpdateDataProcessingAgreementRequestModel**](UpdateDataProcessingAgreementRequestModel.md) |  | 
 
 ### Return type
 
-[**DataProcessingAgreement**](DataProcessingAgreement.md)
+[**DataProcessingAgreementDto**](DataProcessingAgreementDto.md)
 
 ### Authorization
 
@@ -275,8 +275,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -342,7 +342,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -351,7 +351,7 @@ No authorization required
 
 ## V1DataAgreementsPost
 
-> DataProcessingAgreement V1DataAgreementsPost(ctx).DataProcessingAgreement(dataProcessingAgreement).Execute()
+> DataProcessingAgreementDto V1DataAgreementsPost(ctx).CreateDataProcessingAgreementRequestModel(createDataProcessingAgreementRequestModel).Execute()
 
 Create a data processing agreement.
 
@@ -368,16 +368,16 @@ import (
 )
 
 func main() {
-    dataProcessingAgreement := *openapiclient.NewDataProcessingAgreement() // DataProcessingAgreement |  (optional)
+    createDataProcessingAgreementRequestModel := *openapiclient.NewCreateDataProcessingAgreementRequestModel("Version_example", "Body_example", "AttachmentUrl_example") // CreateDataProcessingAgreementRequestModel |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DataProcessingAgreementsApi.V1DataAgreementsPost(context.Background()).DataProcessingAgreement(dataProcessingAgreement).Execute()
+    resp, r, err := api_client.DataProcessingAgreementsApi.V1DataAgreementsPost(context.Background()).CreateDataProcessingAgreementRequestModel(createDataProcessingAgreementRequestModel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.V1DataAgreementsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `V1DataAgreementsPost`: DataProcessingAgreement
+    // response from `V1DataAgreementsPost`: DataProcessingAgreementDto
     fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.V1DataAgreementsPost`: %v\n", resp)
 }
 ```
@@ -393,11 +393,11 @@ Other parameters are passed through a pointer to a apiV1DataAgreementsPostReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dataProcessingAgreement** | [**DataProcessingAgreement**](DataProcessingAgreement.md) |  | 
+ **createDataProcessingAgreementRequestModel** | [**CreateDataProcessingAgreementRequestModel**](CreateDataProcessingAgreementRequestModel.md) |  | 
 
 ### Return type
 
-[**DataProcessingAgreement**](DataProcessingAgreement.md)
+[**DataProcessingAgreementDto**](DataProcessingAgreementDto.md)
 
 ### Authorization
 
@@ -405,8 +405,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

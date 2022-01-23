@@ -1,10 +1,10 @@
-# MyDataMyConsent\DataConsentRequestsApi
+# \DataConsentRequestsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CancelConsentRequest**](DataConsentRequestsApi.md#CancelConsentRequest) | **Delete** /v1/consent-requests/{requestId}/cancel | Cancel a Consent Request by ID.
+[**CancelConsentRequest**](DataConsentRequestsApi.md#CancelConsentRequest) | **Delete** /v1/consent-requests/{requestId}/cancel | Revoke / Cancel the ConsentRequest based on Id
 [**CreateRequest**](DataConsentRequestsApi.md#CreateRequest) | **Post** /v1/consent-requests | Create a consent request.
 [**GetAllConsentRequests**](DataConsentRequestsApi.md#GetAllConsentRequests) | **Get** /v1/consent-requests | Get all Consent Requests.
 [**GetConsentRequestById**](DataConsentRequestsApi.md#GetConsentRequestById) | **Get** /v1/consent-requests/{requestId} | Get a Consent Request by ID.
@@ -13,11 +13,9 @@ Method | HTTP request | Description
 
 ## CancelConsentRequest
 
-> CancelConsentRequest(ctx, requestId).Execute()
+> bool CancelConsentRequest(ctx, requestId).Execute()
 
-Cancel a Consent Request by ID.
-
-
+Revoke / Cancel the ConsentRequest based on Id
 
 ### Example
 
@@ -32,7 +30,7 @@ import (
 )
 
 func main() {
-    requestId := TODO // string | consent request id.
+    requestId := TODO // string | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -41,6 +39,8 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentRequestsApi.CancelConsentRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `CancelConsentRequest`: bool
+    fmt.Fprintf(os.Stdout, "Response from `DataConsentRequestsApi.CancelConsentRequest`: %v\n", resp)
 }
 ```
 
@@ -50,7 +50,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**requestId** | [**string**](.md) | consent request id. | 
+**requestId** | [**string**](.md) |  | 
 
 ### Other Parameters
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+**bool**
 
 ### Authorization
 
@@ -72,7 +72,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -81,7 +81,7 @@ No authorization required
 
 ## CreateRequest
 
-> DataConsent CreateRequest(ctx).DataConsentRequestModel(dataConsentRequestModel).Execute()
+> bool CreateRequest(ctx).DataConsentRequestModel(dataConsentRequestModel).Execute()
 
 Create a consent request.
 
@@ -98,7 +98,7 @@ import (
 )
 
 func main() {
-    dataConsentRequestModel := *openapiclient.NewDataConsentRequestModel() // DataConsentRequestModel | MyDataMyConsent.Models.Consents.DataConsentRequestModel. (optional)
+    dataConsentRequestModel := *openapiclient.NewDataConsentRequestModel(*openapiclient.NewReceiver()) // DataConsentRequestModel | MyDataMyConsent.Models.Consents.DataConsentRequestModel. (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -107,7 +107,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentRequestsApi.CreateRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateRequest`: DataConsent
+    // response from `CreateRequest`: bool
     fmt.Fprintf(os.Stdout, "Response from `DataConsentRequestsApi.CreateRequest`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataConsent**](DataConsent.md)
+**bool**
 
 ### Authorization
 
@@ -135,8 +135,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -145,7 +145,7 @@ No authorization required
 
 ## GetAllConsentRequests
 
-> map[string]interface{} GetAllConsentRequests(ctx).Status(status).Execute()
+> map[string]interface{} GetAllConsentRequests(ctx).PageNo(pageNo).PageSize(pageSize).Status(status).Execute()
 
 Get all Consent Requests.
 
@@ -162,11 +162,13 @@ import (
 )
 
 func main() {
+    pageNo := int32(56) // int32 |  (optional)
+    pageSize := int32(56) // int32 |  (optional)
     status := openapiclient.DataConsentStatus("Pending") // DataConsentStatus |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DataConsentRequestsApi.GetAllConsentRequests(context.Background()).Status(status).Execute()
+    resp, r, err := api_client.DataConsentRequestsApi.GetAllConsentRequests(context.Background()).PageNo(pageNo).PageSize(pageSize).Status(status).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentRequestsApi.GetAllConsentRequests``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -187,6 +189,8 @@ Other parameters are passed through a pointer to a apiGetAllConsentRequestsReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pageNo** | **int32** |  | 
+ **pageSize** | **int32** |  | 
  **status** | [**DataConsentStatus**](DataConsentStatus.md) |  | 
 
 ### Return type
@@ -200,7 +204,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -268,7 +272,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

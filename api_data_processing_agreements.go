@@ -46,7 +46,7 @@ func (r ApiV1DataAgreementsGetRequest) PageSize(pageSize int32) ApiV1DataAgreeme
 	return r
 }
 
-func (r ApiV1DataAgreementsGetRequest) Execute() (DataProcessingAgreementPaginatedList, *_nethttp.Response, error) {
+func (r ApiV1DataAgreementsGetRequest) Execute() (DataProcessingAgreementDtoPaginatedList, *_nethttp.Response, error) {
 	return r.ApiService.V1DataAgreementsGetExecute(r)
 }
 
@@ -64,15 +64,15 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsGet(ctx _context.Co
 }
 
 // Execute executes the request
-//  @return DataProcessingAgreementPaginatedList
-func (a *DataProcessingAgreementsApiService) V1DataAgreementsGetExecute(r ApiV1DataAgreementsGetRequest) (DataProcessingAgreementPaginatedList, *_nethttp.Response, error) {
+//  @return DataProcessingAgreementDtoPaginatedList
+func (a *DataProcessingAgreementsApiService) V1DataAgreementsGetExecute(r ApiV1DataAgreementsGetRequest) (DataProcessingAgreementDtoPaginatedList, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  DataProcessingAgreementPaginatedList
+		localVarReturnValue  DataProcessingAgreementDtoPaginatedList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataProcessingAgreementsApiService.V1DataAgreementsGet")
@@ -102,7 +102,7 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsGetExecute(r ApiV1D
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -211,7 +211,7 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsIdDeleteExecute(r A
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -270,7 +270,7 @@ type ApiV1DataAgreementsIdGetRequest struct {
 }
 
 
-func (r ApiV1DataAgreementsIdGetRequest) Execute() (DataProcessingAgreement, *_nethttp.Response, error) {
+func (r ApiV1DataAgreementsIdGetRequest) Execute() (DataProcessingAgreementDto, *_nethttp.Response, error) {
 	return r.ApiService.V1DataAgreementsIdGetExecute(r)
 }
 
@@ -290,15 +290,15 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsIdGet(ctx _context.
 }
 
 // Execute executes the request
-//  @return DataProcessingAgreement
-func (a *DataProcessingAgreementsApiService) V1DataAgreementsIdGetExecute(r ApiV1DataAgreementsIdGetRequest) (DataProcessingAgreement, *_nethttp.Response, error) {
+//  @return DataProcessingAgreementDto
+func (a *DataProcessingAgreementsApiService) V1DataAgreementsIdGetExecute(r ApiV1DataAgreementsIdGetRequest) (DataProcessingAgreementDto, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  DataProcessingAgreement
+		localVarReturnValue  DataProcessingAgreementDto
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataProcessingAgreementsApiService.V1DataAgreementsIdGet")
@@ -323,7 +323,7 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsIdGetExecute(r ApiV
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -378,15 +378,15 @@ type ApiV1DataAgreementsIdPutRequest struct {
 	ctx _context.Context
 	ApiService *DataProcessingAgreementsApiService
 	id string
-	dataProcessingAgreement *DataProcessingAgreement
+	updateDataProcessingAgreementRequestModel *UpdateDataProcessingAgreementRequestModel
 }
 
-func (r ApiV1DataAgreementsIdPutRequest) DataProcessingAgreement(dataProcessingAgreement DataProcessingAgreement) ApiV1DataAgreementsIdPutRequest {
-	r.dataProcessingAgreement = &dataProcessingAgreement
+func (r ApiV1DataAgreementsIdPutRequest) UpdateDataProcessingAgreementRequestModel(updateDataProcessingAgreementRequestModel UpdateDataProcessingAgreementRequestModel) ApiV1DataAgreementsIdPutRequest {
+	r.updateDataProcessingAgreementRequestModel = &updateDataProcessingAgreementRequestModel
 	return r
 }
 
-func (r ApiV1DataAgreementsIdPutRequest) Execute() (DataProcessingAgreement, *_nethttp.Response, error) {
+func (r ApiV1DataAgreementsIdPutRequest) Execute() (DataProcessingAgreementDto, *_nethttp.Response, error) {
 	return r.ApiService.V1DataAgreementsIdPutExecute(r)
 }
 
@@ -406,15 +406,15 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsIdPut(ctx _context.
 }
 
 // Execute executes the request
-//  @return DataProcessingAgreement
-func (a *DataProcessingAgreementsApiService) V1DataAgreementsIdPutExecute(r ApiV1DataAgreementsIdPutRequest) (DataProcessingAgreement, *_nethttp.Response, error) {
+//  @return DataProcessingAgreementDto
+func (a *DataProcessingAgreementsApiService) V1DataAgreementsIdPutExecute(r ApiV1DataAgreementsIdPutRequest) (DataProcessingAgreementDto, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  DataProcessingAgreement
+		localVarReturnValue  DataProcessingAgreementDto
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataProcessingAgreementsApiService.V1DataAgreementsIdPut")
@@ -430,7 +430,7 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsIdPutExecute(r ApiV
 	localVarFormParams := _neturl.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -439,7 +439,7 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsIdPutExecute(r ApiV
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -447,7 +447,7 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsIdPutExecute(r ApiV
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.dataProcessingAgreement
+	localVarPostBody = r.updateDataProcessingAgreementRequestModel
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -560,7 +560,7 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsIdTerminatePutExecu
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -615,15 +615,15 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsIdTerminatePutExecu
 type ApiV1DataAgreementsPostRequest struct {
 	ctx _context.Context
 	ApiService *DataProcessingAgreementsApiService
-	dataProcessingAgreement *DataProcessingAgreement
+	createDataProcessingAgreementRequestModel *CreateDataProcessingAgreementRequestModel
 }
 
-func (r ApiV1DataAgreementsPostRequest) DataProcessingAgreement(dataProcessingAgreement DataProcessingAgreement) ApiV1DataAgreementsPostRequest {
-	r.dataProcessingAgreement = &dataProcessingAgreement
+func (r ApiV1DataAgreementsPostRequest) CreateDataProcessingAgreementRequestModel(createDataProcessingAgreementRequestModel CreateDataProcessingAgreementRequestModel) ApiV1DataAgreementsPostRequest {
+	r.createDataProcessingAgreementRequestModel = &createDataProcessingAgreementRequestModel
 	return r
 }
 
-func (r ApiV1DataAgreementsPostRequest) Execute() (DataProcessingAgreement, *_nethttp.Response, error) {
+func (r ApiV1DataAgreementsPostRequest) Execute() (DataProcessingAgreementDto, *_nethttp.Response, error) {
 	return r.ApiService.V1DataAgreementsPostExecute(r)
 }
 
@@ -641,15 +641,15 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsPost(ctx _context.C
 }
 
 // Execute executes the request
-//  @return DataProcessingAgreement
-func (a *DataProcessingAgreementsApiService) V1DataAgreementsPostExecute(r ApiV1DataAgreementsPostRequest) (DataProcessingAgreement, *_nethttp.Response, error) {
+//  @return DataProcessingAgreementDto
+func (a *DataProcessingAgreementsApiService) V1DataAgreementsPostExecute(r ApiV1DataAgreementsPostRequest) (DataProcessingAgreementDto, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  DataProcessingAgreement
+		localVarReturnValue  DataProcessingAgreementDto
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataProcessingAgreementsApiService.V1DataAgreementsPost")
@@ -664,7 +664,7 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsPostExecute(r ApiV1
 	localVarFormParams := _neturl.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -673,7 +673,7 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsPostExecute(r ApiV1
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -681,7 +681,7 @@ func (a *DataProcessingAgreementsApiService) V1DataAgreementsPostExecute(r ApiV1
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.dataProcessingAgreement
+	localVarPostBody = r.createDataProcessingAgreementRequestModel
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err

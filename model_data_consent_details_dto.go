@@ -19,31 +19,13 @@ import (
 // DataConsentDetailsDto struct for DataConsentDetailsDto
 type DataConsentDetailsDto struct {
 	Id *string `json:"id,omitempty"`
-	Requester *DataConsentRequesterDto `json:"requester,omitempty"`
-	Location NullableString `json:"location,omitempty"`
-	PersonalInfoRequested *bool `json:"personalInfoRequested,omitempty"`
-	Documents *int32 `json:"documents,omitempty"`
-	FinancialAccounts *int32 `json:"financialAccounts,omitempty"`
-	TransactionId NullableString `json:"transactionId,omitempty"`
-	IpAddress NullableString `json:"ipAddress,omitempty"`
-	Description NullableString `json:"description,omitempty"`
-	PurposeCode NullableString `json:"purposeCode,omitempty"`
-	PurposeLink NullableString `json:"purposeLink,omitempty"`
-	AgreementId NullableString `json:"agreementId,omitempty"`
-	DataLifeUnit *DataLifeUnit `json:"dataLifeUnit,omitempty"`
-	DataLifeValue *int32 `json:"dataLifeValue,omitempty"`
-	DataFetchFrequencyUnit *DataFetchFrequencyUnit `json:"dataFetchFrequencyUnit,omitempty"`
-	DataFetchFrequencyUnitValue *int32 `json:"dataFetchFrequencyUnitValue,omitempty"`
-	DataFetchType *DataFetchType `json:"dataFetchType,omitempty"`
 	Status *DataConsentStatus `json:"status,omitempty"`
 	ApprovedAtUtc NullableTime `json:"approvedAtUtc,omitempty"`
 	RejectedAtUtc NullableTime `json:"rejectedAtUtc,omitempty"`
 	ExpiresAtUtc *time.Time `json:"expiresAtUtc,omitempty"`
 	RequestedAtUtc *time.Time `json:"requestedAtUtc,omitempty"`
-	RequestedFinancialAccounts []DataConsentRequestedAccountDto `json:"requestedFinancialAccounts,omitempty"`
-	RequestedDocuments []DataConsentRequestedDocumentDto `json:"requestedDocuments,omitempty"`
-	RequestedHealthData []DataConsentRequestedDocument `json:"requestedHealthData,omitempty"`
-	RequestedIdentityDetails *JsonSchema `json:"requestedIdentityDetails,omitempty"`
+	Requester *DataConsentRequesterDto `json:"requester,omitempty"`
+	ConsentDetails *GetConsentTemplateDetailsDto `json:"consentDetails,omitempty"`
 }
 
 // NewDataConsentDetailsDto instantiates a new DataConsentDetailsDto object
@@ -93,588 +75,6 @@ func (o *DataConsentDetailsDto) HasId() bool {
 // SetId gets a reference to the given string and assigns it to the Id field.
 func (o *DataConsentDetailsDto) SetId(v string) {
 	o.Id = &v
-}
-
-// GetRequester returns the Requester field value if set, zero value otherwise.
-func (o *DataConsentDetailsDto) GetRequester() DataConsentRequesterDto {
-	if o == nil || o.Requester == nil {
-		var ret DataConsentRequesterDto
-		return ret
-	}
-	return *o.Requester
-}
-
-// GetRequesterOk returns a tuple with the Requester field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DataConsentDetailsDto) GetRequesterOk() (*DataConsentRequesterDto, bool) {
-	if o == nil || o.Requester == nil {
-		return nil, false
-	}
-	return o.Requester, true
-}
-
-// HasRequester returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasRequester() bool {
-	if o != nil && o.Requester != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetRequester gets a reference to the given DataConsentRequesterDto and assigns it to the Requester field.
-func (o *DataConsentDetailsDto) SetRequester(v DataConsentRequesterDto) {
-	o.Requester = &v
-}
-
-// GetLocation returns the Location field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetLocation() string {
-	if o == nil || o.Location.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.Location.Get()
-}
-
-// GetLocationOk returns a tuple with the Location field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetLocationOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.Location.Get(), o.Location.IsSet()
-}
-
-// HasLocation returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasLocation() bool {
-	if o != nil && o.Location.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetLocation gets a reference to the given NullableString and assigns it to the Location field.
-func (o *DataConsentDetailsDto) SetLocation(v string) {
-	o.Location.Set(&v)
-}
-// SetLocationNil sets the value for Location to be an explicit nil
-func (o *DataConsentDetailsDto) SetLocationNil() {
-	o.Location.Set(nil)
-}
-
-// UnsetLocation ensures that no value is present for Location, not even an explicit nil
-func (o *DataConsentDetailsDto) UnsetLocation() {
-	o.Location.Unset()
-}
-
-// GetPersonalInfoRequested returns the PersonalInfoRequested field value if set, zero value otherwise.
-func (o *DataConsentDetailsDto) GetPersonalInfoRequested() bool {
-	if o == nil || o.PersonalInfoRequested == nil {
-		var ret bool
-		return ret
-	}
-	return *o.PersonalInfoRequested
-}
-
-// GetPersonalInfoRequestedOk returns a tuple with the PersonalInfoRequested field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DataConsentDetailsDto) GetPersonalInfoRequestedOk() (*bool, bool) {
-	if o == nil || o.PersonalInfoRequested == nil {
-		return nil, false
-	}
-	return o.PersonalInfoRequested, true
-}
-
-// HasPersonalInfoRequested returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasPersonalInfoRequested() bool {
-	if o != nil && o.PersonalInfoRequested != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetPersonalInfoRequested gets a reference to the given bool and assigns it to the PersonalInfoRequested field.
-func (o *DataConsentDetailsDto) SetPersonalInfoRequested(v bool) {
-	o.PersonalInfoRequested = &v
-}
-
-// GetDocuments returns the Documents field value if set, zero value otherwise.
-func (o *DataConsentDetailsDto) GetDocuments() int32 {
-	if o == nil || o.Documents == nil {
-		var ret int32
-		return ret
-	}
-	return *o.Documents
-}
-
-// GetDocumentsOk returns a tuple with the Documents field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DataConsentDetailsDto) GetDocumentsOk() (*int32, bool) {
-	if o == nil || o.Documents == nil {
-		return nil, false
-	}
-	return o.Documents, true
-}
-
-// HasDocuments returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasDocuments() bool {
-	if o != nil && o.Documents != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetDocuments gets a reference to the given int32 and assigns it to the Documents field.
-func (o *DataConsentDetailsDto) SetDocuments(v int32) {
-	o.Documents = &v
-}
-
-// GetFinancialAccounts returns the FinancialAccounts field value if set, zero value otherwise.
-func (o *DataConsentDetailsDto) GetFinancialAccounts() int32 {
-	if o == nil || o.FinancialAccounts == nil {
-		var ret int32
-		return ret
-	}
-	return *o.FinancialAccounts
-}
-
-// GetFinancialAccountsOk returns a tuple with the FinancialAccounts field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DataConsentDetailsDto) GetFinancialAccountsOk() (*int32, bool) {
-	if o == nil || o.FinancialAccounts == nil {
-		return nil, false
-	}
-	return o.FinancialAccounts, true
-}
-
-// HasFinancialAccounts returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasFinancialAccounts() bool {
-	if o != nil && o.FinancialAccounts != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetFinancialAccounts gets a reference to the given int32 and assigns it to the FinancialAccounts field.
-func (o *DataConsentDetailsDto) SetFinancialAccounts(v int32) {
-	o.FinancialAccounts = &v
-}
-
-// GetTransactionId returns the TransactionId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetTransactionId() string {
-	if o == nil || o.TransactionId.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.TransactionId.Get()
-}
-
-// GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.TransactionId.Get(), o.TransactionId.IsSet()
-}
-
-// HasTransactionId returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasTransactionId() bool {
-	if o != nil && o.TransactionId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTransactionId gets a reference to the given NullableString and assigns it to the TransactionId field.
-func (o *DataConsentDetailsDto) SetTransactionId(v string) {
-	o.TransactionId.Set(&v)
-}
-// SetTransactionIdNil sets the value for TransactionId to be an explicit nil
-func (o *DataConsentDetailsDto) SetTransactionIdNil() {
-	o.TransactionId.Set(nil)
-}
-
-// UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
-func (o *DataConsentDetailsDto) UnsetTransactionId() {
-	o.TransactionId.Unset()
-}
-
-// GetIpAddress returns the IpAddress field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetIpAddress() string {
-	if o == nil || o.IpAddress.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.IpAddress.Get()
-}
-
-// GetIpAddressOk returns a tuple with the IpAddress field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetIpAddressOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.IpAddress.Get(), o.IpAddress.IsSet()
-}
-
-// HasIpAddress returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasIpAddress() bool {
-	if o != nil && o.IpAddress.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIpAddress gets a reference to the given NullableString and assigns it to the IpAddress field.
-func (o *DataConsentDetailsDto) SetIpAddress(v string) {
-	o.IpAddress.Set(&v)
-}
-// SetIpAddressNil sets the value for IpAddress to be an explicit nil
-func (o *DataConsentDetailsDto) SetIpAddressNil() {
-	o.IpAddress.Set(nil)
-}
-
-// UnsetIpAddress ensures that no value is present for IpAddress, not even an explicit nil
-func (o *DataConsentDetailsDto) UnsetIpAddress() {
-	o.IpAddress.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetDescription() string {
-	if o == nil || o.Description.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.Description.Get()
-}
-
-// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetDescriptionOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.Description.Get(), o.Description.IsSet()
-}
-
-// HasDescription returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
-func (o *DataConsentDetailsDto) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *DataConsentDetailsDto) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *DataConsentDetailsDto) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetPurposeCode returns the PurposeCode field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetPurposeCode() string {
-	if o == nil || o.PurposeCode.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.PurposeCode.Get()
-}
-
-// GetPurposeCodeOk returns a tuple with the PurposeCode field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetPurposeCodeOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.PurposeCode.Get(), o.PurposeCode.IsSet()
-}
-
-// HasPurposeCode returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasPurposeCode() bool {
-	if o != nil && o.PurposeCode.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPurposeCode gets a reference to the given NullableString and assigns it to the PurposeCode field.
-func (o *DataConsentDetailsDto) SetPurposeCode(v string) {
-	o.PurposeCode.Set(&v)
-}
-// SetPurposeCodeNil sets the value for PurposeCode to be an explicit nil
-func (o *DataConsentDetailsDto) SetPurposeCodeNil() {
-	o.PurposeCode.Set(nil)
-}
-
-// UnsetPurposeCode ensures that no value is present for PurposeCode, not even an explicit nil
-func (o *DataConsentDetailsDto) UnsetPurposeCode() {
-	o.PurposeCode.Unset()
-}
-
-// GetPurposeLink returns the PurposeLink field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetPurposeLink() string {
-	if o == nil || o.PurposeLink.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.PurposeLink.Get()
-}
-
-// GetPurposeLinkOk returns a tuple with the PurposeLink field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetPurposeLinkOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.PurposeLink.Get(), o.PurposeLink.IsSet()
-}
-
-// HasPurposeLink returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasPurposeLink() bool {
-	if o != nil && o.PurposeLink.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPurposeLink gets a reference to the given NullableString and assigns it to the PurposeLink field.
-func (o *DataConsentDetailsDto) SetPurposeLink(v string) {
-	o.PurposeLink.Set(&v)
-}
-// SetPurposeLinkNil sets the value for PurposeLink to be an explicit nil
-func (o *DataConsentDetailsDto) SetPurposeLinkNil() {
-	o.PurposeLink.Set(nil)
-}
-
-// UnsetPurposeLink ensures that no value is present for PurposeLink, not even an explicit nil
-func (o *DataConsentDetailsDto) UnsetPurposeLink() {
-	o.PurposeLink.Unset()
-}
-
-// GetAgreementId returns the AgreementId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetAgreementId() string {
-	if o == nil || o.AgreementId.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.AgreementId.Get()
-}
-
-// GetAgreementIdOk returns a tuple with the AgreementId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetAgreementIdOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.AgreementId.Get(), o.AgreementId.IsSet()
-}
-
-// HasAgreementId returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasAgreementId() bool {
-	if o != nil && o.AgreementId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAgreementId gets a reference to the given NullableString and assigns it to the AgreementId field.
-func (o *DataConsentDetailsDto) SetAgreementId(v string) {
-	o.AgreementId.Set(&v)
-}
-// SetAgreementIdNil sets the value for AgreementId to be an explicit nil
-func (o *DataConsentDetailsDto) SetAgreementIdNil() {
-	o.AgreementId.Set(nil)
-}
-
-// UnsetAgreementId ensures that no value is present for AgreementId, not even an explicit nil
-func (o *DataConsentDetailsDto) UnsetAgreementId() {
-	o.AgreementId.Unset()
-}
-
-// GetDataLifeUnit returns the DataLifeUnit field value if set, zero value otherwise.
-func (o *DataConsentDetailsDto) GetDataLifeUnit() DataLifeUnit {
-	if o == nil || o.DataLifeUnit == nil {
-		var ret DataLifeUnit
-		return ret
-	}
-	return *o.DataLifeUnit
-}
-
-// GetDataLifeUnitOk returns a tuple with the DataLifeUnit field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DataConsentDetailsDto) GetDataLifeUnitOk() (*DataLifeUnit, bool) {
-	if o == nil || o.DataLifeUnit == nil {
-		return nil, false
-	}
-	return o.DataLifeUnit, true
-}
-
-// HasDataLifeUnit returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasDataLifeUnit() bool {
-	if o != nil && o.DataLifeUnit != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetDataLifeUnit gets a reference to the given DataLifeUnit and assigns it to the DataLifeUnit field.
-func (o *DataConsentDetailsDto) SetDataLifeUnit(v DataLifeUnit) {
-	o.DataLifeUnit = &v
-}
-
-// GetDataLifeValue returns the DataLifeValue field value if set, zero value otherwise.
-func (o *DataConsentDetailsDto) GetDataLifeValue() int32 {
-	if o == nil || o.DataLifeValue == nil {
-		var ret int32
-		return ret
-	}
-	return *o.DataLifeValue
-}
-
-// GetDataLifeValueOk returns a tuple with the DataLifeValue field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DataConsentDetailsDto) GetDataLifeValueOk() (*int32, bool) {
-	if o == nil || o.DataLifeValue == nil {
-		return nil, false
-	}
-	return o.DataLifeValue, true
-}
-
-// HasDataLifeValue returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasDataLifeValue() bool {
-	if o != nil && o.DataLifeValue != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetDataLifeValue gets a reference to the given int32 and assigns it to the DataLifeValue field.
-func (o *DataConsentDetailsDto) SetDataLifeValue(v int32) {
-	o.DataLifeValue = &v
-}
-
-// GetDataFetchFrequencyUnit returns the DataFetchFrequencyUnit field value if set, zero value otherwise.
-func (o *DataConsentDetailsDto) GetDataFetchFrequencyUnit() DataFetchFrequencyUnit {
-	if o == nil || o.DataFetchFrequencyUnit == nil {
-		var ret DataFetchFrequencyUnit
-		return ret
-	}
-	return *o.DataFetchFrequencyUnit
-}
-
-// GetDataFetchFrequencyUnitOk returns a tuple with the DataFetchFrequencyUnit field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DataConsentDetailsDto) GetDataFetchFrequencyUnitOk() (*DataFetchFrequencyUnit, bool) {
-	if o == nil || o.DataFetchFrequencyUnit == nil {
-		return nil, false
-	}
-	return o.DataFetchFrequencyUnit, true
-}
-
-// HasDataFetchFrequencyUnit returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasDataFetchFrequencyUnit() bool {
-	if o != nil && o.DataFetchFrequencyUnit != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetDataFetchFrequencyUnit gets a reference to the given DataFetchFrequencyUnit and assigns it to the DataFetchFrequencyUnit field.
-func (o *DataConsentDetailsDto) SetDataFetchFrequencyUnit(v DataFetchFrequencyUnit) {
-	o.DataFetchFrequencyUnit = &v
-}
-
-// GetDataFetchFrequencyUnitValue returns the DataFetchFrequencyUnitValue field value if set, zero value otherwise.
-func (o *DataConsentDetailsDto) GetDataFetchFrequencyUnitValue() int32 {
-	if o == nil || o.DataFetchFrequencyUnitValue == nil {
-		var ret int32
-		return ret
-	}
-	return *o.DataFetchFrequencyUnitValue
-}
-
-// GetDataFetchFrequencyUnitValueOk returns a tuple with the DataFetchFrequencyUnitValue field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DataConsentDetailsDto) GetDataFetchFrequencyUnitValueOk() (*int32, bool) {
-	if o == nil || o.DataFetchFrequencyUnitValue == nil {
-		return nil, false
-	}
-	return o.DataFetchFrequencyUnitValue, true
-}
-
-// HasDataFetchFrequencyUnitValue returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasDataFetchFrequencyUnitValue() bool {
-	if o != nil && o.DataFetchFrequencyUnitValue != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetDataFetchFrequencyUnitValue gets a reference to the given int32 and assigns it to the DataFetchFrequencyUnitValue field.
-func (o *DataConsentDetailsDto) SetDataFetchFrequencyUnitValue(v int32) {
-	o.DataFetchFrequencyUnitValue = &v
-}
-
-// GetDataFetchType returns the DataFetchType field value if set, zero value otherwise.
-func (o *DataConsentDetailsDto) GetDataFetchType() DataFetchType {
-	if o == nil || o.DataFetchType == nil {
-		var ret DataFetchType
-		return ret
-	}
-	return *o.DataFetchType
-}
-
-// GetDataFetchTypeOk returns a tuple with the DataFetchType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DataConsentDetailsDto) GetDataFetchTypeOk() (*DataFetchType, bool) {
-	if o == nil || o.DataFetchType == nil {
-		return nil, false
-	}
-	return o.DataFetchType, true
-}
-
-// HasDataFetchType returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasDataFetchType() bool {
-	if o != nil && o.DataFetchType != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetDataFetchType gets a reference to the given DataFetchType and assigns it to the DataFetchType field.
-func (o *DataConsentDetailsDto) SetDataFetchType(v DataFetchType) {
-	o.DataFetchType = &v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
@@ -857,189 +257,74 @@ func (o *DataConsentDetailsDto) SetRequestedAtUtc(v time.Time) {
 	o.RequestedAtUtc = &v
 }
 
-// GetRequestedFinancialAccounts returns the RequestedFinancialAccounts field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetRequestedFinancialAccounts() []DataConsentRequestedAccountDto {
-	if o == nil  {
-		var ret []DataConsentRequestedAccountDto
+// GetRequester returns the Requester field value if set, zero value otherwise.
+func (o *DataConsentDetailsDto) GetRequester() DataConsentRequesterDto {
+	if o == nil || o.Requester == nil {
+		var ret DataConsentRequesterDto
 		return ret
 	}
-	return o.RequestedFinancialAccounts
+	return *o.Requester
 }
 
-// GetRequestedFinancialAccountsOk returns a tuple with the RequestedFinancialAccounts field value if set, nil otherwise
+// GetRequesterOk returns a tuple with the Requester field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetRequestedFinancialAccountsOk() (*[]DataConsentRequestedAccountDto, bool) {
-	if o == nil || o.RequestedFinancialAccounts == nil {
+func (o *DataConsentDetailsDto) GetRequesterOk() (*DataConsentRequesterDto, bool) {
+	if o == nil || o.Requester == nil {
 		return nil, false
 	}
-	return &o.RequestedFinancialAccounts, true
+	return o.Requester, true
 }
 
-// HasRequestedFinancialAccounts returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasRequestedFinancialAccounts() bool {
-	if o != nil && o.RequestedFinancialAccounts != nil {
+// HasRequester returns a boolean if a field has been set.
+func (o *DataConsentDetailsDto) HasRequester() bool {
+	if o != nil && o.Requester != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetRequestedFinancialAccounts gets a reference to the given []DataConsentRequestedAccountDto and assigns it to the RequestedFinancialAccounts field.
-func (o *DataConsentDetailsDto) SetRequestedFinancialAccounts(v []DataConsentRequestedAccountDto) {
-	o.RequestedFinancialAccounts = v
+// SetRequester gets a reference to the given DataConsentRequesterDto and assigns it to the Requester field.
+func (o *DataConsentDetailsDto) SetRequester(v DataConsentRequesterDto) {
+	o.Requester = &v
 }
 
-// GetRequestedDocuments returns the RequestedDocuments field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetRequestedDocuments() []DataConsentRequestedDocumentDto {
-	if o == nil  {
-		var ret []DataConsentRequestedDocumentDto
+// GetConsentDetails returns the ConsentDetails field value if set, zero value otherwise.
+func (o *DataConsentDetailsDto) GetConsentDetails() GetConsentTemplateDetailsDto {
+	if o == nil || o.ConsentDetails == nil {
+		var ret GetConsentTemplateDetailsDto
 		return ret
 	}
-	return o.RequestedDocuments
+	return *o.ConsentDetails
 }
 
-// GetRequestedDocumentsOk returns a tuple with the RequestedDocuments field value if set, nil otherwise
+// GetConsentDetailsOk returns a tuple with the ConsentDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetRequestedDocumentsOk() (*[]DataConsentRequestedDocumentDto, bool) {
-	if o == nil || o.RequestedDocuments == nil {
+func (o *DataConsentDetailsDto) GetConsentDetailsOk() (*GetConsentTemplateDetailsDto, bool) {
+	if o == nil || o.ConsentDetails == nil {
 		return nil, false
 	}
-	return &o.RequestedDocuments, true
+	return o.ConsentDetails, true
 }
 
-// HasRequestedDocuments returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasRequestedDocuments() bool {
-	if o != nil && o.RequestedDocuments != nil {
+// HasConsentDetails returns a boolean if a field has been set.
+func (o *DataConsentDetailsDto) HasConsentDetails() bool {
+	if o != nil && o.ConsentDetails != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetRequestedDocuments gets a reference to the given []DataConsentRequestedDocumentDto and assigns it to the RequestedDocuments field.
-func (o *DataConsentDetailsDto) SetRequestedDocuments(v []DataConsentRequestedDocumentDto) {
-	o.RequestedDocuments = v
-}
-
-// GetRequestedHealthData returns the RequestedHealthData field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetRequestedHealthData() []DataConsentRequestedDocument {
-	if o == nil  {
-		var ret []DataConsentRequestedDocument
-		return ret
-	}
-	return o.RequestedHealthData
-}
-
-// GetRequestedHealthDataOk returns a tuple with the RequestedHealthData field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetRequestedHealthDataOk() (*[]DataConsentRequestedDocument, bool) {
-	if o == nil || o.RequestedHealthData == nil {
-		return nil, false
-	}
-	return &o.RequestedHealthData, true
-}
-
-// HasRequestedHealthData returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasRequestedHealthData() bool {
-	if o != nil && o.RequestedHealthData != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetRequestedHealthData gets a reference to the given []DataConsentRequestedDocument and assigns it to the RequestedHealthData field.
-func (o *DataConsentDetailsDto) SetRequestedHealthData(v []DataConsentRequestedDocument) {
-	o.RequestedHealthData = v
-}
-
-// GetRequestedIdentityDetails returns the RequestedIdentityDetails field value if set, zero value otherwise.
-func (o *DataConsentDetailsDto) GetRequestedIdentityDetails() JsonSchema {
-	if o == nil || o.RequestedIdentityDetails == nil {
-		var ret JsonSchema
-		return ret
-	}
-	return *o.RequestedIdentityDetails
-}
-
-// GetRequestedIdentityDetailsOk returns a tuple with the RequestedIdentityDetails field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DataConsentDetailsDto) GetRequestedIdentityDetailsOk() (*JsonSchema, bool) {
-	if o == nil || o.RequestedIdentityDetails == nil {
-		return nil, false
-	}
-	return o.RequestedIdentityDetails, true
-}
-
-// HasRequestedIdentityDetails returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasRequestedIdentityDetails() bool {
-	if o != nil && o.RequestedIdentityDetails != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetRequestedIdentityDetails gets a reference to the given JsonSchema and assigns it to the RequestedIdentityDetails field.
-func (o *DataConsentDetailsDto) SetRequestedIdentityDetails(v JsonSchema) {
-	o.RequestedIdentityDetails = &v
+// SetConsentDetails gets a reference to the given GetConsentTemplateDetailsDto and assigns it to the ConsentDetails field.
+func (o *DataConsentDetailsDto) SetConsentDetails(v GetConsentTemplateDetailsDto) {
+	o.ConsentDetails = &v
 }
 
 func (o DataConsentDetailsDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
-	}
-	if o.Requester != nil {
-		toSerialize["requester"] = o.Requester
-	}
-	if o.Location.IsSet() {
-		toSerialize["location"] = o.Location.Get()
-	}
-	if o.PersonalInfoRequested != nil {
-		toSerialize["personalInfoRequested"] = o.PersonalInfoRequested
-	}
-	if o.Documents != nil {
-		toSerialize["documents"] = o.Documents
-	}
-	if o.FinancialAccounts != nil {
-		toSerialize["financialAccounts"] = o.FinancialAccounts
-	}
-	if o.TransactionId.IsSet() {
-		toSerialize["transactionId"] = o.TransactionId.Get()
-	}
-	if o.IpAddress.IsSet() {
-		toSerialize["ipAddress"] = o.IpAddress.Get()
-	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
-	}
-	if o.PurposeCode.IsSet() {
-		toSerialize["purposeCode"] = o.PurposeCode.Get()
-	}
-	if o.PurposeLink.IsSet() {
-		toSerialize["purposeLink"] = o.PurposeLink.Get()
-	}
-	if o.AgreementId.IsSet() {
-		toSerialize["agreementId"] = o.AgreementId.Get()
-	}
-	if o.DataLifeUnit != nil {
-		toSerialize["dataLifeUnit"] = o.DataLifeUnit
-	}
-	if o.DataLifeValue != nil {
-		toSerialize["dataLifeValue"] = o.DataLifeValue
-	}
-	if o.DataFetchFrequencyUnit != nil {
-		toSerialize["dataFetchFrequencyUnit"] = o.DataFetchFrequencyUnit
-	}
-	if o.DataFetchFrequencyUnitValue != nil {
-		toSerialize["dataFetchFrequencyUnitValue"] = o.DataFetchFrequencyUnitValue
-	}
-	if o.DataFetchType != nil {
-		toSerialize["dataFetchType"] = o.DataFetchType
 	}
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
@@ -1056,17 +341,11 @@ func (o DataConsentDetailsDto) MarshalJSON() ([]byte, error) {
 	if o.RequestedAtUtc != nil {
 		toSerialize["requestedAtUtc"] = o.RequestedAtUtc
 	}
-	if o.RequestedFinancialAccounts != nil {
-		toSerialize["requestedFinancialAccounts"] = o.RequestedFinancialAccounts
+	if o.Requester != nil {
+		toSerialize["requester"] = o.Requester
 	}
-	if o.RequestedDocuments != nil {
-		toSerialize["requestedDocuments"] = o.RequestedDocuments
-	}
-	if o.RequestedHealthData != nil {
-		toSerialize["requestedHealthData"] = o.RequestedHealthData
-	}
-	if o.RequestedIdentityDetails != nil {
-		toSerialize["requestedIdentityDetails"] = o.RequestedIdentityDetails
+	if o.ConsentDetails != nil {
+		toSerialize["consentDetails"] = o.ConsentDetails
 	}
 	return json.Marshal(toSerialize)
 }

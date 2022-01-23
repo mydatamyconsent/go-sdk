@@ -1,4 +1,4 @@
-# MyDataMyConsent\DataProviderDiscoveryApi
+# \DataProviderDiscoveryApi
 
 All URIs are relative to *http://localhost*
 

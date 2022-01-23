@@ -1,4 +1,4 @@
-# MyDataMyConsent\DigiLockerCompatIssuerApi
+# \DigiLockerCompatIssuerApi
 
 All URIs are relative to *http://localhost*
 

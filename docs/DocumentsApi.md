@@ -1,4 +1,4 @@
-# MyDataMyConsent\DocumentsApi
+# \DocumentsApi
 
 All URIs are relative to *http://localhost*
 

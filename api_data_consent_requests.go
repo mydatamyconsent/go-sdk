@@ -35,17 +35,15 @@ type ApiCancelConsentRequestRequest struct {
 }
 
 
-func (r ApiCancelConsentRequestRequest) Execute() (*_nethttp.Response, error) {
+func (r ApiCancelConsentRequestRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.CancelConsentRequestExecute(r)
 }
 
 /*
-CancelConsentRequest Cancel a Consent Request by ID.
-
-.
+CancelConsentRequest Revoke / Cancel the ConsentRequest based on Id
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param requestId consent request id.
+ @param requestId
  @return ApiCancelConsentRequestRequest
 */
 func (a *DataConsentRequestsApiService) CancelConsentRequest(ctx _context.Context, requestId string) ApiCancelConsentRequestRequest {
@@ -57,18 +55,20 @@ func (a *DataConsentRequestsApiService) CancelConsentRequest(ctx _context.Contex
 }
 
 // Execute executes the request
-func (a *DataConsentRequestsApiService) CancelConsentRequestExecute(r ApiCancelConsentRequestRequest) (*_nethttp.Response, error) {
+//  @return bool
+func (a *DataConsentRequestsApiService) CancelConsentRequestExecute(r ApiCancelConsentRequestRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
+		localVarReturnValue  bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentRequestsApiService.CancelConsentRequest")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/v1/consent-requests/{requestId}/cancel"
@@ -88,7 +88,7 @@ func (a *DataConsentRequestsApiService) CancelConsentRequestExecute(r ApiCancelC
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -97,19 +97,19 @@ func (a *DataConsentRequestsApiService) CancelConsentRequestExecute(r ApiCancelC
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -117,10 +117,26 @@ func (a *DataConsentRequestsApiService) CancelConsentRequestExecute(r ApiCancelC
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiCreateRequestRequest struct {
@@ -135,7 +151,7 @@ func (r ApiCreateRequestRequest) DataConsentRequestModel(dataConsentRequestModel
 	return r
 }
 
-func (r ApiCreateRequestRequest) Execute() (DataConsent, *_nethttp.Response, error) {
+func (r ApiCreateRequestRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.CreateRequestExecute(r)
 }
 
@@ -153,15 +169,15 @@ func (a *DataConsentRequestsApiService) CreateRequest(ctx _context.Context) ApiC
 }
 
 // Execute executes the request
-//  @return DataConsent
-func (a *DataConsentRequestsApiService) CreateRequestExecute(r ApiCreateRequestRequest) (DataConsent, *_nethttp.Response, error) {
+//  @return bool
+func (a *DataConsentRequestsApiService) CreateRequestExecute(r ApiCreateRequestRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  DataConsent
+		localVarReturnValue  bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentRequestsApiService.CreateRequest")
@@ -176,7 +192,7 @@ func (a *DataConsentRequestsApiService) CreateRequestExecute(r ApiCreateRequestR
 	localVarFormParams := _neturl.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "application/xml"}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -185,7 +201,7 @@ func (a *DataConsentRequestsApiService) CreateRequestExecute(r ApiCreateRequestR
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -241,9 +257,19 @@ func (a *DataConsentRequestsApiService) CreateRequestExecute(r ApiCreateRequestR
 type ApiGetAllConsentRequestsRequest struct {
 	ctx _context.Context
 	ApiService *DataConsentRequestsApiService
+	pageNo *int32
+	pageSize *int32
 	status *DataConsentStatus
 }
 
+func (r ApiGetAllConsentRequestsRequest) PageNo(pageNo int32) ApiGetAllConsentRequestsRequest {
+	r.pageNo = &pageNo
+	return r
+}
+func (r ApiGetAllConsentRequestsRequest) PageSize(pageSize int32) ApiGetAllConsentRequestsRequest {
+	r.pageSize = &pageSize
+	return r
+}
 func (r ApiGetAllConsentRequestsRequest) Status(status DataConsentStatus) ApiGetAllConsentRequestsRequest {
 	r.status = &status
 	return r
@@ -289,6 +315,12 @@ func (a *DataConsentRequestsApiService) GetAllConsentRequestsExecute(r ApiGetAll
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.pageNo != nil {
+		localVarQueryParams.Add("pageNo", parameterToString(*r.pageNo, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
 	if r.status != nil {
 		localVarQueryParams.Add("status", parameterToString(*r.status, ""))
 	}
@@ -302,7 +334,7 @@ func (a *DataConsentRequestsApiService) GetAllConsentRequestsExecute(r ApiGetAll
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -413,7 +445,7 @@ func (a *DataConsentRequestsApiService) GetConsentRequestByIdExecute(r ApiGetCon
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/xml"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
