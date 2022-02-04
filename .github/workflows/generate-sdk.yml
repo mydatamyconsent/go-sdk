@@ -31,7 +31,7 @@ jobs:
               run: |
                 rm *.go
                 rm -rf ./api
-                rm -ff ./docs
+                rm -rf ./docs
 
             - name: Generate SDK's
               run: |
