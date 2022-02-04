@@ -30,8 +30,8 @@ func main() {
     pushUriRequest := *openapiclient.NewPushUriRequest() // PushUriRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DigiLockerCompatIssuerApi.IssuerIssuedoc1XmlPost(context.Background()).PushUriRequest(pushUriRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DigiLockerCompatIssuerApi.IssuerIssuedoc1XmlPost(context.Background()).PushUriRequest(pushUriRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DigiLockerCompatIssuerApi.IssuerIssuedoc1XmlPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

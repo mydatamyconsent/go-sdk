@@ -10,14 +10,14 @@ Name | Type | Description | Notes
 **Description** | **string** |  | 
 **Receiver** | [**Receiver**](Receiver.md) |  | 
 **ExpiresAtUtc** | Pointer to **NullableString** |  | [optional] 
-**Base64PDFDocument** | **string** |  | 
+**Base64PdfDocument** | **string** |  | 
 **Metadata** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
 
 ### NewDocumentIssueRequest
 
-`func NewDocumentIssueRequest(documentTypeId string, identifier string, name string, description string, receiver Receiver, base64PDFDocument string, ) *DocumentIssueRequest`
+`func NewDocumentIssueRequest(documentTypeId string, identifier string, name string, description string, receiver Receiver, base64PdfDocument string, ) *DocumentIssueRequest`
 
 NewDocumentIssueRequest instantiates a new DocumentIssueRequest object
 This constructor will assign default values to properties that have it defined,
@@ -167,24 +167,24 @@ HasExpiresAtUtc returns a boolean if a field has been set.
 `func (o *DocumentIssueRequest) UnsetExpiresAtUtc()`
 
 UnsetExpiresAtUtc ensures that no value is present for ExpiresAtUtc, not even an explicit nil
-### GetBase64PDFDocument
+### GetBase64PdfDocument
 
-`func (o *DocumentIssueRequest) GetBase64PDFDocument() string`
+`func (o *DocumentIssueRequest) GetBase64PdfDocument() string`
 
-GetBase64PDFDocument returns the Base64PDFDocument field if non-nil, zero value otherwise.
+GetBase64PdfDocument returns the Base64PdfDocument field if non-nil, zero value otherwise.
 
-### GetBase64PDFDocumentOk
+### GetBase64PdfDocumentOk
 
-`func (o *DocumentIssueRequest) GetBase64PDFDocumentOk() (*string, bool)`
+`func (o *DocumentIssueRequest) GetBase64PdfDocumentOk() (*string, bool)`
 
-GetBase64PDFDocumentOk returns a tuple with the Base64PDFDocument field if it's non-nil, zero value otherwise
+GetBase64PdfDocumentOk returns a tuple with the Base64PdfDocument field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBase64PDFDocument
+### SetBase64PdfDocument
 
-`func (o *DocumentIssueRequest) SetBase64PDFDocument(v string)`
+`func (o *DocumentIssueRequest) SetBase64PdfDocument(v string)`
 
-SetBase64PDFDocument sets Base64PDFDocument field to given value.
+SetBase64PdfDocument sets Base64PdfDocument field to given value.
 
 
 ### GetMetadata

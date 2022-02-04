@@ -30,11 +30,11 @@ import (
 )
 
 func main() {
-    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "Identifier_example", "Name_example", "Description_example", *openapiclient.NewReceiver(), "Base64PDFDocument_example") // DocumentIssueRequest |  (optional)
+    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "Identifier_example", "Name_example", "Description_example", *openapiclient.NewReceiver(), "Base64PdfDocument_example") // DocumentIssueRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DocumentsApi.IssueDocument(context.Background()).DocumentIssueRequest(documentIssueRequest).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DocumentsApi.IssueDocument(context.Background()).DocumentIssueRequest(documentIssueRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.IssueDocument``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -94,11 +94,11 @@ import (
 )
 
 func main() {
-    documentId := TODO // string | Document id.
+    documentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Document id.
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DocumentsApi.V1DocumentsIssuedDocumentIdGet(context.Background(), documentId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DocumentsApi.V1DocumentsIssuedDocumentIdGet(context.Background(), documentId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.V1DocumentsIssuedDocumentIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -112,7 +112,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**documentId** | [**string**](.md) | Document id. | 
+**documentId** | **string** | Document id. | 
 
 ### Other Parameters
 
@@ -161,15 +161,15 @@ import (
 )
 
 func main() {
-    documentTypeId := TODO // string |  (optional)
+    documentTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
     fromDateTime := time.Now() // time.Time |  (optional)
     toDateTime := time.Now() // time.Time |  (optional)
     pageSize := int32(56) // int32 |  (optional) (default to 25)
     pageNo := int32(56) // int32 |  (optional) (default to 1)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DocumentsApi.V1DocumentsIssuedGet(context.Background()).DocumentTypeId(documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageSize(pageSize).PageNo(pageNo).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DocumentsApi.V1DocumentsIssuedGet(context.Background()).DocumentTypeId(documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageSize(pageSize).PageNo(pageNo).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.V1DocumentsIssuedGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -188,7 +188,7 @@ Other parameters are passed through a pointer to a apiV1DocumentsIssuedGetReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentTypeId** | [**string**](string.md) |  | 
+ **documentTypeId** | **string** |  | 
  **fromDateTime** | **time.Time** |  | 
  **toDateTime** | **time.Time** |  | 
  **pageSize** | **int32** |  | [default to 25]
@@ -231,12 +231,12 @@ import (
 )
 
 func main() {
-    pageSize := int32(56) // int32 |  (optional)
-    pageNo := int32(56) // int32 |  (optional)
+    pageSize := int32(56) // int32 |  (optional) (default to 25)
+    pageNo := int32(56) // int32 |  (optional) (default to 1)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DocumentsApi.V1DocumentsTypesGet(context.Background()).PageSize(pageSize).PageNo(pageNo).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DocumentsApi.V1DocumentsTypesGet(context.Background()).PageSize(pageSize).PageNo(pageNo).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.V1DocumentsTypesGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -255,8 +255,8 @@ Other parameters are passed through a pointer to a apiV1DocumentsTypesGetRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **int32** |  | 
- **pageNo** | **int32** |  | 
+ **pageSize** | **int32** |  | [default to 25]
+ **pageNo** | **int32** |  | [default to 1]
 
 ### Return type
 

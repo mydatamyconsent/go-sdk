@@ -4,10 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CustomKey** | Pointer to **NullableString** |  | [optional] 
 **Drn** | Pointer to **NullableString** |  | [optional] 
-**FromDatetime** | Pointer to **time.Time** |  | [optional] 
-**ToDatetime** | Pointer to **time.Time** |  | [optional] 
-**ProviderId** | Pointer to **string** |  | [optional] 
 **DocumentTypeId** | Pointer to **NullableString** |  | [optional] 
 **DocumentIdentifier** | Pointer to **NullableString** |  | [optional] 
 
@@ -30,6 +28,41 @@ NewDataConsentRequestedDocumentWithDefaults instantiates a new DataConsentReques
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetCustomKey
+
+`func (o *DataConsentRequestedDocument) GetCustomKey() string`
+
+GetCustomKey returns the CustomKey field if non-nil, zero value otherwise.
+
+### GetCustomKeyOk
+
+`func (o *DataConsentRequestedDocument) GetCustomKeyOk() (*string, bool)`
+
+GetCustomKeyOk returns a tuple with the CustomKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomKey
+
+`func (o *DataConsentRequestedDocument) SetCustomKey(v string)`
+
+SetCustomKey sets CustomKey field to given value.
+
+### HasCustomKey
+
+`func (o *DataConsentRequestedDocument) HasCustomKey() bool`
+
+HasCustomKey returns a boolean if a field has been set.
+
+### SetCustomKeyNil
+
+`func (o *DataConsentRequestedDocument) SetCustomKeyNil(b bool)`
+
+ SetCustomKeyNil sets the value for CustomKey to be an explicit nil
+
+### UnsetCustomKey
+`func (o *DataConsentRequestedDocument) UnsetCustomKey()`
+
+UnsetCustomKey ensures that no value is present for CustomKey, not even an explicit nil
 ### GetDrn
 
 `func (o *DataConsentRequestedDocument) GetDrn() string`
@@ -65,81 +98,6 @@ HasDrn returns a boolean if a field has been set.
 `func (o *DataConsentRequestedDocument) UnsetDrn()`
 
 UnsetDrn ensures that no value is present for Drn, not even an explicit nil
-### GetFromDatetime
-
-`func (o *DataConsentRequestedDocument) GetFromDatetime() time.Time`
-
-GetFromDatetime returns the FromDatetime field if non-nil, zero value otherwise.
-
-### GetFromDatetimeOk
-
-`func (o *DataConsentRequestedDocument) GetFromDatetimeOk() (*time.Time, bool)`
-
-GetFromDatetimeOk returns a tuple with the FromDatetime field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFromDatetime
-
-`func (o *DataConsentRequestedDocument) SetFromDatetime(v time.Time)`
-
-SetFromDatetime sets FromDatetime field to given value.
-
-### HasFromDatetime
-
-`func (o *DataConsentRequestedDocument) HasFromDatetime() bool`
-
-HasFromDatetime returns a boolean if a field has been set.
-
-### GetToDatetime
-
-`func (o *DataConsentRequestedDocument) GetToDatetime() time.Time`
-
-GetToDatetime returns the ToDatetime field if non-nil, zero value otherwise.
-
-### GetToDatetimeOk
-
-`func (o *DataConsentRequestedDocument) GetToDatetimeOk() (*time.Time, bool)`
-
-GetToDatetimeOk returns a tuple with the ToDatetime field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetToDatetime
-
-`func (o *DataConsentRequestedDocument) SetToDatetime(v time.Time)`
-
-SetToDatetime sets ToDatetime field to given value.
-
-### HasToDatetime
-
-`func (o *DataConsentRequestedDocument) HasToDatetime() bool`
-
-HasToDatetime returns a boolean if a field has been set.
-
-### GetProviderId
-
-`func (o *DataConsentRequestedDocument) GetProviderId() string`
-
-GetProviderId returns the ProviderId field if non-nil, zero value otherwise.
-
-### GetProviderIdOk
-
-`func (o *DataConsentRequestedDocument) GetProviderIdOk() (*string, bool)`
-
-GetProviderIdOk returns a tuple with the ProviderId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProviderId
-
-`func (o *DataConsentRequestedDocument) SetProviderId(v string)`
-
-SetProviderId sets ProviderId field to given value.
-
-### HasProviderId
-
-`func (o *DataConsentRequestedDocument) HasProviderId() bool`
-
-HasProviderId returns a boolean if a field has been set.
-
 ### GetDocumentTypeId
 
 `func (o *DataConsentRequestedDocument) GetDocumentTypeId() string`

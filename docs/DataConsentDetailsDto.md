@@ -12,6 +12,9 @@ Name | Type | Description | Notes
 **RequestedAtUtc** | Pointer to **time.Time** |  | [optional] 
 **Requester** | Pointer to [**DataConsentRequesterDto**](DataConsentRequesterDto.md) |  | [optional] 
 **ConsentDetails** | Pointer to [**GetConsentTemplateDetailsDto**](GetConsentTemplateDetailsDto.md) |  | [optional] 
+**Identifiers** | Pointer to [**[]DataConsentIdentifier**](DataConsentIdentifier.md) |  | [optional] 
+**ApprovedDocuments** | Pointer to [**[]DataConsentRequestedDocument**](DataConsentRequestedDocument.md) |  | [optional] 
+**ApprovedFinancials** | Pointer to [**[]DataConsentRequestedFinancialAccount**](DataConsentRequestedFinancialAccount.md) |  | [optional] 
 
 ## Methods
 
@@ -252,6 +255,111 @@ SetConsentDetails sets ConsentDetails field to given value.
 
 HasConsentDetails returns a boolean if a field has been set.
 
+### GetIdentifiers
+
+`func (o *DataConsentDetailsDto) GetIdentifiers() []DataConsentIdentifier`
+
+GetIdentifiers returns the Identifiers field if non-nil, zero value otherwise.
+
+### GetIdentifiersOk
+
+`func (o *DataConsentDetailsDto) GetIdentifiersOk() (*[]DataConsentIdentifier, bool)`
+
+GetIdentifiersOk returns a tuple with the Identifiers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIdentifiers
+
+`func (o *DataConsentDetailsDto) SetIdentifiers(v []DataConsentIdentifier)`
+
+SetIdentifiers sets Identifiers field to given value.
+
+### HasIdentifiers
+
+`func (o *DataConsentDetailsDto) HasIdentifiers() bool`
+
+HasIdentifiers returns a boolean if a field has been set.
+
+### SetIdentifiersNil
+
+`func (o *DataConsentDetailsDto) SetIdentifiersNil(b bool)`
+
+ SetIdentifiersNil sets the value for Identifiers to be an explicit nil
+
+### UnsetIdentifiers
+`func (o *DataConsentDetailsDto) UnsetIdentifiers()`
+
+UnsetIdentifiers ensures that no value is present for Identifiers, not even an explicit nil
+### GetApprovedDocuments
+
+`func (o *DataConsentDetailsDto) GetApprovedDocuments() []DataConsentRequestedDocument`
+
+GetApprovedDocuments returns the ApprovedDocuments field if non-nil, zero value otherwise.
+
+### GetApprovedDocumentsOk
+
+`func (o *DataConsentDetailsDto) GetApprovedDocumentsOk() (*[]DataConsentRequestedDocument, bool)`
+
+GetApprovedDocumentsOk returns a tuple with the ApprovedDocuments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApprovedDocuments
+
+`func (o *DataConsentDetailsDto) SetApprovedDocuments(v []DataConsentRequestedDocument)`
+
+SetApprovedDocuments sets ApprovedDocuments field to given value.
+
+### HasApprovedDocuments
+
+`func (o *DataConsentDetailsDto) HasApprovedDocuments() bool`
+
+HasApprovedDocuments returns a boolean if a field has been set.
+
+### SetApprovedDocumentsNil
+
+`func (o *DataConsentDetailsDto) SetApprovedDocumentsNil(b bool)`
+
+ SetApprovedDocumentsNil sets the value for ApprovedDocuments to be an explicit nil
+
+### UnsetApprovedDocuments
+`func (o *DataConsentDetailsDto) UnsetApprovedDocuments()`
+
+UnsetApprovedDocuments ensures that no value is present for ApprovedDocuments, not even an explicit nil
+### GetApprovedFinancials
+
+`func (o *DataConsentDetailsDto) GetApprovedFinancials() []DataConsentRequestedFinancialAccount`
+
+GetApprovedFinancials returns the ApprovedFinancials field if non-nil, zero value otherwise.
+
+### GetApprovedFinancialsOk
+
+`func (o *DataConsentDetailsDto) GetApprovedFinancialsOk() (*[]DataConsentRequestedFinancialAccount, bool)`
+
+GetApprovedFinancialsOk returns a tuple with the ApprovedFinancials field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApprovedFinancials
+
+`func (o *DataConsentDetailsDto) SetApprovedFinancials(v []DataConsentRequestedFinancialAccount)`
+
+SetApprovedFinancials sets ApprovedFinancials field to given value.
+
+### HasApprovedFinancials
+
+`func (o *DataConsentDetailsDto) HasApprovedFinancials() bool`
+
+HasApprovedFinancials returns a boolean if a field has been set.
+
+### SetApprovedFinancialsNil
+
+`func (o *DataConsentDetailsDto) SetApprovedFinancialsNil(b bool)`
+
+ SetApprovedFinancialsNil sets the value for ApprovedFinancials to be an explicit nil
+
+### UnsetApprovedFinancials
+`func (o *DataConsentDetailsDto) UnsetApprovedFinancials()`
+
+UnsetApprovedFinancials ensures that no value is present for ApprovedFinancials, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

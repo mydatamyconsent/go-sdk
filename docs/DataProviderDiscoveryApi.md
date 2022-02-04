@@ -33,13 +33,13 @@ func main() {
     accountType := "accountType_example" // string | Account type. (optional)
     documentType := "documentType_example" // string | Document type. (optional)
     organizationCategory := "organizationCategory_example" // string | Organization category. (optional)
-    pageNo := int32(56) // int32 | Page number. (optional)
-    pageSize := int32(56) // int32 | Page size. (optional)
+    pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
+    pageSize := int32(56) // int32 | Page size. (optional) (default to 25)
     country := "country_example" // string | ISO2 Country code. (optional) (default to "IN")
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DataProviderDiscoveryApi.V1DataProvidersGet(context.Background()).AccountType(accountType).DocumentType(documentType).OrganizationCategory(organizationCategory).PageNo(pageNo).PageSize(pageSize).Country(country).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DataProviderDiscoveryApi.V1DataProvidersGet(context.Background()).AccountType(accountType).DocumentType(documentType).OrganizationCategory(organizationCategory).PageNo(pageNo).PageSize(pageSize).Country(country).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DataProviderDiscoveryApi.V1DataProvidersGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -63,8 +63,8 @@ Name | Type | Description  | Notes
  **accountType** | **string** | Account type. | 
  **documentType** | **string** | Document type. | 
  **organizationCategory** | **string** | Organization category. | 
- **pageNo** | **int32** | Page number. | 
- **pageSize** | **int32** | Page size. | 
+ **pageNo** | **int32** | Page number. | [default to 1]
+ **pageSize** | **int32** | Page size. | [default to 25]
  **country** | **string** | ISO2 Country code. | [default to &quot;IN&quot;]
 
 ### Return type
@@ -109,8 +109,8 @@ func main() {
     providerId := "providerId_example" // string | Provider Id.
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DataProviderDiscoveryApi.V1DataProvidersProviderIdGet(context.Background(), providerId).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DataProviderDiscoveryApi.V1DataProvidersProviderIdGet(context.Background(), providerId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DataProviderDiscoveryApi.V1DataProvidersProviderIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

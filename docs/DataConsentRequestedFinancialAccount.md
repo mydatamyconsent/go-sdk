@@ -4,13 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CustomKey** | Pointer to **NullableString** |  | [optional] 
 **Drn** | Pointer to **NullableString** |  | [optional] 
-**FromDatetime** | Pointer to **time.Time** |  | [optional] 
-**ToDatetime** | Pointer to **time.Time** |  | [optional] 
-**ProviderId** | Pointer to **NullableString** |  | [optional] 
-**AccountType** | Pointer to [**FinancialAccountTypes**](FinancialAccountTypes.md) |  | [optional] 
+**AccountTypeId** | Pointer to **NullableString** |  | [optional] 
 **AccountIdentifier** | Pointer to **NullableString** |  | [optional] 
-**Filters** | Pointer to [**[]DataConsentRfaFilter**](DataConsentRfaFilter.md) |  | [optional] 
 
 ## Methods
 
@@ -31,6 +28,41 @@ NewDataConsentRequestedFinancialAccountWithDefaults instantiates a new DataConse
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetCustomKey
+
+`func (o *DataConsentRequestedFinancialAccount) GetCustomKey() string`
+
+GetCustomKey returns the CustomKey field if non-nil, zero value otherwise.
+
+### GetCustomKeyOk
+
+`func (o *DataConsentRequestedFinancialAccount) GetCustomKeyOk() (*string, bool)`
+
+GetCustomKeyOk returns a tuple with the CustomKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomKey
+
+`func (o *DataConsentRequestedFinancialAccount) SetCustomKey(v string)`
+
+SetCustomKey sets CustomKey field to given value.
+
+### HasCustomKey
+
+`func (o *DataConsentRequestedFinancialAccount) HasCustomKey() bool`
+
+HasCustomKey returns a boolean if a field has been set.
+
+### SetCustomKeyNil
+
+`func (o *DataConsentRequestedFinancialAccount) SetCustomKeyNil(b bool)`
+
+ SetCustomKeyNil sets the value for CustomKey to be an explicit nil
+
+### UnsetCustomKey
+`func (o *DataConsentRequestedFinancialAccount) UnsetCustomKey()`
+
+UnsetCustomKey ensures that no value is present for CustomKey, not even an explicit nil
 ### GetDrn
 
 `func (o *DataConsentRequestedFinancialAccount) GetDrn() string`
@@ -66,116 +98,41 @@ HasDrn returns a boolean if a field has been set.
 `func (o *DataConsentRequestedFinancialAccount) UnsetDrn()`
 
 UnsetDrn ensures that no value is present for Drn, not even an explicit nil
-### GetFromDatetime
+### GetAccountTypeId
 
-`func (o *DataConsentRequestedFinancialAccount) GetFromDatetime() time.Time`
+`func (o *DataConsentRequestedFinancialAccount) GetAccountTypeId() string`
 
-GetFromDatetime returns the FromDatetime field if non-nil, zero value otherwise.
+GetAccountTypeId returns the AccountTypeId field if non-nil, zero value otherwise.
 
-### GetFromDatetimeOk
+### GetAccountTypeIdOk
 
-`func (o *DataConsentRequestedFinancialAccount) GetFromDatetimeOk() (*time.Time, bool)`
+`func (o *DataConsentRequestedFinancialAccount) GetAccountTypeIdOk() (*string, bool)`
 
-GetFromDatetimeOk returns a tuple with the FromDatetime field if it's non-nil, zero value otherwise
+GetAccountTypeIdOk returns a tuple with the AccountTypeId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFromDatetime
+### SetAccountTypeId
 
-`func (o *DataConsentRequestedFinancialAccount) SetFromDatetime(v time.Time)`
+`func (o *DataConsentRequestedFinancialAccount) SetAccountTypeId(v string)`
 
-SetFromDatetime sets FromDatetime field to given value.
+SetAccountTypeId sets AccountTypeId field to given value.
 
-### HasFromDatetime
+### HasAccountTypeId
 
-`func (o *DataConsentRequestedFinancialAccount) HasFromDatetime() bool`
+`func (o *DataConsentRequestedFinancialAccount) HasAccountTypeId() bool`
 
-HasFromDatetime returns a boolean if a field has been set.
+HasAccountTypeId returns a boolean if a field has been set.
 
-### GetToDatetime
+### SetAccountTypeIdNil
 
-`func (o *DataConsentRequestedFinancialAccount) GetToDatetime() time.Time`
+`func (o *DataConsentRequestedFinancialAccount) SetAccountTypeIdNil(b bool)`
 
-GetToDatetime returns the ToDatetime field if non-nil, zero value otherwise.
+ SetAccountTypeIdNil sets the value for AccountTypeId to be an explicit nil
 
-### GetToDatetimeOk
+### UnsetAccountTypeId
+`func (o *DataConsentRequestedFinancialAccount) UnsetAccountTypeId()`
 
-`func (o *DataConsentRequestedFinancialAccount) GetToDatetimeOk() (*time.Time, bool)`
-
-GetToDatetimeOk returns a tuple with the ToDatetime field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetToDatetime
-
-`func (o *DataConsentRequestedFinancialAccount) SetToDatetime(v time.Time)`
-
-SetToDatetime sets ToDatetime field to given value.
-
-### HasToDatetime
-
-`func (o *DataConsentRequestedFinancialAccount) HasToDatetime() bool`
-
-HasToDatetime returns a boolean if a field has been set.
-
-### GetProviderId
-
-`func (o *DataConsentRequestedFinancialAccount) GetProviderId() string`
-
-GetProviderId returns the ProviderId field if non-nil, zero value otherwise.
-
-### GetProviderIdOk
-
-`func (o *DataConsentRequestedFinancialAccount) GetProviderIdOk() (*string, bool)`
-
-GetProviderIdOk returns a tuple with the ProviderId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProviderId
-
-`func (o *DataConsentRequestedFinancialAccount) SetProviderId(v string)`
-
-SetProviderId sets ProviderId field to given value.
-
-### HasProviderId
-
-`func (o *DataConsentRequestedFinancialAccount) HasProviderId() bool`
-
-HasProviderId returns a boolean if a field has been set.
-
-### SetProviderIdNil
-
-`func (o *DataConsentRequestedFinancialAccount) SetProviderIdNil(b bool)`
-
- SetProviderIdNil sets the value for ProviderId to be an explicit nil
-
-### UnsetProviderId
-`func (o *DataConsentRequestedFinancialAccount) UnsetProviderId()`
-
-UnsetProviderId ensures that no value is present for ProviderId, not even an explicit nil
-### GetAccountType
-
-`func (o *DataConsentRequestedFinancialAccount) GetAccountType() FinancialAccountTypes`
-
-GetAccountType returns the AccountType field if non-nil, zero value otherwise.
-
-### GetAccountTypeOk
-
-`func (o *DataConsentRequestedFinancialAccount) GetAccountTypeOk() (*FinancialAccountTypes, bool)`
-
-GetAccountTypeOk returns a tuple with the AccountType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountType
-
-`func (o *DataConsentRequestedFinancialAccount) SetAccountType(v FinancialAccountTypes)`
-
-SetAccountType sets AccountType field to given value.
-
-### HasAccountType
-
-`func (o *DataConsentRequestedFinancialAccount) HasAccountType() bool`
-
-HasAccountType returns a boolean if a field has been set.
-
+UnsetAccountTypeId ensures that no value is present for AccountTypeId, not even an explicit nil
 ### GetAccountIdentifier
 
 `func (o *DataConsentRequestedFinancialAccount) GetAccountIdentifier() string`
@@ -211,41 +168,6 @@ HasAccountIdentifier returns a boolean if a field has been set.
 `func (o *DataConsentRequestedFinancialAccount) UnsetAccountIdentifier()`
 
 UnsetAccountIdentifier ensures that no value is present for AccountIdentifier, not even an explicit nil
-### GetFilters
-
-`func (o *DataConsentRequestedFinancialAccount) GetFilters() []DataConsentRfaFilter`
-
-GetFilters returns the Filters field if non-nil, zero value otherwise.
-
-### GetFiltersOk
-
-`func (o *DataConsentRequestedFinancialAccount) GetFiltersOk() (*[]DataConsentRfaFilter, bool)`
-
-GetFiltersOk returns a tuple with the Filters field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFilters
-
-`func (o *DataConsentRequestedFinancialAccount) SetFilters(v []DataConsentRfaFilter)`
-
-SetFilters sets Filters field to given value.
-
-### HasFilters
-
-`func (o *DataConsentRequestedFinancialAccount) HasFilters() bool`
-
-HasFilters returns a boolean if a field has been set.
-
-### SetFiltersNil
-
-`func (o *DataConsentRequestedFinancialAccount) SetFiltersNil(b bool)`
-
- SetFiltersNil sets the value for Filters to be an explicit nil
-
-### UnsetFilters
-`func (o *DataConsentRequestedFinancialAccount) UnsetFilters()`
-
-UnsetFilters ensures that no value is present for Filters, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
