@@ -9,7 +9,7 @@
         "httpUserAgent": "MDMC-GO-SDK",
         "apiPackage": "api",
         "groupId": "mydatamyconsent",
-        "packageName": "github.com/mydatamyconsent/go-sdk",
+        "packageName": "github.com/mydatamyconsent/sdk",
         "modelPackage": "model",
         "artifactId": "mydatamyconsent",
         "gitHost": "github.com",
