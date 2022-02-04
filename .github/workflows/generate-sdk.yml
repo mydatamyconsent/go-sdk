@@ -29,7 +29,9 @@ jobs:
             
             - name: Cleanup folders
               run: |
-                rm -rf ./src
+                rm *.go
+                rm -rf ./api
+                rm -ff ./docs
 
             - name: Generate SDK's
               run: |
