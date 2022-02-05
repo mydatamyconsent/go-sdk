@@ -1,4 +1,4 @@
-# Go API client for github.com/mydatamyconsent/go-sdk
+# Go API client for github.com/mydatamyconsent/sdk
 
 Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
@@ -23,7 +23,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```golang
-import github.com/mydatamyconsent/go-sdk "github.com/mydatamyconsent/go-sdk"
+import github.com/mydatamyconsent/sdk "github.com/mydatamyconsent/go-sdk"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
@@ -41,7 +41,7 @@ Default configuration comes with `Servers` field that contains server objects as
 For using other server than the one defined on index 0 set context value `sw.ContextServerIndex` of type `int`.
 
 ```golang
-ctx := context.WithValue(context.Background(), github.com/mydatamyconsent/go-sdk.ContextServerIndex, 1)
+ctx := context.WithValue(context.Background(), github.com/mydatamyconsent/sdk.ContextServerIndex, 1)
 ```
 
 ### Templated Server URL
@@ -49,7 +49,7 @@ ctx := context.WithValue(context.Background(), github.com/mydatamyconsent/go-sdk
 Templated server URL is formatted using default variables from configuration or from context value `sw.ContextServerVariables` of type `map[string]string`.
 
 ```golang
-ctx := context.WithValue(context.Background(), github.com/mydatamyconsent/go-sdk.ContextServerVariables, map[string]string{
+ctx := context.WithValue(context.Background(), github.com/mydatamyconsent/sdk.ContextServerVariables, map[string]string{
 	"basePath": "v2",
 })
 ```
@@ -63,10 +63,10 @@ An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
 Similar rules for overriding default operation server index and variables applies by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
 
 ```
-ctx := context.WithValue(context.Background(), github.com/mydatamyconsent/go-sdk.ContextOperationServerIndices, map[string]int{
+ctx := context.WithValue(context.Background(), github.com/mydatamyconsent/sdk.ContextOperationServerIndices, map[string]int{
 	"{classname}Service.{nickname}": 2,
 })
-ctx = context.WithValue(context.Background(), github.com/mydatamyconsent/go-sdk.ContextOperationServerVariables, map[string]map[string]string{
+ctx = context.WithValue(context.Background(), github.com/mydatamyconsent/sdk.ContextOperationServerVariables, map[string]map[string]string{
 	"{classname}Service.{nickname}": {
 		"port": "8443",
 	},
