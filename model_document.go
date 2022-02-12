@@ -17,18 +17,22 @@ import (
 
 // Document struct for Document
 type Document struct {
-	DocumentField NullableString `json:"documentField,omitempty"`
-	CustomKey NullableString `json:"customKey,omitempty"`
-	Drn []string `json:"drn,omitempty"`
-	Requirement *DocumentsRequired `json:"requirement,omitempty"`
+	FieldTitle string `json:"fieldTitle"`
+	FieldSlug string `json:"fieldSlug"`
+	Drn []string `json:"drn"`
+	Requirement DocumentsRequired `json:"requirement"`
 }
 
 // NewDocument instantiates a new Document object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocument() *Document {
+func NewDocument(fieldTitle string, fieldSlug string, drn []string, requirement DocumentsRequired) *Document {
 	this := Document{}
+	this.FieldTitle = fieldTitle
+	this.FieldSlug = fieldSlug
+	this.Drn = drn
+	this.Requirement = requirement
 	return &this
 }
 
@@ -40,167 +44,114 @@ func NewDocumentWithDefaults() *Document {
 	return &this
 }
 
-// GetDocumentField returns the DocumentField field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Document) GetDocumentField() string {
-	if o == nil || o.DocumentField.Get() == nil {
+// GetFieldTitle returns the FieldTitle field value
+func (o *Document) GetFieldTitle() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.DocumentField.Get()
+
+	return o.FieldTitle
 }
 
-// GetDocumentFieldOk returns a tuple with the DocumentField field value if set, nil otherwise
+// GetFieldTitleOk returns a tuple with the FieldTitle field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Document) GetDocumentFieldOk() (*string, bool) {
+func (o *Document) GetFieldTitleOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.DocumentField.Get(), o.DocumentField.IsSet()
+	return &o.FieldTitle, true
 }
 
-// HasDocumentField returns a boolean if a field has been set.
-func (o *Document) HasDocumentField() bool {
-	if o != nil && o.DocumentField.IsSet() {
-		return true
-	}
-
-	return false
+// SetFieldTitle sets field value
+func (o *Document) SetFieldTitle(v string) {
+	o.FieldTitle = v
 }
 
-// SetDocumentField gets a reference to the given NullableString and assigns it to the DocumentField field.
-func (o *Document) SetDocumentField(v string) {
-	o.DocumentField.Set(&v)
-}
-// SetDocumentFieldNil sets the value for DocumentField to be an explicit nil
-func (o *Document) SetDocumentFieldNil() {
-	o.DocumentField.Set(nil)
-}
-
-// UnsetDocumentField ensures that no value is present for DocumentField, not even an explicit nil
-func (o *Document) UnsetDocumentField() {
-	o.DocumentField.Unset()
-}
-
-// GetCustomKey returns the CustomKey field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Document) GetCustomKey() string {
-	if o == nil || o.CustomKey.Get() == nil {
+// GetFieldSlug returns the FieldSlug field value
+func (o *Document) GetFieldSlug() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CustomKey.Get()
+
+	return o.FieldSlug
 }
 
-// GetCustomKeyOk returns a tuple with the CustomKey field value if set, nil otherwise
+// GetFieldSlugOk returns a tuple with the FieldSlug field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Document) GetCustomKeyOk() (*string, bool) {
+func (o *Document) GetFieldSlugOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.CustomKey.Get(), o.CustomKey.IsSet()
+	return &o.FieldSlug, true
 }
 
-// HasCustomKey returns a boolean if a field has been set.
-func (o *Document) HasCustomKey() bool {
-	if o != nil && o.CustomKey.IsSet() {
-		return true
-	}
-
-	return false
+// SetFieldSlug sets field value
+func (o *Document) SetFieldSlug(v string) {
+	o.FieldSlug = v
 }
 
-// SetCustomKey gets a reference to the given NullableString and assigns it to the CustomKey field.
-func (o *Document) SetCustomKey(v string) {
-	o.CustomKey.Set(&v)
-}
-// SetCustomKeyNil sets the value for CustomKey to be an explicit nil
-func (o *Document) SetCustomKeyNil() {
-	o.CustomKey.Set(nil)
-}
-
-// UnsetCustomKey ensures that no value is present for CustomKey, not even an explicit nil
-func (o *Document) UnsetCustomKey() {
-	o.CustomKey.Unset()
-}
-
-// GetDrn returns the Drn field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDrn returns the Drn field value
 func (o *Document) GetDrn() []string {
-	if o == nil  {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.Drn
 }
 
-// GetDrnOk returns a tuple with the Drn field value if set, nil otherwise
+// GetDrnOk returns a tuple with the Drn field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Document) GetDrnOk() ([]string, bool) {
-	if o == nil || o.Drn == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return o.Drn, true
 }
 
-// HasDrn returns a boolean if a field has been set.
-func (o *Document) HasDrn() bool {
-	if o != nil && o.Drn != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetDrn gets a reference to the given []string and assigns it to the Drn field.
+// SetDrn sets field value
 func (o *Document) SetDrn(v []string) {
 	o.Drn = v
 }
 
-// GetRequirement returns the Requirement field value if set, zero value otherwise.
+// GetRequirement returns the Requirement field value
 func (o *Document) GetRequirement() DocumentsRequired {
-	if o == nil || o.Requirement == nil {
+	if o == nil {
 		var ret DocumentsRequired
 		return ret
 	}
-	return *o.Requirement
+
+	return o.Requirement
 }
 
-// GetRequirementOk returns a tuple with the Requirement field value if set, nil otherwise
+// GetRequirementOk returns a tuple with the Requirement field value
 // and a boolean to check if the value has been set.
 func (o *Document) GetRequirementOk() (*DocumentsRequired, bool) {
-	if o == nil || o.Requirement == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Requirement, true
+	return &o.Requirement, true
 }
 
-// HasRequirement returns a boolean if a field has been set.
-func (o *Document) HasRequirement() bool {
-	if o != nil && o.Requirement != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetRequirement gets a reference to the given DocumentsRequired and assigns it to the Requirement field.
+// SetRequirement sets field value
 func (o *Document) SetRequirement(v DocumentsRequired) {
-	o.Requirement = &v
+	o.Requirement = v
 }
 
 func (o Document) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.DocumentField.IsSet() {
-		toSerialize["documentField"] = o.DocumentField.Get()
+	if true {
+		toSerialize["fieldTitle"] = o.FieldTitle
 	}
-	if o.CustomKey.IsSet() {
-		toSerialize["customKey"] = o.CustomKey.Get()
+	if true {
+		toSerialize["fieldSlug"] = o.FieldSlug
 	}
-	if o.Drn != nil {
+	if true {
 		toSerialize["drn"] = o.Drn
 	}
-	if o.Requirement != nil {
+	if true {
 		toSerialize["requirement"] = o.Requirement
 	}
 	return json.Marshal(toSerialize)
