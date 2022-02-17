@@ -21,24 +21,20 @@ type DocumentCategoryType string
 
 // List of DocumentCategoryType
 const (
+	PERSONAL DocumentCategoryType = "Personal"
+	EDUCATION DocumentCategoryType = "Education"
 	HEALTH DocumentCategoryType = "Health"
 	FINANCE DocumentCategoryType = "Finance"
-	EDUCATION DocumentCategoryType = "Education"
-	BILLS DocumentCategoryType = "Bills"
-	TAX DocumentCategoryType = "Tax"
 	CERTIFICATES DocumentCategoryType = "Certificates"
-	INVOICES DocumentCategoryType = "Invoices"
 )
 
 // All allowed values of DocumentCategoryType enum
 var AllowedDocumentCategoryTypeEnumValues = []DocumentCategoryType{
+	"Personal",
+	"Education",
 	"Health",
 	"Finance",
-	"Education",
-	"Bills",
-	"Tax",
 	"Certificates",
-	"Invoices",
 }
 
 func (v *DocumentCategoryType) UnmarshalJSON(src []byte) error {
