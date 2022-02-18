@@ -149,7 +149,7 @@ func (r ApiCreateRequestRequest) DataConsentRequestModel(dataConsentRequestModel
 	return r
 }
 
-func (r ApiCreateRequestRequest) Execute() (bool, *http.Response, error) {
+func (r ApiCreateRequestRequest) Execute() (*DataConsentRequest, *http.Response, error) {
 	return r.ApiService.CreateRequestExecute(r)
 }
 
@@ -167,13 +167,13 @@ func (a *DataConsentRequestsApiService) CreateRequest(ctx context.Context) ApiCr
 }
 
 // Execute executes the request
-//  @return bool
-func (a *DataConsentRequestsApiService) CreateRequestExecute(r ApiCreateRequestRequest) (bool, *http.Response, error) {
+//  @return DataConsentRequest
+func (a *DataConsentRequestsApiService) CreateRequestExecute(r ApiCreateRequestRequest) (*DataConsentRequest, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  bool
+		localVarReturnValue  *DataConsentRequest
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentRequestsApiService.CreateRequest")

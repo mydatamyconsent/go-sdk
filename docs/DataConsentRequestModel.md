@@ -5,8 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConsentTemplateId** | Pointer to **string** |  | [optional] 
-**StartDateTime** | Pointer to **time.Time** |  | [optional] 
-**ExpiryDateTime** | Pointer to **time.Time** |  | [optional] 
 **Receiver** | [**Receiver**](Receiver.md) |  | 
 
 ## Methods
@@ -52,56 +50,6 @@ SetConsentTemplateId sets ConsentTemplateId field to given value.
 `func (o *DataConsentRequestModel) HasConsentTemplateId() bool`
 
 HasConsentTemplateId returns a boolean if a field has been set.
-
-### GetStartDateTime
-
-`func (o *DataConsentRequestModel) GetStartDateTime() time.Time`
-
-GetStartDateTime returns the StartDateTime field if non-nil, zero value otherwise.
-
-### GetStartDateTimeOk
-
-`func (o *DataConsentRequestModel) GetStartDateTimeOk() (*time.Time, bool)`
-
-GetStartDateTimeOk returns a tuple with the StartDateTime field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStartDateTime
-
-`func (o *DataConsentRequestModel) SetStartDateTime(v time.Time)`
-
-SetStartDateTime sets StartDateTime field to given value.
-
-### HasStartDateTime
-
-`func (o *DataConsentRequestModel) HasStartDateTime() bool`
-
-HasStartDateTime returns a boolean if a field has been set.
-
-### GetExpiryDateTime
-
-`func (o *DataConsentRequestModel) GetExpiryDateTime() time.Time`
-
-GetExpiryDateTime returns the ExpiryDateTime field if non-nil, zero value otherwise.
-
-### GetExpiryDateTimeOk
-
-`func (o *DataConsentRequestModel) GetExpiryDateTimeOk() (*time.Time, bool)`
-
-GetExpiryDateTimeOk returns a tuple with the ExpiryDateTime field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetExpiryDateTime
-
-`func (o *DataConsentRequestModel) SetExpiryDateTime(v time.Time)`
-
-SetExpiryDateTime sets ExpiryDateTime field to given value.
-
-### HasExpiryDateTime
-
-`func (o *DataConsentRequestModel) HasExpiryDateTime() bool`
-
-HasExpiryDateTime returns a boolean if a field has been set.
 
 ### GetReceiver
 

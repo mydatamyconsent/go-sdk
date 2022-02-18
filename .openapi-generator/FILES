@@ -18,6 +18,7 @@ docs/DataConsentDetailsDto.md
 docs/DataConsentDocumentsDto.md
 docs/DataConsentFinancialsDto.md
 docs/DataConsentIdentifier.md
+docs/DataConsentRequest.md
 docs/DataConsentRequestModel.md
 docs/DataConsentRequestedDocument.md
 docs/DataConsentRequestedFinancialAccount.md
@@ -84,6 +85,7 @@ model_data_consent_details_dto.go
 model_data_consent_documents_dto.go
 model_data_consent_financials_dto.go
 model_data_consent_identifier.go
+model_data_consent_request.go
 model_data_consent_request_model.go
 model_data_consent_requested_document.go
 model_data_consent_requested_financial_account.go

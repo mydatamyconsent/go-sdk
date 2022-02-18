@@ -13,14 +13,11 @@ package github.com/mydatamyconsent/sdk
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // DataConsentRequestModel struct for DataConsentRequestModel
 type DataConsentRequestModel struct {
 	ConsentTemplateId *string `json:"consentTemplateId,omitempty"`
-	StartDateTime *time.Time `json:"startDateTime,omitempty"`
-	ExpiryDateTime *time.Time `json:"expiryDateTime,omitempty"`
 	Receiver Receiver `json:"receiver"`
 }
 
@@ -74,70 +71,6 @@ func (o *DataConsentRequestModel) SetConsentTemplateId(v string) {
 	o.ConsentTemplateId = &v
 }
 
-// GetStartDateTime returns the StartDateTime field value if set, zero value otherwise.
-func (o *DataConsentRequestModel) GetStartDateTime() time.Time {
-	if o == nil || o.StartDateTime == nil {
-		var ret time.Time
-		return ret
-	}
-	return *o.StartDateTime
-}
-
-// GetStartDateTimeOk returns a tuple with the StartDateTime field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DataConsentRequestModel) GetStartDateTimeOk() (*time.Time, bool) {
-	if o == nil || o.StartDateTime == nil {
-		return nil, false
-	}
-	return o.StartDateTime, true
-}
-
-// HasStartDateTime returns a boolean if a field has been set.
-func (o *DataConsentRequestModel) HasStartDateTime() bool {
-	if o != nil && o.StartDateTime != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetStartDateTime gets a reference to the given time.Time and assigns it to the StartDateTime field.
-func (o *DataConsentRequestModel) SetStartDateTime(v time.Time) {
-	o.StartDateTime = &v
-}
-
-// GetExpiryDateTime returns the ExpiryDateTime field value if set, zero value otherwise.
-func (o *DataConsentRequestModel) GetExpiryDateTime() time.Time {
-	if o == nil || o.ExpiryDateTime == nil {
-		var ret time.Time
-		return ret
-	}
-	return *o.ExpiryDateTime
-}
-
-// GetExpiryDateTimeOk returns a tuple with the ExpiryDateTime field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DataConsentRequestModel) GetExpiryDateTimeOk() (*time.Time, bool) {
-	if o == nil || o.ExpiryDateTime == nil {
-		return nil, false
-	}
-	return o.ExpiryDateTime, true
-}
-
-// HasExpiryDateTime returns a boolean if a field has been set.
-func (o *DataConsentRequestModel) HasExpiryDateTime() bool {
-	if o != nil && o.ExpiryDateTime != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetExpiryDateTime gets a reference to the given time.Time and assigns it to the ExpiryDateTime field.
-func (o *DataConsentRequestModel) SetExpiryDateTime(v time.Time) {
-	o.ExpiryDateTime = &v
-}
-
 // GetReceiver returns the Receiver field value
 func (o *DataConsentRequestModel) GetReceiver() Receiver {
 	if o == nil {
@@ -166,12 +99,6 @@ func (o DataConsentRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.ConsentTemplateId != nil {
 		toSerialize["consentTemplateId"] = o.ConsentTemplateId
-	}
-	if o.StartDateTime != nil {
-		toSerialize["startDateTime"] = o.StartDateTime
-	}
-	if o.ExpiryDateTime != nil {
-		toSerialize["expiryDateTime"] = o.ExpiryDateTime
 	}
 	if true {
 		toSerialize["receiver"] = o.Receiver

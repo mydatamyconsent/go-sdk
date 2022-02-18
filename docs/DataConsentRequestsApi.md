@@ -83,7 +83,7 @@ No authorization required
 
 ## CreateRequest
 
-> bool CreateRequest(ctx).DataConsentRequestModel(dataConsentRequestModel).Execute()
+> DataConsentRequest CreateRequest(ctx).DataConsentRequestModel(dataConsentRequestModel).Execute()
 
 Create a consent request.
 
@@ -109,7 +109,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentRequestsApi.CreateRequest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateRequest`: bool
+    // response from `CreateRequest`: DataConsentRequest
     fmt.Fprintf(os.Stdout, "Response from `DataConsentRequestsApi.CreateRequest`: %v\n", resp)
 }
 ```
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**bool**
+[**DataConsentRequest**](DataConsentRequest.md)
 
 ### Authorization
 
