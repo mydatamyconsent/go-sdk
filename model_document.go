@@ -17,8 +17,8 @@ import (
 
 // Document struct for Document
 type Document struct {
-	FieldTitle string `json:"fieldTitle"`
-	FieldSlug string `json:"fieldSlug"`
+	FieldTitle string `json:"field_title"`
+	FieldSlug string `json:"field_slug"`
 	Drn []string `json:"drn"`
 	Requirement DocumentsRequired `json:"requirement"`
 }
@@ -143,10 +143,10 @@ func (o *Document) SetRequirement(v DocumentsRequired) {
 func (o Document) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["fieldTitle"] = o.FieldTitle
+		toSerialize["field_title"] = o.FieldTitle
 	}
 	if true {
-		toSerialize["fieldSlug"] = o.FieldSlug
+		toSerialize["field_slug"] = o.FieldSlug
 	}
 	if true {
 		toSerialize["drn"] = o.Drn

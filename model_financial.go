@@ -17,8 +17,8 @@ import (
 
 // Financial struct for Financial
 type Financial struct {
-	AccountField NullableString `json:"accountField,omitempty"`
-	CustomKey NullableString `json:"customKey,omitempty"`
+	FieldName NullableString `json:"field_name,omitempty"`
+	CustomKey NullableString `json:"custom_key,omitempty"`
 	Accounts []FinancialAccounts `json:"accounts,omitempty"`
 	Requirement *DocumentsRequired `json:"requirement,omitempty"`
 }
@@ -40,46 +40,46 @@ func NewFinancialWithDefaults() *Financial {
 	return &this
 }
 
-// GetAccountField returns the AccountField field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Financial) GetAccountField() string {
-	if o == nil || o.AccountField.Get() == nil {
+// GetFieldName returns the FieldName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Financial) GetFieldName() string {
+	if o == nil || o.FieldName.Get() == nil {
 		var ret string
 		return ret
 	}
-	return *o.AccountField.Get()
+	return *o.FieldName.Get()
 }
 
-// GetAccountFieldOk returns a tuple with the AccountField field value if set, nil otherwise
+// GetFieldNameOk returns a tuple with the FieldName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Financial) GetAccountFieldOk() (*string, bool) {
+func (o *Financial) GetFieldNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.AccountField.Get(), o.AccountField.IsSet()
+	return o.FieldName.Get(), o.FieldName.IsSet()
 }
 
-// HasAccountField returns a boolean if a field has been set.
-func (o *Financial) HasAccountField() bool {
-	if o != nil && o.AccountField.IsSet() {
+// HasFieldName returns a boolean if a field has been set.
+func (o *Financial) HasFieldName() bool {
+	if o != nil && o.FieldName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAccountField gets a reference to the given NullableString and assigns it to the AccountField field.
-func (o *Financial) SetAccountField(v string) {
-	o.AccountField.Set(&v)
+// SetFieldName gets a reference to the given NullableString and assigns it to the FieldName field.
+func (o *Financial) SetFieldName(v string) {
+	o.FieldName.Set(&v)
 }
-// SetAccountFieldNil sets the value for AccountField to be an explicit nil
-func (o *Financial) SetAccountFieldNil() {
-	o.AccountField.Set(nil)
+// SetFieldNameNil sets the value for FieldName to be an explicit nil
+func (o *Financial) SetFieldNameNil() {
+	o.FieldName.Set(nil)
 }
 
-// UnsetAccountField ensures that no value is present for AccountField, not even an explicit nil
-func (o *Financial) UnsetAccountField() {
-	o.AccountField.Unset()
+// UnsetFieldName ensures that no value is present for FieldName, not even an explicit nil
+func (o *Financial) UnsetFieldName() {
+	o.FieldName.Unset()
 }
 
 // GetCustomKey returns the CustomKey field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -191,11 +191,11 @@ func (o *Financial) SetRequirement(v DocumentsRequired) {
 
 func (o Financial) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.AccountField.IsSet() {
-		toSerialize["accountField"] = o.AccountField.Get()
+	if o.FieldName.IsSet() {
+		toSerialize["field_name"] = o.FieldName.Get()
 	}
 	if o.CustomKey.IsSet() {
-		toSerialize["customKey"] = o.CustomKey.Get()
+		toSerialize["custom_key"] = o.CustomKey.Get()
 	}
 	if o.Accounts != nil {
 		toSerialize["accounts"] = o.Accounts

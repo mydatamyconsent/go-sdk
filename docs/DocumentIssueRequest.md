@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DocumentTypeId** | **string** |  | 
-**Identifier** | **string** |  | 
+**DocumentIdentifier** | **string** |  | 
 **Name** | **string** |  | 
 **Description** | **string** |  | 
 **Receiver** | [**Receiver**](Receiver.md) |  | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewDocumentIssueRequest
 
-`func NewDocumentIssueRequest(documentTypeId string, identifier string, name string, description string, receiver Receiver, base64PdfDocument string, ) *DocumentIssueRequest`
+`func NewDocumentIssueRequest(documentTypeId string, documentIdentifier string, name string, description string, receiver Receiver, base64PdfDocument string, ) *DocumentIssueRequest`
 
 NewDocumentIssueRequest instantiates a new DocumentIssueRequest object
 This constructor will assign default values to properties that have it defined,
@@ -52,24 +52,24 @@ and a boolean to check if the value has been set.
 SetDocumentTypeId sets DocumentTypeId field to given value.
 
 
-### GetIdentifier
+### GetDocumentIdentifier
 
-`func (o *DocumentIssueRequest) GetIdentifier() string`
+`func (o *DocumentIssueRequest) GetDocumentIdentifier() string`
 
-GetIdentifier returns the Identifier field if non-nil, zero value otherwise.
+GetDocumentIdentifier returns the DocumentIdentifier field if non-nil, zero value otherwise.
 
-### GetIdentifierOk
+### GetDocumentIdentifierOk
 
-`func (o *DocumentIssueRequest) GetIdentifierOk() (*string, bool)`
+`func (o *DocumentIssueRequest) GetDocumentIdentifierOk() (*string, bool)`
 
-GetIdentifierOk returns a tuple with the Identifier field if it's non-nil, zero value otherwise
+GetDocumentIdentifierOk returns a tuple with the DocumentIdentifier field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIdentifier
+### SetDocumentIdentifier
 
-`func (o *DocumentIssueRequest) SetIdentifier(v string)`
+`func (o *DocumentIssueRequest) SetDocumentIdentifier(v string)`
 
-SetIdentifier sets Identifier field to given value.
+SetDocumentIdentifier sets DocumentIdentifier field to given value.
 
 
 ### GetName

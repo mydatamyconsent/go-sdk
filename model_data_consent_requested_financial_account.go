@@ -17,7 +17,7 @@ import (
 
 // DataConsentRequestedFinancialAccount struct for DataConsentRequestedFinancialAccount
 type DataConsentRequestedFinancialAccount struct {
-	CustomKey NullableString `json:"customKey,omitempty"`
+	CustomKey NullableString `json:"custom_key,omitempty"`
 	Drn NullableString `json:"drn,omitempty"`
 	AccountTypeId NullableString `json:"accountTypeId,omitempty"`
 	AccountIdentifier NullableString `json:"accountIdentifier,omitempty"`
@@ -211,7 +211,7 @@ func (o *DataConsentRequestedFinancialAccount) UnsetAccountIdentifier() {
 func (o DataConsentRequestedFinancialAccount) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.CustomKey.IsSet() {
-		toSerialize["customKey"] = o.CustomKey.Get()
+		toSerialize["custom_key"] = o.CustomKey.Get()
 	}
 	if o.Drn.IsSet() {
 		toSerialize["drn"] = o.Drn.Get()

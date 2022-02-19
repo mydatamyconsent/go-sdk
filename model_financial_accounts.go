@@ -19,9 +19,9 @@ import (
 // FinancialAccounts struct for FinancialAccounts
 type FinancialAccounts struct {
 	Drn NullableString `json:"drn,omitempty"`
-	FinancialAccountDetailsRequired []FinancialAccountDetailsRequired `json:"financialAccountDetailsRequired,omitempty"`
-	StartDate NullableTime `json:"startDate,omitempty"`
-	EndDate NullableTime `json:"endDate,omitempty"`
+	RequiredDetails []FinancialAccountDetailsRequired `json:"required_details,omitempty"`
+	StartDate NullableTime `json:"start_date,omitempty"`
+	EndDate NullableTime `json:"end_date,omitempty"`
 }
 
 // NewFinancialAccounts instantiates a new FinancialAccounts object
@@ -83,37 +83,37 @@ func (o *FinancialAccounts) UnsetDrn() {
 	o.Drn.Unset()
 }
 
-// GetFinancialAccountDetailsRequired returns the FinancialAccountDetailsRequired field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FinancialAccounts) GetFinancialAccountDetailsRequired() []FinancialAccountDetailsRequired {
+// GetRequiredDetails returns the RequiredDetails field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FinancialAccounts) GetRequiredDetails() []FinancialAccountDetailsRequired {
 	if o == nil  {
 		var ret []FinancialAccountDetailsRequired
 		return ret
 	}
-	return o.FinancialAccountDetailsRequired
+	return o.RequiredDetails
 }
 
-// GetFinancialAccountDetailsRequiredOk returns a tuple with the FinancialAccountDetailsRequired field value if set, nil otherwise
+// GetRequiredDetailsOk returns a tuple with the RequiredDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FinancialAccounts) GetFinancialAccountDetailsRequiredOk() ([]FinancialAccountDetailsRequired, bool) {
-	if o == nil || o.FinancialAccountDetailsRequired == nil {
+func (o *FinancialAccounts) GetRequiredDetailsOk() ([]FinancialAccountDetailsRequired, bool) {
+	if o == nil || o.RequiredDetails == nil {
 		return nil, false
 	}
-	return o.FinancialAccountDetailsRequired, true
+	return o.RequiredDetails, true
 }
 
-// HasFinancialAccountDetailsRequired returns a boolean if a field has been set.
-func (o *FinancialAccounts) HasFinancialAccountDetailsRequired() bool {
-	if o != nil && o.FinancialAccountDetailsRequired != nil {
+// HasRequiredDetails returns a boolean if a field has been set.
+func (o *FinancialAccounts) HasRequiredDetails() bool {
+	if o != nil && o.RequiredDetails != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetFinancialAccountDetailsRequired gets a reference to the given []FinancialAccountDetailsRequired and assigns it to the FinancialAccountDetailsRequired field.
-func (o *FinancialAccounts) SetFinancialAccountDetailsRequired(v []FinancialAccountDetailsRequired) {
-	o.FinancialAccountDetailsRequired = v
+// SetRequiredDetails gets a reference to the given []FinancialAccountDetailsRequired and assigns it to the RequiredDetails field.
+func (o *FinancialAccounts) SetRequiredDetails(v []FinancialAccountDetailsRequired) {
+	o.RequiredDetails = v
 }
 
 // GetStartDate returns the StartDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -205,14 +205,14 @@ func (o FinancialAccounts) MarshalJSON() ([]byte, error) {
 	if o.Drn.IsSet() {
 		toSerialize["drn"] = o.Drn.Get()
 	}
-	if o.FinancialAccountDetailsRequired != nil {
-		toSerialize["financialAccountDetailsRequired"] = o.FinancialAccountDetailsRequired
+	if o.RequiredDetails != nil {
+		toSerialize["required_details"] = o.RequiredDetails
 	}
 	if o.StartDate.IsSet() {
-		toSerialize["startDate"] = o.StartDate.Get()
+		toSerialize["start_date"] = o.StartDate.Get()
 	}
 	if o.EndDate.IsSet() {
-		toSerialize["endDate"] = o.EndDate.Get()
+		toSerialize["end_date"] = o.EndDate.Get()
 	}
 	return json.Marshal(toSerialize)
 }

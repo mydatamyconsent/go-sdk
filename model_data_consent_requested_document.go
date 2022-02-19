@@ -17,7 +17,7 @@ import (
 
 // DataConsentRequestedDocument struct for DataConsentRequestedDocument
 type DataConsentRequestedDocument struct {
-	CustomKey NullableString `json:"customKey,omitempty"`
+	CustomKey NullableString `json:"custom_key,omitempty"`
 	Drn NullableString `json:"drn,omitempty"`
 	DocumentTypeId NullableString `json:"documentTypeId,omitempty"`
 	DocumentIdentifier NullableString `json:"documentIdentifier,omitempty"`
@@ -211,7 +211,7 @@ func (o *DataConsentRequestedDocument) UnsetDocumentIdentifier() {
 func (o DataConsentRequestedDocument) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.CustomKey.IsSet() {
-		toSerialize["customKey"] = o.CustomKey.Get()
+		toSerialize["custom_key"] = o.CustomKey.Get()
 	}
 	if o.Drn.IsSet() {
 		toSerialize["drn"] = o.Drn.Get()

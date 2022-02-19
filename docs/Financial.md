@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountField** | Pointer to **NullableString** |  | [optional] 
+**FieldName** | Pointer to **NullableString** |  | [optional] 
 **CustomKey** | Pointer to **NullableString** |  | [optional] 
 **Accounts** | Pointer to [**[]FinancialAccounts**](FinancialAccounts.md) |  | [optional] 
 **Requirement** | Pointer to [**DocumentsRequired**](DocumentsRequired.md) |  | [optional] 
@@ -28,41 +28,41 @@ NewFinancialWithDefaults instantiates a new Financial object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetAccountField
+### GetFieldName
 
-`func (o *Financial) GetAccountField() string`
+`func (o *Financial) GetFieldName() string`
 
-GetAccountField returns the AccountField field if non-nil, zero value otherwise.
+GetFieldName returns the FieldName field if non-nil, zero value otherwise.
 
-### GetAccountFieldOk
+### GetFieldNameOk
 
-`func (o *Financial) GetAccountFieldOk() (*string, bool)`
+`func (o *Financial) GetFieldNameOk() (*string, bool)`
 
-GetAccountFieldOk returns a tuple with the AccountField field if it's non-nil, zero value otherwise
+GetFieldNameOk returns a tuple with the FieldName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAccountField
+### SetFieldName
 
-`func (o *Financial) SetAccountField(v string)`
+`func (o *Financial) SetFieldName(v string)`
 
-SetAccountField sets AccountField field to given value.
+SetFieldName sets FieldName field to given value.
 
-### HasAccountField
+### HasFieldName
 
-`func (o *Financial) HasAccountField() bool`
+`func (o *Financial) HasFieldName() bool`
 
-HasAccountField returns a boolean if a field has been set.
+HasFieldName returns a boolean if a field has been set.
 
-### SetAccountFieldNil
+### SetFieldNameNil
 
-`func (o *Financial) SetAccountFieldNil(b bool)`
+`func (o *Financial) SetFieldNameNil(b bool)`
 
- SetAccountFieldNil sets the value for AccountField to be an explicit nil
+ SetFieldNameNil sets the value for FieldName to be an explicit nil
 
-### UnsetAccountField
-`func (o *Financial) UnsetAccountField()`
+### UnsetFieldName
+`func (o *Financial) UnsetFieldName()`
 
-UnsetAccountField ensures that no value is present for AccountField, not even an explicit nil
+UnsetFieldName ensures that no value is present for FieldName, not even an explicit nil
 ### GetCustomKey
 
 `func (o *Financial) GetCustomKey() string`

@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "Identifier_example", "Name_example", "Description_example", *openapiclient.NewReceiver(), "Base64PdfDocument_example") // DocumentIssueRequest |  (optional)
+    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "DocumentIdentifier_example", "Name_example", "Description_example", *openapiclient.NewReceiver(), "Base64PdfDocument_example") // DocumentIssueRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

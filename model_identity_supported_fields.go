@@ -17,7 +17,7 @@ import (
 
 // IdentitySupportedFields struct for IdentitySupportedFields
 type IdentitySupportedFields struct {
-	IconCodePoint int32 `json:"iconCodePoint"`
+	Icon int32 `json:"icon"`
 	Title string `json:"title"`
 	Description NullableString `json:"description,omitempty"`
 	Key string `json:"key"`
@@ -28,9 +28,9 @@ type IdentitySupportedFields struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIdentitySupportedFields(iconCodePoint int32, title string, key string, dataType string) *IdentitySupportedFields {
+func NewIdentitySupportedFields(icon int32, title string, key string, dataType string) *IdentitySupportedFields {
 	this := IdentitySupportedFields{}
-	this.IconCodePoint = iconCodePoint
+	this.Icon = icon
 	this.Title = title
 	this.Key = key
 	this.DataType = dataType
@@ -45,28 +45,28 @@ func NewIdentitySupportedFieldsWithDefaults() *IdentitySupportedFields {
 	return &this
 }
 
-// GetIconCodePoint returns the IconCodePoint field value
-func (o *IdentitySupportedFields) GetIconCodePoint() int32 {
+// GetIcon returns the Icon field value
+func (o *IdentitySupportedFields) GetIcon() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.IconCodePoint
+	return o.Icon
 }
 
-// GetIconCodePointOk returns a tuple with the IconCodePoint field value
+// GetIconOk returns a tuple with the Icon field value
 // and a boolean to check if the value has been set.
-func (o *IdentitySupportedFields) GetIconCodePointOk() (*int32, bool) {
+func (o *IdentitySupportedFields) GetIconOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.IconCodePoint, true
+	return &o.Icon, true
 }
 
-// SetIconCodePoint sets field value
-func (o *IdentitySupportedFields) SetIconCodePoint(v int32) {
-	o.IconCodePoint = v
+// SetIcon sets field value
+func (o *IdentitySupportedFields) SetIcon(v int32) {
+	o.Icon = v
 }
 
 // GetTitle returns the Title field value
@@ -186,7 +186,7 @@ func (o *IdentitySupportedFields) SetDataType(v string) {
 func (o IdentitySupportedFields) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["iconCodePoint"] = o.IconCodePoint
+		toSerialize["icon"] = o.Icon
 	}
 	if true {
 		toSerialize["title"] = o.Title

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Drn** | Pointer to **NullableString** |  | [optional] 
-**FinancialAccountDetailsRequired** | Pointer to [**[]FinancialAccountDetailsRequired**](FinancialAccountDetailsRequired.md) |  | [optional] 
+**RequiredDetails** | Pointer to [**[]FinancialAccountDetailsRequired**](FinancialAccountDetailsRequired.md) |  | [optional] 
 **StartDate** | Pointer to **NullableTime** |  | [optional] 
 **EndDate** | Pointer to **NullableTime** |  | [optional] 
 
@@ -63,41 +63,41 @@ HasDrn returns a boolean if a field has been set.
 `func (o *FinancialAccounts) UnsetDrn()`
 
 UnsetDrn ensures that no value is present for Drn, not even an explicit nil
-### GetFinancialAccountDetailsRequired
+### GetRequiredDetails
 
-`func (o *FinancialAccounts) GetFinancialAccountDetailsRequired() []FinancialAccountDetailsRequired`
+`func (o *FinancialAccounts) GetRequiredDetails() []FinancialAccountDetailsRequired`
 
-GetFinancialAccountDetailsRequired returns the FinancialAccountDetailsRequired field if non-nil, zero value otherwise.
+GetRequiredDetails returns the RequiredDetails field if non-nil, zero value otherwise.
 
-### GetFinancialAccountDetailsRequiredOk
+### GetRequiredDetailsOk
 
-`func (o *FinancialAccounts) GetFinancialAccountDetailsRequiredOk() (*[]FinancialAccountDetailsRequired, bool)`
+`func (o *FinancialAccounts) GetRequiredDetailsOk() (*[]FinancialAccountDetailsRequired, bool)`
 
-GetFinancialAccountDetailsRequiredOk returns a tuple with the FinancialAccountDetailsRequired field if it's non-nil, zero value otherwise
+GetRequiredDetailsOk returns a tuple with the RequiredDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFinancialAccountDetailsRequired
+### SetRequiredDetails
 
-`func (o *FinancialAccounts) SetFinancialAccountDetailsRequired(v []FinancialAccountDetailsRequired)`
+`func (o *FinancialAccounts) SetRequiredDetails(v []FinancialAccountDetailsRequired)`
 
-SetFinancialAccountDetailsRequired sets FinancialAccountDetailsRequired field to given value.
+SetRequiredDetails sets RequiredDetails field to given value.
 
-### HasFinancialAccountDetailsRequired
+### HasRequiredDetails
 
-`func (o *FinancialAccounts) HasFinancialAccountDetailsRequired() bool`
+`func (o *FinancialAccounts) HasRequiredDetails() bool`
 
-HasFinancialAccountDetailsRequired returns a boolean if a field has been set.
+HasRequiredDetails returns a boolean if a field has been set.
 
-### SetFinancialAccountDetailsRequiredNil
+### SetRequiredDetailsNil
 
-`func (o *FinancialAccounts) SetFinancialAccountDetailsRequiredNil(b bool)`
+`func (o *FinancialAccounts) SetRequiredDetailsNil(b bool)`
 
- SetFinancialAccountDetailsRequiredNil sets the value for FinancialAccountDetailsRequired to be an explicit nil
+ SetRequiredDetailsNil sets the value for RequiredDetails to be an explicit nil
 
-### UnsetFinancialAccountDetailsRequired
-`func (o *FinancialAccounts) UnsetFinancialAccountDetailsRequired()`
+### UnsetRequiredDetails
+`func (o *FinancialAccounts) UnsetRequiredDetails()`
 
-UnsetFinancialAccountDetailsRequired ensures that no value is present for FinancialAccountDetailsRequired, not even an explicit nil
+UnsetRequiredDetails ensures that no value is present for RequiredDetails, not even an explicit nil
 ### GetStartDate
 
 `func (o *FinancialAccounts) GetStartDate() time.Time`

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IconCodePoint** | **int32** |  | 
+**Icon** | **int32** |  | 
 **Title** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Key** | **string** |  | 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewIdentitySupportedFields
 
-`func NewIdentitySupportedFields(iconCodePoint int32, title string, key string, dataType string, ) *IdentitySupportedFields`
+`func NewIdentitySupportedFields(icon int32, title string, key string, dataType string, ) *IdentitySupportedFields`
 
 NewIdentitySupportedFields instantiates a new IdentitySupportedFields object
 This constructor will assign default values to properties that have it defined,
@@ -29,24 +29,24 @@ NewIdentitySupportedFieldsWithDefaults instantiates a new IdentitySupportedField
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetIconCodePoint
+### GetIcon
 
-`func (o *IdentitySupportedFields) GetIconCodePoint() int32`
+`func (o *IdentitySupportedFields) GetIcon() int32`
 
-GetIconCodePoint returns the IconCodePoint field if non-nil, zero value otherwise.
+GetIcon returns the Icon field if non-nil, zero value otherwise.
 
-### GetIconCodePointOk
+### GetIconOk
 
-`func (o *IdentitySupportedFields) GetIconCodePointOk() (*int32, bool)`
+`func (o *IdentitySupportedFields) GetIconOk() (*int32, bool)`
 
-GetIconCodePointOk returns a tuple with the IconCodePoint field if it's non-nil, zero value otherwise
+GetIconOk returns a tuple with the Icon field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIconCodePoint
+### SetIcon
 
-`func (o *IdentitySupportedFields) SetIconCodePoint(v int32)`
+`func (o *IdentitySupportedFields) SetIcon(v int32)`
 
-SetIconCodePoint sets IconCodePoint field to given value.
+SetIcon sets Icon field to given value.
 
 
 ### GetTitle

@@ -18,7 +18,7 @@ import (
 // DocumentIssueRequest struct for DocumentIssueRequest
 type DocumentIssueRequest struct {
 	DocumentTypeId string `json:"documentTypeId"`
-	Identifier string `json:"identifier"`
+	DocumentIdentifier string `json:"documentIdentifier"`
 	Name string `json:"name"`
 	Description string `json:"description"`
 	Receiver Receiver `json:"receiver"`
@@ -31,10 +31,10 @@ type DocumentIssueRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumentIssueRequest(documentTypeId string, identifier string, name string, description string, receiver Receiver, base64PdfDocument string) *DocumentIssueRequest {
+func NewDocumentIssueRequest(documentTypeId string, documentIdentifier string, name string, description string, receiver Receiver, base64PdfDocument string) *DocumentIssueRequest {
 	this := DocumentIssueRequest{}
 	this.DocumentTypeId = documentTypeId
-	this.Identifier = identifier
+	this.DocumentIdentifier = documentIdentifier
 	this.Name = name
 	this.Description = description
 	this.Receiver = receiver
@@ -74,28 +74,28 @@ func (o *DocumentIssueRequest) SetDocumentTypeId(v string) {
 	o.DocumentTypeId = v
 }
 
-// GetIdentifier returns the Identifier field value
-func (o *DocumentIssueRequest) GetIdentifier() string {
+// GetDocumentIdentifier returns the DocumentIdentifier field value
+func (o *DocumentIssueRequest) GetDocumentIdentifier() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Identifier
+	return o.DocumentIdentifier
 }
 
-// GetIdentifierOk returns a tuple with the Identifier field value
+// GetDocumentIdentifierOk returns a tuple with the DocumentIdentifier field value
 // and a boolean to check if the value has been set.
-func (o *DocumentIssueRequest) GetIdentifierOk() (*string, bool) {
+func (o *DocumentIssueRequest) GetDocumentIdentifierOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Identifier, true
+	return &o.DocumentIdentifier, true
 }
 
-// SetIdentifier sets field value
-func (o *DocumentIssueRequest) SetIdentifier(v string) {
-	o.Identifier = v
+// SetDocumentIdentifier sets field value
+func (o *DocumentIssueRequest) SetDocumentIdentifier(v string) {
+	o.DocumentIdentifier = v
 }
 
 // GetName returns the Name field value
@@ -275,7 +275,7 @@ func (o DocumentIssueRequest) MarshalJSON() ([]byte, error) {
 		toSerialize["documentTypeId"] = o.DocumentTypeId
 	}
 	if true {
-		toSerialize["identifier"] = o.Identifier
+		toSerialize["documentIdentifier"] = o.DocumentIdentifier
 	}
 	if true {
 		toSerialize["name"] = o.Name
