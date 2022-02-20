@@ -29,12 +29,334 @@ var (
 // DocumentsApiService DocumentsApi service
 type DocumentsApiService service
 
+type ApiGetIssuedDocumentByIdRequest struct {
+	ctx context.Context
+	ApiService *DocumentsApiService
+	documentId string
+}
+
+
+func (r ApiGetIssuedDocumentByIdRequest) Execute() (*http.Response, error) {
+	return r.ApiService.GetIssuedDocumentByIdExecute(r)
+}
+
+/*
+GetIssuedDocumentById Get issued document.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param documentId Document id.
+ @return ApiGetIssuedDocumentByIdRequest
+*/
+func (a *DocumentsApiService) GetIssuedDocumentById(ctx context.Context, documentId string) ApiGetIssuedDocumentByIdRequest {
+	return ApiGetIssuedDocumentByIdRequest{
+		ApiService: a,
+		ctx: ctx,
+		documentId: documentId,
+	}
+}
+
+// Execute executes the request
+func (a *DocumentsApiService) GetIssuedDocumentByIdExecute(r ApiGetIssuedDocumentByIdRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.GetIssuedDocumentById")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/documents/issued/{documentId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"documentId"+"}", url.PathEscape(parameterToString(r.documentId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGetIssuedDocumentsRequest struct {
+	ctx context.Context
+	ApiService *DocumentsApiService
+	documentTypeId *string
+	fromDateTime *time.Time
+	toDateTime *time.Time
+	pageSize *int32
+	pageNo *int32
+}
+
+func (r ApiGetIssuedDocumentsRequest) DocumentTypeId(documentTypeId string) ApiGetIssuedDocumentsRequest {
+	r.documentTypeId = &documentTypeId
+	return r
+}
+func (r ApiGetIssuedDocumentsRequest) FromDateTime(fromDateTime time.Time) ApiGetIssuedDocumentsRequest {
+	r.fromDateTime = &fromDateTime
+	return r
+}
+func (r ApiGetIssuedDocumentsRequest) ToDateTime(toDateTime time.Time) ApiGetIssuedDocumentsRequest {
+	r.toDateTime = &toDateTime
+	return r
+}
+func (r ApiGetIssuedDocumentsRequest) PageSize(pageSize int32) ApiGetIssuedDocumentsRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGetIssuedDocumentsRequest) PageNo(pageNo int32) ApiGetIssuedDocumentsRequest {
+	r.pageNo = &pageNo
+	return r
+}
+
+func (r ApiGetIssuedDocumentsRequest) Execute() (*http.Response, error) {
+	return r.ApiService.GetIssuedDocumentsExecute(r)
+}
+
+/*
+GetIssuedDocuments Get issued documents.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetIssuedDocumentsRequest
+*/
+func (a *DocumentsApiService) GetIssuedDocuments(ctx context.Context) ApiGetIssuedDocumentsRequest {
+	return ApiGetIssuedDocumentsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+func (a *DocumentsApiService) GetIssuedDocumentsExecute(r ApiGetIssuedDocumentsRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.GetIssuedDocuments")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/documents/issued"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.documentTypeId != nil {
+		localVarQueryParams.Add("documentTypeId", parameterToString(*r.documentTypeId, ""))
+	}
+	if r.fromDateTime != nil {
+		localVarQueryParams.Add("fromDateTime", parameterToString(*r.fromDateTime, ""))
+	}
+	if r.toDateTime != nil {
+		localVarQueryParams.Add("toDateTime", parameterToString(*r.toDateTime, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.pageNo != nil {
+		localVarQueryParams.Add("pageNo", parameterToString(*r.pageNo, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGetRegisteredDocumentTypesRequest struct {
+	ctx context.Context
+	ApiService *DocumentsApiService
+	pageSize *int32
+	pageNo *int32
+}
+
+func (r ApiGetRegisteredDocumentTypesRequest) PageSize(pageSize int32) ApiGetRegisteredDocumentTypesRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGetRegisteredDocumentTypesRequest) PageNo(pageNo int32) ApiGetRegisteredDocumentTypesRequest {
+	r.pageNo = &pageNo
+	return r
+}
+
+func (r ApiGetRegisteredDocumentTypesRequest) Execute() (*http.Response, error) {
+	return r.ApiService.GetRegisteredDocumentTypesExecute(r)
+}
+
+/*
+GetRegisteredDocumentTypes Get registered document types.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetRegisteredDocumentTypesRequest
+*/
+func (a *DocumentsApiService) GetRegisteredDocumentTypes(ctx context.Context) ApiGetRegisteredDocumentTypesRequest {
+	return ApiGetRegisteredDocumentTypesRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+func (a *DocumentsApiService) GetRegisteredDocumentTypesExecute(r ApiGetRegisteredDocumentTypesRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.GetRegisteredDocumentTypes")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/documents/types"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.pageNo != nil {
+		localVarQueryParams.Add("pageNo", parameterToString(*r.pageNo, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiIssueDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsApiService
 	documentIssueRequest *DocumentIssueRequest
 }
 
+// Document issue request MyDataMyConsent.Models.Documents.DocumentIssueRequest.
 func (r ApiIssueDocumentRequest) DocumentIssueRequest(documentIssueRequest DocumentIssueRequest) ApiIssueDocumentRequest {
 	r.documentIssueRequest = &documentIssueRequest
 	return r
@@ -77,6 +399,9 @@ func (a *DocumentsApiService) IssueDocumentExecute(r ApiIssueDocumentRequest) (b
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.documentIssueRequest == nil {
+		return localVarReturnValue, nil, reportError("documentIssueRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -149,325 +474,4 @@ func (a *DocumentsApiService) IssueDocumentExecute(r ApiIssueDocumentRequest) (b
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiV1DocumentsIssuedDocumentIdGetRequest struct {
-	ctx context.Context
-	ApiService *DocumentsApiService
-	documentId string
-}
-
-
-func (r ApiV1DocumentsIssuedDocumentIdGetRequest) Execute() (*http.Response, error) {
-	return r.ApiService.V1DocumentsIssuedDocumentIdGetExecute(r)
-}
-
-/*
-V1DocumentsIssuedDocumentIdGet Get issued document.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param documentId Document id.
- @return ApiV1DocumentsIssuedDocumentIdGetRequest
-*/
-func (a *DocumentsApiService) V1DocumentsIssuedDocumentIdGet(ctx context.Context, documentId string) ApiV1DocumentsIssuedDocumentIdGetRequest {
-	return ApiV1DocumentsIssuedDocumentIdGetRequest{
-		ApiService: a,
-		ctx: ctx,
-		documentId: documentId,
-	}
-}
-
-// Execute executes the request
-func (a *DocumentsApiService) V1DocumentsIssuedDocumentIdGetExecute(r ApiV1DocumentsIssuedDocumentIdGetRequest) (*http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.V1DocumentsIssuedDocumentIdGet")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/v1/documents/issued/{documentId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"documentId"+"}", url.PathEscape(parameterToString(r.documentId, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiV1DocumentsIssuedGetRequest struct {
-	ctx context.Context
-	ApiService *DocumentsApiService
-	documentTypeId *string
-	fromDateTime *time.Time
-	toDateTime *time.Time
-	pageSize *int32
-	pageNo *int32
-}
-
-func (r ApiV1DocumentsIssuedGetRequest) DocumentTypeId(documentTypeId string) ApiV1DocumentsIssuedGetRequest {
-	r.documentTypeId = &documentTypeId
-	return r
-}
-func (r ApiV1DocumentsIssuedGetRequest) FromDateTime(fromDateTime time.Time) ApiV1DocumentsIssuedGetRequest {
-	r.fromDateTime = &fromDateTime
-	return r
-}
-func (r ApiV1DocumentsIssuedGetRequest) ToDateTime(toDateTime time.Time) ApiV1DocumentsIssuedGetRequest {
-	r.toDateTime = &toDateTime
-	return r
-}
-func (r ApiV1DocumentsIssuedGetRequest) PageSize(pageSize int32) ApiV1DocumentsIssuedGetRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiV1DocumentsIssuedGetRequest) PageNo(pageNo int32) ApiV1DocumentsIssuedGetRequest {
-	r.pageNo = &pageNo
-	return r
-}
-
-func (r ApiV1DocumentsIssuedGetRequest) Execute() (*http.Response, error) {
-	return r.ApiService.V1DocumentsIssuedGetExecute(r)
-}
-
-/*
-V1DocumentsIssuedGet Get issued documents.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiV1DocumentsIssuedGetRequest
-*/
-func (a *DocumentsApiService) V1DocumentsIssuedGet(ctx context.Context) ApiV1DocumentsIssuedGetRequest {
-	return ApiV1DocumentsIssuedGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-func (a *DocumentsApiService) V1DocumentsIssuedGetExecute(r ApiV1DocumentsIssuedGetRequest) (*http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.V1DocumentsIssuedGet")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/v1/documents/issued"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.documentTypeId != nil {
-		localVarQueryParams.Add("documentTypeId", parameterToString(*r.documentTypeId, ""))
-	}
-	if r.fromDateTime != nil {
-		localVarQueryParams.Add("fromDateTime", parameterToString(*r.fromDateTime, ""))
-	}
-	if r.toDateTime != nil {
-		localVarQueryParams.Add("toDateTime", parameterToString(*r.toDateTime, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.pageNo != nil {
-		localVarQueryParams.Add("pageNo", parameterToString(*r.pageNo, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiV1DocumentsTypesGetRequest struct {
-	ctx context.Context
-	ApiService *DocumentsApiService
-	pageSize *int32
-	pageNo *int32
-}
-
-func (r ApiV1DocumentsTypesGetRequest) PageSize(pageSize int32) ApiV1DocumentsTypesGetRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiV1DocumentsTypesGetRequest) PageNo(pageNo int32) ApiV1DocumentsTypesGetRequest {
-	r.pageNo = &pageNo
-	return r
-}
-
-func (r ApiV1DocumentsTypesGetRequest) Execute() (*http.Response, error) {
-	return r.ApiService.V1DocumentsTypesGetExecute(r)
-}
-
-/*
-V1DocumentsTypesGet Get registered document types.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiV1DocumentsTypesGetRequest
-*/
-func (a *DocumentsApiService) V1DocumentsTypesGet(ctx context.Context) ApiV1DocumentsTypesGetRequest {
-	return ApiV1DocumentsTypesGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-func (a *DocumentsApiService) V1DocumentsTypesGetExecute(r ApiV1DocumentsTypesGetRequest) (*http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.V1DocumentsTypesGet")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/v1/documents/types"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.pageNo != nil {
-		localVarQueryParams.Add("pageNo", parameterToString(*r.pageNo, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
 }

@@ -4,18 +4,84 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**V1DataProvidersGet**](DataProviderDiscoveryApi.md#V1DataProvidersGet) | **Get** /v1/data-providers | Discover all data providers in My Data My Consent by country and filters.
-[**V1DataProvidersProviderIdGet**](DataProviderDiscoveryApi.md#V1DataProvidersProviderIdGet) | **Get** /v1/data-providers/{providerId} | Get a Data Provider details.
+[**GetDataProviderById**](DataProviderDiscoveryApi.md#GetDataProviderById) | **Get** /v1/data-providers/{providerId} | Get a Data Provider details based on provider id.
+[**GetDataProviders**](DataProviderDiscoveryApi.md#GetDataProviders) | **Get** /v1/data-providers | Discover all data providers in My Data My Consent by country and filters.
 
 
 
-## V1DataProvidersGet
+## GetDataProviderById
 
-> DataProviderPaginatedList V1DataProvidersGet(ctx).AccountType(accountType).DocumentType(documentType).OrganizationCategory(organizationCategory).PageNo(pageNo).PageSize(pageSize).Country(country).Execute()
+> DataProvider GetDataProviderById(ctx, providerId).Execute()
+
+Get a Data Provider details based on provider id.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    providerId := "providerId_example" // string | Provider id.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DataProviderDiscoveryApi.GetDataProviderById(context.Background(), providerId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DataProviderDiscoveryApi.GetDataProviderById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetDataProviderById`: DataProvider
+    fmt.Fprintf(os.Stdout, "Response from `DataProviderDiscoveryApi.GetDataProviderById`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**providerId** | **string** | Provider id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDataProviderByIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**DataProvider**](DataProvider.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetDataProviders
+
+> DataProviderPaginatedList GetDataProviders(ctx).AccountType(accountType).DocumentType(documentType).OrganizationCategory(organizationCategory).PageNo(pageNo).PageSize(pageSize).Country(country).Execute()
 
 Discover all data providers in My Data My Consent by country and filters.
-
-
 
 ### Example
 
@@ -39,13 +105,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataProviderDiscoveryApi.V1DataProvidersGet(context.Background()).AccountType(accountType).DocumentType(documentType).OrganizationCategory(organizationCategory).PageNo(pageNo).PageSize(pageSize).Country(country).Execute()
+    resp, r, err := apiClient.DataProviderDiscoveryApi.GetDataProviders(context.Background()).AccountType(accountType).DocumentType(documentType).OrganizationCategory(organizationCategory).PageNo(pageNo).PageSize(pageSize).Country(country).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataProviderDiscoveryApi.V1DataProvidersGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DataProviderDiscoveryApi.GetDataProviders``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `V1DataProvidersGet`: DataProviderPaginatedList
-    fmt.Fprintf(os.Stdout, "Response from `DataProviderDiscoveryApi.V1DataProvidersGet`: %v\n", resp)
+    // response from `GetDataProviders`: DataProviderPaginatedList
+    fmt.Fprintf(os.Stdout, "Response from `DataProviderDiscoveryApi.GetDataProviders`: %v\n", resp)
 }
 ```
 
@@ -55,7 +121,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiV1DataProvidersGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetDataProvidersRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -70,76 +136,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DataProviderPaginatedList**](DataProviderPaginatedList.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## V1DataProvidersProviderIdGet
-
-> DataProvider V1DataProvidersProviderIdGet(ctx, providerId).Execute()
-
-Get a Data Provider details.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    providerId := "providerId_example" // string | Provider Id.
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataProviderDiscoveryApi.V1DataProvidersProviderIdGet(context.Background(), providerId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataProviderDiscoveryApi.V1DataProvidersProviderIdGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `V1DataProvidersProviderIdGet`: DataProvider
-    fmt.Fprintf(os.Stdout, "Response from `DataProviderDiscoveryApi.V1DataProvidersProviderIdGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**providerId** | **string** | Provider Id. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiV1DataProvidersProviderIdGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**DataProvider**](DataProvider.md)
 
 ### Authorization
 

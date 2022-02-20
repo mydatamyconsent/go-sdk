@@ -13,6 +13,7 @@ package github.com/mydatamyconsent/sdk
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // DocumentIssueRequest struct for DocumentIssueRequest
@@ -22,7 +23,7 @@ type DocumentIssueRequest struct {
 	Name string `json:"name"`
 	Description string `json:"description"`
 	Receiver Receiver `json:"receiver"`
-	ExpiresAtUtc NullableString `json:"expiresAtUtc,omitempty"`
+	ExpiresAtUtc NullableTime `json:"expiresAtUtc,omitempty"`
 	Base64PdfDocument string `json:"base64PdfDocument"`
 	Metadata interface{} `json:"metadata,omitempty"`
 }
@@ -171,9 +172,9 @@ func (o *DocumentIssueRequest) SetReceiver(v Receiver) {
 }
 
 // GetExpiresAtUtc returns the ExpiresAtUtc field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DocumentIssueRequest) GetExpiresAtUtc() string {
+func (o *DocumentIssueRequest) GetExpiresAtUtc() time.Time {
 	if o == nil || o.ExpiresAtUtc.Get() == nil {
-		var ret string
+		var ret time.Time
 		return ret
 	}
 	return *o.ExpiresAtUtc.Get()
@@ -182,7 +183,7 @@ func (o *DocumentIssueRequest) GetExpiresAtUtc() string {
 // GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DocumentIssueRequest) GetExpiresAtUtcOk() (*string, bool) {
+func (o *DocumentIssueRequest) GetExpiresAtUtcOk() (*time.Time, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -198,8 +199,8 @@ func (o *DocumentIssueRequest) HasExpiresAtUtc() bool {
 	return false
 }
 
-// SetExpiresAtUtc gets a reference to the given NullableString and assigns it to the ExpiresAtUtc field.
-func (o *DocumentIssueRequest) SetExpiresAtUtc(v string) {
+// SetExpiresAtUtc gets a reference to the given NullableTime and assigns it to the ExpiresAtUtc field.
+func (o *DocumentIssueRequest) SetExpiresAtUtc(v time.Time) {
 	o.ExpiresAtUtc.Set(&v)
 }
 // SetExpiresAtUtcNil sets the value for ExpiresAtUtc to be an explicit nil

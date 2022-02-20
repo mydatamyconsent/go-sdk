@@ -26,6 +26,7 @@ const (
 	REJECTED DataConsentStatus = "Rejected"
 	REVOKED DataConsentStatus = "Revoked"
 	EXPIRED DataConsentStatus = "Expired"
+	CANCELED DataConsentStatus = "Canceled"
 )
 
 // All allowed values of DataConsentStatus enum
@@ -35,6 +36,7 @@ var AllowedDataConsentStatusEnumValues = []DataConsentStatus{
 	"Rejected",
 	"Revoked",
 	"Expired",
+	"Canceled",
 }
 
 func (v *DataConsentStatus) UnmarshalJSON(src []byte) error {

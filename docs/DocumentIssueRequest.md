@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Description** | **string** |  | 
 **Receiver** | [**Receiver**](Receiver.md) |  | 
-**ExpiresAtUtc** | Pointer to **NullableString** |  | [optional] 
+**ExpiresAtUtc** | Pointer to **NullableTime** |  | [optional] 
 **Base64PdfDocument** | **string** |  | 
 **Metadata** | Pointer to **interface{}** |  | [optional] 
 
@@ -134,20 +134,20 @@ SetReceiver sets Receiver field to given value.
 
 ### GetExpiresAtUtc
 
-`func (o *DocumentIssueRequest) GetExpiresAtUtc() string`
+`func (o *DocumentIssueRequest) GetExpiresAtUtc() time.Time`
 
 GetExpiresAtUtc returns the ExpiresAtUtc field if non-nil, zero value otherwise.
 
 ### GetExpiresAtUtcOk
 
-`func (o *DocumentIssueRequest) GetExpiresAtUtcOk() (*string, bool)`
+`func (o *DocumentIssueRequest) GetExpiresAtUtcOk() (*time.Time, bool)`
 
 GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExpiresAtUtc
 
-`func (o *DocumentIssueRequest) SetExpiresAtUtc(v string)`
+`func (o *DocumentIssueRequest) SetExpiresAtUtc(v time.Time)`
 
 SetExpiresAtUtc sets ExpiresAtUtc field to given value.
 

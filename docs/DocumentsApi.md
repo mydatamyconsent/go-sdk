@@ -4,80 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**GetIssuedDocumentById**](DocumentsApi.md#GetIssuedDocumentById) | **Get** /v1/documents/issued/{documentId} | Get issued document.
+[**GetIssuedDocuments**](DocumentsApi.md#GetIssuedDocuments) | **Get** /v1/documents/issued | Get issued documents.
+[**GetRegisteredDocumentTypes**](DocumentsApi.md#GetRegisteredDocumentTypes) | **Get** /v1/documents/types | Get registered document types.
 [**IssueDocument**](DocumentsApi.md#IssueDocument) | **Post** /v1/documents/issue | Issue a new document.
-[**V1DocumentsIssuedDocumentIdGet**](DocumentsApi.md#V1DocumentsIssuedDocumentIdGet) | **Get** /v1/documents/issued/{documentId} | Get issued document.
-[**V1DocumentsIssuedGet**](DocumentsApi.md#V1DocumentsIssuedGet) | **Get** /v1/documents/issued | Get issued documents.
-[**V1DocumentsTypesGet**](DocumentsApi.md#V1DocumentsTypesGet) | **Get** /v1/documents/types | Get registered document types.
 
 
 
-## IssueDocument
+## GetIssuedDocumentById
 
-> bool IssueDocument(ctx).DocumentIssueRequest(documentIssueRequest).Execute()
-
-Issue a new document.
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "DocumentIdentifier_example", "Name_example", "Description_example", *openapiclient.NewReceiver(), "Base64PdfDocument_example") // DocumentIssueRequest |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DocumentsApi.IssueDocument(context.Background()).DocumentIssueRequest(documentIssueRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.IssueDocument``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `IssueDocument`: bool
-    fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.IssueDocument`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiIssueDocumentRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **documentIssueRequest** | [**DocumentIssueRequest**](DocumentIssueRequest.md) |  | 
-
-### Return type
-
-**bool**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## V1DocumentsIssuedDocumentIdGet
-
-> V1DocumentsIssuedDocumentIdGet(ctx, documentId).Execute()
+> GetIssuedDocumentById(ctx, documentId).Execute()
 
 Get issued document.
 
@@ -98,9 +34,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DocumentsApi.V1DocumentsIssuedDocumentIdGet(context.Background(), documentId).Execute()
+    resp, r, err := apiClient.DocumentsApi.GetIssuedDocumentById(context.Background(), documentId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.V1DocumentsIssuedDocumentIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.GetIssuedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -116,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiV1DocumentsIssuedDocumentIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetIssuedDocumentByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -141,9 +77,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## V1DocumentsIssuedGet
+## GetIssuedDocuments
 
-> V1DocumentsIssuedGet(ctx).DocumentTypeId(documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageSize(pageSize).PageNo(pageNo).Execute()
+> GetIssuedDocuments(ctx).DocumentTypeId(documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageSize(pageSize).PageNo(pageNo).Execute()
 
 Get issued documents.
 
@@ -169,9 +105,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DocumentsApi.V1DocumentsIssuedGet(context.Background()).DocumentTypeId(documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageSize(pageSize).PageNo(pageNo).Execute()
+    resp, r, err := apiClient.DocumentsApi.GetIssuedDocuments(context.Background()).DocumentTypeId(documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageSize(pageSize).PageNo(pageNo).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.V1DocumentsIssuedGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.GetIssuedDocuments``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -183,7 +119,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiV1DocumentsIssuedGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetIssuedDocumentsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -212,9 +148,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## V1DocumentsTypesGet
+## GetRegisteredDocumentTypes
 
-> V1DocumentsTypesGet(ctx).PageSize(pageSize).PageNo(pageNo).Execute()
+> GetRegisteredDocumentTypes(ctx).PageSize(pageSize).PageNo(pageNo).Execute()
 
 Get registered document types.
 
@@ -236,9 +172,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DocumentsApi.V1DocumentsTypesGet(context.Background()).PageSize(pageSize).PageNo(pageNo).Execute()
+    resp, r, err := apiClient.DocumentsApi.GetRegisteredDocumentTypes(context.Background()).PageSize(pageSize).PageNo(pageNo).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.V1DocumentsTypesGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.GetRegisteredDocumentTypes``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -250,7 +186,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiV1DocumentsTypesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetRegisteredDocumentTypesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -270,6 +206,70 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IssueDocument
+
+> bool IssueDocument(ctx).DocumentIssueRequest(documentIssueRequest).Execute()
+
+Issue a new document.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "DocumentIdentifier_example", "Name_example", "Description_example", *openapiclient.NewReceiver(), "Base64PdfDocument_example") // DocumentIssueRequest | Document issue request MyDataMyConsent.Models.Documents.DocumentIssueRequest.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DocumentsApi.IssueDocument(context.Background()).DocumentIssueRequest(documentIssueRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.IssueDocument``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `IssueDocument`: bool
+    fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.IssueDocument`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIssueDocumentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **documentIssueRequest** | [**DocumentIssueRequest**](DocumentIssueRequest.md) | Document issue request MyDataMyConsent.Models.Documents.DocumentIssueRequest. | 
+
+### Return type
+
+**bool**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

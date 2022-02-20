@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**IssuerIssuedoc1XmlPost**](DigiLockerCompatIssuerApi.md#IssuerIssuedoc1XmlPost) | **Post** /issuer/issuedoc/1/xml | Digilocker Compatible endpoint to Issue Documents.
+[**DigilockerCompatIssueDocument**](DigiLockerCompatIssuerApi.md#DigilockerCompatIssueDocument) | **Post** /issuer/issuedoc/1/xml | Digilocker Compatible endpoint to issue document.
 
 
 
-## IssuerIssuedoc1XmlPost
+## DigilockerCompatIssueDocument
 
-> PushUriResponse IssuerIssuedoc1XmlPost(ctx).PushUriRequest(pushUriRequest).Execute()
+> PushUriResponse DigilockerCompatIssueDocument(ctx).PushUriRequest(pushUriRequest).Execute()
 
-Digilocker Compatible endpoint to Issue Documents.
+Digilocker Compatible endpoint to issue document.
 
 ### Example
 
@@ -27,17 +27,17 @@ import (
 )
 
 func main() {
-    pushUriRequest := *openapiclient.NewPushUriRequest() // PushUriRequest |  (optional)
+    pushUriRequest := *openapiclient.NewPushUriRequest() // PushUriRequest | Push uri request MyDataMyConsent.Models.DigiLocker.PushUriRequest. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DigiLockerCompatIssuerApi.IssuerIssuedoc1XmlPost(context.Background()).PushUriRequest(pushUriRequest).Execute()
+    resp, r, err := apiClient.DigiLockerCompatIssuerApi.DigilockerCompatIssueDocument(context.Background()).PushUriRequest(pushUriRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DigiLockerCompatIssuerApi.IssuerIssuedoc1XmlPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DigiLockerCompatIssuerApi.DigilockerCompatIssueDocument``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `IssuerIssuedoc1XmlPost`: PushUriResponse
-    fmt.Fprintf(os.Stdout, "Response from `DigiLockerCompatIssuerApi.IssuerIssuedoc1XmlPost`: %v\n", resp)
+    // response from `DigilockerCompatIssueDocument`: PushUriResponse
+    fmt.Fprintf(os.Stdout, "Response from `DigiLockerCompatIssuerApi.DigilockerCompatIssueDocument`: %v\n", resp)
 }
 ```
 
@@ -47,12 +47,12 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiIssuerIssuedoc1XmlPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDigilockerCompatIssueDocumentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pushUriRequest** | [**PushUriRequest**](PushUriRequest.md) |  | 
+ **pushUriRequest** | [**PushUriRequest**](PushUriRequest.md) | Push uri request MyDataMyConsent.Models.DigiLocker.PushUriRequest. | 
 
 ### Return type
 

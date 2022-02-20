@@ -27,29 +27,30 @@ var (
 // DigiLockerCompatIssuerApiService DigiLockerCompatIssuerApi service
 type DigiLockerCompatIssuerApiService service
 
-type ApiIssuerIssuedoc1XmlPostRequest struct {
+type ApiDigilockerCompatIssueDocumentRequest struct {
 	ctx context.Context
 	ApiService *DigiLockerCompatIssuerApiService
 	pushUriRequest *PushUriRequest
 }
 
-func (r ApiIssuerIssuedoc1XmlPostRequest) PushUriRequest(pushUriRequest PushUriRequest) ApiIssuerIssuedoc1XmlPostRequest {
+// Push uri request MyDataMyConsent.Models.DigiLocker.PushUriRequest.
+func (r ApiDigilockerCompatIssueDocumentRequest) PushUriRequest(pushUriRequest PushUriRequest) ApiDigilockerCompatIssueDocumentRequest {
 	r.pushUriRequest = &pushUriRequest
 	return r
 }
 
-func (r ApiIssuerIssuedoc1XmlPostRequest) Execute() (*PushUriResponse, *http.Response, error) {
-	return r.ApiService.IssuerIssuedoc1XmlPostExecute(r)
+func (r ApiDigilockerCompatIssueDocumentRequest) Execute() (*PushUriResponse, *http.Response, error) {
+	return r.ApiService.DigilockerCompatIssueDocumentExecute(r)
 }
 
 /*
-IssuerIssuedoc1XmlPost Digilocker Compatible endpoint to Issue Documents.
+DigilockerCompatIssueDocument Digilocker Compatible endpoint to issue document.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIssuerIssuedoc1XmlPostRequest
+ @return ApiDigilockerCompatIssueDocumentRequest
 */
-func (a *DigiLockerCompatIssuerApiService) IssuerIssuedoc1XmlPost(ctx context.Context) ApiIssuerIssuedoc1XmlPostRequest {
-	return ApiIssuerIssuedoc1XmlPostRequest{
+func (a *DigiLockerCompatIssuerApiService) DigilockerCompatIssueDocument(ctx context.Context) ApiDigilockerCompatIssueDocumentRequest {
+	return ApiDigilockerCompatIssueDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -57,7 +58,7 @@ func (a *DigiLockerCompatIssuerApiService) IssuerIssuedoc1XmlPost(ctx context.Co
 
 // Execute executes the request
 //  @return PushUriResponse
-func (a *DigiLockerCompatIssuerApiService) IssuerIssuedoc1XmlPostExecute(r ApiIssuerIssuedoc1XmlPostRequest) (*PushUriResponse, *http.Response, error) {
+func (a *DigiLockerCompatIssuerApiService) DigilockerCompatIssueDocumentExecute(r ApiDigilockerCompatIssueDocumentRequest) (*PushUriResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +66,7 @@ func (a *DigiLockerCompatIssuerApiService) IssuerIssuedoc1XmlPostExecute(r ApiIs
 		localVarReturnValue  *PushUriResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigiLockerCompatIssuerApiService.IssuerIssuedoc1XmlPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DigiLockerCompatIssuerApiService.DigilockerCompatIssueDocument")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

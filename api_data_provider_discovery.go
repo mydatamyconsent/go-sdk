@@ -28,106 +28,54 @@ var (
 // DataProviderDiscoveryApiService DataProviderDiscoveryApi service
 type DataProviderDiscoveryApiService service
 
-type ApiV1DataProvidersGetRequest struct {
+type ApiGetDataProviderByIdRequest struct {
 	ctx context.Context
 	ApiService *DataProviderDiscoveryApiService
-	accountType *string
-	documentType *string
-	organizationCategory *string
-	pageNo *int32
-	pageSize *int32
-	country *string
+	providerId string
 }
 
-// Account type.
-func (r ApiV1DataProvidersGetRequest) AccountType(accountType string) ApiV1DataProvidersGetRequest {
-	r.accountType = &accountType
-	return r
-}
-// Document type.
-func (r ApiV1DataProvidersGetRequest) DocumentType(documentType string) ApiV1DataProvidersGetRequest {
-	r.documentType = &documentType
-	return r
-}
-// Organization category.
-func (r ApiV1DataProvidersGetRequest) OrganizationCategory(organizationCategory string) ApiV1DataProvidersGetRequest {
-	r.organizationCategory = &organizationCategory
-	return r
-}
-// Page number.
-func (r ApiV1DataProvidersGetRequest) PageNo(pageNo int32) ApiV1DataProvidersGetRequest {
-	r.pageNo = &pageNo
-	return r
-}
-// Page size.
-func (r ApiV1DataProvidersGetRequest) PageSize(pageSize int32) ApiV1DataProvidersGetRequest {
-	r.pageSize = &pageSize
-	return r
-}
-// ISO2 Country code.
-func (r ApiV1DataProvidersGetRequest) Country(country string) ApiV1DataProvidersGetRequest {
-	r.country = &country
-	return r
-}
 
-func (r ApiV1DataProvidersGetRequest) Execute() (*DataProviderPaginatedList, *http.Response, error) {
-	return r.ApiService.V1DataProvidersGetExecute(r)
+func (r ApiGetDataProviderByIdRequest) Execute() (*DataProvider, *http.Response, error) {
+	return r.ApiService.GetDataProviderByIdExecute(r)
 }
 
 /*
-V1DataProvidersGet Discover all data providers in My Data My Consent by country and filters.
-
-.
+GetDataProviderById Get a Data Provider details based on provider id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiV1DataProvidersGetRequest
+ @param providerId Provider id.
+ @return ApiGetDataProviderByIdRequest
 */
-func (a *DataProviderDiscoveryApiService) V1DataProvidersGet(ctx context.Context) ApiV1DataProvidersGetRequest {
-	return ApiV1DataProvidersGetRequest{
+func (a *DataProviderDiscoveryApiService) GetDataProviderById(ctx context.Context, providerId string) ApiGetDataProviderByIdRequest {
+	return ApiGetDataProviderByIdRequest{
 		ApiService: a,
 		ctx: ctx,
+		providerId: providerId,
 	}
 }
 
 // Execute executes the request
-//  @return DataProviderPaginatedList
-func (a *DataProviderDiscoveryApiService) V1DataProvidersGetExecute(r ApiV1DataProvidersGetRequest) (*DataProviderPaginatedList, *http.Response, error) {
+//  @return DataProvider
+func (a *DataProviderDiscoveryApiService) GetDataProviderByIdExecute(r ApiGetDataProviderByIdRequest) (*DataProvider, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DataProviderPaginatedList
+		localVarReturnValue  *DataProvider
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataProviderDiscoveryApiService.V1DataProvidersGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataProviderDiscoveryApiService.GetDataProviderById")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/data-providers"
+	localVarPath := localBasePath + "/v1/data-providers/{providerId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"providerId"+"}", url.PathEscape(parameterToString(r.providerId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.accountType != nil {
-		localVarQueryParams.Add("accountType", parameterToString(*r.accountType, ""))
-	}
-	if r.documentType != nil {
-		localVarQueryParams.Add("documentType", parameterToString(*r.documentType, ""))
-	}
-	if r.organizationCategory != nil {
-		localVarQueryParams.Add("organizationCategory", parameterToString(*r.organizationCategory, ""))
-	}
-	if r.pageNo != nil {
-		localVarQueryParams.Add("pageNo", parameterToString(*r.pageNo, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.country != nil {
-		localVarQueryParams.Add("country", parameterToString(*r.country, ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -182,56 +130,104 @@ func (a *DataProviderDiscoveryApiService) V1DataProvidersGetExecute(r ApiV1DataP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiV1DataProvidersProviderIdGetRequest struct {
+type ApiGetDataProvidersRequest struct {
 	ctx context.Context
 	ApiService *DataProviderDiscoveryApiService
-	providerId string
+	accountType *string
+	documentType *string
+	organizationCategory *string
+	pageNo *int32
+	pageSize *int32
+	country *string
 }
 
+// Account type.
+func (r ApiGetDataProvidersRequest) AccountType(accountType string) ApiGetDataProvidersRequest {
+	r.accountType = &accountType
+	return r
+}
+// Document type.
+func (r ApiGetDataProvidersRequest) DocumentType(documentType string) ApiGetDataProvidersRequest {
+	r.documentType = &documentType
+	return r
+}
+// Organization category.
+func (r ApiGetDataProvidersRequest) OrganizationCategory(organizationCategory string) ApiGetDataProvidersRequest {
+	r.organizationCategory = &organizationCategory
+	return r
+}
+// Page number.
+func (r ApiGetDataProvidersRequest) PageNo(pageNo int32) ApiGetDataProvidersRequest {
+	r.pageNo = &pageNo
+	return r
+}
+// Page size.
+func (r ApiGetDataProvidersRequest) PageSize(pageSize int32) ApiGetDataProvidersRequest {
+	r.pageSize = &pageSize
+	return r
+}
+// ISO2 Country code.
+func (r ApiGetDataProvidersRequest) Country(country string) ApiGetDataProvidersRequest {
+	r.country = &country
+	return r
+}
 
-func (r ApiV1DataProvidersProviderIdGetRequest) Execute() (*DataProvider, *http.Response, error) {
-	return r.ApiService.V1DataProvidersProviderIdGetExecute(r)
+func (r ApiGetDataProvidersRequest) Execute() (*DataProviderPaginatedList, *http.Response, error) {
+	return r.ApiService.GetDataProvidersExecute(r)
 }
 
 /*
-V1DataProvidersProviderIdGet Get a Data Provider details.
-
-.
+GetDataProviders Discover all data providers in My Data My Consent by country and filters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param providerId Provider Id.
- @return ApiV1DataProvidersProviderIdGetRequest
+ @return ApiGetDataProvidersRequest
 */
-func (a *DataProviderDiscoveryApiService) V1DataProvidersProviderIdGet(ctx context.Context, providerId string) ApiV1DataProvidersProviderIdGetRequest {
-	return ApiV1DataProvidersProviderIdGetRequest{
+func (a *DataProviderDiscoveryApiService) GetDataProviders(ctx context.Context) ApiGetDataProvidersRequest {
+	return ApiGetDataProvidersRequest{
 		ApiService: a,
 		ctx: ctx,
-		providerId: providerId,
 	}
 }
 
 // Execute executes the request
-//  @return DataProvider
-func (a *DataProviderDiscoveryApiService) V1DataProvidersProviderIdGetExecute(r ApiV1DataProvidersProviderIdGetRequest) (*DataProvider, *http.Response, error) {
+//  @return DataProviderPaginatedList
+func (a *DataProviderDiscoveryApiService) GetDataProvidersExecute(r ApiGetDataProvidersRequest) (*DataProviderPaginatedList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DataProvider
+		localVarReturnValue  *DataProviderPaginatedList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataProviderDiscoveryApiService.V1DataProvidersProviderIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataProviderDiscoveryApiService.GetDataProviders")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/data-providers/{providerId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"providerId"+"}", url.PathEscape(parameterToString(r.providerId, "")), -1)
+	localVarPath := localBasePath + "/v1/data-providers"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.accountType != nil {
+		localVarQueryParams.Add("accountType", parameterToString(*r.accountType, ""))
+	}
+	if r.documentType != nil {
+		localVarQueryParams.Add("documentType", parameterToString(*r.documentType, ""))
+	}
+	if r.organizationCategory != nil {
+		localVarQueryParams.Add("organizationCategory", parameterToString(*r.organizationCategory, ""))
+	}
+	if r.pageNo != nil {
+		localVarQueryParams.Add("pageNo", parameterToString(*r.pageNo, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.country != nil {
+		localVarQueryParams.Add("country", parameterToString(*r.country, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

@@ -4,18 +4,216 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**V1DataAgreementsGet**](DataProcessingAgreementsApi.md#V1DataAgreementsGet) | **Get** /v1/data-agreements | Get all data processing agreements.
-[**V1DataAgreementsIdDelete**](DataProcessingAgreementsApi.md#V1DataAgreementsIdDelete) | **Delete** /v1/data-agreements/{id} | Delete a data processing agreement. This will not delete a published or a agreement in use with consents.
-[**V1DataAgreementsIdGet**](DataProcessingAgreementsApi.md#V1DataAgreementsIdGet) | **Get** /v1/data-agreements/{id} | Get data processing agreement by Id.
-[**V1DataAgreementsIdPut**](DataProcessingAgreementsApi.md#V1DataAgreementsIdPut) | **Put** /v1/data-agreements/{id} | Update a data processing agreement.
-[**V1DataAgreementsIdTerminatePut**](DataProcessingAgreementsApi.md#V1DataAgreementsIdTerminatePut) | **Put** /v1/data-agreements/{id}/terminate | Terminate a data processing agreement.
-[**V1DataAgreementsPost**](DataProcessingAgreementsApi.md#V1DataAgreementsPost) | **Post** /v1/data-agreements | Create a data processing agreement.
+[**CreateDataProcessingAgreement**](DataProcessingAgreementsApi.md#CreateDataProcessingAgreement) | **Post** /v1/data-agreements | Create a data processing agreement.
+[**DeleteDataProcessingAgreementById**](DataProcessingAgreementsApi.md#DeleteDataProcessingAgreementById) | **Delete** /v1/data-agreements/{id} | Delete a data processing agreement. This will not delete a published or a agreement in use with consents.
+[**GetDataProcessingAgreementById**](DataProcessingAgreementsApi.md#GetDataProcessingAgreementById) | **Get** /v1/data-agreements/{id} | Get data processing agreement by id.
+[**GetDataProcessingAgreements**](DataProcessingAgreementsApi.md#GetDataProcessingAgreements) | **Get** /v1/data-agreements | Get all data processing agreements.
+[**TerminateDataProcessingAgreementById**](DataProcessingAgreementsApi.md#TerminateDataProcessingAgreementById) | **Put** /v1/data-agreements/{id}/terminate | Terminate a data processing agreement.
+[**UpdateDataProcessingAgreement**](DataProcessingAgreementsApi.md#UpdateDataProcessingAgreement) | **Put** /v1/data-agreements/{id} | Update a data processing agreement.
 
 
 
-## V1DataAgreementsGet
+## CreateDataProcessingAgreement
 
-> DataProcessingAgreementDtoPaginatedList V1DataAgreementsGet(ctx).PageNo(pageNo).PageSize(pageSize).Execute()
+> DataProcessingAgreementDto CreateDataProcessingAgreement(ctx).CreateDataProcessingAgreementRequestModel(createDataProcessingAgreementRequestModel).Execute()
+
+Create a data processing agreement.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    createDataProcessingAgreementRequestModel := *openapiclient.NewCreateDataProcessingAgreementRequestModel("Version_example", "Body_example", "AttachmentUrl_example") // CreateDataProcessingAgreementRequestModel | Create data processing agreement MyDataMyConsent.Models.DataProcessingAgreements.CreateDataProcessingAgreementRequestModel. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DataProcessingAgreementsApi.CreateDataProcessingAgreement(context.Background()).CreateDataProcessingAgreementRequestModel(createDataProcessingAgreementRequestModel).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.CreateDataProcessingAgreement``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateDataProcessingAgreement`: DataProcessingAgreementDto
+    fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.CreateDataProcessingAgreement`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateDataProcessingAgreementRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createDataProcessingAgreementRequestModel** | [**CreateDataProcessingAgreementRequestModel**](CreateDataProcessingAgreementRequestModel.md) | Create data processing agreement MyDataMyConsent.Models.DataProcessingAgreements.CreateDataProcessingAgreementRequestModel. | 
+
+### Return type
+
+[**DataProcessingAgreementDto**](DataProcessingAgreementDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteDataProcessingAgreementById
+
+> DeleteDataProcessingAgreementById(ctx, id).Execute()
+
+Delete a data processing agreement. This will not delete a published or a agreement in use with consents.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Agreement id.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DataProcessingAgreementsApi.DeleteDataProcessingAgreementById(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.DeleteDataProcessingAgreementById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Agreement id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteDataProcessingAgreementByIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetDataProcessingAgreementById
+
+> DataProcessingAgreementDto GetDataProcessingAgreementById(ctx, id).Execute()
+
+Get data processing agreement by id.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Agreement id.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DataProcessingAgreementsApi.GetDataProcessingAgreementById(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.GetDataProcessingAgreementById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetDataProcessingAgreementById`: DataProcessingAgreementDto
+    fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.GetDataProcessingAgreementById`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Agreement id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDataProcessingAgreementByIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**DataProcessingAgreementDto**](DataProcessingAgreementDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetDataProcessingAgreements
+
+> DataProcessingAgreementDtoPaginatedList GetDataProcessingAgreements(ctx).PageNo(pageNo).PageSize(pageSize).Execute()
 
 Get all data processing agreements.
 
@@ -37,13 +235,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataProcessingAgreementsApi.V1DataAgreementsGet(context.Background()).PageNo(pageNo).PageSize(pageSize).Execute()
+    resp, r, err := apiClient.DataProcessingAgreementsApi.GetDataProcessingAgreements(context.Background()).PageNo(pageNo).PageSize(pageSize).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.V1DataAgreementsGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.GetDataProcessingAgreements``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `V1DataAgreementsGet`: DataProcessingAgreementDtoPaginatedList
-    fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.V1DataAgreementsGet`: %v\n", resp)
+    // response from `GetDataProcessingAgreements`: DataProcessingAgreementDtoPaginatedList
+    fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.GetDataProcessingAgreements`: %v\n", resp)
 }
 ```
 
@@ -53,7 +251,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiV1DataAgreementsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetDataProcessingAgreementsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -79,213 +277,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## V1DataAgreementsIdDelete
+## TerminateDataProcessingAgreementById
 
-> V1DataAgreementsIdDelete(ctx, id).Execute()
-
-Delete a data processing agreement. This will not delete a published or a agreement in use with consents.
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataProcessingAgreementsApi.V1DataAgreementsIdDelete(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.V1DataAgreementsIdDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiV1DataAgreementsIdDeleteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## V1DataAgreementsIdGet
-
-> DataProcessingAgreementDto V1DataAgreementsIdGet(ctx, id).Execute()
-
-Get data processing agreement by Id.
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataProcessingAgreementsApi.V1DataAgreementsIdGet(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.V1DataAgreementsIdGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `V1DataAgreementsIdGet`: DataProcessingAgreementDto
-    fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.V1DataAgreementsIdGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiV1DataAgreementsIdGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**DataProcessingAgreementDto**](DataProcessingAgreementDto.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## V1DataAgreementsIdPut
-
-> DataProcessingAgreementDto V1DataAgreementsIdPut(ctx, id).UpdateDataProcessingAgreementRequestModel(updateDataProcessingAgreementRequestModel).Execute()
-
-Update a data processing agreement.
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    updateDataProcessingAgreementRequestModel := *openapiclient.NewUpdateDataProcessingAgreementRequestModel("Version_example", "Body_example", "AttachmentUrl_example") // UpdateDataProcessingAgreementRequestModel |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataProcessingAgreementsApi.V1DataAgreementsIdPut(context.Background(), id).UpdateDataProcessingAgreementRequestModel(updateDataProcessingAgreementRequestModel).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.V1DataAgreementsIdPut``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `V1DataAgreementsIdPut`: DataProcessingAgreementDto
-    fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.V1DataAgreementsIdPut`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiV1DataAgreementsIdPutRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **updateDataProcessingAgreementRequestModel** | [**UpdateDataProcessingAgreementRequestModel**](UpdateDataProcessingAgreementRequestModel.md) |  | 
-
-### Return type
-
-[**DataProcessingAgreementDto**](DataProcessingAgreementDto.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## V1DataAgreementsIdTerminatePut
-
-> V1DataAgreementsIdTerminatePut(ctx, id).Execute()
+> TerminateDataProcessingAgreementById(ctx, id).Execute()
 
 Terminate a data processing agreement.
 
@@ -302,13 +296,13 @@ import (
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Agreement id.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataProcessingAgreementsApi.V1DataAgreementsIdTerminatePut(context.Background(), id).Execute()
+    resp, r, err := apiClient.DataProcessingAgreementsApi.TerminateDataProcessingAgreementById(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.V1DataAgreementsIdTerminatePut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.TerminateDataProcessingAgreementById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -320,11 +314,11 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
+**id** | **string** | Agreement id. | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiV1DataAgreementsIdTerminatePutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiTerminateDataProcessingAgreementByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -349,11 +343,11 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## V1DataAgreementsPost
+## UpdateDataProcessingAgreement
 
-> DataProcessingAgreementDto V1DataAgreementsPost(ctx).CreateDataProcessingAgreementRequestModel(createDataProcessingAgreementRequestModel).Execute()
+> DataProcessingAgreementDto UpdateDataProcessingAgreement(ctx, id).UpdateDataProcessingAgreementRequestModel(updateDataProcessingAgreementRequestModel).Execute()
 
-Create a data processing agreement.
+Update a data processing agreement.
 
 ### Example
 
@@ -368,32 +362,38 @@ import (
 )
 
 func main() {
-    createDataProcessingAgreementRequestModel := *openapiclient.NewCreateDataProcessingAgreementRequestModel("Version_example", "Body_example", "AttachmentUrl_example") // CreateDataProcessingAgreementRequestModel |  (optional)
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Agreement id.
+    updateDataProcessingAgreementRequestModel := *openapiclient.NewUpdateDataProcessingAgreementRequestModel("Version_example", "Body_example", "AttachmentUrl_example") // UpdateDataProcessingAgreementRequestModel | Updated data processing agreement MyDataMyConsent.Models.DataProcessingAgreements.UpdateDataProcessingAgreementRequestModel. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataProcessingAgreementsApi.V1DataAgreementsPost(context.Background()).CreateDataProcessingAgreementRequestModel(createDataProcessingAgreementRequestModel).Execute()
+    resp, r, err := apiClient.DataProcessingAgreementsApi.UpdateDataProcessingAgreement(context.Background(), id).UpdateDataProcessingAgreementRequestModel(updateDataProcessingAgreementRequestModel).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.V1DataAgreementsPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.UpdateDataProcessingAgreement``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `V1DataAgreementsPost`: DataProcessingAgreementDto
-    fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.V1DataAgreementsPost`: %v\n", resp)
+    // response from `UpdateDataProcessingAgreement`: DataProcessingAgreementDto
+    fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.UpdateDataProcessingAgreement`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Agreement id. | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiV1DataAgreementsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateDataProcessingAgreementRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createDataProcessingAgreementRequestModel** | [**CreateDataProcessingAgreementRequestModel**](CreateDataProcessingAgreementRequestModel.md) |  | 
+
+ **updateDataProcessingAgreementRequestModel** | [**UpdateDataProcessingAgreementRequestModel**](UpdateDataProcessingAgreementRequestModel.md) | Updated data processing agreement MyDataMyConsent.Models.DataProcessingAgreements.UpdateDataProcessingAgreementRequestModel. | 
 
 ### Return type
 

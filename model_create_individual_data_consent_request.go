@@ -15,32 +15,32 @@ import (
 	"encoding/json"
 )
 
-// DataConsentRequestModel struct for DataConsentRequestModel
-type DataConsentRequestModel struct {
+// CreateIndividualDataConsentRequest Individual Data Consent Request.
+type CreateIndividualDataConsentRequest struct {
 	ConsentTemplateId *string `json:"consentTemplateId,omitempty"`
 	Receiver Receiver `json:"receiver"`
 }
 
-// NewDataConsentRequestModel instantiates a new DataConsentRequestModel object
+// NewCreateIndividualDataConsentRequest instantiates a new CreateIndividualDataConsentRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDataConsentRequestModel(receiver Receiver) *DataConsentRequestModel {
-	this := DataConsentRequestModel{}
+func NewCreateIndividualDataConsentRequest(receiver Receiver) *CreateIndividualDataConsentRequest {
+	this := CreateIndividualDataConsentRequest{}
 	this.Receiver = receiver
 	return &this
 }
 
-// NewDataConsentRequestModelWithDefaults instantiates a new DataConsentRequestModel object
+// NewCreateIndividualDataConsentRequestWithDefaults instantiates a new CreateIndividualDataConsentRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewDataConsentRequestModelWithDefaults() *DataConsentRequestModel {
-	this := DataConsentRequestModel{}
+func NewCreateIndividualDataConsentRequestWithDefaults() *CreateIndividualDataConsentRequest {
+	this := CreateIndividualDataConsentRequest{}
 	return &this
 }
 
 // GetConsentTemplateId returns the ConsentTemplateId field value if set, zero value otherwise.
-func (o *DataConsentRequestModel) GetConsentTemplateId() string {
+func (o *CreateIndividualDataConsentRequest) GetConsentTemplateId() string {
 	if o == nil || o.ConsentTemplateId == nil {
 		var ret string
 		return ret
@@ -50,7 +50,7 @@ func (o *DataConsentRequestModel) GetConsentTemplateId() string {
 
 // GetConsentTemplateIdOk returns a tuple with the ConsentTemplateId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DataConsentRequestModel) GetConsentTemplateIdOk() (*string, bool) {
+func (o *CreateIndividualDataConsentRequest) GetConsentTemplateIdOk() (*string, bool) {
 	if o == nil || o.ConsentTemplateId == nil {
 		return nil, false
 	}
@@ -58,7 +58,7 @@ func (o *DataConsentRequestModel) GetConsentTemplateIdOk() (*string, bool) {
 }
 
 // HasConsentTemplateId returns a boolean if a field has been set.
-func (o *DataConsentRequestModel) HasConsentTemplateId() bool {
+func (o *CreateIndividualDataConsentRequest) HasConsentTemplateId() bool {
 	if o != nil && o.ConsentTemplateId != nil {
 		return true
 	}
@@ -67,12 +67,12 @@ func (o *DataConsentRequestModel) HasConsentTemplateId() bool {
 }
 
 // SetConsentTemplateId gets a reference to the given string and assigns it to the ConsentTemplateId field.
-func (o *DataConsentRequestModel) SetConsentTemplateId(v string) {
+func (o *CreateIndividualDataConsentRequest) SetConsentTemplateId(v string) {
 	o.ConsentTemplateId = &v
 }
 
 // GetReceiver returns the Receiver field value
-func (o *DataConsentRequestModel) GetReceiver() Receiver {
+func (o *CreateIndividualDataConsentRequest) GetReceiver() Receiver {
 	if o == nil {
 		var ret Receiver
 		return ret
@@ -83,7 +83,7 @@ func (o *DataConsentRequestModel) GetReceiver() Receiver {
 
 // GetReceiverOk returns a tuple with the Receiver field value
 // and a boolean to check if the value has been set.
-func (o *DataConsentRequestModel) GetReceiverOk() (*Receiver, bool) {
+func (o *CreateIndividualDataConsentRequest) GetReceiverOk() (*Receiver, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -91,11 +91,11 @@ func (o *DataConsentRequestModel) GetReceiverOk() (*Receiver, bool) {
 }
 
 // SetReceiver sets field value
-func (o *DataConsentRequestModel) SetReceiver(v Receiver) {
+func (o *CreateIndividualDataConsentRequest) SetReceiver(v Receiver) {
 	o.Receiver = v
 }
 
-func (o DataConsentRequestModel) MarshalJSON() ([]byte, error) {
+func (o CreateIndividualDataConsentRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.ConsentTemplateId != nil {
 		toSerialize["consentTemplateId"] = o.ConsentTemplateId
@@ -106,38 +106,38 @@ func (o DataConsentRequestModel) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableDataConsentRequestModel struct {
-	value *DataConsentRequestModel
+type NullableCreateIndividualDataConsentRequest struct {
+	value *CreateIndividualDataConsentRequest
 	isSet bool
 }
 
-func (v NullableDataConsentRequestModel) Get() *DataConsentRequestModel {
+func (v NullableCreateIndividualDataConsentRequest) Get() *CreateIndividualDataConsentRequest {
 	return v.value
 }
 
-func (v *NullableDataConsentRequestModel) Set(val *DataConsentRequestModel) {
+func (v *NullableCreateIndividualDataConsentRequest) Set(val *CreateIndividualDataConsentRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableDataConsentRequestModel) IsSet() bool {
+func (v NullableCreateIndividualDataConsentRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableDataConsentRequestModel) Unset() {
+func (v *NullableCreateIndividualDataConsentRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableDataConsentRequestModel(val *DataConsentRequestModel) *NullableDataConsentRequestModel {
-	return &NullableDataConsentRequestModel{value: val, isSet: true}
+func NewNullableCreateIndividualDataConsentRequest(val *CreateIndividualDataConsentRequest) *NullableCreateIndividualDataConsentRequest {
+	return &NullableCreateIndividualDataConsentRequest{value: val, isSet: true}
 }
 
-func (v NullableDataConsentRequestModel) MarshalJSON() ([]byte, error) {
+func (v NullableCreateIndividualDataConsentRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableDataConsentRequestModel) UnmarshalJSON(src []byte) error {
+func (v *NullableCreateIndividualDataConsentRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
