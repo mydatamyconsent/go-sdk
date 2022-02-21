@@ -743,8 +743,8 @@ func main() {
     filters := "filters_example" // string | Filters. (optional)
     fromDateTimeUtc := time.Now() // time.Time | From date time in utc timezone. (optional)
     toDateTimeUtc := time.Now() // time.Time | Til date time in utc timezone. (optional)
-    pageNo := int32(56) // int32 | Page no. (optional) (default to 10)
-    pageSize := int32(56) // int32 | Page size. (optional) (default to 25)
+    pageNo := int32(56) // int32 | Page number. (optional) (default to 10)
+    pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -779,8 +779,8 @@ Name | Type | Description  | Notes
  **filters** | **string** | Filters. | 
  **fromDateTimeUtc** | **time.Time** | From date time in utc timezone. | 
  **toDateTimeUtc** | **time.Time** | Til date time in utc timezone. | 
- **pageNo** | **int32** | Page no. | [default to 10]
- **pageSize** | **int32** | Page size. | [default to 25]
+ **pageNo** | **int32** | Page number. | [default to 10]
+ **pageSize** | **int32** | Number of items to return. | [default to 25]
 
 ### Return type
 
@@ -824,7 +824,7 @@ func main() {
     from := time.Now() // time.Time | From date time in utc timezone. (optional)
     to := time.Now() // time.Time | Til date time in utc timezone. (optional)
     pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
-    pageSize := int32(56) // int32 | Page size. (optional) (default to 25)
+    pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -853,7 +853,7 @@ Name | Type | Description  | Notes
  **from** | **time.Time** | From date time in utc timezone. | 
  **to** | **time.Time** | Til date time in utc timezone. | 
  **pageNo** | **int32** | Page number. | [default to 1]
- **pageSize** | **int32** | Page size. | [default to 25]
+ **pageSize** | **int32** | Number of items to return. | [default to 25]
 
 ### Return type
 
@@ -897,7 +897,7 @@ func main() {
     from := time.Now() // time.Time | From date time in utc timezone. (optional)
     to := time.Now() // time.Time | Til date time in utc timezone. (optional)
     pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
-    pageSize := int32(56) // int32 | Page size. (optional) (default to 25)
+    pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -926,7 +926,7 @@ Name | Type | Description  | Notes
  **from** | **time.Time** | From date time in utc timezone. | 
  **to** | **time.Time** | Til date time in utc timezone. | 
  **pageNo** | **int32** | Page number. | [default to 1]
- **pageSize** | **int32** | Page size. | [default to 25]
+ **pageSize** | **int32** | Number of items to return. | [default to 25]
 
 ### Return type
 
@@ -971,8 +971,8 @@ func main() {
     filters := "filters_example" // string | Filters. (optional)
     fromDateTimeUtc := time.Now() // time.Time | From date time in utc timezone. (optional)
     toDateTimeUtc := time.Now() // time.Time | Til date time in utc timezone. (optional)
-    pageNo := int32(56) // int32 | Page no. (optional) (default to 1)
-    pageSize := int32(56) // int32 | Page size. (optional) (default to 25)
+    pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
+    pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1007,8 +1007,8 @@ Name | Type | Description  | Notes
  **filters** | **string** | Filters. | 
  **fromDateTimeUtc** | **time.Time** | From date time in utc timezone. | 
  **toDateTimeUtc** | **time.Time** | Til date time in utc timezone. | 
- **pageNo** | **int32** | Page no. | [default to 1]
- **pageSize** | **int32** | Page size. | [default to 25]
+ **pageNo** | **int32** | Page number. | [default to 1]
+ **pageSize** | **int32** | Number of items to return. | [default to 25]
 
 ### Return type
 

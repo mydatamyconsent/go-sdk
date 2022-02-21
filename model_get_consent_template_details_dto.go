@@ -29,10 +29,15 @@ type GetConsentTemplateDetailsDto struct {
 	CreatedAtUtc *time.Time `json:"createdAtUtc,omitempty"`
 	Status NullableString `json:"status,omitempty"`
 	TemplateType *ConsentTemplateTypes `json:"templateType,omitempty"`
+	DataLife *Life `json:"dataLife,omitempty"`
+	RequestLife *Life `json:"requestLife,omitempty"`
 	Frequency *Life `json:"frequency,omitempty"`
 	Identity []IdentitySupportedFields `json:"identity,omitempty"`
 	Documents []Document `json:"documents,omitempty"`
 	Financials []Financial `json:"financials,omitempty"`
+	HealthRecords []map[string]interface{} `json:"healthRecords,omitempty"`
+	ApprovedBy NullableString `json:"approvedBy,omitempty"`
+	ApprovedAtUtc NullableTime `json:"approvedAtUtc,omitempty"`
 }
 
 // NewGetConsentTemplateDetailsDto instantiates a new GetConsentTemplateDetailsDto object
@@ -465,6 +470,70 @@ func (o *GetConsentTemplateDetailsDto) SetTemplateType(v ConsentTemplateTypes) {
 	o.TemplateType = &v
 }
 
+// GetDataLife returns the DataLife field value if set, zero value otherwise.
+func (o *GetConsentTemplateDetailsDto) GetDataLife() Life {
+	if o == nil || o.DataLife == nil {
+		var ret Life
+		return ret
+	}
+	return *o.DataLife
+}
+
+// GetDataLifeOk returns a tuple with the DataLife field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetConsentTemplateDetailsDto) GetDataLifeOk() (*Life, bool) {
+	if o == nil || o.DataLife == nil {
+		return nil, false
+	}
+	return o.DataLife, true
+}
+
+// HasDataLife returns a boolean if a field has been set.
+func (o *GetConsentTemplateDetailsDto) HasDataLife() bool {
+	if o != nil && o.DataLife != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDataLife gets a reference to the given Life and assigns it to the DataLife field.
+func (o *GetConsentTemplateDetailsDto) SetDataLife(v Life) {
+	o.DataLife = &v
+}
+
+// GetRequestLife returns the RequestLife field value if set, zero value otherwise.
+func (o *GetConsentTemplateDetailsDto) GetRequestLife() Life {
+	if o == nil || o.RequestLife == nil {
+		var ret Life
+		return ret
+	}
+	return *o.RequestLife
+}
+
+// GetRequestLifeOk returns a tuple with the RequestLife field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetConsentTemplateDetailsDto) GetRequestLifeOk() (*Life, bool) {
+	if o == nil || o.RequestLife == nil {
+		return nil, false
+	}
+	return o.RequestLife, true
+}
+
+// HasRequestLife returns a boolean if a field has been set.
+func (o *GetConsentTemplateDetailsDto) HasRequestLife() bool {
+	if o != nil && o.RequestLife != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRequestLife gets a reference to the given Life and assigns it to the RequestLife field.
+func (o *GetConsentTemplateDetailsDto) SetRequestLife(v Life) {
+	o.RequestLife = &v
+}
+
 // GetFrequency returns the Frequency field value if set, zero value otherwise.
 func (o *GetConsentTemplateDetailsDto) GetFrequency() Life {
 	if o == nil || o.Frequency == nil {
@@ -596,6 +665,123 @@ func (o *GetConsentTemplateDetailsDto) SetFinancials(v []Financial) {
 	o.Financials = v
 }
 
+// GetHealthRecords returns the HealthRecords field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetConsentTemplateDetailsDto) GetHealthRecords() []map[string]interface{} {
+	if o == nil  {
+		var ret []map[string]interface{}
+		return ret
+	}
+	return o.HealthRecords
+}
+
+// GetHealthRecordsOk returns a tuple with the HealthRecords field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetConsentTemplateDetailsDto) GetHealthRecordsOk() ([]map[string]interface{}, bool) {
+	if o == nil || o.HealthRecords == nil {
+		return nil, false
+	}
+	return o.HealthRecords, true
+}
+
+// HasHealthRecords returns a boolean if a field has been set.
+func (o *GetConsentTemplateDetailsDto) HasHealthRecords() bool {
+	if o != nil && o.HealthRecords != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetHealthRecords gets a reference to the given []map[string]interface{} and assigns it to the HealthRecords field.
+func (o *GetConsentTemplateDetailsDto) SetHealthRecords(v []map[string]interface{}) {
+	o.HealthRecords = v
+}
+
+// GetApprovedBy returns the ApprovedBy field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetConsentTemplateDetailsDto) GetApprovedBy() string {
+	if o == nil || o.ApprovedBy.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.ApprovedBy.Get()
+}
+
+// GetApprovedByOk returns a tuple with the ApprovedBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetConsentTemplateDetailsDto) GetApprovedByOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.ApprovedBy.Get(), o.ApprovedBy.IsSet()
+}
+
+// HasApprovedBy returns a boolean if a field has been set.
+func (o *GetConsentTemplateDetailsDto) HasApprovedBy() bool {
+	if o != nil && o.ApprovedBy.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetApprovedBy gets a reference to the given NullableString and assigns it to the ApprovedBy field.
+func (o *GetConsentTemplateDetailsDto) SetApprovedBy(v string) {
+	o.ApprovedBy.Set(&v)
+}
+// SetApprovedByNil sets the value for ApprovedBy to be an explicit nil
+func (o *GetConsentTemplateDetailsDto) SetApprovedByNil() {
+	o.ApprovedBy.Set(nil)
+}
+
+// UnsetApprovedBy ensures that no value is present for ApprovedBy, not even an explicit nil
+func (o *GetConsentTemplateDetailsDto) UnsetApprovedBy() {
+	o.ApprovedBy.Unset()
+}
+
+// GetApprovedAtUtc returns the ApprovedAtUtc field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetConsentTemplateDetailsDto) GetApprovedAtUtc() time.Time {
+	if o == nil || o.ApprovedAtUtc.Get() == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.ApprovedAtUtc.Get()
+}
+
+// GetApprovedAtUtcOk returns a tuple with the ApprovedAtUtc field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetConsentTemplateDetailsDto) GetApprovedAtUtcOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.ApprovedAtUtc.Get(), o.ApprovedAtUtc.IsSet()
+}
+
+// HasApprovedAtUtc returns a boolean if a field has been set.
+func (o *GetConsentTemplateDetailsDto) HasApprovedAtUtc() bool {
+	if o != nil && o.ApprovedAtUtc.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetApprovedAtUtc gets a reference to the given NullableTime and assigns it to the ApprovedAtUtc field.
+func (o *GetConsentTemplateDetailsDto) SetApprovedAtUtc(v time.Time) {
+	o.ApprovedAtUtc.Set(&v)
+}
+// SetApprovedAtUtcNil sets the value for ApprovedAtUtc to be an explicit nil
+func (o *GetConsentTemplateDetailsDto) SetApprovedAtUtcNil() {
+	o.ApprovedAtUtc.Set(nil)
+}
+
+// UnsetApprovedAtUtc ensures that no value is present for ApprovedAtUtc, not even an explicit nil
+func (o *GetConsentTemplateDetailsDto) UnsetApprovedAtUtc() {
+	o.ApprovedAtUtc.Unset()
+}
+
 func (o GetConsentTemplateDetailsDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
@@ -631,6 +817,12 @@ func (o GetConsentTemplateDetailsDto) MarshalJSON() ([]byte, error) {
 	if o.TemplateType != nil {
 		toSerialize["templateType"] = o.TemplateType
 	}
+	if o.DataLife != nil {
+		toSerialize["dataLife"] = o.DataLife
+	}
+	if o.RequestLife != nil {
+		toSerialize["requestLife"] = o.RequestLife
+	}
 	if o.Frequency != nil {
 		toSerialize["frequency"] = o.Frequency
 	}
@@ -642,6 +834,15 @@ func (o GetConsentTemplateDetailsDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.Financials != nil {
 		toSerialize["financials"] = o.Financials
+	}
+	if o.HealthRecords != nil {
+		toSerialize["healthRecords"] = o.HealthRecords
+	}
+	if o.ApprovedBy.IsSet() {
+		toSerialize["approvedBy"] = o.ApprovedBy.Get()
+	}
+	if o.ApprovedAtUtc.IsSet() {
+		toSerialize["approvedAtUtc"] = o.ApprovedAtUtc.Get()
 	}
 	return json.Marshal(toSerialize)
 }

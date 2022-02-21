@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** |  | [optional] 
 **LogoUrl** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
+**Location** | Pointer to **NullableString** |  | [optional] 
 **Website** | Pointer to **NullableString** |  | [optional] 
 **SupportEmail** | Pointer to **NullableString** |  | [optional] 
 **HelpLineNumber** | Pointer to **NullableString** |  | [optional] 
@@ -135,6 +136,41 @@ HasDescription returns a boolean if a field has been set.
 `func (o *DataConsentRequesterDto) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetLocation
+
+`func (o *DataConsentRequesterDto) GetLocation() string`
+
+GetLocation returns the Location field if non-nil, zero value otherwise.
+
+### GetLocationOk
+
+`func (o *DataConsentRequesterDto) GetLocationOk() (*string, bool)`
+
+GetLocationOk returns a tuple with the Location field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLocation
+
+`func (o *DataConsentRequesterDto) SetLocation(v string)`
+
+SetLocation sets Location field to given value.
+
+### HasLocation
+
+`func (o *DataConsentRequesterDto) HasLocation() bool`
+
+HasLocation returns a boolean if a field has been set.
+
+### SetLocationNil
+
+`func (o *DataConsentRequesterDto) SetLocationNil(b bool)`
+
+ SetLocationNil sets the value for Location to be an explicit nil
+
+### UnsetLocation
+`func (o *DataConsentRequesterDto) UnsetLocation()`
+
+UnsetLocation ensures that no value is present for Location, not even an explicit nil
 ### GetWebsite
 
 `func (o *DataConsentRequesterDto) GetWebsite() string`

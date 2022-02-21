@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## GetIssuedDocumentById
 
-> GetIssuedDocumentById(ctx, documentId).Execute()
+> IssuedDocument GetIssuedDocumentById(ctx, documentId).Execute()
 
 Get issued document.
 
@@ -39,6 +39,8 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.GetIssuedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `GetIssuedDocumentById`: IssuedDocument
+    fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.GetIssuedDocumentById`: %v\n", resp)
 }
 ```
 
@@ -61,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**IssuedDocument**](IssuedDocument.md)
 
 ### Authorization
 
@@ -70,7 +72,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -79,7 +81,7 @@ No authorization required
 
 ## GetIssuedDocuments
 
-> GetIssuedDocuments(ctx).DocumentTypeId(documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageSize(pageSize).PageNo(pageNo).Execute()
+> IssuedDocumentPaginatedList GetIssuedDocuments(ctx).DocumentTypeId(documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageSize(pageSize).PageNo(pageNo).Execute()
 
 Get issued documents.
 
@@ -110,6 +112,8 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.GetIssuedDocuments``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `GetIssuedDocuments`: IssuedDocumentPaginatedList
+    fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.GetIssuedDocuments`: %v\n", resp)
 }
 ```
 
@@ -132,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**IssuedDocumentPaginatedList**](IssuedDocumentPaginatedList.md)
 
 ### Authorization
 
@@ -141,7 +145,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -150,7 +154,7 @@ No authorization required
 
 ## GetRegisteredDocumentTypes
 
-> GetRegisteredDocumentTypes(ctx).PageSize(pageSize).PageNo(pageNo).Execute()
+> DocumentTypeDetailsDtoPaginatedList GetRegisteredDocumentTypes(ctx).PageNo(pageNo).PageSize(pageSize).Execute()
 
 Get registered document types.
 
@@ -167,16 +171,18 @@ import (
 )
 
 func main() {
-    pageSize := int32(56) // int32 |  (optional) (default to 25)
-    pageNo := int32(56) // int32 |  (optional) (default to 1)
+    pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
+    pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DocumentsApi.GetRegisteredDocumentTypes(context.Background()).PageSize(pageSize).PageNo(pageNo).Execute()
+    resp, r, err := apiClient.DocumentsApi.GetRegisteredDocumentTypes(context.Background()).PageNo(pageNo).PageSize(pageSize).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.GetRegisteredDocumentTypes``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `GetRegisteredDocumentTypes`: DocumentTypeDetailsDtoPaginatedList
+    fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.GetRegisteredDocumentTypes`: %v\n", resp)
 }
 ```
 
@@ -191,12 +197,12 @@ Other parameters are passed through a pointer to a apiGetRegisteredDocumentTypes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **int32** |  | [default to 25]
- **pageNo** | **int32** |  | [default to 1]
+ **pageNo** | **int32** | Page number. | [default to 1]
+ **pageSize** | **int32** | Number of items to return. | [default to 25]
 
 ### Return type
 
- (empty response body)
+[**DocumentTypeDetailsDtoPaginatedList**](DocumentTypeDetailsDtoPaginatedList.md)
 
 ### Authorization
 
@@ -205,7 +211,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -214,7 +220,7 @@ No authorization required
 
 ## IssueDocument
 
-> bool IssueDocument(ctx).DocumentIssueRequest(documentIssueRequest).Execute()
+> IssuedDocument IssueDocument(ctx).DocumentIssueRequest(documentIssueRequest).Execute()
 
 Issue a new document.
 
@@ -240,7 +246,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.IssueDocument``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `IssueDocument`: bool
+    // response from `IssueDocument`: IssuedDocument
     fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.IssueDocument`: %v\n", resp)
 }
 ```
@@ -260,7 +266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**bool**
+[**IssuedDocument**](IssuedDocument.md)
 
 ### Authorization
 

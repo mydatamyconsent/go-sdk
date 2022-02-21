@@ -36,7 +36,7 @@ type ApiGetIssuedDocumentByIdRequest struct {
 }
 
 
-func (r ApiGetIssuedDocumentByIdRequest) Execute() (*http.Response, error) {
+func (r ApiGetIssuedDocumentByIdRequest) Execute() (*IssuedDocument, *http.Response, error) {
 	return r.ApiService.GetIssuedDocumentByIdExecute(r)
 }
 
@@ -56,16 +56,18 @@ func (a *DocumentsApiService) GetIssuedDocumentById(ctx context.Context, documen
 }
 
 // Execute executes the request
-func (a *DocumentsApiService) GetIssuedDocumentByIdExecute(r ApiGetIssuedDocumentByIdRequest) (*http.Response, error) {
+//  @return IssuedDocument
+func (a *DocumentsApiService) GetIssuedDocumentByIdExecute(r ApiGetIssuedDocumentByIdRequest) (*IssuedDocument, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
+		localVarReturnValue  *IssuedDocument
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.GetIssuedDocumentById")
 	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/v1/documents/issued/{documentId}"
@@ -85,7 +87,7 @@ func (a *DocumentsApiService) GetIssuedDocumentByIdExecute(r ApiGetIssuedDocumen
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -94,19 +96,19 @@ func (a *DocumentsApiService) GetIssuedDocumentByIdExecute(r ApiGetIssuedDocumen
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -114,10 +116,46 @@ func (a *DocumentsApiService) GetIssuedDocumentByIdExecute(r ApiGetIssuedDocumen
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiGetIssuedDocumentsRequest struct {
@@ -151,7 +189,7 @@ func (r ApiGetIssuedDocumentsRequest) PageNo(pageNo int32) ApiGetIssuedDocuments
 	return r
 }
 
-func (r ApiGetIssuedDocumentsRequest) Execute() (*http.Response, error) {
+func (r ApiGetIssuedDocumentsRequest) Execute() (*IssuedDocumentPaginatedList, *http.Response, error) {
 	return r.ApiService.GetIssuedDocumentsExecute(r)
 }
 
@@ -169,16 +207,18 @@ func (a *DocumentsApiService) GetIssuedDocuments(ctx context.Context) ApiGetIssu
 }
 
 // Execute executes the request
-func (a *DocumentsApiService) GetIssuedDocumentsExecute(r ApiGetIssuedDocumentsRequest) (*http.Response, error) {
+//  @return IssuedDocumentPaginatedList
+func (a *DocumentsApiService) GetIssuedDocumentsExecute(r ApiGetIssuedDocumentsRequest) (*IssuedDocumentPaginatedList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
+		localVarReturnValue  *IssuedDocumentPaginatedList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.GetIssuedDocuments")
 	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/v1/documents/issued"
@@ -212,7 +252,7 @@ func (a *DocumentsApiService) GetIssuedDocumentsExecute(r ApiGetIssuedDocumentsR
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -221,19 +261,19 @@ func (a *DocumentsApiService) GetIssuedDocumentsExecute(r ApiGetIssuedDocumentsR
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -241,29 +281,57 @@ func (a *DocumentsApiService) GetIssuedDocumentsExecute(r ApiGetIssuedDocumentsR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiGetRegisteredDocumentTypesRequest struct {
 	ctx context.Context
 	ApiService *DocumentsApiService
-	pageSize *int32
 	pageNo *int32
+	pageSize *int32
 }
 
-func (r ApiGetRegisteredDocumentTypesRequest) PageSize(pageSize int32) ApiGetRegisteredDocumentTypesRequest {
-	r.pageSize = &pageSize
-	return r
-}
+// Page number.
 func (r ApiGetRegisteredDocumentTypesRequest) PageNo(pageNo int32) ApiGetRegisteredDocumentTypesRequest {
 	r.pageNo = &pageNo
 	return r
 }
+// Number of items to return.
+func (r ApiGetRegisteredDocumentTypesRequest) PageSize(pageSize int32) ApiGetRegisteredDocumentTypesRequest {
+	r.pageSize = &pageSize
+	return r
+}
 
-func (r ApiGetRegisteredDocumentTypesRequest) Execute() (*http.Response, error) {
+func (r ApiGetRegisteredDocumentTypesRequest) Execute() (*DocumentTypeDetailsDtoPaginatedList, *http.Response, error) {
 	return r.ApiService.GetRegisteredDocumentTypesExecute(r)
 }
 
@@ -281,16 +349,18 @@ func (a *DocumentsApiService) GetRegisteredDocumentTypes(ctx context.Context) Ap
 }
 
 // Execute executes the request
-func (a *DocumentsApiService) GetRegisteredDocumentTypesExecute(r ApiGetRegisteredDocumentTypesRequest) (*http.Response, error) {
+//  @return DocumentTypeDetailsDtoPaginatedList
+func (a *DocumentsApiService) GetRegisteredDocumentTypesExecute(r ApiGetRegisteredDocumentTypesRequest) (*DocumentTypeDetailsDtoPaginatedList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
+		localVarReturnValue  *DocumentTypeDetailsDtoPaginatedList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.GetRegisteredDocumentTypes")
 	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/v1/documents/types"
@@ -299,11 +369,11 @@ func (a *DocumentsApiService) GetRegisteredDocumentTypesExecute(r ApiGetRegister
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
 	if r.pageNo != nil {
 		localVarQueryParams.Add("pageNo", parameterToString(*r.pageNo, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -315,7 +385,7 @@ func (a *DocumentsApiService) GetRegisteredDocumentTypesExecute(r ApiGetRegister
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -324,19 +394,19 @@ func (a *DocumentsApiService) GetRegisteredDocumentTypesExecute(r ApiGetRegister
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -344,10 +414,36 @@ func (a *DocumentsApiService) GetRegisteredDocumentTypesExecute(r ApiGetRegister
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiIssueDocumentRequest struct {
@@ -362,7 +458,7 @@ func (r ApiIssueDocumentRequest) DocumentIssueRequest(documentIssueRequest Docum
 	return r
 }
 
-func (r ApiIssueDocumentRequest) Execute() (bool, *http.Response, error) {
+func (r ApiIssueDocumentRequest) Execute() (*IssuedDocument, *http.Response, error) {
 	return r.ApiService.IssueDocumentExecute(r)
 }
 
@@ -380,13 +476,13 @@ func (a *DocumentsApiService) IssueDocument(ctx context.Context) ApiIssueDocumen
 }
 
 // Execute executes the request
-//  @return bool
-func (a *DocumentsApiService) IssueDocumentExecute(r ApiIssueDocumentRequest) (bool, *http.Response, error) {
+//  @return IssuedDocument
+func (a *DocumentsApiService) IssueDocumentExecute(r ApiIssueDocumentRequest) (*IssuedDocument, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  bool
+		localVarReturnValue  *IssuedDocument
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.IssueDocument")

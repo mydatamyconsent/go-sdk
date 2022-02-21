@@ -1166,12 +1166,12 @@ func (r ApiGetConsentedFinancialAccountTransactionsRequest) ToDateTimeUtc(toDate
 	r.toDateTimeUtc = &toDateTimeUtc
 	return r
 }
-// Page no.
+// Page number.
 func (r ApiGetConsentedFinancialAccountTransactionsRequest) PageNo(pageNo int32) ApiGetConsentedFinancialAccountTransactionsRequest {
 	r.pageNo = &pageNo
 	return r
 }
-// Page size.
+// Number of items to return.
 func (r ApiGetConsentedFinancialAccountTransactionsRequest) PageSize(pageSize int32) ApiGetConsentedFinancialAccountTransactionsRequest {
 	r.pageSize = &pageSize
 	return r
@@ -1327,7 +1327,7 @@ func (r ApiGetConsentsRequest) PageNo(pageNo int32) ApiGetConsentsRequest {
 	r.pageNo = &pageNo
 	return r
 }
-// Page size.
+// Number of items to return.
 func (r ApiGetConsentsRequest) PageSize(pageSize int32) ApiGetConsentsRequest {
 	r.pageSize = &pageSize
 	return r
@@ -1477,7 +1477,7 @@ func (r ApiGetConsentsForOrganizationsRequest) PageNo(pageNo int32) ApiGetConsen
 	r.pageNo = &pageNo
 	return r
 }
-// Page size.
+// Number of items to return.
 func (r ApiGetConsentsForOrganizationsRequest) PageSize(pageSize int32) ApiGetConsentsForOrganizationsRequest {
 	r.pageSize = &pageSize
 	return r
@@ -1624,12 +1624,12 @@ func (r ApiGetOrgConsentedAccountTransactionsRequest) ToDateTimeUtc(toDateTimeUt
 	r.toDateTimeUtc = &toDateTimeUtc
 	return r
 }
-// Page no.
+// Page number.
 func (r ApiGetOrgConsentedAccountTransactionsRequest) PageNo(pageNo int32) ApiGetOrgConsentedAccountTransactionsRequest {
 	r.pageNo = &pageNo
 	return r
 }
-// Page size.
+// Number of items to return.
 func (r ApiGetOrgConsentedAccountTransactionsRequest) PageSize(pageSize int32) ApiGetOrgConsentedAccountTransactionsRequest {
 	r.pageSize = &pageSize
 	return r

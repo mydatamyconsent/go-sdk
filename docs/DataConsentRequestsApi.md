@@ -302,8 +302,8 @@ func main() {
     status := openapiclient.DataConsentStatus("Pending") // DataConsentStatus | Data consent status. (optional)
     startDateTime := time.Now() // time.Time | Start date time. (optional)
     endDateTime := time.Now() // time.Time | End date time. (optional)
-    pageNo := int32(56) // int32 | Page no. (optional) (default to 1)
-    pageSize := int32(56) // int32 | Page size. (optional) (default to 25)
+    pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
+    pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -331,8 +331,8 @@ Name | Type | Description  | Notes
  **status** | [**DataConsentStatus**](DataConsentStatus.md) | Data consent status. | 
  **startDateTime** | **time.Time** | Start date time. | 
  **endDateTime** | **time.Time** | End date time. | 
- **pageNo** | **int32** | Page no. | [default to 1]
- **pageSize** | **int32** | Page size. | [default to 25]
+ **pageNo** | **int32** | Page number. | [default to 1]
+ **pageSize** | **int32** | Number of items to return. | [default to 25]
 
 ### Return type
 
@@ -375,8 +375,8 @@ func main() {
     status := openapiclient.DataConsentStatus("Pending") // DataConsentStatus | Data consent status. (optional)
     startDateTime := time.Now() // time.Time | Start date time. (optional)
     endDateTime := time.Now() // time.Time | End date time. (optional)
-    pageNo := int32(56) // int32 | Page no. (optional) (default to 1)
-    pageSize := int32(56) // int32 | Page size. (optional) (default to 25)
+    pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
+    pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -404,8 +404,8 @@ Name | Type | Description  | Notes
  **status** | [**DataConsentStatus**](DataConsentStatus.md) | Data consent status. | 
  **startDateTime** | **time.Time** | Start date time. | 
  **endDateTime** | **time.Time** | End date time. | 
- **pageNo** | **int32** | Page no. | [default to 1]
- **pageSize** | **int32** | Page size. | [default to 25]
+ **pageNo** | **int32** | Page number. | [default to 1]
+ **pageSize** | **int32** | Number of items to return. | [default to 25]
 
 ### Return type
 

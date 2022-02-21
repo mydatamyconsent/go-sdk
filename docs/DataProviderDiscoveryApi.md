@@ -100,7 +100,7 @@ func main() {
     documentType := "documentType_example" // string | Document type. (optional)
     organizationCategory := "organizationCategory_example" // string | Organization category. (optional)
     pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
-    pageSize := int32(56) // int32 | Page size. (optional) (default to 25)
+    pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
     country := "country_example" // string | ISO2 Country code. (optional) (default to "IN")
 
     configuration := openapiclient.NewConfiguration()
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
  **documentType** | **string** | Document type. | 
  **organizationCategory** | **string** | Organization category. | 
  **pageNo** | **int32** | Page number. | [default to 1]
- **pageSize** | **int32** | Page size. | [default to 25]
+ **pageSize** | **int32** | Number of items to return. | [default to 25]
  **country** | **string** | ISO2 Country code. | [default to &quot;IN&quot;]
 
 ### Return type

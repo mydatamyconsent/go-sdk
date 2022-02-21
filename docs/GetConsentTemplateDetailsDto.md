@@ -15,10 +15,15 @@ Name | Type | Description | Notes
 **CreatedAtUtc** | Pointer to **time.Time** |  | [optional] 
 **Status** | Pointer to **NullableString** |  | [optional] 
 **TemplateType** | Pointer to [**ConsentTemplateTypes**](ConsentTemplateTypes.md) |  | [optional] 
+**DataLife** | Pointer to [**Life**](Life.md) |  | [optional] 
+**RequestLife** | Pointer to [**Life**](Life.md) |  | [optional] 
 **Frequency** | Pointer to [**Life**](Life.md) |  | [optional] 
 **Identity** | Pointer to [**[]IdentitySupportedFields**](IdentitySupportedFields.md) |  | [optional] 
 **Documents** | Pointer to [**[]Document**](Document.md) |  | [optional] 
 **Financials** | Pointer to [**[]Financial**](Financial.md) |  | [optional] 
+**HealthRecords** | Pointer to **[]map[string]interface{}** |  | [optional] 
+**ApprovedBy** | Pointer to **NullableString** |  | [optional] 
+**ApprovedAtUtc** | Pointer to **NullableTime** |  | [optional] 
 
 ## Methods
 
@@ -384,6 +389,56 @@ SetTemplateType sets TemplateType field to given value.
 
 HasTemplateType returns a boolean if a field has been set.
 
+### GetDataLife
+
+`func (o *GetConsentTemplateDetailsDto) GetDataLife() Life`
+
+GetDataLife returns the DataLife field if non-nil, zero value otherwise.
+
+### GetDataLifeOk
+
+`func (o *GetConsentTemplateDetailsDto) GetDataLifeOk() (*Life, bool)`
+
+GetDataLifeOk returns a tuple with the DataLife field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDataLife
+
+`func (o *GetConsentTemplateDetailsDto) SetDataLife(v Life)`
+
+SetDataLife sets DataLife field to given value.
+
+### HasDataLife
+
+`func (o *GetConsentTemplateDetailsDto) HasDataLife() bool`
+
+HasDataLife returns a boolean if a field has been set.
+
+### GetRequestLife
+
+`func (o *GetConsentTemplateDetailsDto) GetRequestLife() Life`
+
+GetRequestLife returns the RequestLife field if non-nil, zero value otherwise.
+
+### GetRequestLifeOk
+
+`func (o *GetConsentTemplateDetailsDto) GetRequestLifeOk() (*Life, bool)`
+
+GetRequestLifeOk returns a tuple with the RequestLife field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequestLife
+
+`func (o *GetConsentTemplateDetailsDto) SetRequestLife(v Life)`
+
+SetRequestLife sets RequestLife field to given value.
+
+### HasRequestLife
+
+`func (o *GetConsentTemplateDetailsDto) HasRequestLife() bool`
+
+HasRequestLife returns a boolean if a field has been set.
+
 ### GetFrequency
 
 `func (o *GetConsentTemplateDetailsDto) GetFrequency() Life`
@@ -514,6 +569,111 @@ HasFinancials returns a boolean if a field has been set.
 `func (o *GetConsentTemplateDetailsDto) UnsetFinancials()`
 
 UnsetFinancials ensures that no value is present for Financials, not even an explicit nil
+### GetHealthRecords
+
+`func (o *GetConsentTemplateDetailsDto) GetHealthRecords() []map[string]interface{}`
+
+GetHealthRecords returns the HealthRecords field if non-nil, zero value otherwise.
+
+### GetHealthRecordsOk
+
+`func (o *GetConsentTemplateDetailsDto) GetHealthRecordsOk() (*[]map[string]interface{}, bool)`
+
+GetHealthRecordsOk returns a tuple with the HealthRecords field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHealthRecords
+
+`func (o *GetConsentTemplateDetailsDto) SetHealthRecords(v []map[string]interface{})`
+
+SetHealthRecords sets HealthRecords field to given value.
+
+### HasHealthRecords
+
+`func (o *GetConsentTemplateDetailsDto) HasHealthRecords() bool`
+
+HasHealthRecords returns a boolean if a field has been set.
+
+### SetHealthRecordsNil
+
+`func (o *GetConsentTemplateDetailsDto) SetHealthRecordsNil(b bool)`
+
+ SetHealthRecordsNil sets the value for HealthRecords to be an explicit nil
+
+### UnsetHealthRecords
+`func (o *GetConsentTemplateDetailsDto) UnsetHealthRecords()`
+
+UnsetHealthRecords ensures that no value is present for HealthRecords, not even an explicit nil
+### GetApprovedBy
+
+`func (o *GetConsentTemplateDetailsDto) GetApprovedBy() string`
+
+GetApprovedBy returns the ApprovedBy field if non-nil, zero value otherwise.
+
+### GetApprovedByOk
+
+`func (o *GetConsentTemplateDetailsDto) GetApprovedByOk() (*string, bool)`
+
+GetApprovedByOk returns a tuple with the ApprovedBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApprovedBy
+
+`func (o *GetConsentTemplateDetailsDto) SetApprovedBy(v string)`
+
+SetApprovedBy sets ApprovedBy field to given value.
+
+### HasApprovedBy
+
+`func (o *GetConsentTemplateDetailsDto) HasApprovedBy() bool`
+
+HasApprovedBy returns a boolean if a field has been set.
+
+### SetApprovedByNil
+
+`func (o *GetConsentTemplateDetailsDto) SetApprovedByNil(b bool)`
+
+ SetApprovedByNil sets the value for ApprovedBy to be an explicit nil
+
+### UnsetApprovedBy
+`func (o *GetConsentTemplateDetailsDto) UnsetApprovedBy()`
+
+UnsetApprovedBy ensures that no value is present for ApprovedBy, not even an explicit nil
+### GetApprovedAtUtc
+
+`func (o *GetConsentTemplateDetailsDto) GetApprovedAtUtc() time.Time`
+
+GetApprovedAtUtc returns the ApprovedAtUtc field if non-nil, zero value otherwise.
+
+### GetApprovedAtUtcOk
+
+`func (o *GetConsentTemplateDetailsDto) GetApprovedAtUtcOk() (*time.Time, bool)`
+
+GetApprovedAtUtcOk returns a tuple with the ApprovedAtUtc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApprovedAtUtc
+
+`func (o *GetConsentTemplateDetailsDto) SetApprovedAtUtc(v time.Time)`
+
+SetApprovedAtUtc sets ApprovedAtUtc field to given value.
+
+### HasApprovedAtUtc
+
+`func (o *GetConsentTemplateDetailsDto) HasApprovedAtUtc() bool`
+
+HasApprovedAtUtc returns a boolean if a field has been set.
+
+### SetApprovedAtUtcNil
+
+`func (o *GetConsentTemplateDetailsDto) SetApprovedAtUtcNil(b bool)`
+
+ SetApprovedAtUtcNil sets the value for ApprovedAtUtc to be an explicit nil
+
+### UnsetApprovedAtUtc
+`func (o *GetConsentTemplateDetailsDto) UnsetApprovedAtUtc()`
+
+UnsetApprovedAtUtc ensures that no value is present for ApprovedAtUtc, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

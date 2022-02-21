@@ -38,6 +38,9 @@ docs/DigitalSignature.md
 docs/Document.md
 docs/DocumentCategoryType.md
 docs/DocumentIssueRequest.md
+docs/DocumentSubCategoryType.md
+docs/DocumentTypeDetailsDto.md
+docs/DocumentTypeDetailsDtoPaginatedList.md
 docs/DocumentsApi.md
 docs/DocumentsRequired.md
 docs/FetchTypes.md
@@ -52,6 +55,8 @@ docs/Identifier.md
 docs/IdentifierStringKeyValuePair.md
 docs/IdentitySupportedFields.md
 docs/IndividualDataConsentRequestResponse.md
+docs/IssuedDocument.md
+docs/IssuedDocumentPaginatedList.md
 docs/Life.md
 docs/OrganizationDataConsentInfoDto.md
 docs/OrganizationDataConsentInfoDtoPaginatedList.md
@@ -67,6 +72,7 @@ docs/PushUriResponse.md
 docs/Receiver.md
 docs/ReceiverType.md
 docs/SharedWith.md
+docs/SupportedEntityType.md
 docs/UpdateDataProcessingAgreementRequestModel.md
 docs/UriDetails.md
 docs/UserAccountFinancialTransactionsDto.md
@@ -102,6 +108,9 @@ model_digital_signature.go
 model_document.go
 model_document_category_type.go
 model_document_issue_request.go
+model_document_sub_category_type.go
+model_document_type_details_dto.go
+model_document_type_details_dto_paginated_list.go
 model_documents_required.go
 model_fetch_types.go
 model_file_type.go
@@ -115,6 +124,8 @@ model_identifier.go
 model_identifier_string_key_value_pair.go
 model_identity_supported_fields.go
 model_individual_data_consent_request_response.go
+model_issued_document.go
+model_issued_document_paginated_list.go
 model_life.go
 model_organization_data_consent_info_dto.go
 model_organization_data_consent_info_dto_paginated_list.go
@@ -130,6 +141,7 @@ model_push_uri_response.go
 model_receiver.go
 model_receiver_type.go
 model_shared_with.go
+model_supported_entity_type.go
 model_update_data_processing_agreement_request_model.go
 model_uri_details.go
 model_user_account_financial_transactions_dto.go

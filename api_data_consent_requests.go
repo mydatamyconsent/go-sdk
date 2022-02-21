@@ -564,12 +564,12 @@ func (r ApiGetAllConsentRequestsToIndividualsRequest) EndDateTime(endDateTime ti
 	r.endDateTime = &endDateTime
 	return r
 }
-// Page no.
+// Page number.
 func (r ApiGetAllConsentRequestsToIndividualsRequest) PageNo(pageNo int32) ApiGetAllConsentRequestsToIndividualsRequest {
 	r.pageNo = &pageNo
 	return r
 }
-// Page size.
+// Number of items to return.
 func (r ApiGetAllConsentRequestsToIndividualsRequest) PageSize(pageSize int32) ApiGetAllConsentRequestsToIndividualsRequest {
 	r.pageSize = &pageSize
 	return r
@@ -714,12 +714,12 @@ func (r ApiGetAllConsentRequestsToOrganizationsRequest) EndDateTime(endDateTime 
 	r.endDateTime = &endDateTime
 	return r
 }
-// Page no.
+// Page number.
 func (r ApiGetAllConsentRequestsToOrganizationsRequest) PageNo(pageNo int32) ApiGetAllConsentRequestsToOrganizationsRequest {
 	r.pageNo = &pageNo
 	return r
 }
-// Page size.
+// Number of items to return.
 func (r ApiGetAllConsentRequestsToOrganizationsRequest) PageSize(pageSize int32) ApiGetAllConsentRequestsToOrganizationsRequest {
 	r.pageSize = &pageSize
 	return r

@@ -20,6 +20,7 @@ type DataConsentRequesterDto struct {
 	Name NullableString `json:"name,omitempty"`
 	LogoUrl NullableString `json:"logoUrl,omitempty"`
 	Description NullableString `json:"description,omitempty"`
+	Location NullableString `json:"location,omitempty"`
 	Website NullableString `json:"website,omitempty"`
 	SupportEmail NullableString `json:"supportEmail,omitempty"`
 	HelpLineNumber NullableString `json:"helpLineNumber,omitempty"`
@@ -168,6 +169,48 @@ func (o *DataConsentRequesterDto) UnsetDescription() {
 	o.Description.Unset()
 }
 
+// GetLocation returns the Location field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DataConsentRequesterDto) GetLocation() string {
+	if o == nil || o.Location.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.Location.Get()
+}
+
+// GetLocationOk returns a tuple with the Location field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DataConsentRequesterDto) GetLocationOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.Location.Get(), o.Location.IsSet()
+}
+
+// HasLocation returns a boolean if a field has been set.
+func (o *DataConsentRequesterDto) HasLocation() bool {
+	if o != nil && o.Location.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLocation gets a reference to the given NullableString and assigns it to the Location field.
+func (o *DataConsentRequesterDto) SetLocation(v string) {
+	o.Location.Set(&v)
+}
+// SetLocationNil sets the value for Location to be an explicit nil
+func (o *DataConsentRequesterDto) SetLocationNil() {
+	o.Location.Set(nil)
+}
+
+// UnsetLocation ensures that no value is present for Location, not even an explicit nil
+func (o *DataConsentRequesterDto) UnsetLocation() {
+	o.Location.Unset()
+}
+
 // GetWebsite returns the Website field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataConsentRequesterDto) GetWebsite() string {
 	if o == nil || o.Website.Get() == nil {
@@ -304,6 +347,9 @@ func (o DataConsentRequesterDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
+	}
+	if o.Location.IsSet() {
+		toSerialize["location"] = o.Location.Get()
 	}
 	if o.Website.IsSet() {
 		toSerialize["website"] = o.Website.Get()
