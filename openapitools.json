@@ -19,6 +19,7 @@
         "removeOperationIdPrefix": true,
         "additionalProperties": {
           "packageName": "mydatamyconsent",
+          "basePath": "https://api.mydatamyconsent.com",
           "developerEmail": "developers@mydatamyconsent.com",
           "developerName": "Balamurali Pandranki",
           "developerOrganization": "DataConsent, Inc.",
