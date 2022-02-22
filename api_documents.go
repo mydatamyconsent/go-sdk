@@ -331,7 +331,7 @@ func (r ApiGetRegisteredDocumentTypesRequest) PageSize(pageSize int32) ApiGetReg
 	return r
 }
 
-func (r ApiGetRegisteredDocumentTypesRequest) Execute() (*DocumentTypeDetailsDtoPaginatedList, *http.Response, error) {
+func (r ApiGetRegisteredDocumentTypesRequest) Execute() (*DocumentTypePaginatedList, *http.Response, error) {
 	return r.ApiService.GetRegisteredDocumentTypesExecute(r)
 }
 
@@ -349,13 +349,13 @@ func (a *DocumentsApiService) GetRegisteredDocumentTypes(ctx context.Context) Ap
 }
 
 // Execute executes the request
-//  @return DocumentTypeDetailsDtoPaginatedList
-func (a *DocumentsApiService) GetRegisteredDocumentTypesExecute(r ApiGetRegisteredDocumentTypesRequest) (*DocumentTypeDetailsDtoPaginatedList, *http.Response, error) {
+//  @return DocumentTypePaginatedList
+func (a *DocumentsApiService) GetRegisteredDocumentTypesExecute(r ApiGetRegisteredDocumentTypesRequest) (*DocumentTypePaginatedList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DocumentTypeDetailsDtoPaginatedList
+		localVarReturnValue  *DocumentTypePaginatedList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.GetRegisteredDocumentTypes")

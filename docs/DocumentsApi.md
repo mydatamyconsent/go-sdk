@@ -154,7 +154,7 @@ No authorization required
 
 ## GetRegisteredDocumentTypes
 
-> DocumentTypeDetailsDtoPaginatedList GetRegisteredDocumentTypes(ctx).PageNo(pageNo).PageSize(pageSize).Execute()
+> DocumentTypePaginatedList GetRegisteredDocumentTypes(ctx).PageNo(pageNo).PageSize(pageSize).Execute()
 
 Get registered document types.
 
@@ -181,7 +181,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.GetRegisteredDocumentTypes``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetRegisteredDocumentTypes`: DocumentTypeDetailsDtoPaginatedList
+    // response from `GetRegisteredDocumentTypes`: DocumentTypePaginatedList
     fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.GetRegisteredDocumentTypes`: %v\n", resp)
 }
 ```
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DocumentTypeDetailsDtoPaginatedList**](DocumentTypeDetailsDtoPaginatedList.md)
+[**DocumentTypePaginatedList**](DocumentTypePaginatedList.md)
 
 ### Authorization
 

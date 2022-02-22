@@ -15,34 +15,34 @@ import (
 	"encoding/json"
 )
 
-// DocumentTypeDetailsDtoPaginatedList struct for DocumentTypeDetailsDtoPaginatedList
-type DocumentTypeDetailsDtoPaginatedList struct {
+// DocumentTypePaginatedList struct for DocumentTypePaginatedList
+type DocumentTypePaginatedList struct {
 	PageIndex *int32 `json:"pageIndex,omitempty"`
 	PageSize *int32 `json:"pageSize,omitempty"`
 	TotalPages *int32 `json:"totalPages,omitempty"`
 	TotalItems *int64 `json:"totalItems,omitempty"`
-	Items []DocumentTypeDetailsDto `json:"items,omitempty"`
+	Items []DocumentType `json:"items,omitempty"`
 }
 
-// NewDocumentTypeDetailsDtoPaginatedList instantiates a new DocumentTypeDetailsDtoPaginatedList object
+// NewDocumentTypePaginatedList instantiates a new DocumentTypePaginatedList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumentTypeDetailsDtoPaginatedList() *DocumentTypeDetailsDtoPaginatedList {
-	this := DocumentTypeDetailsDtoPaginatedList{}
+func NewDocumentTypePaginatedList() *DocumentTypePaginatedList {
+	this := DocumentTypePaginatedList{}
 	return &this
 }
 
-// NewDocumentTypeDetailsDtoPaginatedListWithDefaults instantiates a new DocumentTypeDetailsDtoPaginatedList object
+// NewDocumentTypePaginatedListWithDefaults instantiates a new DocumentTypePaginatedList object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewDocumentTypeDetailsDtoPaginatedListWithDefaults() *DocumentTypeDetailsDtoPaginatedList {
-	this := DocumentTypeDetailsDtoPaginatedList{}
+func NewDocumentTypePaginatedListWithDefaults() *DocumentTypePaginatedList {
+	this := DocumentTypePaginatedList{}
 	return &this
 }
 
 // GetPageIndex returns the PageIndex field value if set, zero value otherwise.
-func (o *DocumentTypeDetailsDtoPaginatedList) GetPageIndex() int32 {
+func (o *DocumentTypePaginatedList) GetPageIndex() int32 {
 	if o == nil || o.PageIndex == nil {
 		var ret int32
 		return ret
@@ -52,7 +52,7 @@ func (o *DocumentTypeDetailsDtoPaginatedList) GetPageIndex() int32 {
 
 // GetPageIndexOk returns a tuple with the PageIndex field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DocumentTypeDetailsDtoPaginatedList) GetPageIndexOk() (*int32, bool) {
+func (o *DocumentTypePaginatedList) GetPageIndexOk() (*int32, bool) {
 	if o == nil || o.PageIndex == nil {
 		return nil, false
 	}
@@ -60,7 +60,7 @@ func (o *DocumentTypeDetailsDtoPaginatedList) GetPageIndexOk() (*int32, bool) {
 }
 
 // HasPageIndex returns a boolean if a field has been set.
-func (o *DocumentTypeDetailsDtoPaginatedList) HasPageIndex() bool {
+func (o *DocumentTypePaginatedList) HasPageIndex() bool {
 	if o != nil && o.PageIndex != nil {
 		return true
 	}
@@ -69,12 +69,12 @@ func (o *DocumentTypeDetailsDtoPaginatedList) HasPageIndex() bool {
 }
 
 // SetPageIndex gets a reference to the given int32 and assigns it to the PageIndex field.
-func (o *DocumentTypeDetailsDtoPaginatedList) SetPageIndex(v int32) {
+func (o *DocumentTypePaginatedList) SetPageIndex(v int32) {
 	o.PageIndex = &v
 }
 
 // GetPageSize returns the PageSize field value if set, zero value otherwise.
-func (o *DocumentTypeDetailsDtoPaginatedList) GetPageSize() int32 {
+func (o *DocumentTypePaginatedList) GetPageSize() int32 {
 	if o == nil || o.PageSize == nil {
 		var ret int32
 		return ret
@@ -84,7 +84,7 @@ func (o *DocumentTypeDetailsDtoPaginatedList) GetPageSize() int32 {
 
 // GetPageSizeOk returns a tuple with the PageSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DocumentTypeDetailsDtoPaginatedList) GetPageSizeOk() (*int32, bool) {
+func (o *DocumentTypePaginatedList) GetPageSizeOk() (*int32, bool) {
 	if o == nil || o.PageSize == nil {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *DocumentTypeDetailsDtoPaginatedList) GetPageSizeOk() (*int32, bool) {
 }
 
 // HasPageSize returns a boolean if a field has been set.
-func (o *DocumentTypeDetailsDtoPaginatedList) HasPageSize() bool {
+func (o *DocumentTypePaginatedList) HasPageSize() bool {
 	if o != nil && o.PageSize != nil {
 		return true
 	}
@@ -101,12 +101,12 @@ func (o *DocumentTypeDetailsDtoPaginatedList) HasPageSize() bool {
 }
 
 // SetPageSize gets a reference to the given int32 and assigns it to the PageSize field.
-func (o *DocumentTypeDetailsDtoPaginatedList) SetPageSize(v int32) {
+func (o *DocumentTypePaginatedList) SetPageSize(v int32) {
 	o.PageSize = &v
 }
 
 // GetTotalPages returns the TotalPages field value if set, zero value otherwise.
-func (o *DocumentTypeDetailsDtoPaginatedList) GetTotalPages() int32 {
+func (o *DocumentTypePaginatedList) GetTotalPages() int32 {
 	if o == nil || o.TotalPages == nil {
 		var ret int32
 		return ret
@@ -116,7 +116,7 @@ func (o *DocumentTypeDetailsDtoPaginatedList) GetTotalPages() int32 {
 
 // GetTotalPagesOk returns a tuple with the TotalPages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DocumentTypeDetailsDtoPaginatedList) GetTotalPagesOk() (*int32, bool) {
+func (o *DocumentTypePaginatedList) GetTotalPagesOk() (*int32, bool) {
 	if o == nil || o.TotalPages == nil {
 		return nil, false
 	}
@@ -124,7 +124,7 @@ func (o *DocumentTypeDetailsDtoPaginatedList) GetTotalPagesOk() (*int32, bool) {
 }
 
 // HasTotalPages returns a boolean if a field has been set.
-func (o *DocumentTypeDetailsDtoPaginatedList) HasTotalPages() bool {
+func (o *DocumentTypePaginatedList) HasTotalPages() bool {
 	if o != nil && o.TotalPages != nil {
 		return true
 	}
@@ -133,12 +133,12 @@ func (o *DocumentTypeDetailsDtoPaginatedList) HasTotalPages() bool {
 }
 
 // SetTotalPages gets a reference to the given int32 and assigns it to the TotalPages field.
-func (o *DocumentTypeDetailsDtoPaginatedList) SetTotalPages(v int32) {
+func (o *DocumentTypePaginatedList) SetTotalPages(v int32) {
 	o.TotalPages = &v
 }
 
 // GetTotalItems returns the TotalItems field value if set, zero value otherwise.
-func (o *DocumentTypeDetailsDtoPaginatedList) GetTotalItems() int64 {
+func (o *DocumentTypePaginatedList) GetTotalItems() int64 {
 	if o == nil || o.TotalItems == nil {
 		var ret int64
 		return ret
@@ -148,7 +148,7 @@ func (o *DocumentTypeDetailsDtoPaginatedList) GetTotalItems() int64 {
 
 // GetTotalItemsOk returns a tuple with the TotalItems field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DocumentTypeDetailsDtoPaginatedList) GetTotalItemsOk() (*int64, bool) {
+func (o *DocumentTypePaginatedList) GetTotalItemsOk() (*int64, bool) {
 	if o == nil || o.TotalItems == nil {
 		return nil, false
 	}
@@ -156,7 +156,7 @@ func (o *DocumentTypeDetailsDtoPaginatedList) GetTotalItemsOk() (*int64, bool) {
 }
 
 // HasTotalItems returns a boolean if a field has been set.
-func (o *DocumentTypeDetailsDtoPaginatedList) HasTotalItems() bool {
+func (o *DocumentTypePaginatedList) HasTotalItems() bool {
 	if o != nil && o.TotalItems != nil {
 		return true
 	}
@@ -165,14 +165,14 @@ func (o *DocumentTypeDetailsDtoPaginatedList) HasTotalItems() bool {
 }
 
 // SetTotalItems gets a reference to the given int64 and assigns it to the TotalItems field.
-func (o *DocumentTypeDetailsDtoPaginatedList) SetTotalItems(v int64) {
+func (o *DocumentTypePaginatedList) SetTotalItems(v int64) {
 	o.TotalItems = &v
 }
 
 // GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DocumentTypeDetailsDtoPaginatedList) GetItems() []DocumentTypeDetailsDto {
+func (o *DocumentTypePaginatedList) GetItems() []DocumentType {
 	if o == nil  {
-		var ret []DocumentTypeDetailsDto
+		var ret []DocumentType
 		return ret
 	}
 	return o.Items
@@ -181,7 +181,7 @@ func (o *DocumentTypeDetailsDtoPaginatedList) GetItems() []DocumentTypeDetailsDt
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DocumentTypeDetailsDtoPaginatedList) GetItemsOk() ([]DocumentTypeDetailsDto, bool) {
+func (o *DocumentTypePaginatedList) GetItemsOk() ([]DocumentType, bool) {
 	if o == nil || o.Items == nil {
 		return nil, false
 	}
@@ -189,7 +189,7 @@ func (o *DocumentTypeDetailsDtoPaginatedList) GetItemsOk() ([]DocumentTypeDetail
 }
 
 // HasItems returns a boolean if a field has been set.
-func (o *DocumentTypeDetailsDtoPaginatedList) HasItems() bool {
+func (o *DocumentTypePaginatedList) HasItems() bool {
 	if o != nil && o.Items != nil {
 		return true
 	}
@@ -197,12 +197,12 @@ func (o *DocumentTypeDetailsDtoPaginatedList) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []DocumentTypeDetailsDto and assigns it to the Items field.
-func (o *DocumentTypeDetailsDtoPaginatedList) SetItems(v []DocumentTypeDetailsDto) {
+// SetItems gets a reference to the given []DocumentType and assigns it to the Items field.
+func (o *DocumentTypePaginatedList) SetItems(v []DocumentType) {
 	o.Items = v
 }
 
-func (o DocumentTypeDetailsDtoPaginatedList) MarshalJSON() ([]byte, error) {
+func (o DocumentTypePaginatedList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.PageIndex != nil {
 		toSerialize["pageIndex"] = o.PageIndex
@@ -222,38 +222,38 @@ func (o DocumentTypeDetailsDtoPaginatedList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableDocumentTypeDetailsDtoPaginatedList struct {
-	value *DocumentTypeDetailsDtoPaginatedList
+type NullableDocumentTypePaginatedList struct {
+	value *DocumentTypePaginatedList
 	isSet bool
 }
 
-func (v NullableDocumentTypeDetailsDtoPaginatedList) Get() *DocumentTypeDetailsDtoPaginatedList {
+func (v NullableDocumentTypePaginatedList) Get() *DocumentTypePaginatedList {
 	return v.value
 }
 
-func (v *NullableDocumentTypeDetailsDtoPaginatedList) Set(val *DocumentTypeDetailsDtoPaginatedList) {
+func (v *NullableDocumentTypePaginatedList) Set(val *DocumentTypePaginatedList) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableDocumentTypeDetailsDtoPaginatedList) IsSet() bool {
+func (v NullableDocumentTypePaginatedList) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableDocumentTypeDetailsDtoPaginatedList) Unset() {
+func (v *NullableDocumentTypePaginatedList) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableDocumentTypeDetailsDtoPaginatedList(val *DocumentTypeDetailsDtoPaginatedList) *NullableDocumentTypeDetailsDtoPaginatedList {
-	return &NullableDocumentTypeDetailsDtoPaginatedList{value: val, isSet: true}
+func NewNullableDocumentTypePaginatedList(val *DocumentTypePaginatedList) *NullableDocumentTypePaginatedList {
+	return &NullableDocumentTypePaginatedList{value: val, isSet: true}
 }
 
-func (v NullableDocumentTypeDetailsDtoPaginatedList) MarshalJSON() ([]byte, error) {
+func (v NullableDocumentTypePaginatedList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableDocumentTypeDetailsDtoPaginatedList) UnmarshalJSON(src []byte) error {
+func (v *NullableDocumentTypePaginatedList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

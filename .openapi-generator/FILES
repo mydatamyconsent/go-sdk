@@ -39,8 +39,8 @@ docs/Document.md
 docs/DocumentCategoryType.md
 docs/DocumentIssueRequest.md
 docs/DocumentSubCategoryType.md
-docs/DocumentTypeDetailsDto.md
-docs/DocumentTypeDetailsDtoPaginatedList.md
+docs/DocumentType.md
+docs/DocumentTypePaginatedList.md
 docs/DocumentsApi.md
 docs/DocumentsRequired.md
 docs/FetchTypes.md
@@ -109,8 +109,8 @@ model_document.go
 model_document_category_type.go
 model_document_issue_request.go
 model_document_sub_category_type.go
-model_document_type_details_dto.go
-model_document_type_details_dto_paginated_list.go
+model_document_type.go
+model_document_type_paginated_list.go
 model_documents_required.go
 model_fetch_types.go
 model_file_type.go
