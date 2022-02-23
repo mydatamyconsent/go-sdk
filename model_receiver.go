@@ -15,9 +15,10 @@ import (
 	"encoding/json"
 )
 
-// Receiver struct for Receiver
+// Receiver Consent request receiver details
 type Receiver struct {
 	Type *ReceiverType `json:"type,omitempty"`
+	// Consent request receiver identifiers
 	Identifiers []IdentifierStringKeyValuePair `json:"identifiers,omitempty"`
 	IdentificationStrategy *IdentificationStrategy `json:"identificationStrategy,omitempty"`
 }

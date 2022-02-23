@@ -6,18 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DocumentTypeId** | **string** |  | 
 **DocumentIdentifier** | **string** |  | 
-**Name** | **string** |  | 
 **Description** | **string** |  | 
-**Receiver** | [**Receiver**](Receiver.md) |  | 
+**Receiver** | [**DocumentReceiver**](DocumentReceiver.md) |  | 
 **ExpiresAtUtc** | Pointer to **NullableTime** |  | [optional] 
-**Base64PdfDocument** | **string** |  | 
-**Metadata** | Pointer to **interface{}** |  | [optional] 
+**Metadata** | Pointer to **map[string]string** |  | [optional] 
 
 ## Methods
 
 ### NewDocumentIssueRequest
 
-`func NewDocumentIssueRequest(documentTypeId string, documentIdentifier string, name string, description string, receiver Receiver, base64PdfDocument string, ) *DocumentIssueRequest`
+`func NewDocumentIssueRequest(documentTypeId string, documentIdentifier string, description string, receiver DocumentReceiver, ) *DocumentIssueRequest`
 
 NewDocumentIssueRequest instantiates a new DocumentIssueRequest object
 This constructor will assign default values to properties that have it defined,
@@ -72,26 +70,6 @@ and a boolean to check if the value has been set.
 SetDocumentIdentifier sets DocumentIdentifier field to given value.
 
 
-### GetName
-
-`func (o *DocumentIssueRequest) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *DocumentIssueRequest) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *DocumentIssueRequest) SetName(v string)`
-
-SetName sets Name field to given value.
-
-
 ### GetDescription
 
 `func (o *DocumentIssueRequest) GetDescription() string`
@@ -114,20 +92,20 @@ SetDescription sets Description field to given value.
 
 ### GetReceiver
 
-`func (o *DocumentIssueRequest) GetReceiver() Receiver`
+`func (o *DocumentIssueRequest) GetReceiver() DocumentReceiver`
 
 GetReceiver returns the Receiver field if non-nil, zero value otherwise.
 
 ### GetReceiverOk
 
-`func (o *DocumentIssueRequest) GetReceiverOk() (*Receiver, bool)`
+`func (o *DocumentIssueRequest) GetReceiverOk() (*DocumentReceiver, bool)`
 
 GetReceiverOk returns a tuple with the Receiver field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReceiver
 
-`func (o *DocumentIssueRequest) SetReceiver(v Receiver)`
+`func (o *DocumentIssueRequest) SetReceiver(v DocumentReceiver)`
 
 SetReceiver sets Receiver field to given value.
 
@@ -167,42 +145,22 @@ HasExpiresAtUtc returns a boolean if a field has been set.
 `func (o *DocumentIssueRequest) UnsetExpiresAtUtc()`
 
 UnsetExpiresAtUtc ensures that no value is present for ExpiresAtUtc, not even an explicit nil
-### GetBase64PdfDocument
-
-`func (o *DocumentIssueRequest) GetBase64PdfDocument() string`
-
-GetBase64PdfDocument returns the Base64PdfDocument field if non-nil, zero value otherwise.
-
-### GetBase64PdfDocumentOk
-
-`func (o *DocumentIssueRequest) GetBase64PdfDocumentOk() (*string, bool)`
-
-GetBase64PdfDocumentOk returns a tuple with the Base64PdfDocument field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBase64PdfDocument
-
-`func (o *DocumentIssueRequest) SetBase64PdfDocument(v string)`
-
-SetBase64PdfDocument sets Base64PdfDocument field to given value.
-
-
 ### GetMetadata
 
-`func (o *DocumentIssueRequest) GetMetadata() interface{}`
+`func (o *DocumentIssueRequest) GetMetadata() map[string]string`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *DocumentIssueRequest) GetMetadataOk() (*interface{}, bool)`
+`func (o *DocumentIssueRequest) GetMetadataOk() (*map[string]string, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *DocumentIssueRequest) SetMetadata(v interface{})`
+`func (o *DocumentIssueRequest) SetMetadata(v map[string]string)`
 
 SetMetadata sets Metadata field to given value.
 

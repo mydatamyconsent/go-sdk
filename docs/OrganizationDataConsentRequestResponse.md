@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**TemplateId** | Pointer to **string** |  | [optional] 
-**RequestedAtUtc** | Pointer to **time.Time** |  | [optional] 
-**RequestExpiresAtUtc** | Pointer to **time.Time** |  | [optional] 
+**Id** | Pointer to **string** | Consent request id | [optional] 
+**TemplateId** | Pointer to **string** | Consent request template id | [optional] 
+**RequestedAtUtc** | Pointer to **time.Time** | Requested date time in utc zone | [optional] 
+**RequestExpiresAtUtc** | Pointer to **time.Time** | Request expires date time in utc zone | [optional] 
 **Status** | Pointer to [**DataConsentStatus**](DataConsentStatus.md) |  | [optional] 
-**TransactionId** | Pointer to **NullableString** |  | [optional] 
+**TransactionId** | Pointer to **NullableString** | Requested transaction id | [optional] 
 
 ## Methods
 

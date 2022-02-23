@@ -17,6 +17,7 @@ import (
 
 // CreateIndividualDataConsentRequest Individual Data Consent Request.
 type CreateIndividualDataConsentRequest struct {
+	// Consent template id
 	ConsentTemplateId *string `json:"consentTemplateId,omitempty"`
 	Receiver Receiver `json:"receiver"`
 }

@@ -1,13 +1,16 @@
 # \DocumentsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.mydatamyconsent.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetIssuedDocumentById**](DocumentsApi.md#GetIssuedDocumentById) | **Get** /v1/documents/issued/{documentId} | Get issued document.
-[**GetIssuedDocuments**](DocumentsApi.md#GetIssuedDocuments) | **Get** /v1/documents/issued | Get issued documents.
+[**GetIssuedDocuments**](DocumentsApi.md#GetIssuedDocuments) | **Get** /v1/documents/issued/{documentTypeId} | Get paginated list of issued documents of given document type.
 [**GetRegisteredDocumentTypes**](DocumentsApi.md#GetRegisteredDocumentTypes) | **Get** /v1/documents/types | Get registered document types.
-[**IssueDocument**](DocumentsApi.md#IssueDocument) | **Post** /v1/documents/issue | Issue a new document.
+[**IssueDocumentToIndividual**](DocumentsApi.md#IssueDocumentToIndividual) | **Post** /v1/documents/issue/individual | Issue a new document to an individual user.
+[**IssueDocumentToOrganization**](DocumentsApi.md#IssueDocumentToOrganization) | **Post** /v1/documents/issue/organization | Issue a new document to an organization.
+[**UploadDocumentForIndividual**](DocumentsApi.md#UploadDocumentForIndividual) | **Post** /v1/documents/issue/individual/upload/{issueRequestId} | Upload a document for issuance request of individual.
+[**UploadDocumentForOrganization**](DocumentsApi.md#UploadDocumentForOrganization) | **Post** /v1/documents/issue/organization/upload/{issueRequestId} | Upload a document for issuance request of organization.
 
 
 
@@ -81,9 +84,9 @@ No authorization required
 
 ## GetIssuedDocuments
 
-> IssuedDocumentPaginatedList GetIssuedDocuments(ctx).DocumentTypeId(documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageSize(pageSize).PageNo(pageNo).Execute()
+> IssuedDocumentPaginatedList GetIssuedDocuments(ctx, documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
 
-Get issued documents.
+Get paginated list of issued documents of given document type.
 
 ### Example
 
@@ -99,15 +102,15 @@ import (
 )
 
 func main() {
-    documentTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-    fromDateTime := time.Now() // time.Time |  (optional)
-    toDateTime := time.Now() // time.Time |  (optional)
-    pageSize := int32(56) // int32 |  (optional) (default to 25)
-    pageNo := int32(56) // int32 |  (optional) (default to 1)
+    documentTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Document type id.
+    fromDateTime := time.Now() // time.Time | From DateTime. (optional)
+    toDateTime := time.Now() // time.Time | To DateTime. (optional)
+    pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
+    pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DocumentsApi.GetIssuedDocuments(context.Background()).DocumentTypeId(documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageSize(pageSize).PageNo(pageNo).Execute()
+    resp, r, err := apiClient.DocumentsApi.GetIssuedDocuments(context.Background(), documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.GetIssuedDocuments``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -120,6 +123,10 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**documentTypeId** | **string** | Document type id. | 
 
 ### Other Parameters
 
@@ -128,11 +135,11 @@ Other parameters are passed through a pointer to a apiGetIssuedDocumentsRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentTypeId** | **string** |  | 
- **fromDateTime** | **time.Time** |  | 
- **toDateTime** | **time.Time** |  | 
- **pageSize** | **int32** |  | [default to 25]
- **pageNo** | **int32** |  | [default to 1]
+
+ **fromDateTime** | **time.Time** | From DateTime. | 
+ **toDateTime** | **time.Time** | To DateTime. | 
+ **pageNo** | **int32** | Page number. | [default to 1]
+ **pageSize** | **int32** | Number of items to return. | [default to 25]
 
 ### Return type
 
@@ -218,11 +225,11 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## IssueDocument
+## IssueDocumentToIndividual
 
-> IssuedDocument IssueDocument(ctx).DocumentIssueRequest(documentIssueRequest).Execute()
+> DocumentIssueRequestDetails IssueDocumentToIndividual(ctx).DocumentIssueRequest(documentIssueRequest).Execute()
 
-Issue a new document.
+Issue a new document to an individual user.
 
 ### Example
 
@@ -237,17 +244,17 @@ import (
 )
 
 func main() {
-    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "DocumentIdentifier_example", "Name_example", "Description_example", *openapiclient.NewReceiver(), "Base64PdfDocument_example") // DocumentIssueRequest | Document issue request MyDataMyConsent.Models.Documents.DocumentIssueRequest.
+    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "DocumentIdentifier_example", "Description_example", *openapiclient.NewDocumentReceiver([]openapiclient.StringStringKeyValuePair{*openapiclient.NewStringStringKeyValuePair()}, openapiclient.IdentificationStrategy("MatchAtLeastOneIdentifier"))) // DocumentIssueRequest | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DocumentsApi.IssueDocument(context.Background()).DocumentIssueRequest(documentIssueRequest).Execute()
+    resp, r, err := apiClient.DocumentsApi.IssueDocumentToIndividual(context.Background()).DocumentIssueRequest(documentIssueRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.IssueDocument``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.IssueDocumentToIndividual``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `IssueDocument`: IssuedDocument
-    fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.IssueDocument`: %v\n", resp)
+    // response from `IssueDocumentToIndividual`: DocumentIssueRequestDetails
+    fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.IssueDocumentToIndividual`: %v\n", resp)
 }
 ```
 
@@ -257,16 +264,16 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiIssueDocumentRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiIssueDocumentToIndividualRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentIssueRequest** | [**DocumentIssueRequest**](DocumentIssueRequest.md) | Document issue request MyDataMyConsent.Models.Documents.DocumentIssueRequest. | 
+ **documentIssueRequest** | [**DocumentIssueRequest**](DocumentIssueRequest.md) | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest. | 
 
 ### Return type
 
-[**IssuedDocument**](IssuedDocument.md)
+[**DocumentIssueRequestDetails**](DocumentIssueRequestDetails.md)
 
 ### Authorization
 
@@ -275,6 +282,210 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IssueDocumentToOrganization
+
+> DocumentIssueRequestDetails IssueDocumentToOrganization(ctx).DocumentIssueRequest(documentIssueRequest).Execute()
+
+Issue a new document to an organization.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "DocumentIdentifier_example", "Description_example", *openapiclient.NewDocumentReceiver([]openapiclient.StringStringKeyValuePair{*openapiclient.NewStringStringKeyValuePair()}, openapiclient.IdentificationStrategy("MatchAtLeastOneIdentifier"))) // DocumentIssueRequest | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DocumentsApi.IssueDocumentToOrganization(context.Background()).DocumentIssueRequest(documentIssueRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.IssueDocumentToOrganization``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `IssueDocumentToOrganization`: DocumentIssueRequestDetails
+    fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.IssueDocumentToOrganization`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIssueDocumentToOrganizationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **documentIssueRequest** | [**DocumentIssueRequest**](DocumentIssueRequest.md) | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest. | 
+
+### Return type
+
+[**DocumentIssueRequestDetails**](DocumentIssueRequestDetails.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UploadDocumentForIndividual
+
+> string UploadDocumentForIndividual(ctx, issueRequestId).FormFile(formFile).Execute()
+
+Upload a document for issuance request of individual.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    issueRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Issue Request Id System.Guid.
+    formFile := os.NewFile(1234, "some_file") // *os.File |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DocumentsApi.UploadDocumentForIndividual(context.Background(), issueRequestId).FormFile(formFile).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.UploadDocumentForIndividual``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UploadDocumentForIndividual`: string
+    fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.UploadDocumentForIndividual`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**issueRequestId** | **string** | Issue Request Id System.Guid. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUploadDocumentForIndividualRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **formFile** | ***os.File** |  | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UploadDocumentForOrganization
+
+> string UploadDocumentForOrganization(ctx, issueRequestId).FormFile(formFile).Execute()
+
+Upload a document for issuance request of organization.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    issueRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Issue Request Id System.Guid.
+    formFile := os.NewFile(1234, "some_file") // *os.File |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DocumentsApi.UploadDocumentForOrganization(context.Background(), issueRequestId).FormFile(formFile).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.UploadDocumentForOrganization``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UploadDocumentForOrganization`: string
+    fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.UploadDocumentForOrganization`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**issueRequestId** | **string** | Issue Request Id System.Guid. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUploadDocumentForOrganizationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **formFile** | ***os.File** |  | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -106,7 +106,7 @@ func NewConfiguration() *Configuration {
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
-				URL: "",
+				URL: "https://api.mydatamyconsent.com",
 				Description: "No description provided",
 			},
 		},

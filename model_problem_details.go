@@ -21,7 +21,6 @@ type ProblemDetails struct {
 	Title NullableString `json:"title,omitempty"`
 	Status NullableInt32 `json:"status,omitempty"`
 	Detail NullableString `json:"detail,omitempty"`
-	Instance NullableString `json:"instance,omitempty"`
 }
 
 // NewProblemDetails instantiates a new ProblemDetails object
@@ -209,48 +208,6 @@ func (o *ProblemDetails) UnsetDetail() {
 	o.Detail.Unset()
 }
 
-// GetInstance returns the Instance field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProblemDetails) GetInstance() string {
-	if o == nil || o.Instance.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.Instance.Get()
-}
-
-// GetInstanceOk returns a tuple with the Instance field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProblemDetails) GetInstanceOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.Instance.Get(), o.Instance.IsSet()
-}
-
-// HasInstance returns a boolean if a field has been set.
-func (o *ProblemDetails) HasInstance() bool {
-	if o != nil && o.Instance.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetInstance gets a reference to the given NullableString and assigns it to the Instance field.
-func (o *ProblemDetails) SetInstance(v string) {
-	o.Instance.Set(&v)
-}
-// SetInstanceNil sets the value for Instance to be an explicit nil
-func (o *ProblemDetails) SetInstanceNil() {
-	o.Instance.Set(nil)
-}
-
-// UnsetInstance ensures that no value is present for Instance, not even an explicit nil
-func (o *ProblemDetails) UnsetInstance() {
-	o.Instance.Unset()
-}
-
 func (o ProblemDetails) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Type.IsSet() {
@@ -264,9 +221,6 @@ func (o ProblemDetails) MarshalJSON() ([]byte, error) {
 	}
 	if o.Detail.IsSet() {
 		toSerialize["detail"] = o.Detail.Get()
-	}
-	if o.Instance.IsSet() {
-		toSerialize["instance"] = o.Instance.Get()
 	}
 	return json.Marshal(toSerialize)
 }

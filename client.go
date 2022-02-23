@@ -61,6 +61,8 @@ type APIClient struct {
 	DigiLockerCompatIssuerApi *DigiLockerCompatIssuerApiService
 
 	DocumentsApi *DocumentsApiService
+
+	SupportedIdentifiersApi *SupportedIdentifiersApiService
 }
 
 type service struct {
@@ -85,6 +87,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.DataProviderDiscoveryApi = (*DataProviderDiscoveryApiService)(&c.common)
 	c.DigiLockerCompatIssuerApi = (*DigiLockerCompatIssuerApiService)(&c.common)
 	c.DocumentsApi = (*DocumentsApiService)(&c.common)
+	c.SupportedIdentifiersApi = (*SupportedIdentifiersApiService)(&c.common)
 
 	return c
 }

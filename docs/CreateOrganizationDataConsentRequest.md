@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConsentTemplateId** | Pointer to **string** |  | [optional] 
+**ConsentTemplateId** | Pointer to **string** | Consent template id | [optional] 
 **Receiver** | [**Receiver**](Receiver.md) |  | 
 
 ## Methods

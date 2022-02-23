@@ -75,7 +75,7 @@ ctx = context.WithValue(context.Background(), github.com/mydatamyconsent/sdk.Con
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.mydatamyconsent.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -91,15 +91,15 @@ Class | Method | HTTP request | Description
 *DataConsentsApi* | [**DownloadOrgConsentedDocumentById**](docs/DataConsentsApi.md#downloadorgconsenteddocumentbyid) | **Get** /v1/consents/organizations/{consentId}/documents/{documentId}/download | Download a organizations consented document.
 *DataConsentsApi* | [**GetAllConsentedDocuments**](docs/DataConsentsApi.md#getallconsenteddocuments) | **Get** /v1/consents/individuals/{consentId}/documents | Get the individual documents based on ConsentId.
 *DataConsentsApi* | [**GetAllConsentedFinancialAccounts**](docs/DataConsentsApi.md#getallconsentedfinancialaccounts) | **Get** /v1/consents/individuals/{consentId}/accounts | Get all individual consented financial accounts.
-*DataConsentsApi* | [**GetAllOrganizationConsentedAccounts**](docs/DataConsentsApi.md#getallorganizationconsentedaccounts) | **Get** /v1/consents/organizations/{consentId}/accounts | Get all organizational consented financial accounts.
 *DataConsentsApi* | [**GetAllOrganizationConsentedDocuments**](docs/DataConsentsApi.md#getallorganizationconsenteddocuments) | **Get** /v1/consents/organizations/{consentId}/documents | Get the organization documents based on ConsentId.
 *DataConsentsApi* | [**GetConsentDetailsById**](docs/DataConsentsApi.md#getconsentdetailsbyid) | **Get** /v1/consents/individuals/{consentId} | Get all individuals consent details by consent id.
+*DataConsentsApi* | [**GetConsentFinancialAccounts**](docs/DataConsentsApi.md#getconsentfinancialaccounts) | **Get** /v1/consents/organizations/{consentId}/accounts | Get all organizational consented financial accounts.
 *DataConsentsApi* | [**GetConsentedAccountById**](docs/DataConsentsApi.md#getconsentedaccountbyid) | **Get** /v1/consents/individuals/{consentId}/accounts/{accountId} | Get individual consented financial account details based on account id.
 *DataConsentsApi* | [**GetConsentedDocumentById**](docs/DataConsentsApi.md#getconsenteddocumentbyid) | **Get** /v1/consents/individuals/{consentId}/documents/{documentId} | Get individuals consent document based on document id.
 *DataConsentsApi* | [**GetConsentedFinancialAccount**](docs/DataConsentsApi.md#getconsentedfinancialaccount) | **Get** /v1/consents/organizations/{consentId}/accounts/{accountId} | Get organization consented financial account details based on account id.
 *DataConsentsApi* | [**GetConsentedFinancialAccountTransactions**](docs/DataConsentsApi.md#getconsentedfinancialaccounttransactions) | **Get** /v1/consents/individuals/{consentId}/accounts/{accountId}/transactions | Get individual consented financial account transactions of an individual based on accountId.
-*DataConsentsApi* | [**GetConsents**](docs/DataConsentsApi.md#getconsents) | **Get** /v1/consents/individuals | Get the list of Consents Sent to Individuals.
 *DataConsentsApi* | [**GetConsentsForOrganizations**](docs/DataConsentsApi.md#getconsentsfororganizations) | **Get** /v1/consents/organizations | Get the list of data consents sent for organizations.
+*DataConsentsApi* | [**GetConsentsSentToIndividuals**](docs/DataConsentsApi.md#getconsentssenttoindividuals) | **Get** /v1/consents/individuals | Get the list of Consents Sent to Individuals.
 *DataConsentsApi* | [**GetOrgConsentedAccountTransactions**](docs/DataConsentsApi.md#getorgconsentedaccounttransactions) | **Get** /v1/consents/organizations/{consentId}/accounts/{accountId}/transactions | Get organization consented financial account transactions of an individual based on accountId.
 *DataConsentsApi* | [**GetOrganizationConsentDetailsById**](docs/DataConsentsApi.md#getorganizationconsentdetailsbyid) | **Get** /v1/consents/organizations/{consentId} | Get all organization consent details by consent id.
 *DataConsentsApi* | [**GetOrganizationConsentedDocumentById**](docs/DataConsentsApi.md#getorganizationconsenteddocumentbyid) | **Get** /v1/consents/organizations/{consentId}/documents/{documentId} | Get organization consent document based on document id.
@@ -113,9 +113,13 @@ Class | Method | HTTP request | Description
 *DataProviderDiscoveryApi* | [**GetDataProviders**](docs/DataProviderDiscoveryApi.md#getdataproviders) | **Get** /v1/data-providers | Discover all data providers in My Data My Consent by country and filters.
 *DigiLockerCompatIssuerApi* | [**DigilockerCompatIssueDocument**](docs/DigiLockerCompatIssuerApi.md#digilockercompatissuedocument) | **Post** /issuer/issuedoc/1/xml | Digilocker Compatible endpoint to issue document.
 *DocumentsApi* | [**GetIssuedDocumentById**](docs/DocumentsApi.md#getissueddocumentbyid) | **Get** /v1/documents/issued/{documentId} | Get issued document.
-*DocumentsApi* | [**GetIssuedDocuments**](docs/DocumentsApi.md#getissueddocuments) | **Get** /v1/documents/issued | Get issued documents.
+*DocumentsApi* | [**GetIssuedDocuments**](docs/DocumentsApi.md#getissueddocuments) | **Get** /v1/documents/issued/{documentTypeId} | Get paginated list of issued documents of given document type.
 *DocumentsApi* | [**GetRegisteredDocumentTypes**](docs/DocumentsApi.md#getregistereddocumenttypes) | **Get** /v1/documents/types | Get registered document types.
-*DocumentsApi* | [**IssueDocument**](docs/DocumentsApi.md#issuedocument) | **Post** /v1/documents/issue | Issue a new document.
+*DocumentsApi* | [**IssueDocumentToIndividual**](docs/DocumentsApi.md#issuedocumenttoindividual) | **Post** /v1/documents/issue/individual | Issue a new document to an individual user.
+*DocumentsApi* | [**IssueDocumentToOrganization**](docs/DocumentsApi.md#issuedocumenttoorganization) | **Post** /v1/documents/issue/organization | Issue a new document to an organization.
+*DocumentsApi* | [**UploadDocumentForIndividual**](docs/DocumentsApi.md#uploaddocumentforindividual) | **Post** /v1/documents/issue/individual/upload/{issueRequestId} | Upload a document for issuance request of individual.
+*DocumentsApi* | [**UploadDocumentForOrganization**](docs/DocumentsApi.md#uploaddocumentfororganization) | **Post** /v1/documents/issue/organization/upload/{issueRequestId} | Upload a document for issuance request of organization.
+*SupportedIdentifiersApi* | [**GetAllSupportedIdentifiers**](docs/SupportedIdentifiersApi.md#getallsupportedidentifiers) | **Get** /v1/supported-identifiers/{countryIso2Code} | Get all supported identifiers by country.
 
 
 ## Documentation For Models
@@ -145,6 +149,8 @@ Class | Method | HTTP request | Description
  - [Document](docs/Document.md)
  - [DocumentCategoryType](docs/DocumentCategoryType.md)
  - [DocumentIssueRequest](docs/DocumentIssueRequest.md)
+ - [DocumentIssueRequestDetails](docs/DocumentIssueRequestDetails.md)
+ - [DocumentReceiver](docs/DocumentReceiver.md)
  - [DocumentSubCategoryType](docs/DocumentSubCategoryType.md)
  - [DocumentType](docs/DocumentType.md)
  - [DocumentTypePaginatedList](docs/DocumentTypePaginatedList.md)
@@ -178,7 +184,10 @@ Class | Method | HTTP request | Description
  - [Receiver](docs/Receiver.md)
  - [ReceiverType](docs/ReceiverType.md)
  - [SharedWith](docs/SharedWith.md)
+ - [StringStringKeyValuePair](docs/StringStringKeyValuePair.md)
  - [SupportedEntityType](docs/SupportedEntityType.md)
+ - [SupportedIdentifier](docs/SupportedIdentifier.md)
+ - [SupportedIdentifiersByCountry](docs/SupportedIdentifiersByCountry.md)
  - [UpdateDataProcessingAgreementRequestModel](docs/UpdateDataProcessingAgreementRequestModel.md)
  - [UriDetails](docs/UriDetails.md)
  - [UserAccountFinancialTransactionsDto](docs/UserAccountFinancialTransactionsDto.md)

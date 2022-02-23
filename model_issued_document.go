@@ -16,21 +16,29 @@ import (
 	"time"
 )
 
-// IssuedDocument struct for IssuedDocument
+// IssuedDocument Issued Document Identifier.
 type IssuedDocument struct {
-	DocumentId *string `json:"documentId,omitempty"`
-	Identifier NullableString `json:"identifier,omitempty"`
-	DocumentType NullableString `json:"documentType,omitempty"`
-	IssuedTo NullableString `json:"issuedTo,omitempty"`
-	IssuedAtUtc *time.Time `json:"issuedAtUtc,omitempty"`
+	// Document Identifier.
+	Id string `json:"id"`
+	// Document Identifier. eg: GJ05FG67866586.
+	Identifier string `json:"identifier"`
+	// Document type name. eg: Driving License.
+	DocumentType string `json:"documentType"`
+	IssuedTo string `json:"issuedTo"`
+	IssuedAtUtc time.Time `json:"issuedAtUtc"`
 }
 
 // NewIssuedDocument instantiates a new IssuedDocument object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIssuedDocument() *IssuedDocument {
+func NewIssuedDocument(id string, identifier string, documentType string, issuedTo string, issuedAtUtc time.Time) *IssuedDocument {
 	this := IssuedDocument{}
+	this.Id = id
+	this.Identifier = identifier
+	this.DocumentType = documentType
+	this.IssuedTo = issuedTo
+	this.IssuedAtUtc = issuedAtUtc
 	return &this
 }
 
@@ -42,211 +50,141 @@ func NewIssuedDocumentWithDefaults() *IssuedDocument {
 	return &this
 }
 
-// GetDocumentId returns the DocumentId field value if set, zero value otherwise.
-func (o *IssuedDocument) GetDocumentId() string {
-	if o == nil || o.DocumentId == nil {
+// GetId returns the Id field value
+func (o *IssuedDocument) GetId() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.DocumentId
+
+	return o.Id
 }
 
-// GetDocumentIdOk returns a tuple with the DocumentId field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *IssuedDocument) GetDocumentIdOk() (*string, bool) {
-	if o == nil || o.DocumentId == nil {
+func (o *IssuedDocument) GetIdOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.DocumentId, true
+	return &o.Id, true
 }
 
-// HasDocumentId returns a boolean if a field has been set.
-func (o *IssuedDocument) HasDocumentId() bool {
-	if o != nil && o.DocumentId != nil {
-		return true
-	}
-
-	return false
+// SetId sets field value
+func (o *IssuedDocument) SetId(v string) {
+	o.Id = v
 }
 
-// SetDocumentId gets a reference to the given string and assigns it to the DocumentId field.
-func (o *IssuedDocument) SetDocumentId(v string) {
-	o.DocumentId = &v
-}
-
-// GetIdentifier returns the Identifier field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIdentifier returns the Identifier field value
 func (o *IssuedDocument) GetIdentifier() string {
-	if o == nil || o.Identifier.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Identifier.Get()
+
+	return o.Identifier
 }
 
-// GetIdentifierOk returns a tuple with the Identifier field value if set, nil otherwise
+// GetIdentifierOk returns a tuple with the Identifier field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IssuedDocument) GetIdentifierOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Identifier.Get(), o.Identifier.IsSet()
+	return &o.Identifier, true
 }
 
-// HasIdentifier returns a boolean if a field has been set.
-func (o *IssuedDocument) HasIdentifier() bool {
-	if o != nil && o.Identifier.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIdentifier gets a reference to the given NullableString and assigns it to the Identifier field.
+// SetIdentifier sets field value
 func (o *IssuedDocument) SetIdentifier(v string) {
-	o.Identifier.Set(&v)
-}
-// SetIdentifierNil sets the value for Identifier to be an explicit nil
-func (o *IssuedDocument) SetIdentifierNil() {
-	o.Identifier.Set(nil)
+	o.Identifier = v
 }
 
-// UnsetIdentifier ensures that no value is present for Identifier, not even an explicit nil
-func (o *IssuedDocument) UnsetIdentifier() {
-	o.Identifier.Unset()
-}
-
-// GetDocumentType returns the DocumentType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDocumentType returns the DocumentType field value
 func (o *IssuedDocument) GetDocumentType() string {
-	if o == nil || o.DocumentType.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.DocumentType.Get()
+
+	return o.DocumentType
 }
 
-// GetDocumentTypeOk returns a tuple with the DocumentType field value if set, nil otherwise
+// GetDocumentTypeOk returns a tuple with the DocumentType field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IssuedDocument) GetDocumentTypeOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.DocumentType.Get(), o.DocumentType.IsSet()
+	return &o.DocumentType, true
 }
 
-// HasDocumentType returns a boolean if a field has been set.
-func (o *IssuedDocument) HasDocumentType() bool {
-	if o != nil && o.DocumentType.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDocumentType gets a reference to the given NullableString and assigns it to the DocumentType field.
+// SetDocumentType sets field value
 func (o *IssuedDocument) SetDocumentType(v string) {
-	o.DocumentType.Set(&v)
-}
-// SetDocumentTypeNil sets the value for DocumentType to be an explicit nil
-func (o *IssuedDocument) SetDocumentTypeNil() {
-	o.DocumentType.Set(nil)
+	o.DocumentType = v
 }
 
-// UnsetDocumentType ensures that no value is present for DocumentType, not even an explicit nil
-func (o *IssuedDocument) UnsetDocumentType() {
-	o.DocumentType.Unset()
-}
-
-// GetIssuedTo returns the IssuedTo field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIssuedTo returns the IssuedTo field value
 func (o *IssuedDocument) GetIssuedTo() string {
-	if o == nil || o.IssuedTo.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.IssuedTo.Get()
+
+	return o.IssuedTo
 }
 
-// GetIssuedToOk returns a tuple with the IssuedTo field value if set, nil otherwise
+// GetIssuedToOk returns a tuple with the IssuedTo field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IssuedDocument) GetIssuedToOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.IssuedTo.Get(), o.IssuedTo.IsSet()
+	return &o.IssuedTo, true
 }
 
-// HasIssuedTo returns a boolean if a field has been set.
-func (o *IssuedDocument) HasIssuedTo() bool {
-	if o != nil && o.IssuedTo.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIssuedTo gets a reference to the given NullableString and assigns it to the IssuedTo field.
+// SetIssuedTo sets field value
 func (o *IssuedDocument) SetIssuedTo(v string) {
-	o.IssuedTo.Set(&v)
-}
-// SetIssuedToNil sets the value for IssuedTo to be an explicit nil
-func (o *IssuedDocument) SetIssuedToNil() {
-	o.IssuedTo.Set(nil)
+	o.IssuedTo = v
 }
 
-// UnsetIssuedTo ensures that no value is present for IssuedTo, not even an explicit nil
-func (o *IssuedDocument) UnsetIssuedTo() {
-	o.IssuedTo.Unset()
-}
-
-// GetIssuedAtUtc returns the IssuedAtUtc field value if set, zero value otherwise.
+// GetIssuedAtUtc returns the IssuedAtUtc field value
 func (o *IssuedDocument) GetIssuedAtUtc() time.Time {
-	if o == nil || o.IssuedAtUtc == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.IssuedAtUtc
+
+	return o.IssuedAtUtc
 }
 
-// GetIssuedAtUtcOk returns a tuple with the IssuedAtUtc field value if set, nil otherwise
+// GetIssuedAtUtcOk returns a tuple with the IssuedAtUtc field value
 // and a boolean to check if the value has been set.
 func (o *IssuedDocument) GetIssuedAtUtcOk() (*time.Time, bool) {
-	if o == nil || o.IssuedAtUtc == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.IssuedAtUtc, true
+	return &o.IssuedAtUtc, true
 }
 
-// HasIssuedAtUtc returns a boolean if a field has been set.
-func (o *IssuedDocument) HasIssuedAtUtc() bool {
-	if o != nil && o.IssuedAtUtc != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetIssuedAtUtc gets a reference to the given time.Time and assigns it to the IssuedAtUtc field.
+// SetIssuedAtUtc sets field value
 func (o *IssuedDocument) SetIssuedAtUtc(v time.Time) {
-	o.IssuedAtUtc = &v
+	o.IssuedAtUtc = v
 }
 
 func (o IssuedDocument) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.DocumentId != nil {
-		toSerialize["documentId"] = o.DocumentId
+	if true {
+		toSerialize["id"] = o.Id
 	}
-	if o.Identifier.IsSet() {
-		toSerialize["identifier"] = o.Identifier.Get()
+	if true {
+		toSerialize["identifier"] = o.Identifier
 	}
-	if o.DocumentType.IsSet() {
-		toSerialize["documentType"] = o.DocumentType.Get()
+	if true {
+		toSerialize["documentType"] = o.DocumentType
 	}
-	if o.IssuedTo.IsSet() {
-		toSerialize["issuedTo"] = o.IssuedTo.Get()
+	if true {
+		toSerialize["issuedTo"] = o.IssuedTo
 	}
-	if o.IssuedAtUtc != nil {
+	if true {
 		toSerialize["issuedAtUtc"] = o.IssuedAtUtc
 	}
 	return json.Marshal(toSerialize)

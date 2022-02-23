@@ -6,6 +6,7 @@ api_data_processing_agreements.go
 api_data_provider_discovery.go
 api_digi_locker_compat_issuer.go
 api_documents.go
+api_supported_identifiers.go
 client.go
 configuration.go
 docs/Activity.md
@@ -38,6 +39,8 @@ docs/DigitalSignature.md
 docs/Document.md
 docs/DocumentCategoryType.md
 docs/DocumentIssueRequest.md
+docs/DocumentIssueRequestDetails.md
+docs/DocumentReceiver.md
 docs/DocumentSubCategoryType.md
 docs/DocumentType.md
 docs/DocumentTypePaginatedList.md
@@ -72,7 +75,11 @@ docs/PushUriResponse.md
 docs/Receiver.md
 docs/ReceiverType.md
 docs/SharedWith.md
+docs/StringStringKeyValuePair.md
 docs/SupportedEntityType.md
+docs/SupportedIdentifier.md
+docs/SupportedIdentifiersApi.md
+docs/SupportedIdentifiersByCountry.md
 docs/UpdateDataProcessingAgreementRequestModel.md
 docs/UriDetails.md
 docs/UserAccountFinancialTransactionsDto.md
@@ -108,6 +115,8 @@ model_digital_signature.go
 model_document.go
 model_document_category_type.go
 model_document_issue_request.go
+model_document_issue_request_details.go
+model_document_receiver.go
 model_document_sub_category_type.go
 model_document_type.go
 model_document_type_paginated_list.go
@@ -141,7 +150,10 @@ model_push_uri_response.go
 model_receiver.go
 model_receiver_type.go
 model_shared_with.go
+model_string_string_key_value_pair.go
 model_supported_entity_type.go
+model_supported_identifier.go
+model_supported_identifiers_by_country.go
 model_update_data_processing_agreement_request_model.go
 model_uri_details.go
 model_user_account_financial_transactions_dto.go

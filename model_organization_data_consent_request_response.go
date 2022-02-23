@@ -18,11 +18,16 @@ import (
 
 // OrganizationDataConsentRequestResponse Organization Data Consent Request Response.
 type OrganizationDataConsentRequestResponse struct {
+	// Consent request id
 	Id *string `json:"id,omitempty"`
+	// Consent request template id
 	TemplateId *string `json:"templateId,omitempty"`
+	// Requested date time in utc zone
 	RequestedAtUtc *time.Time `json:"requestedAtUtc,omitempty"`
+	// Request expires date time in utc zone
 	RequestExpiresAtUtc *time.Time `json:"requestExpiresAtUtc,omitempty"`
 	Status *DataConsentStatus `json:"status,omitempty"`
+	// Requested transaction id
 	TransactionId NullableString `json:"transactionId,omitempty"`
 }
 

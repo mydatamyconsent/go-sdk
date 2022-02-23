@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DocumentId** | Pointer to **string** |  | [optional] 
-**Identifier** | Pointer to **NullableString** |  | [optional] 
-**DocumentType** | Pointer to **NullableString** |  | [optional] 
-**IssuedTo** | Pointer to **NullableString** |  | [optional] 
-**IssuedAtUtc** | Pointer to **time.Time** |  | [optional] 
+**Id** | **string** | Document Identifier. | 
+**Identifier** | **string** | Document Identifier. eg: GJ05FG67866586. | 
+**DocumentType** | **string** | Document type name. eg: Driving License. | 
+**IssuedTo** | **string** |  | 
+**IssuedAtUtc** | **time.Time** |  | 
 
 ## Methods
 
 ### NewIssuedDocument
 
-`func NewIssuedDocument() *IssuedDocument`
+`func NewIssuedDocument(id string, identifier string, documentType string, issuedTo string, issuedAtUtc time.Time, ) *IssuedDocument`
 
 NewIssuedDocument instantiates a new IssuedDocument object
 This constructor will assign default values to properties that have it defined,
@@ -29,30 +29,25 @@ NewIssuedDocumentWithDefaults instantiates a new IssuedDocument object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetDocumentId
+### GetId
 
-`func (o *IssuedDocument) GetDocumentId() string`
+`func (o *IssuedDocument) GetId() string`
 
-GetDocumentId returns the DocumentId field if non-nil, zero value otherwise.
+GetId returns the Id field if non-nil, zero value otherwise.
 
-### GetDocumentIdOk
+### GetIdOk
 
-`func (o *IssuedDocument) GetDocumentIdOk() (*string, bool)`
+`func (o *IssuedDocument) GetIdOk() (*string, bool)`
 
-GetDocumentIdOk returns a tuple with the DocumentId field if it's non-nil, zero value otherwise
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDocumentId
+### SetId
 
-`func (o *IssuedDocument) SetDocumentId(v string)`
+`func (o *IssuedDocument) SetId(v string)`
 
-SetDocumentId sets DocumentId field to given value.
+SetId sets Id field to given value.
 
-### HasDocumentId
-
-`func (o *IssuedDocument) HasDocumentId() bool`
-
-HasDocumentId returns a boolean if a field has been set.
 
 ### GetIdentifier
 
@@ -73,22 +68,7 @@ and a boolean to check if the value has been set.
 
 SetIdentifier sets Identifier field to given value.
 
-### HasIdentifier
 
-`func (o *IssuedDocument) HasIdentifier() bool`
-
-HasIdentifier returns a boolean if a field has been set.
-
-### SetIdentifierNil
-
-`func (o *IssuedDocument) SetIdentifierNil(b bool)`
-
- SetIdentifierNil sets the value for Identifier to be an explicit nil
-
-### UnsetIdentifier
-`func (o *IssuedDocument) UnsetIdentifier()`
-
-UnsetIdentifier ensures that no value is present for Identifier, not even an explicit nil
 ### GetDocumentType
 
 `func (o *IssuedDocument) GetDocumentType() string`
@@ -108,22 +88,7 @@ and a boolean to check if the value has been set.
 
 SetDocumentType sets DocumentType field to given value.
 
-### HasDocumentType
 
-`func (o *IssuedDocument) HasDocumentType() bool`
-
-HasDocumentType returns a boolean if a field has been set.
-
-### SetDocumentTypeNil
-
-`func (o *IssuedDocument) SetDocumentTypeNil(b bool)`
-
- SetDocumentTypeNil sets the value for DocumentType to be an explicit nil
-
-### UnsetDocumentType
-`func (o *IssuedDocument) UnsetDocumentType()`
-
-UnsetDocumentType ensures that no value is present for DocumentType, not even an explicit nil
 ### GetIssuedTo
 
 `func (o *IssuedDocument) GetIssuedTo() string`
@@ -143,22 +108,7 @@ and a boolean to check if the value has been set.
 
 SetIssuedTo sets IssuedTo field to given value.
 
-### HasIssuedTo
 
-`func (o *IssuedDocument) HasIssuedTo() bool`
-
-HasIssuedTo returns a boolean if a field has been set.
-
-### SetIssuedToNil
-
-`func (o *IssuedDocument) SetIssuedToNil(b bool)`
-
- SetIssuedToNil sets the value for IssuedTo to be an explicit nil
-
-### UnsetIssuedTo
-`func (o *IssuedDocument) UnsetIssuedTo()`
-
-UnsetIssuedTo ensures that no value is present for IssuedTo, not even an explicit nil
 ### GetIssuedAtUtc
 
 `func (o *IssuedDocument) GetIssuedAtUtc() time.Time`
@@ -178,11 +128,6 @@ and a boolean to check if the value has been set.
 
 SetIssuedAtUtc sets IssuedAtUtc field to given value.
 
-### HasIssuedAtUtc
-
-`func (o *IssuedDocument) HasIssuedAtUtc() bool`
-
-HasIssuedAtUtc returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

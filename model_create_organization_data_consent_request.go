@@ -17,6 +17,7 @@ import (
 
 // CreateOrganizationDataConsentRequest Organization Data Consent Request.
 type CreateOrganizationDataConsentRequest struct {
+	// Consent template id
 	ConsentTemplateId *string `json:"consentTemplateId,omitempty"`
 	Receiver Receiver `json:"receiver"`
 }

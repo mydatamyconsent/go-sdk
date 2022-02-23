@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to [**ReceiverType**](ReceiverType.md) |  | [optional] 
-**Identifiers** | Pointer to [**[]IdentifierStringKeyValuePair**](IdentifierStringKeyValuePair.md) |  | [optional] 
+**Identifiers** | Pointer to [**[]IdentifierStringKeyValuePair**](IdentifierStringKeyValuePair.md) | Consent request receiver identifiers | [optional] 
 **IdentificationStrategy** | Pointer to [**IdentificationStrategy**](IdentificationStrategy.md) |  | [optional] 
 
 ## Methods
