@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | Pointer to **NullableString** |  | [optional] 
+**Iso2** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**ExampleValue** | Pointer to **NullableString** |  | [optional] 
+**IndividualIdentifiers** | Pointer to [**[]Identifier**](Identifier.md) |  | [optional] 
+**OrganizationIdentifiers** | Pointer to [**[]Identifier**](Identifier.md) |  | [optional] 
 
 ## Methods
 
@@ -28,41 +28,41 @@ NewSupportedIdentifierWithDefaults instantiates a new SupportedIdentifier object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetKey
+### GetIso2
 
-`func (o *SupportedIdentifier) GetKey() string`
+`func (o *SupportedIdentifier) GetIso2() string`
 
-GetKey returns the Key field if non-nil, zero value otherwise.
+GetIso2 returns the Iso2 field if non-nil, zero value otherwise.
 
-### GetKeyOk
+### GetIso2Ok
 
-`func (o *SupportedIdentifier) GetKeyOk() (*string, bool)`
+`func (o *SupportedIdentifier) GetIso2Ok() (*string, bool)`
 
-GetKeyOk returns a tuple with the Key field if it's non-nil, zero value otherwise
+GetIso2Ok returns a tuple with the Iso2 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetKey
+### SetIso2
 
-`func (o *SupportedIdentifier) SetKey(v string)`
+`func (o *SupportedIdentifier) SetIso2(v string)`
 
-SetKey sets Key field to given value.
+SetIso2 sets Iso2 field to given value.
 
-### HasKey
+### HasIso2
 
-`func (o *SupportedIdentifier) HasKey() bool`
+`func (o *SupportedIdentifier) HasIso2() bool`
 
-HasKey returns a boolean if a field has been set.
+HasIso2 returns a boolean if a field has been set.
 
-### SetKeyNil
+### SetIso2Nil
 
-`func (o *SupportedIdentifier) SetKeyNil(b bool)`
+`func (o *SupportedIdentifier) SetIso2Nil(b bool)`
 
- SetKeyNil sets the value for Key to be an explicit nil
+ SetIso2Nil sets the value for Iso2 to be an explicit nil
 
-### UnsetKey
-`func (o *SupportedIdentifier) UnsetKey()`
+### UnsetIso2
+`func (o *SupportedIdentifier) UnsetIso2()`
 
-UnsetKey ensures that no value is present for Key, not even an explicit nil
+UnsetIso2 ensures that no value is present for Iso2, not even an explicit nil
 ### GetName
 
 `func (o *SupportedIdentifier) GetName() string`
@@ -98,76 +98,76 @@ HasName returns a boolean if a field has been set.
 `func (o *SupportedIdentifier) UnsetName()`
 
 UnsetName ensures that no value is present for Name, not even an explicit nil
-### GetDescription
+### GetIndividualIdentifiers
 
-`func (o *SupportedIdentifier) GetDescription() string`
+`func (o *SupportedIdentifier) GetIndividualIdentifiers() []Identifier`
 
-GetDescription returns the Description field if non-nil, zero value otherwise.
+GetIndividualIdentifiers returns the IndividualIdentifiers field if non-nil, zero value otherwise.
 
-### GetDescriptionOk
+### GetIndividualIdentifiersOk
 
-`func (o *SupportedIdentifier) GetDescriptionOk() (*string, bool)`
+`func (o *SupportedIdentifier) GetIndividualIdentifiersOk() (*[]Identifier, bool)`
 
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+GetIndividualIdentifiersOk returns a tuple with the IndividualIdentifiers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDescription
+### SetIndividualIdentifiers
 
-`func (o *SupportedIdentifier) SetDescription(v string)`
+`func (o *SupportedIdentifier) SetIndividualIdentifiers(v []Identifier)`
 
-SetDescription sets Description field to given value.
+SetIndividualIdentifiers sets IndividualIdentifiers field to given value.
 
-### HasDescription
+### HasIndividualIdentifiers
 
-`func (o *SupportedIdentifier) HasDescription() bool`
+`func (o *SupportedIdentifier) HasIndividualIdentifiers() bool`
 
-HasDescription returns a boolean if a field has been set.
+HasIndividualIdentifiers returns a boolean if a field has been set.
 
-### SetDescriptionNil
+### SetIndividualIdentifiersNil
 
-`func (o *SupportedIdentifier) SetDescriptionNil(b bool)`
+`func (o *SupportedIdentifier) SetIndividualIdentifiersNil(b bool)`
 
- SetDescriptionNil sets the value for Description to be an explicit nil
+ SetIndividualIdentifiersNil sets the value for IndividualIdentifiers to be an explicit nil
 
-### UnsetDescription
-`func (o *SupportedIdentifier) UnsetDescription()`
+### UnsetIndividualIdentifiers
+`func (o *SupportedIdentifier) UnsetIndividualIdentifiers()`
 
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetExampleValue
+UnsetIndividualIdentifiers ensures that no value is present for IndividualIdentifiers, not even an explicit nil
+### GetOrganizationIdentifiers
 
-`func (o *SupportedIdentifier) GetExampleValue() string`
+`func (o *SupportedIdentifier) GetOrganizationIdentifiers() []Identifier`
 
-GetExampleValue returns the ExampleValue field if non-nil, zero value otherwise.
+GetOrganizationIdentifiers returns the OrganizationIdentifiers field if non-nil, zero value otherwise.
 
-### GetExampleValueOk
+### GetOrganizationIdentifiersOk
 
-`func (o *SupportedIdentifier) GetExampleValueOk() (*string, bool)`
+`func (o *SupportedIdentifier) GetOrganizationIdentifiersOk() (*[]Identifier, bool)`
 
-GetExampleValueOk returns a tuple with the ExampleValue field if it's non-nil, zero value otherwise
+GetOrganizationIdentifiersOk returns a tuple with the OrganizationIdentifiers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetExampleValue
+### SetOrganizationIdentifiers
 
-`func (o *SupportedIdentifier) SetExampleValue(v string)`
+`func (o *SupportedIdentifier) SetOrganizationIdentifiers(v []Identifier)`
 
-SetExampleValue sets ExampleValue field to given value.
+SetOrganizationIdentifiers sets OrganizationIdentifiers field to given value.
 
-### HasExampleValue
+### HasOrganizationIdentifiers
 
-`func (o *SupportedIdentifier) HasExampleValue() bool`
+`func (o *SupportedIdentifier) HasOrganizationIdentifiers() bool`
 
-HasExampleValue returns a boolean if a field has been set.
+HasOrganizationIdentifiers returns a boolean if a field has been set.
 
-### SetExampleValueNil
+### SetOrganizationIdentifiersNil
 
-`func (o *SupportedIdentifier) SetExampleValueNil(b bool)`
+`func (o *SupportedIdentifier) SetOrganizationIdentifiersNil(b bool)`
 
- SetExampleValueNil sets the value for ExampleValue to be an explicit nil
+ SetOrganizationIdentifiersNil sets the value for OrganizationIdentifiers to be an explicit nil
 
-### UnsetExampleValue
-`func (o *SupportedIdentifier) UnsetExampleValue()`
+### UnsetOrganizationIdentifiers
+`func (o *SupportedIdentifier) UnsetOrganizationIdentifiers()`
 
-UnsetExampleValue ensures that no value is present for ExampleValue, not even an explicit nil
+UnsetOrganizationIdentifiers ensures that no value is present for OrganizationIdentifiers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -157,6 +157,8 @@ No authorization required
 
 Create a individual data consent request.
 
+
+
 ### Example
 
 ```go
@@ -170,7 +172,7 @@ import (
 )
 
 func main() {
-    createIndividualDataConsentRequest := *openapiclient.NewCreateIndividualDataConsentRequest(*openapiclient.NewReceiver()) // CreateIndividualDataConsentRequest | M:MyDataMyConsent.DeveloperApi.Controllers.DataConsentRequestsController.CreateIndividualDataConsentRequest(MyDataMyConsent.DeveloperApi.Models.CreateIndividualDataConsentRequest).
+    createIndividualDataConsentRequest := *openapiclient.NewCreateIndividualDataConsentRequest(*openapiclient.NewReceiver()) // CreateIndividualDataConsentRequest | The Individual data consent request payload
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -195,7 +197,7 @@ Other parameters are passed through a pointer to a apiCreateIndividualDataConsen
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createIndividualDataConsentRequest** | [**CreateIndividualDataConsentRequest**](CreateIndividualDataConsentRequest.md) | M:MyDataMyConsent.DeveloperApi.Controllers.DataConsentRequestsController.CreateIndividualDataConsentRequest(MyDataMyConsent.DeveloperApi.Models.CreateIndividualDataConsentRequest). | 
+ **createIndividualDataConsentRequest** | [**CreateIndividualDataConsentRequest**](CreateIndividualDataConsentRequest.md) | The Individual data consent request payload | 
 
 ### Return type
 
@@ -220,6 +222,8 @@ No authorization required
 > OrganizationDataConsentRequestResponse CreateOrganizationDataConsentRequest(ctx).CreateOrganizationDataConsentRequest(createOrganizationDataConsentRequest).Execute()
 
 Create a organization data consent request.
+
+
 
 ### Example
 

@@ -120,13 +120,15 @@ func (a *DataConsentsApiService) DownloadConsentedDocumentByIdExecute(r ApiDownl
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -233,13 +235,15 @@ func (a *DataConsentsApiService) DownloadOrgConsentedDocumentByIdExecute(r ApiDo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -342,13 +346,15 @@ func (a *DataConsentsApiService) GetAllConsentedDocumentsExecute(r ApiGetAllCons
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -451,13 +457,15 @@ func (a *DataConsentsApiService) GetAllConsentedFinancialAccountsExecute(r ApiGe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -560,13 +568,15 @@ func (a *DataConsentsApiService) GetAllOrganizationConsentedDocumentsExecute(r A
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -669,13 +679,15 @@ func (a *DataConsentsApiService) GetConsentDetailsByIdExecute(r ApiGetConsentDet
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -778,13 +790,15 @@ func (a *DataConsentsApiService) GetConsentFinancialAccountsExecute(r ApiGetCons
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -891,13 +905,15 @@ func (a *DataConsentsApiService) GetConsentedAccountByIdExecute(r ApiGetConsente
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1004,13 +1020,15 @@ func (a *DataConsentsApiService) GetConsentedDocumentByIdExecute(r ApiGetConsent
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1117,13 +1135,15 @@ func (a *DataConsentsApiService) GetConsentedFinancialAccountExecute(r ApiGetCon
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1275,13 +1295,15 @@ func (a *DataConsentsApiService) GetConsentedFinancialAccountTransactionsExecute
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1425,13 +1447,15 @@ func (a *DataConsentsApiService) GetConsentsForOrganizationsExecute(r ApiGetCons
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1575,13 +1599,15 @@ func (a *DataConsentsApiService) GetConsentsSentToIndividualsExecute(r ApiGetCon
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1733,13 +1759,15 @@ func (a *DataConsentsApiService) GetOrgConsentedAccountTransactionsExecute(r Api
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1842,13 +1870,15 @@ func (a *DataConsentsApiService) GetOrganizationConsentDetailsByIdExecute(r ApiG
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1955,13 +1985,15 @@ func (a *DataConsentsApiService) GetOrganizationConsentedDocumentByIdExecute(r A
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

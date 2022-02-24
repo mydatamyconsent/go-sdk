@@ -17,10 +17,10 @@ import (
 
 // SupportedIdentifier struct for SupportedIdentifier
 type SupportedIdentifier struct {
-	Key NullableString `json:"key,omitempty"`
+	Iso2 NullableString `json:"iso2,omitempty"`
 	Name NullableString `json:"name,omitempty"`
-	Description NullableString `json:"description,omitempty"`
-	ExampleValue NullableString `json:"exampleValue,omitempty"`
+	IndividualIdentifiers []Identifier `json:"individualIdentifiers,omitempty"`
+	OrganizationIdentifiers []Identifier `json:"organizationIdentifiers,omitempty"`
 }
 
 // NewSupportedIdentifier instantiates a new SupportedIdentifier object
@@ -40,46 +40,46 @@ func NewSupportedIdentifierWithDefaults() *SupportedIdentifier {
 	return &this
 }
 
-// GetKey returns the Key field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SupportedIdentifier) GetKey() string {
-	if o == nil || o.Key.Get() == nil {
+// GetIso2 returns the Iso2 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SupportedIdentifier) GetIso2() string {
+	if o == nil || o.Iso2.Get() == nil {
 		var ret string
 		return ret
 	}
-	return *o.Key.Get()
+	return *o.Iso2.Get()
 }
 
-// GetKeyOk returns a tuple with the Key field value if set, nil otherwise
+// GetIso2Ok returns a tuple with the Iso2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SupportedIdentifier) GetKeyOk() (*string, bool) {
+func (o *SupportedIdentifier) GetIso2Ok() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Key.Get(), o.Key.IsSet()
+	return o.Iso2.Get(), o.Iso2.IsSet()
 }
 
-// HasKey returns a boolean if a field has been set.
-func (o *SupportedIdentifier) HasKey() bool {
-	if o != nil && o.Key.IsSet() {
+// HasIso2 returns a boolean if a field has been set.
+func (o *SupportedIdentifier) HasIso2() bool {
+	if o != nil && o.Iso2.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetKey gets a reference to the given NullableString and assigns it to the Key field.
-func (o *SupportedIdentifier) SetKey(v string) {
-	o.Key.Set(&v)
+// SetIso2 gets a reference to the given NullableString and assigns it to the Iso2 field.
+func (o *SupportedIdentifier) SetIso2(v string) {
+	o.Iso2.Set(&v)
 }
-// SetKeyNil sets the value for Key to be an explicit nil
-func (o *SupportedIdentifier) SetKeyNil() {
-	o.Key.Set(nil)
+// SetIso2Nil sets the value for Iso2 to be an explicit nil
+func (o *SupportedIdentifier) SetIso2Nil() {
+	o.Iso2.Set(nil)
 }
 
-// UnsetKey ensures that no value is present for Key, not even an explicit nil
-func (o *SupportedIdentifier) UnsetKey() {
-	o.Key.Unset()
+// UnsetIso2 ensures that no value is present for Iso2, not even an explicit nil
+func (o *SupportedIdentifier) UnsetIso2() {
+	o.Iso2.Unset()
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -124,103 +124,85 @@ func (o *SupportedIdentifier) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SupportedIdentifier) GetDescription() string {
-	if o == nil || o.Description.Get() == nil {
-		var ret string
+// GetIndividualIdentifiers returns the IndividualIdentifiers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SupportedIdentifier) GetIndividualIdentifiers() []Identifier {
+	if o == nil  {
+		var ret []Identifier
 		return ret
 	}
-	return *o.Description.Get()
+	return o.IndividualIdentifiers
 }
 
-// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// GetIndividualIdentifiersOk returns a tuple with the IndividualIdentifiers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SupportedIdentifier) GetDescriptionOk() (*string, bool) {
-	if o == nil  {
+func (o *SupportedIdentifier) GetIndividualIdentifiersOk() ([]Identifier, bool) {
+	if o == nil || o.IndividualIdentifiers == nil {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.IndividualIdentifiers, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *SupportedIdentifier) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+// HasIndividualIdentifiers returns a boolean if a field has been set.
+func (o *SupportedIdentifier) HasIndividualIdentifiers() bool {
+	if o != nil && o.IndividualIdentifiers != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
-func (o *SupportedIdentifier) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *SupportedIdentifier) SetDescriptionNil() {
-	o.Description.Set(nil)
+// SetIndividualIdentifiers gets a reference to the given []Identifier and assigns it to the IndividualIdentifiers field.
+func (o *SupportedIdentifier) SetIndividualIdentifiers(v []Identifier) {
+	o.IndividualIdentifiers = v
 }
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *SupportedIdentifier) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetExampleValue returns the ExampleValue field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SupportedIdentifier) GetExampleValue() string {
-	if o == nil || o.ExampleValue.Get() == nil {
-		var ret string
+// GetOrganizationIdentifiers returns the OrganizationIdentifiers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SupportedIdentifier) GetOrganizationIdentifiers() []Identifier {
+	if o == nil  {
+		var ret []Identifier
 		return ret
 	}
-	return *o.ExampleValue.Get()
+	return o.OrganizationIdentifiers
 }
 
-// GetExampleValueOk returns a tuple with the ExampleValue field value if set, nil otherwise
+// GetOrganizationIdentifiersOk returns a tuple with the OrganizationIdentifiers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SupportedIdentifier) GetExampleValueOk() (*string, bool) {
-	if o == nil  {
+func (o *SupportedIdentifier) GetOrganizationIdentifiersOk() ([]Identifier, bool) {
+	if o == nil || o.OrganizationIdentifiers == nil {
 		return nil, false
 	}
-	return o.ExampleValue.Get(), o.ExampleValue.IsSet()
+	return o.OrganizationIdentifiers, true
 }
 
-// HasExampleValue returns a boolean if a field has been set.
-func (o *SupportedIdentifier) HasExampleValue() bool {
-	if o != nil && o.ExampleValue.IsSet() {
+// HasOrganizationIdentifiers returns a boolean if a field has been set.
+func (o *SupportedIdentifier) HasOrganizationIdentifiers() bool {
+	if o != nil && o.OrganizationIdentifiers != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetExampleValue gets a reference to the given NullableString and assigns it to the ExampleValue field.
-func (o *SupportedIdentifier) SetExampleValue(v string) {
-	o.ExampleValue.Set(&v)
-}
-// SetExampleValueNil sets the value for ExampleValue to be an explicit nil
-func (o *SupportedIdentifier) SetExampleValueNil() {
-	o.ExampleValue.Set(nil)
-}
-
-// UnsetExampleValue ensures that no value is present for ExampleValue, not even an explicit nil
-func (o *SupportedIdentifier) UnsetExampleValue() {
-	o.ExampleValue.Unset()
+// SetOrganizationIdentifiers gets a reference to the given []Identifier and assigns it to the OrganizationIdentifiers field.
+func (o *SupportedIdentifier) SetOrganizationIdentifiers(v []Identifier) {
+	o.OrganizationIdentifiers = v
 }
 
 func (o SupportedIdentifier) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Key.IsSet() {
-		toSerialize["key"] = o.Key.Get()
+	if o.Iso2.IsSet() {
+		toSerialize["iso2"] = o.Iso2.Get()
 	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if o.IndividualIdentifiers != nil {
+		toSerialize["individualIdentifiers"] = o.IndividualIdentifiers
 	}
-	if o.ExampleValue.IsSet() {
-		toSerialize["exampleValue"] = o.ExampleValue.Get()
+	if o.OrganizationIdentifiers != nil {
+		toSerialize["organizationIdentifiers"] = o.OrganizationIdentifiers
 	}
 	return json.Marshal(toSerialize)
 }

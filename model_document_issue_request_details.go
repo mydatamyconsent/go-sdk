@@ -18,9 +18,12 @@ import (
 
 // DocumentIssueRequestDetails Document issue request details.
 type DocumentIssueRequestDetails struct {
+	// Request Id.
+	Id string `json:"id"`
 	DocumentTypeId string `json:"documentTypeId"`
 	DocumentTypeName string `json:"documentTypeName"`
 	DocumentIdentifier string `json:"documentIdentifier"`
+	Status *DocumentIssueRequestStatus `json:"status,omitempty"`
 	Description string `json:"description"`
 	Receiver interface{} `json:"receiver"`
 	ExpiresAtUtc NullableTime `json:"expiresAtUtc,omitempty"`
@@ -32,8 +35,9 @@ type DocumentIssueRequestDetails struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumentIssueRequestDetails(documentTypeId string, documentTypeName string, documentIdentifier string, description string, receiver interface{}, createdAtUtc time.Time) *DocumentIssueRequestDetails {
+func NewDocumentIssueRequestDetails(id string, documentTypeId string, documentTypeName string, documentIdentifier string, description string, receiver interface{}, createdAtUtc time.Time) *DocumentIssueRequestDetails {
 	this := DocumentIssueRequestDetails{}
+	this.Id = id
 	this.DocumentTypeId = documentTypeId
 	this.DocumentTypeName = documentTypeName
 	this.DocumentIdentifier = documentIdentifier
@@ -49,6 +53,30 @@ func NewDocumentIssueRequestDetails(documentTypeId string, documentTypeName stri
 func NewDocumentIssueRequestDetailsWithDefaults() *DocumentIssueRequestDetails {
 	this := DocumentIssueRequestDetails{}
 	return &this
+}
+
+// GetId returns the Id field value
+func (o *DocumentIssueRequestDetails) GetId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value
+// and a boolean to check if the value has been set.
+func (o *DocumentIssueRequestDetails) GetIdOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Id, true
+}
+
+// SetId sets field value
+func (o *DocumentIssueRequestDetails) SetId(v string) {
+	o.Id = v
 }
 
 // GetDocumentTypeId returns the DocumentTypeId field value
@@ -121,6 +149,38 @@ func (o *DocumentIssueRequestDetails) GetDocumentIdentifierOk() (*string, bool) 
 // SetDocumentIdentifier sets field value
 func (o *DocumentIssueRequestDetails) SetDocumentIdentifier(v string) {
 	o.DocumentIdentifier = v
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise.
+func (o *DocumentIssueRequestDetails) GetStatus() DocumentIssueRequestStatus {
+	if o == nil || o.Status == nil {
+		var ret DocumentIssueRequestStatus
+		return ret
+	}
+	return *o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DocumentIssueRequestDetails) GetStatusOk() (*DocumentIssueRequestStatus, bool) {
+	if o == nil || o.Status == nil {
+		return nil, false
+	}
+	return o.Status, true
+}
+
+// HasStatus returns a boolean if a field has been set.
+func (o *DocumentIssueRequestDetails) HasStatus() bool {
+	if o != nil && o.Status != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given DocumentIssueRequestStatus and assigns it to the Status field.
+func (o *DocumentIssueRequestDetails) SetStatus(v DocumentIssueRequestStatus) {
+	o.Status = &v
 }
 
 // GetDescription returns the Description field value
@@ -275,6 +335,9 @@ func (o *DocumentIssueRequestDetails) SetCreatedAtUtc(v time.Time) {
 func (o DocumentIssueRequestDetails) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
+		toSerialize["id"] = o.Id
+	}
+	if true {
 		toSerialize["documentTypeId"] = o.DocumentTypeId
 	}
 	if true {
@@ -282,6 +345,9 @@ func (o DocumentIssueRequestDetails) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["documentIdentifier"] = o.DocumentIdentifier
+	}
+	if o.Status != nil {
+		toSerialize["status"] = o.Status
 	}
 	if true {
 		toSerialize["description"] = o.Description

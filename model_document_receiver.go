@@ -17,6 +17,7 @@ import (
 
 // DocumentReceiver struct for DocumentReceiver
 type DocumentReceiver struct {
+	CountryIso2Code string `json:"countryIso2Code"`
 	Identifiers []StringStringKeyValuePair `json:"identifiers"`
 	IdentificationStrategy IdentificationStrategy `json:"identificationStrategy"`
 }
@@ -25,8 +26,9 @@ type DocumentReceiver struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumentReceiver(identifiers []StringStringKeyValuePair, identificationStrategy IdentificationStrategy) *DocumentReceiver {
+func NewDocumentReceiver(countryIso2Code string, identifiers []StringStringKeyValuePair, identificationStrategy IdentificationStrategy) *DocumentReceiver {
 	this := DocumentReceiver{}
+	this.CountryIso2Code = countryIso2Code
 	this.Identifiers = identifiers
 	this.IdentificationStrategy = identificationStrategy
 	return &this
@@ -38,6 +40,30 @@ func NewDocumentReceiver(identifiers []StringStringKeyValuePair, identificationS
 func NewDocumentReceiverWithDefaults() *DocumentReceiver {
 	this := DocumentReceiver{}
 	return &this
+}
+
+// GetCountryIso2Code returns the CountryIso2Code field value
+func (o *DocumentReceiver) GetCountryIso2Code() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CountryIso2Code
+}
+
+// GetCountryIso2CodeOk returns a tuple with the CountryIso2Code field value
+// and a boolean to check if the value has been set.
+func (o *DocumentReceiver) GetCountryIso2CodeOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.CountryIso2Code, true
+}
+
+// SetCountryIso2Code sets field value
+func (o *DocumentReceiver) SetCountryIso2Code(v string) {
+	o.CountryIso2Code = v
 }
 
 // GetIdentifiers returns the Identifiers field value
@@ -90,6 +116,9 @@ func (o *DocumentReceiver) SetIdentificationStrategy(v IdentificationStrategy) {
 
 func (o DocumentReceiver) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["countryIso2Code"] = o.CountryIso2Code
+	}
 	if true {
 		toSerialize["identifiers"] = o.Identifiers
 	}

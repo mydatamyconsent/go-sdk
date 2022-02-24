@@ -244,7 +244,7 @@ import (
 )
 
 func main() {
-    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "DocumentIdentifier_example", "Description_example", *openapiclient.NewDocumentReceiver([]openapiclient.StringStringKeyValuePair{*openapiclient.NewStringStringKeyValuePair()}, openapiclient.IdentificationStrategy("MatchAtLeastOneIdentifier"))) // DocumentIssueRequest | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest.
+    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "DocumentIdentifier_example", "Description_example", *openapiclient.NewDocumentReceiver("CountryIso2Code_example", []openapiclient.StringStringKeyValuePair{*openapiclient.NewStringStringKeyValuePair()}, openapiclient.IdentificationStrategy("MatchAtLeastOneIdentifier"))) // DocumentIssueRequest | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -308,7 +308,7 @@ import (
 )
 
 func main() {
-    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "DocumentIdentifier_example", "Description_example", *openapiclient.NewDocumentReceiver([]openapiclient.StringStringKeyValuePair{*openapiclient.NewStringStringKeyValuePair()}, openapiclient.IdentificationStrategy("MatchAtLeastOneIdentifier"))) // DocumentIssueRequest | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest.
+    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "DocumentIdentifier_example", "Description_example", *openapiclient.NewDocumentReceiver("CountryIso2Code_example", []openapiclient.StringStringKeyValuePair{*openapiclient.NewStringStringKeyValuePair()}, openapiclient.IdentificationStrategy("MatchAtLeastOneIdentifier"))) // DocumentIssueRequest | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

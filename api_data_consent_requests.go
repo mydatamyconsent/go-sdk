@@ -116,8 +116,8 @@ func (a *DataConsentRequestsApiService) CancelIndividualDataConsentRequestExecut
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -126,13 +126,15 @@ func (a *DataConsentRequestsApiService) CancelIndividualDataConsentRequestExecut
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -235,8 +237,8 @@ func (a *DataConsentRequestsApiService) CancelOrganizationDataConsentRequestExec
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -245,13 +247,15 @@ func (a *DataConsentRequestsApiService) CancelOrganizationDataConsentRequestExec
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -273,7 +277,7 @@ type ApiCreateIndividualDataConsentRequestRequest struct {
 	createIndividualDataConsentRequest *CreateIndividualDataConsentRequest
 }
 
-// M:MyDataMyConsent.DeveloperApi.Controllers.DataConsentRequestsController.CreateIndividualDataConsentRequest(MyDataMyConsent.DeveloperApi.Models.CreateIndividualDataConsentRequest).
+// The Individual data consent request payload
 func (r ApiCreateIndividualDataConsentRequestRequest) CreateIndividualDataConsentRequest(createIndividualDataConsentRequest CreateIndividualDataConsentRequest) ApiCreateIndividualDataConsentRequestRequest {
 	r.createIndividualDataConsentRequest = &createIndividualDataConsentRequest
 	return r
@@ -285,6 +289,8 @@ func (r ApiCreateIndividualDataConsentRequestRequest) Execute() (*IndividualData
 
 /*
 CreateIndividualDataConsentRequest Create a individual data consent request.
+
+Create a individual data consent request.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateIndividualDataConsentRequestRequest
@@ -361,8 +367,18 @@ func (a *DataConsentRequestsApiService) CreateIndividualDataConsentRequestExecut
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -372,22 +388,14 @@ func (a *DataConsentRequestsApiService) CreateIndividualDataConsentRequestExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ProblemDetails
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -421,6 +429,8 @@ func (r ApiCreateOrganizationDataConsentRequestRequest) Execute() (*Organization
 
 /*
 CreateOrganizationDataConsentRequest Create a organization data consent request.
+
+Create a organization data consent request.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateOrganizationDataConsentRequestRequest
@@ -497,8 +507,18 @@ func (a *DataConsentRequestsApiService) CreateOrganizationDataConsentRequestExec
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -508,22 +528,14 @@ func (a *DataConsentRequestsApiService) CreateOrganizationDataConsentRequestExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ProblemDetails
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -667,13 +679,15 @@ func (a *DataConsentRequestsApiService) GetAllConsentRequestsToIndividualsExecut
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -817,13 +831,15 @@ func (a *DataConsentRequestsApiService) GetAllConsentRequestsToOrganizationsExec
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -926,13 +942,15 @@ func (a *DataConsentRequestsApiService) GetIndividualConsentRequestByIdExecute(r
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1035,13 +1053,15 @@ func (a *DataConsentRequestsApiService) GetOrganizationConsentRequestByIdExecute
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

@@ -4,9 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **string** | Request Id. | 
 **DocumentTypeId** | **string** |  | 
 **DocumentTypeName** | **string** |  | 
 **DocumentIdentifier** | **string** |  | 
+**Status** | Pointer to [**DocumentIssueRequestStatus**](DocumentIssueRequestStatus.md) |  | [optional] 
 **Description** | **string** |  | 
 **Receiver** | **interface{}** |  | 
 **ExpiresAtUtc** | Pointer to **NullableTime** |  | [optional] 
@@ -17,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewDocumentIssueRequestDetails
 
-`func NewDocumentIssueRequestDetails(documentTypeId string, documentTypeName string, documentIdentifier string, description string, receiver interface{}, createdAtUtc time.Time, ) *DocumentIssueRequestDetails`
+`func NewDocumentIssueRequestDetails(id string, documentTypeId string, documentTypeName string, documentIdentifier string, description string, receiver interface{}, createdAtUtc time.Time, ) *DocumentIssueRequestDetails`
 
 NewDocumentIssueRequestDetails instantiates a new DocumentIssueRequestDetails object
 This constructor will assign default values to properties that have it defined,
@@ -31,6 +33,26 @@ will change when the set of required properties is changed
 NewDocumentIssueRequestDetailsWithDefaults instantiates a new DocumentIssueRequestDetails object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *DocumentIssueRequestDetails) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *DocumentIssueRequestDetails) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *DocumentIssueRequestDetails) SetId(v string)`
+
+SetId sets Id field to given value.
+
 
 ### GetDocumentTypeId
 
@@ -91,6 +113,31 @@ and a boolean to check if the value has been set.
 
 SetDocumentIdentifier sets DocumentIdentifier field to given value.
 
+
+### GetStatus
+
+`func (o *DocumentIssueRequestDetails) GetStatus() DocumentIssueRequestStatus`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *DocumentIssueRequestDetails) GetStatusOk() (*DocumentIssueRequestStatus, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *DocumentIssueRequestDetails) SetStatus(v DocumentIssueRequestStatus)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *DocumentIssueRequestDetails) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetDescription
 

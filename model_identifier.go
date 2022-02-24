@@ -13,75 +13,216 @@ package github.com/mydatamyconsent/sdk
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// Identifier the model 'Identifier'
-type Identifier string
-
-// List of Identifier
-const (
-	EMAIL Identifier = "Email"
-	PERMANENT_ACCOUNT_NUMBER Identifier = "PermanentAccountNumber"
-	AADHAAR_NUMBER Identifier = "AadhaarNumber"
-	MOBILE_NUMBER Identifier = "MobileNumber"
-	CORPORATE_IDENTIFICATION_NUMBER Identifier = "CorporateIdentificationNumber"
-	TAX_DEDUCTION_ACCOUNT_NUMBER Identifier = "TaxDeductionAccountNumber"
-	GOODS_AND_SERVICES_TAX_IDENTIFICATION_NUMBER Identifier = "GoodsAndServicesTaxIdentificationNumber"
-)
-
-// All allowed values of Identifier enum
-var AllowedIdentifierEnumValues = []Identifier{
-	"Email",
-	"PermanentAccountNumber",
-	"AadhaarNumber",
-	"MobileNumber",
-	"CorporateIdentificationNumber",
-	"TaxDeductionAccountNumber",
-	"GoodsAndServicesTaxIdentificationNumber",
+// Identifier struct for Identifier
+type Identifier struct {
+	Key NullableString `json:"key,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	Description NullableString `json:"description,omitempty"`
+	ExampleValue NullableString `json:"exampleValue,omitempty"`
 }
 
-func (v *Identifier) UnmarshalJSON(src []byte) error {
-	var value string
-	err := json.Unmarshal(src, &value)
-	if err != nil {
-		return err
-	}
-	enumTypeValue := Identifier(value)
-	for _, existing := range AllowedIdentifierEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid Identifier", value)
+// NewIdentifier instantiates a new Identifier object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewIdentifier() *Identifier {
+	this := Identifier{}
+	return &this
 }
 
-// NewIdentifierFromValue returns a pointer to a valid Identifier
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewIdentifierFromValue(v string) (*Identifier, error) {
-	ev := Identifier(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for Identifier: valid values are %v", v, AllowedIdentifierEnumValues)
-	}
+// NewIdentifierWithDefaults instantiates a new Identifier object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewIdentifierWithDefaults() *Identifier {
+	this := Identifier{}
+	return &this
 }
 
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v Identifier) IsValid() bool {
-	for _, existing := range AllowedIdentifierEnumValues {
-		if existing == v {
-			return true
-		}
+// GetKey returns the Key field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Identifier) GetKey() string {
+	if o == nil || o.Key.Get() == nil {
+		var ret string
+		return ret
 	}
+	return *o.Key.Get()
+}
+
+// GetKeyOk returns a tuple with the Key field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Identifier) GetKeyOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.Key.Get(), o.Key.IsSet()
+}
+
+// HasKey returns a boolean if a field has been set.
+func (o *Identifier) HasKey() bool {
+	if o != nil && o.Key.IsSet() {
+		return true
+	}
+
 	return false
 }
 
-// Ptr returns reference to Identifier value
-func (v Identifier) Ptr() *Identifier {
-	return &v
+// SetKey gets a reference to the given NullableString and assigns it to the Key field.
+func (o *Identifier) SetKey(v string) {
+	o.Key.Set(&v)
+}
+// SetKeyNil sets the value for Key to be an explicit nil
+func (o *Identifier) SetKeyNil() {
+	o.Key.Set(nil)
+}
+
+// UnsetKey ensures that no value is present for Key, not even an explicit nil
+func (o *Identifier) UnsetKey() {
+	o.Key.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Identifier) GetName() string {
+	if o == nil || o.Name.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name.Get()
+}
+
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Identifier) GetNameOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.Name.Get(), o.Name.IsSet()
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *Identifier) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
+func (o *Identifier) SetName(v string) {
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *Identifier) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *Identifier) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Identifier) GetDescription() string {
+	if o == nil || o.Description.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.Description.Get()
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Identifier) GetDescriptionOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.Description.Get(), o.Description.IsSet()
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *Identifier) HasDescription() bool {
+	if o != nil && o.Description.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+func (o *Identifier) SetDescription(v string) {
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *Identifier) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *Identifier) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetExampleValue returns the ExampleValue field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Identifier) GetExampleValue() string {
+	if o == nil || o.ExampleValue.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.ExampleValue.Get()
+}
+
+// GetExampleValueOk returns a tuple with the ExampleValue field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Identifier) GetExampleValueOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.ExampleValue.Get(), o.ExampleValue.IsSet()
+}
+
+// HasExampleValue returns a boolean if a field has been set.
+func (o *Identifier) HasExampleValue() bool {
+	if o != nil && o.ExampleValue.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExampleValue gets a reference to the given NullableString and assigns it to the ExampleValue field.
+func (o *Identifier) SetExampleValue(v string) {
+	o.ExampleValue.Set(&v)
+}
+// SetExampleValueNil sets the value for ExampleValue to be an explicit nil
+func (o *Identifier) SetExampleValueNil() {
+	o.ExampleValue.Set(nil)
+}
+
+// UnsetExampleValue ensures that no value is present for ExampleValue, not even an explicit nil
+func (o *Identifier) UnsetExampleValue() {
+	o.ExampleValue.Unset()
+}
+
+func (o Identifier) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	if o.Key.IsSet() {
+		toSerialize["key"] = o.Key.Get()
+	}
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
+	}
+	if o.ExampleValue.IsSet() {
+		toSerialize["exampleValue"] = o.ExampleValue.Get()
+	}
+	return json.Marshal(toSerialize)
 }
 
 type NullableIdentifier struct {
@@ -119,4 +260,5 @@ func (v *NullableIdentifier) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

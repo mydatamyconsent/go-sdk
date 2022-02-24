@@ -4,23 +4,28 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**Title** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
+**DataLife** | Pointer to [**Life**](Life.md) |  | [optional] 
+**RequesterName** | Pointer to **NullableString** |  | [optional] 
+**RequesterLogo** | Pointer to **NullableString** |  | [optional] 
+**Location** | Pointer to **NullableString** |  | [optional] 
 **Status** | Pointer to [**DataConsentStatus**](DataConsentStatus.md) |  | [optional] 
 **ApprovedAtUtc** | Pointer to **NullableTime** |  | [optional] 
 **RejectedAtUtc** | Pointer to **NullableTime** |  | [optional] 
 **ExpiresAtUtc** | Pointer to **time.Time** |  | [optional] 
 **RequestedAtUtc** | Pointer to **time.Time** |  | [optional] 
-**Requester** | Pointer to [**DataConsentRequesterDto**](DataConsentRequesterDto.md) |  | [optional] 
-**ConsentDetails** | Pointer to [**GetConsentTemplateDetailsDto**](GetConsentTemplateDetailsDto.md) |  | [optional] 
-**Identifiers** | Pointer to [**[]DataConsentIdentifier**](DataConsentIdentifier.md) |  | [optional] 
-**ApprovedDocuments** | Pointer to [**[]DataConsentRequestedDocument**](DataConsentRequestedDocument.md) |  | [optional] 
-**ApprovedFinancials** | Pointer to [**[]DataConsentRequestedFinancialAccount**](DataConsentRequestedFinancialAccount.md) |  | [optional] 
+**Identifiers** | Pointer to [**JsonSchema**](JsonSchema.md) |  | [optional] 
+**Documents** | Pointer to **NullableString** |  | [optional] 
+**Financials** | Pointer to **NullableString** |  | [optional] 
+**HealthRecords** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewDataConsentDetailsDto
 
-`func NewDataConsentDetailsDto() *DataConsentDetailsDto`
+`func NewDataConsentDetailsDto(id string, ) *DataConsentDetailsDto`
 
 NewDataConsentDetailsDto instantiates a new DataConsentDetailsDto object
 This constructor will assign default values to properties that have it defined,
@@ -54,12 +59,207 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
 
-`func (o *DataConsentDetailsDto) HasId() bool`
+### GetTitle
 
-HasId returns a boolean if a field has been set.
+`func (o *DataConsentDetailsDto) GetTitle() string`
 
+GetTitle returns the Title field if non-nil, zero value otherwise.
+
+### GetTitleOk
+
+`func (o *DataConsentDetailsDto) GetTitleOk() (*string, bool)`
+
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTitle
+
+`func (o *DataConsentDetailsDto) SetTitle(v string)`
+
+SetTitle sets Title field to given value.
+
+### HasTitle
+
+`func (o *DataConsentDetailsDto) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
+
+### SetTitleNil
+
+`func (o *DataConsentDetailsDto) SetTitleNil(b bool)`
+
+ SetTitleNil sets the value for Title to be an explicit nil
+
+### UnsetTitle
+`func (o *DataConsentDetailsDto) UnsetTitle()`
+
+UnsetTitle ensures that no value is present for Title, not even an explicit nil
+### GetDescription
+
+`func (o *DataConsentDetailsDto) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *DataConsentDetailsDto) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *DataConsentDetailsDto) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *DataConsentDetailsDto) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *DataConsentDetailsDto) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *DataConsentDetailsDto) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetDataLife
+
+`func (o *DataConsentDetailsDto) GetDataLife() Life`
+
+GetDataLife returns the DataLife field if non-nil, zero value otherwise.
+
+### GetDataLifeOk
+
+`func (o *DataConsentDetailsDto) GetDataLifeOk() (*Life, bool)`
+
+GetDataLifeOk returns a tuple with the DataLife field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDataLife
+
+`func (o *DataConsentDetailsDto) SetDataLife(v Life)`
+
+SetDataLife sets DataLife field to given value.
+
+### HasDataLife
+
+`func (o *DataConsentDetailsDto) HasDataLife() bool`
+
+HasDataLife returns a boolean if a field has been set.
+
+### GetRequesterName
+
+`func (o *DataConsentDetailsDto) GetRequesterName() string`
+
+GetRequesterName returns the RequesterName field if non-nil, zero value otherwise.
+
+### GetRequesterNameOk
+
+`func (o *DataConsentDetailsDto) GetRequesterNameOk() (*string, bool)`
+
+GetRequesterNameOk returns a tuple with the RequesterName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequesterName
+
+`func (o *DataConsentDetailsDto) SetRequesterName(v string)`
+
+SetRequesterName sets RequesterName field to given value.
+
+### HasRequesterName
+
+`func (o *DataConsentDetailsDto) HasRequesterName() bool`
+
+HasRequesterName returns a boolean if a field has been set.
+
+### SetRequesterNameNil
+
+`func (o *DataConsentDetailsDto) SetRequesterNameNil(b bool)`
+
+ SetRequesterNameNil sets the value for RequesterName to be an explicit nil
+
+### UnsetRequesterName
+`func (o *DataConsentDetailsDto) UnsetRequesterName()`
+
+UnsetRequesterName ensures that no value is present for RequesterName, not even an explicit nil
+### GetRequesterLogo
+
+`func (o *DataConsentDetailsDto) GetRequesterLogo() string`
+
+GetRequesterLogo returns the RequesterLogo field if non-nil, zero value otherwise.
+
+### GetRequesterLogoOk
+
+`func (o *DataConsentDetailsDto) GetRequesterLogoOk() (*string, bool)`
+
+GetRequesterLogoOk returns a tuple with the RequesterLogo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequesterLogo
+
+`func (o *DataConsentDetailsDto) SetRequesterLogo(v string)`
+
+SetRequesterLogo sets RequesterLogo field to given value.
+
+### HasRequesterLogo
+
+`func (o *DataConsentDetailsDto) HasRequesterLogo() bool`
+
+HasRequesterLogo returns a boolean if a field has been set.
+
+### SetRequesterLogoNil
+
+`func (o *DataConsentDetailsDto) SetRequesterLogoNil(b bool)`
+
+ SetRequesterLogoNil sets the value for RequesterLogo to be an explicit nil
+
+### UnsetRequesterLogo
+`func (o *DataConsentDetailsDto) UnsetRequesterLogo()`
+
+UnsetRequesterLogo ensures that no value is present for RequesterLogo, not even an explicit nil
+### GetLocation
+
+`func (o *DataConsentDetailsDto) GetLocation() string`
+
+GetLocation returns the Location field if non-nil, zero value otherwise.
+
+### GetLocationOk
+
+`func (o *DataConsentDetailsDto) GetLocationOk() (*string, bool)`
+
+GetLocationOk returns a tuple with the Location field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLocation
+
+`func (o *DataConsentDetailsDto) SetLocation(v string)`
+
+SetLocation sets Location field to given value.
+
+### HasLocation
+
+`func (o *DataConsentDetailsDto) HasLocation() bool`
+
+HasLocation returns a boolean if a field has been set.
+
+### SetLocationNil
+
+`func (o *DataConsentDetailsDto) SetLocationNil(b bool)`
+
+ SetLocationNil sets the value for Location to be an explicit nil
+
+### UnsetLocation
+`func (o *DataConsentDetailsDto) UnsetLocation()`
+
+UnsetLocation ensures that no value is present for Location, not even an explicit nil
 ### GetStatus
 
 `func (o *DataConsentDetailsDto) GetStatus() DataConsentStatus`
@@ -205,72 +405,22 @@ SetRequestedAtUtc sets RequestedAtUtc field to given value.
 
 HasRequestedAtUtc returns a boolean if a field has been set.
 
-### GetRequester
-
-`func (o *DataConsentDetailsDto) GetRequester() DataConsentRequesterDto`
-
-GetRequester returns the Requester field if non-nil, zero value otherwise.
-
-### GetRequesterOk
-
-`func (o *DataConsentDetailsDto) GetRequesterOk() (*DataConsentRequesterDto, bool)`
-
-GetRequesterOk returns a tuple with the Requester field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRequester
-
-`func (o *DataConsentDetailsDto) SetRequester(v DataConsentRequesterDto)`
-
-SetRequester sets Requester field to given value.
-
-### HasRequester
-
-`func (o *DataConsentDetailsDto) HasRequester() bool`
-
-HasRequester returns a boolean if a field has been set.
-
-### GetConsentDetails
-
-`func (o *DataConsentDetailsDto) GetConsentDetails() GetConsentTemplateDetailsDto`
-
-GetConsentDetails returns the ConsentDetails field if non-nil, zero value otherwise.
-
-### GetConsentDetailsOk
-
-`func (o *DataConsentDetailsDto) GetConsentDetailsOk() (*GetConsentTemplateDetailsDto, bool)`
-
-GetConsentDetailsOk returns a tuple with the ConsentDetails field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetConsentDetails
-
-`func (o *DataConsentDetailsDto) SetConsentDetails(v GetConsentTemplateDetailsDto)`
-
-SetConsentDetails sets ConsentDetails field to given value.
-
-### HasConsentDetails
-
-`func (o *DataConsentDetailsDto) HasConsentDetails() bool`
-
-HasConsentDetails returns a boolean if a field has been set.
-
 ### GetIdentifiers
 
-`func (o *DataConsentDetailsDto) GetIdentifiers() []DataConsentIdentifier`
+`func (o *DataConsentDetailsDto) GetIdentifiers() JsonSchema`
 
 GetIdentifiers returns the Identifiers field if non-nil, zero value otherwise.
 
 ### GetIdentifiersOk
 
-`func (o *DataConsentDetailsDto) GetIdentifiersOk() (*[]DataConsentIdentifier, bool)`
+`func (o *DataConsentDetailsDto) GetIdentifiersOk() (*JsonSchema, bool)`
 
 GetIdentifiersOk returns a tuple with the Identifiers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIdentifiers
 
-`func (o *DataConsentDetailsDto) SetIdentifiers(v []DataConsentIdentifier)`
+`func (o *DataConsentDetailsDto) SetIdentifiers(v JsonSchema)`
 
 SetIdentifiers sets Identifiers field to given value.
 
@@ -280,86 +430,111 @@ SetIdentifiers sets Identifiers field to given value.
 
 HasIdentifiers returns a boolean if a field has been set.
 
-### SetIdentifiersNil
+### GetDocuments
 
-`func (o *DataConsentDetailsDto) SetIdentifiersNil(b bool)`
+`func (o *DataConsentDetailsDto) GetDocuments() string`
 
- SetIdentifiersNil sets the value for Identifiers to be an explicit nil
+GetDocuments returns the Documents field if non-nil, zero value otherwise.
 
-### UnsetIdentifiers
-`func (o *DataConsentDetailsDto) UnsetIdentifiers()`
+### GetDocumentsOk
 
-UnsetIdentifiers ensures that no value is present for Identifiers, not even an explicit nil
-### GetApprovedDocuments
+`func (o *DataConsentDetailsDto) GetDocumentsOk() (*string, bool)`
 
-`func (o *DataConsentDetailsDto) GetApprovedDocuments() []DataConsentRequestedDocument`
-
-GetApprovedDocuments returns the ApprovedDocuments field if non-nil, zero value otherwise.
-
-### GetApprovedDocumentsOk
-
-`func (o *DataConsentDetailsDto) GetApprovedDocumentsOk() (*[]DataConsentRequestedDocument, bool)`
-
-GetApprovedDocumentsOk returns a tuple with the ApprovedDocuments field if it's non-nil, zero value otherwise
+GetDocumentsOk returns a tuple with the Documents field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetApprovedDocuments
+### SetDocuments
 
-`func (o *DataConsentDetailsDto) SetApprovedDocuments(v []DataConsentRequestedDocument)`
+`func (o *DataConsentDetailsDto) SetDocuments(v string)`
 
-SetApprovedDocuments sets ApprovedDocuments field to given value.
+SetDocuments sets Documents field to given value.
 
-### HasApprovedDocuments
+### HasDocuments
 
-`func (o *DataConsentDetailsDto) HasApprovedDocuments() bool`
+`func (o *DataConsentDetailsDto) HasDocuments() bool`
 
-HasApprovedDocuments returns a boolean if a field has been set.
+HasDocuments returns a boolean if a field has been set.
 
-### SetApprovedDocumentsNil
+### SetDocumentsNil
 
-`func (o *DataConsentDetailsDto) SetApprovedDocumentsNil(b bool)`
+`func (o *DataConsentDetailsDto) SetDocumentsNil(b bool)`
 
- SetApprovedDocumentsNil sets the value for ApprovedDocuments to be an explicit nil
+ SetDocumentsNil sets the value for Documents to be an explicit nil
 
-### UnsetApprovedDocuments
-`func (o *DataConsentDetailsDto) UnsetApprovedDocuments()`
+### UnsetDocuments
+`func (o *DataConsentDetailsDto) UnsetDocuments()`
 
-UnsetApprovedDocuments ensures that no value is present for ApprovedDocuments, not even an explicit nil
-### GetApprovedFinancials
+UnsetDocuments ensures that no value is present for Documents, not even an explicit nil
+### GetFinancials
 
-`func (o *DataConsentDetailsDto) GetApprovedFinancials() []DataConsentRequestedFinancialAccount`
+`func (o *DataConsentDetailsDto) GetFinancials() string`
 
-GetApprovedFinancials returns the ApprovedFinancials field if non-nil, zero value otherwise.
+GetFinancials returns the Financials field if non-nil, zero value otherwise.
 
-### GetApprovedFinancialsOk
+### GetFinancialsOk
 
-`func (o *DataConsentDetailsDto) GetApprovedFinancialsOk() (*[]DataConsentRequestedFinancialAccount, bool)`
+`func (o *DataConsentDetailsDto) GetFinancialsOk() (*string, bool)`
 
-GetApprovedFinancialsOk returns a tuple with the ApprovedFinancials field if it's non-nil, zero value otherwise
+GetFinancialsOk returns a tuple with the Financials field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetApprovedFinancials
+### SetFinancials
 
-`func (o *DataConsentDetailsDto) SetApprovedFinancials(v []DataConsentRequestedFinancialAccount)`
+`func (o *DataConsentDetailsDto) SetFinancials(v string)`
 
-SetApprovedFinancials sets ApprovedFinancials field to given value.
+SetFinancials sets Financials field to given value.
 
-### HasApprovedFinancials
+### HasFinancials
 
-`func (o *DataConsentDetailsDto) HasApprovedFinancials() bool`
+`func (o *DataConsentDetailsDto) HasFinancials() bool`
 
-HasApprovedFinancials returns a boolean if a field has been set.
+HasFinancials returns a boolean if a field has been set.
 
-### SetApprovedFinancialsNil
+### SetFinancialsNil
 
-`func (o *DataConsentDetailsDto) SetApprovedFinancialsNil(b bool)`
+`func (o *DataConsentDetailsDto) SetFinancialsNil(b bool)`
 
- SetApprovedFinancialsNil sets the value for ApprovedFinancials to be an explicit nil
+ SetFinancialsNil sets the value for Financials to be an explicit nil
 
-### UnsetApprovedFinancials
-`func (o *DataConsentDetailsDto) UnsetApprovedFinancials()`
+### UnsetFinancials
+`func (o *DataConsentDetailsDto) UnsetFinancials()`
 
-UnsetApprovedFinancials ensures that no value is present for ApprovedFinancials, not even an explicit nil
+UnsetFinancials ensures that no value is present for Financials, not even an explicit nil
+### GetHealthRecords
+
+`func (o *DataConsentDetailsDto) GetHealthRecords() string`
+
+GetHealthRecords returns the HealthRecords field if non-nil, zero value otherwise.
+
+### GetHealthRecordsOk
+
+`func (o *DataConsentDetailsDto) GetHealthRecordsOk() (*string, bool)`
+
+GetHealthRecordsOk returns a tuple with the HealthRecords field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHealthRecords
+
+`func (o *DataConsentDetailsDto) SetHealthRecords(v string)`
+
+SetHealthRecords sets HealthRecords field to given value.
+
+### HasHealthRecords
+
+`func (o *DataConsentDetailsDto) HasHealthRecords() bool`
+
+HasHealthRecords returns a boolean if a field has been set.
+
+### SetHealthRecordsNil
+
+`func (o *DataConsentDetailsDto) SetHealthRecordsNil(b bool)`
+
+ SetHealthRecordsNil sets the value for HealthRecords to be an explicit nil
+
+### UnsetHealthRecords
+`func (o *DataConsentDetailsDto) UnsetHealthRecords()`
+
+UnsetHealthRecords ensures that no value is present for HealthRecords, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -119,13 +119,15 @@ func (a *DataProcessingAgreementsApiService) CreateDataProcessingAgreementExecut
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -227,7 +229,7 @@ func (a *DataProcessingAgreementsApiService) DeleteDataProcessingAgreementByIdEx
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -237,7 +239,7 @@ func (a *DataProcessingAgreementsApiService) DeleteDataProcessingAgreementByIdEx
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ProblemDetails
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -246,13 +248,15 @@ func (a *DataProcessingAgreementsApiService) DeleteDataProcessingAgreementByIdEx
 			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarHTTPResponse, newErr
 	}
 
@@ -346,8 +350,18 @@ func (a *DataProcessingAgreementsApiService) GetDataProcessingAgreementByIdExecu
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ProblemDetails
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -357,22 +371,14 @@ func (a *DataProcessingAgreementsApiService) GetDataProcessingAgreementByIdExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -489,13 +495,15 @@ func (a *DataProcessingAgreementsApiService) GetDataProcessingAgreementsExecute(
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -597,7 +605,7 @@ func (a *DataProcessingAgreementsApiService) TerminateDataProcessingAgreementByI
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -607,7 +615,7 @@ func (a *DataProcessingAgreementsApiService) TerminateDataProcessingAgreementByI
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ProblemDetails
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -616,13 +624,15 @@ func (a *DataProcessingAgreementsApiService) TerminateDataProcessingAgreementByI
 			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarHTTPResponse, newErr
 	}
 
@@ -725,7 +735,7 @@ func (a *DataProcessingAgreementsApiService) UpdateDataProcessingAgreementExecut
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -735,7 +745,7 @@ func (a *DataProcessingAgreementsApiService) UpdateDataProcessingAgreementExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ProblemDetails
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -744,13 +754,15 @@ func (a *DataProcessingAgreementsApiService) UpdateDataProcessingAgreementExecut
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

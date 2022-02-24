@@ -35,12 +35,14 @@ type ApiGetAllSupportedIdentifiersRequest struct {
 }
 
 
-func (r ApiGetAllSupportedIdentifiersRequest) Execute() (*SupportedIdentifiersByCountry, *http.Response, error) {
+func (r ApiGetAllSupportedIdentifiersRequest) Execute() (*SupportedIdentifier, *http.Response, error) {
 	return r.ApiService.GetAllSupportedIdentifiersExecute(r)
 }
 
 /*
 GetAllSupportedIdentifiers Get all supported identifiers by country.
+
+Get all supported identifiers by country.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param countryIso2Code Country ISO 2 code.
@@ -55,13 +57,13 @@ func (a *SupportedIdentifiersApiService) GetAllSupportedIdentifiers(ctx context.
 }
 
 // Execute executes the request
-//  @return SupportedIdentifiersByCountry
-func (a *SupportedIdentifiersApiService) GetAllSupportedIdentifiersExecute(r ApiGetAllSupportedIdentifiersRequest) (*SupportedIdentifiersByCountry, *http.Response, error) {
+//  @return SupportedIdentifier
+func (a *SupportedIdentifiersApiService) GetAllSupportedIdentifiersExecute(r ApiGetAllSupportedIdentifiersRequest) (*SupportedIdentifier, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SupportedIdentifiersByCountry
+		localVarReturnValue  *SupportedIdentifier
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SupportedIdentifiersApiService.GetAllSupportedIdentifiers")
@@ -116,7 +118,7 @@ func (a *SupportedIdentifiersApiService) GetAllSupportedIdentifiersExecute(r Api
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -125,13 +127,15 @@ func (a *SupportedIdentifiersApiService) GetAllSupportedIdentifiersExecute(r Api
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

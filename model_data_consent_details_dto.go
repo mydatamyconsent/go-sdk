@@ -18,25 +18,31 @@ import (
 
 // DataConsentDetailsDto struct for DataConsentDetailsDto
 type DataConsentDetailsDto struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
+	Title NullableString `json:"title,omitempty"`
+	Description NullableString `json:"description,omitempty"`
+	DataLife *Life `json:"dataLife,omitempty"`
+	RequesterName NullableString `json:"requesterName,omitempty"`
+	RequesterLogo NullableString `json:"requesterLogo,omitempty"`
+	Location NullableString `json:"location,omitempty"`
 	Status *DataConsentStatus `json:"status,omitempty"`
 	ApprovedAtUtc NullableTime `json:"approvedAtUtc,omitempty"`
 	RejectedAtUtc NullableTime `json:"rejectedAtUtc,omitempty"`
 	ExpiresAtUtc *time.Time `json:"expiresAtUtc,omitempty"`
 	RequestedAtUtc *time.Time `json:"requestedAtUtc,omitempty"`
-	Requester *DataConsentRequesterDto `json:"requester,omitempty"`
-	ConsentDetails *GetConsentTemplateDetailsDto `json:"consentDetails,omitempty"`
-	Identifiers []DataConsentIdentifier `json:"identifiers,omitempty"`
-	ApprovedDocuments []DataConsentRequestedDocument `json:"approvedDocuments,omitempty"`
-	ApprovedFinancials []DataConsentRequestedFinancialAccount `json:"approvedFinancials,omitempty"`
+	Identifiers *JsonSchema `json:"identifiers,omitempty"`
+	Documents NullableString `json:"documents,omitempty"`
+	Financials NullableString `json:"financials,omitempty"`
+	HealthRecords NullableString `json:"healthRecords,omitempty"`
 }
 
 // NewDataConsentDetailsDto instantiates a new DataConsentDetailsDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDataConsentDetailsDto() *DataConsentDetailsDto {
+func NewDataConsentDetailsDto(id string) *DataConsentDetailsDto {
 	this := DataConsentDetailsDto{}
+	this.Id = id
 	return &this
 }
 
@@ -48,36 +54,270 @@ func NewDataConsentDetailsDtoWithDefaults() *DataConsentDetailsDto {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *DataConsentDetailsDto) GetId() string {
-	if o == nil || o.Id == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentDetailsDto) GetIdOk() (*string, bool) {
-	if o == nil || o.Id == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasId() bool {
-	if o != nil && o.Id != nil {
+// SetId sets field value
+func (o *DataConsentDetailsDto) SetId(v string) {
+	o.Id = v
+}
+
+// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DataConsentDetailsDto) GetTitle() string {
+	if o == nil || o.Title.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.Title.Get()
+}
+
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DataConsentDetailsDto) GetTitleOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.Title.Get(), o.Title.IsSet()
+}
+
+// HasTitle returns a boolean if a field has been set.
+func (o *DataConsentDetailsDto) HasTitle() bool {
+	if o != nil && o.Title.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *DataConsentDetailsDto) SetId(v string) {
-	o.Id = &v
+// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+func (o *DataConsentDetailsDto) SetTitle(v string) {
+	o.Title.Set(&v)
+}
+// SetTitleNil sets the value for Title to be an explicit nil
+func (o *DataConsentDetailsDto) SetTitleNil() {
+	o.Title.Set(nil)
+}
+
+// UnsetTitle ensures that no value is present for Title, not even an explicit nil
+func (o *DataConsentDetailsDto) UnsetTitle() {
+	o.Title.Unset()
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DataConsentDetailsDto) GetDescription() string {
+	if o == nil || o.Description.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.Description.Get()
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DataConsentDetailsDto) GetDescriptionOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.Description.Get(), o.Description.IsSet()
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *DataConsentDetailsDto) HasDescription() bool {
+	if o != nil && o.Description.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+func (o *DataConsentDetailsDto) SetDescription(v string) {
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *DataConsentDetailsDto) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *DataConsentDetailsDto) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetDataLife returns the DataLife field value if set, zero value otherwise.
+func (o *DataConsentDetailsDto) GetDataLife() Life {
+	if o == nil || o.DataLife == nil {
+		var ret Life
+		return ret
+	}
+	return *o.DataLife
+}
+
+// GetDataLifeOk returns a tuple with the DataLife field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DataConsentDetailsDto) GetDataLifeOk() (*Life, bool) {
+	if o == nil || o.DataLife == nil {
+		return nil, false
+	}
+	return o.DataLife, true
+}
+
+// HasDataLife returns a boolean if a field has been set.
+func (o *DataConsentDetailsDto) HasDataLife() bool {
+	if o != nil && o.DataLife != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDataLife gets a reference to the given Life and assigns it to the DataLife field.
+func (o *DataConsentDetailsDto) SetDataLife(v Life) {
+	o.DataLife = &v
+}
+
+// GetRequesterName returns the RequesterName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DataConsentDetailsDto) GetRequesterName() string {
+	if o == nil || o.RequesterName.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.RequesterName.Get()
+}
+
+// GetRequesterNameOk returns a tuple with the RequesterName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DataConsentDetailsDto) GetRequesterNameOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.RequesterName.Get(), o.RequesterName.IsSet()
+}
+
+// HasRequesterName returns a boolean if a field has been set.
+func (o *DataConsentDetailsDto) HasRequesterName() bool {
+	if o != nil && o.RequesterName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRequesterName gets a reference to the given NullableString and assigns it to the RequesterName field.
+func (o *DataConsentDetailsDto) SetRequesterName(v string) {
+	o.RequesterName.Set(&v)
+}
+// SetRequesterNameNil sets the value for RequesterName to be an explicit nil
+func (o *DataConsentDetailsDto) SetRequesterNameNil() {
+	o.RequesterName.Set(nil)
+}
+
+// UnsetRequesterName ensures that no value is present for RequesterName, not even an explicit nil
+func (o *DataConsentDetailsDto) UnsetRequesterName() {
+	o.RequesterName.Unset()
+}
+
+// GetRequesterLogo returns the RequesterLogo field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DataConsentDetailsDto) GetRequesterLogo() string {
+	if o == nil || o.RequesterLogo.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.RequesterLogo.Get()
+}
+
+// GetRequesterLogoOk returns a tuple with the RequesterLogo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DataConsentDetailsDto) GetRequesterLogoOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.RequesterLogo.Get(), o.RequesterLogo.IsSet()
+}
+
+// HasRequesterLogo returns a boolean if a field has been set.
+func (o *DataConsentDetailsDto) HasRequesterLogo() bool {
+	if o != nil && o.RequesterLogo.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRequesterLogo gets a reference to the given NullableString and assigns it to the RequesterLogo field.
+func (o *DataConsentDetailsDto) SetRequesterLogo(v string) {
+	o.RequesterLogo.Set(&v)
+}
+// SetRequesterLogoNil sets the value for RequesterLogo to be an explicit nil
+func (o *DataConsentDetailsDto) SetRequesterLogoNil() {
+	o.RequesterLogo.Set(nil)
+}
+
+// UnsetRequesterLogo ensures that no value is present for RequesterLogo, not even an explicit nil
+func (o *DataConsentDetailsDto) UnsetRequesterLogo() {
+	o.RequesterLogo.Unset()
+}
+
+// GetLocation returns the Location field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DataConsentDetailsDto) GetLocation() string {
+	if o == nil || o.Location.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.Location.Get()
+}
+
+// GetLocationOk returns a tuple with the Location field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DataConsentDetailsDto) GetLocationOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.Location.Get(), o.Location.IsSet()
+}
+
+// HasLocation returns a boolean if a field has been set.
+func (o *DataConsentDetailsDto) HasLocation() bool {
+	if o != nil && o.Location.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLocation gets a reference to the given NullableString and assigns it to the Location field.
+func (o *DataConsentDetailsDto) SetLocation(v string) {
+	o.Location.Set(&v)
+}
+// SetLocationNil sets the value for Location to be an explicit nil
+func (o *DataConsentDetailsDto) SetLocationNil() {
+	o.Location.Set(nil)
+}
+
+// UnsetLocation ensures that no value is present for Location, not even an explicit nil
+func (o *DataConsentDetailsDto) UnsetLocation() {
+	o.Location.Unset()
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
@@ -260,83 +500,18 @@ func (o *DataConsentDetailsDto) SetRequestedAtUtc(v time.Time) {
 	o.RequestedAtUtc = &v
 }
 
-// GetRequester returns the Requester field value if set, zero value otherwise.
-func (o *DataConsentDetailsDto) GetRequester() DataConsentRequesterDto {
-	if o == nil || o.Requester == nil {
-		var ret DataConsentRequesterDto
+// GetIdentifiers returns the Identifiers field value if set, zero value otherwise.
+func (o *DataConsentDetailsDto) GetIdentifiers() JsonSchema {
+	if o == nil || o.Identifiers == nil {
+		var ret JsonSchema
 		return ret
 	}
-	return *o.Requester
-}
-
-// GetRequesterOk returns a tuple with the Requester field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DataConsentDetailsDto) GetRequesterOk() (*DataConsentRequesterDto, bool) {
-	if o == nil || o.Requester == nil {
-		return nil, false
-	}
-	return o.Requester, true
-}
-
-// HasRequester returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasRequester() bool {
-	if o != nil && o.Requester != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetRequester gets a reference to the given DataConsentRequesterDto and assigns it to the Requester field.
-func (o *DataConsentDetailsDto) SetRequester(v DataConsentRequesterDto) {
-	o.Requester = &v
-}
-
-// GetConsentDetails returns the ConsentDetails field value if set, zero value otherwise.
-func (o *DataConsentDetailsDto) GetConsentDetails() GetConsentTemplateDetailsDto {
-	if o == nil || o.ConsentDetails == nil {
-		var ret GetConsentTemplateDetailsDto
-		return ret
-	}
-	return *o.ConsentDetails
-}
-
-// GetConsentDetailsOk returns a tuple with the ConsentDetails field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DataConsentDetailsDto) GetConsentDetailsOk() (*GetConsentTemplateDetailsDto, bool) {
-	if o == nil || o.ConsentDetails == nil {
-		return nil, false
-	}
-	return o.ConsentDetails, true
-}
-
-// HasConsentDetails returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasConsentDetails() bool {
-	if o != nil && o.ConsentDetails != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetConsentDetails gets a reference to the given GetConsentTemplateDetailsDto and assigns it to the ConsentDetails field.
-func (o *DataConsentDetailsDto) SetConsentDetails(v GetConsentTemplateDetailsDto) {
-	o.ConsentDetails = &v
-}
-
-// GetIdentifiers returns the Identifiers field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetIdentifiers() []DataConsentIdentifier {
-	if o == nil  {
-		var ret []DataConsentIdentifier
-		return ret
-	}
-	return o.Identifiers
+	return *o.Identifiers
 }
 
 // GetIdentifiersOk returns a tuple with the Identifiers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetIdentifiersOk() ([]DataConsentIdentifier, bool) {
+func (o *DataConsentDetailsDto) GetIdentifiersOk() (*JsonSchema, bool) {
 	if o == nil || o.Identifiers == nil {
 		return nil, false
 	}
@@ -352,81 +527,159 @@ func (o *DataConsentDetailsDto) HasIdentifiers() bool {
 	return false
 }
 
-// SetIdentifiers gets a reference to the given []DataConsentIdentifier and assigns it to the Identifiers field.
-func (o *DataConsentDetailsDto) SetIdentifiers(v []DataConsentIdentifier) {
-	o.Identifiers = v
+// SetIdentifiers gets a reference to the given JsonSchema and assigns it to the Identifiers field.
+func (o *DataConsentDetailsDto) SetIdentifiers(v JsonSchema) {
+	o.Identifiers = &v
 }
 
-// GetApprovedDocuments returns the ApprovedDocuments field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetApprovedDocuments() []DataConsentRequestedDocument {
-	if o == nil  {
-		var ret []DataConsentRequestedDocument
+// GetDocuments returns the Documents field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DataConsentDetailsDto) GetDocuments() string {
+	if o == nil || o.Documents.Get() == nil {
+		var ret string
 		return ret
 	}
-	return o.ApprovedDocuments
+	return *o.Documents.Get()
 }
 
-// GetApprovedDocumentsOk returns a tuple with the ApprovedDocuments field value if set, nil otherwise
+// GetDocumentsOk returns a tuple with the Documents field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetApprovedDocumentsOk() ([]DataConsentRequestedDocument, bool) {
-	if o == nil || o.ApprovedDocuments == nil {
+func (o *DataConsentDetailsDto) GetDocumentsOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.ApprovedDocuments, true
+	return o.Documents.Get(), o.Documents.IsSet()
 }
 
-// HasApprovedDocuments returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasApprovedDocuments() bool {
-	if o != nil && o.ApprovedDocuments != nil {
+// HasDocuments returns a boolean if a field has been set.
+func (o *DataConsentDetailsDto) HasDocuments() bool {
+	if o != nil && o.Documents.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetApprovedDocuments gets a reference to the given []DataConsentRequestedDocument and assigns it to the ApprovedDocuments field.
-func (o *DataConsentDetailsDto) SetApprovedDocuments(v []DataConsentRequestedDocument) {
-	o.ApprovedDocuments = v
+// SetDocuments gets a reference to the given NullableString and assigns it to the Documents field.
+func (o *DataConsentDetailsDto) SetDocuments(v string) {
+	o.Documents.Set(&v)
+}
+// SetDocumentsNil sets the value for Documents to be an explicit nil
+func (o *DataConsentDetailsDto) SetDocumentsNil() {
+	o.Documents.Set(nil)
 }
 
-// GetApprovedFinancials returns the ApprovedFinancials field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetApprovedFinancials() []DataConsentRequestedFinancialAccount {
-	if o == nil  {
-		var ret []DataConsentRequestedFinancialAccount
+// UnsetDocuments ensures that no value is present for Documents, not even an explicit nil
+func (o *DataConsentDetailsDto) UnsetDocuments() {
+	o.Documents.Unset()
+}
+
+// GetFinancials returns the Financials field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DataConsentDetailsDto) GetFinancials() string {
+	if o == nil || o.Financials.Get() == nil {
+		var ret string
 		return ret
 	}
-	return o.ApprovedFinancials
+	return *o.Financials.Get()
 }
 
-// GetApprovedFinancialsOk returns a tuple with the ApprovedFinancials field value if set, nil otherwise
+// GetFinancialsOk returns a tuple with the Financials field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetApprovedFinancialsOk() ([]DataConsentRequestedFinancialAccount, bool) {
-	if o == nil || o.ApprovedFinancials == nil {
+func (o *DataConsentDetailsDto) GetFinancialsOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.ApprovedFinancials, true
+	return o.Financials.Get(), o.Financials.IsSet()
 }
 
-// HasApprovedFinancials returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasApprovedFinancials() bool {
-	if o != nil && o.ApprovedFinancials != nil {
+// HasFinancials returns a boolean if a field has been set.
+func (o *DataConsentDetailsDto) HasFinancials() bool {
+	if o != nil && o.Financials.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetApprovedFinancials gets a reference to the given []DataConsentRequestedFinancialAccount and assigns it to the ApprovedFinancials field.
-func (o *DataConsentDetailsDto) SetApprovedFinancials(v []DataConsentRequestedFinancialAccount) {
-	o.ApprovedFinancials = v
+// SetFinancials gets a reference to the given NullableString and assigns it to the Financials field.
+func (o *DataConsentDetailsDto) SetFinancials(v string) {
+	o.Financials.Set(&v)
+}
+// SetFinancialsNil sets the value for Financials to be an explicit nil
+func (o *DataConsentDetailsDto) SetFinancialsNil() {
+	o.Financials.Set(nil)
+}
+
+// UnsetFinancials ensures that no value is present for Financials, not even an explicit nil
+func (o *DataConsentDetailsDto) UnsetFinancials() {
+	o.Financials.Unset()
+}
+
+// GetHealthRecords returns the HealthRecords field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DataConsentDetailsDto) GetHealthRecords() string {
+	if o == nil || o.HealthRecords.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.HealthRecords.Get()
+}
+
+// GetHealthRecordsOk returns a tuple with the HealthRecords field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DataConsentDetailsDto) GetHealthRecordsOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.HealthRecords.Get(), o.HealthRecords.IsSet()
+}
+
+// HasHealthRecords returns a boolean if a field has been set.
+func (o *DataConsentDetailsDto) HasHealthRecords() bool {
+	if o != nil && o.HealthRecords.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHealthRecords gets a reference to the given NullableString and assigns it to the HealthRecords field.
+func (o *DataConsentDetailsDto) SetHealthRecords(v string) {
+	o.HealthRecords.Set(&v)
+}
+// SetHealthRecordsNil sets the value for HealthRecords to be an explicit nil
+func (o *DataConsentDetailsDto) SetHealthRecordsNil() {
+	o.HealthRecords.Set(nil)
+}
+
+// UnsetHealthRecords ensures that no value is present for HealthRecords, not even an explicit nil
+func (o *DataConsentDetailsDto) UnsetHealthRecords() {
+	o.HealthRecords.Unset()
 }
 
 func (o DataConsentDetailsDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Id != nil {
+	if true {
 		toSerialize["id"] = o.Id
+	}
+	if o.Title.IsSet() {
+		toSerialize["title"] = o.Title.Get()
+	}
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
+	}
+	if o.DataLife != nil {
+		toSerialize["dataLife"] = o.DataLife
+	}
+	if o.RequesterName.IsSet() {
+		toSerialize["requesterName"] = o.RequesterName.Get()
+	}
+	if o.RequesterLogo.IsSet() {
+		toSerialize["requesterLogo"] = o.RequesterLogo.Get()
+	}
+	if o.Location.IsSet() {
+		toSerialize["location"] = o.Location.Get()
 	}
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
@@ -443,20 +696,17 @@ func (o DataConsentDetailsDto) MarshalJSON() ([]byte, error) {
 	if o.RequestedAtUtc != nil {
 		toSerialize["requestedAtUtc"] = o.RequestedAtUtc
 	}
-	if o.Requester != nil {
-		toSerialize["requester"] = o.Requester
-	}
-	if o.ConsentDetails != nil {
-		toSerialize["consentDetails"] = o.ConsentDetails
-	}
 	if o.Identifiers != nil {
 		toSerialize["identifiers"] = o.Identifiers
 	}
-	if o.ApprovedDocuments != nil {
-		toSerialize["approvedDocuments"] = o.ApprovedDocuments
+	if o.Documents.IsSet() {
+		toSerialize["documents"] = o.Documents.Get()
 	}
-	if o.ApprovedFinancials != nil {
-		toSerialize["approvedFinancials"] = o.ApprovedFinancials
+	if o.Financials.IsSet() {
+		toSerialize["financials"] = o.Financials.Get()
+	}
+	if o.HealthRecords.IsSet() {
+		toSerialize["healthRecords"] = o.HealthRecords.Get()
 	}
 	return json.Marshal(toSerialize)
 }

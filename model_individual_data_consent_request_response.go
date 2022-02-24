@@ -16,7 +16,7 @@ import (
 	"time"
 )
 
-// IndividualDataConsentRequestResponse Individual Data Consent Request Response.
+// IndividualDataConsentRequestResponse IndividualDataConsentRequestResponse
 type IndividualDataConsentRequestResponse struct {
 	// Consent request id
 	Id *string `json:"id,omitempty"`

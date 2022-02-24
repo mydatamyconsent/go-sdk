@@ -10,9 +10,11 @@ Method | HTTP request | Description
 
 ## GetAllSupportedIdentifiers
 
-> SupportedIdentifiersByCountry GetAllSupportedIdentifiers(ctx, countryIso2Code).Execute()
+> SupportedIdentifier GetAllSupportedIdentifiers(ctx, countryIso2Code).Execute()
 
 Get all supported identifiers by country.
+
+
 
 ### Example
 
@@ -36,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SupportedIdentifiersApi.GetAllSupportedIdentifiers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetAllSupportedIdentifiers`: SupportedIdentifiersByCountry
+    // response from `GetAllSupportedIdentifiers`: SupportedIdentifier
     fmt.Fprintf(os.Stdout, "Response from `SupportedIdentifiersApi.GetAllSupportedIdentifiers`: %v\n", resp)
 }
 ```
@@ -60,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SupportedIdentifiersByCountry**](SupportedIdentifiersByCountry.md)
+[**SupportedIdentifier**](SupportedIdentifier.md)
 
 ### Authorization
 

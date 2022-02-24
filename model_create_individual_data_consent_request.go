@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// CreateIndividualDataConsentRequest Individual Data Consent Request.
+// CreateIndividualDataConsentRequest Create individual data consent request
 type CreateIndividualDataConsentRequest struct {
 	// Consent template id
 	ConsentTemplateId *string `json:"consentTemplateId,omitempty"`

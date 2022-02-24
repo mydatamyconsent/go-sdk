@@ -1,13 +1,15 @@
-# CollectibleTypes
+# DocumentIssueRequestStatus
 
 ## Enum
 
 
-* `PERSONAL_DETAILS` (value: `"PersonalDetails"`)
+* `CREATED` (value: `"Created"`)
 
-* `DOCUMENTS` (value: `"Documents"`)
+* `ISSUED` (value: `"Issued"`)
 
-* `FINANCIALS` (value: `"Financials"`)
+* `ACCEPTED` (value: `"Accepted"`)
+
+* `REJECTED` (value: `"Rejected"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

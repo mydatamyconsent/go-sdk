@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CountryIso2Code** | **string** |  | 
 **Identifiers** | [**[]StringStringKeyValuePair**](StringStringKeyValuePair.md) |  | 
 **IdentificationStrategy** | [**IdentificationStrategy**](IdentificationStrategy.md) |  | 
 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewDocumentReceiver
 
-`func NewDocumentReceiver(identifiers []StringStringKeyValuePair, identificationStrategy IdentificationStrategy, ) *DocumentReceiver`
+`func NewDocumentReceiver(countryIso2Code string, identifiers []StringStringKeyValuePair, identificationStrategy IdentificationStrategy, ) *DocumentReceiver`
 
 NewDocumentReceiver instantiates a new DocumentReceiver object
 This constructor will assign default values to properties that have it defined,
@@ -25,6 +26,26 @@ will change when the set of required properties is changed
 NewDocumentReceiverWithDefaults instantiates a new DocumentReceiver object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCountryIso2Code
+
+`func (o *DocumentReceiver) GetCountryIso2Code() string`
+
+GetCountryIso2Code returns the CountryIso2Code field if non-nil, zero value otherwise.
+
+### GetCountryIso2CodeOk
+
+`func (o *DocumentReceiver) GetCountryIso2CodeOk() (*string, bool)`
+
+GetCountryIso2CodeOk returns a tuple with the CountryIso2Code field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCountryIso2Code
+
+`func (o *DocumentReceiver) SetCountryIso2Code(v string)`
+
+SetCountryIso2Code sets CountryIso2Code field to given value.
+
 
 ### GetIdentifiers
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to [**ReceiverType**](ReceiverType.md) |  | [optional] 
-**Identifiers** | Pointer to [**[]IdentifierStringKeyValuePair**](IdentifierStringKeyValuePair.md) | Consent request receiver identifiers | [optional] 
+**Identifiers** | Pointer to [**[]StringStringKeyValuePair**](StringStringKeyValuePair.md) | Consent request receiver identifiers | [optional] 
 **IdentificationStrategy** | Pointer to [**IdentificationStrategy**](IdentificationStrategy.md) |  | [optional] 
 
 ## Methods
@@ -54,20 +54,20 @@ HasType returns a boolean if a field has been set.
 
 ### GetIdentifiers
 
-`func (o *Receiver) GetIdentifiers() []IdentifierStringKeyValuePair`
+`func (o *Receiver) GetIdentifiers() []StringStringKeyValuePair`
 
 GetIdentifiers returns the Identifiers field if non-nil, zero value otherwise.
 
 ### GetIdentifiersOk
 
-`func (o *Receiver) GetIdentifiersOk() (*[]IdentifierStringKeyValuePair, bool)`
+`func (o *Receiver) GetIdentifiersOk() (*[]StringStringKeyValuePair, bool)`
 
 GetIdentifiersOk returns a tuple with the Identifiers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIdentifiers
 
-`func (o *Receiver) SetIdentifiers(v []IdentifierStringKeyValuePair)`
+`func (o *Receiver) SetIdentifiers(v []StringStringKeyValuePair)`
 
 SetIdentifiers sets Identifiers field to given value.
 

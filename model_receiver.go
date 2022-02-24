@@ -19,7 +19,7 @@ import (
 type Receiver struct {
 	Type *ReceiverType `json:"type,omitempty"`
 	// Consent request receiver identifiers
-	Identifiers []IdentifierStringKeyValuePair `json:"identifiers,omitempty"`
+	Identifiers []StringStringKeyValuePair `json:"identifiers,omitempty"`
 	IdentificationStrategy *IdentificationStrategy `json:"identificationStrategy,omitempty"`
 }
 
@@ -73,9 +73,9 @@ func (o *Receiver) SetType(v ReceiverType) {
 }
 
 // GetIdentifiers returns the Identifiers field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Receiver) GetIdentifiers() []IdentifierStringKeyValuePair {
+func (o *Receiver) GetIdentifiers() []StringStringKeyValuePair {
 	if o == nil  {
-		var ret []IdentifierStringKeyValuePair
+		var ret []StringStringKeyValuePair
 		return ret
 	}
 	return o.Identifiers
@@ -84,7 +84,7 @@ func (o *Receiver) GetIdentifiers() []IdentifierStringKeyValuePair {
 // GetIdentifiersOk returns a tuple with the Identifiers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Receiver) GetIdentifiersOk() ([]IdentifierStringKeyValuePair, bool) {
+func (o *Receiver) GetIdentifiersOk() ([]StringStringKeyValuePair, bool) {
 	if o == nil || o.Identifiers == nil {
 		return nil, false
 	}
@@ -100,8 +100,8 @@ func (o *Receiver) HasIdentifiers() bool {
 	return false
 }
 
-// SetIdentifiers gets a reference to the given []IdentifierStringKeyValuePair and assigns it to the Identifiers field.
-func (o *Receiver) SetIdentifiers(v []IdentifierStringKeyValuePair) {
+// SetIdentifiers gets a reference to the given []StringStringKeyValuePair and assigns it to the Identifiers field.
+func (o *Receiver) SetIdentifiers(v []StringStringKeyValuePair) {
 	o.Identifiers = v
 }
 
