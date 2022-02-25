@@ -19,14 +19,14 @@ import (
 type CreateOrganizationDataConsentRequest struct {
 	// Consent template id
 	ConsentTemplateId *string `json:"consentTemplateId,omitempty"`
-	Receiver Receiver `json:"receiver"`
+	Receiver ConsentRequestReceiver `json:"receiver"`
 }
 
 // NewCreateOrganizationDataConsentRequest instantiates a new CreateOrganizationDataConsentRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateOrganizationDataConsentRequest(receiver Receiver) *CreateOrganizationDataConsentRequest {
+func NewCreateOrganizationDataConsentRequest(receiver ConsentRequestReceiver) *CreateOrganizationDataConsentRequest {
 	this := CreateOrganizationDataConsentRequest{}
 	this.Receiver = receiver
 	return &this
@@ -73,9 +73,9 @@ func (o *CreateOrganizationDataConsentRequest) SetConsentTemplateId(v string) {
 }
 
 // GetReceiver returns the Receiver field value
-func (o *CreateOrganizationDataConsentRequest) GetReceiver() Receiver {
+func (o *CreateOrganizationDataConsentRequest) GetReceiver() ConsentRequestReceiver {
 	if o == nil {
-		var ret Receiver
+		var ret ConsentRequestReceiver
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *CreateOrganizationDataConsentRequest) GetReceiver() Receiver {
 
 // GetReceiverOk returns a tuple with the Receiver field value
 // and a boolean to check if the value has been set.
-func (o *CreateOrganizationDataConsentRequest) GetReceiverOk() (*Receiver, bool) {
+func (o *CreateOrganizationDataConsentRequest) GetReceiverOk() (*ConsentRequestReceiver, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *CreateOrganizationDataConsentRequest) GetReceiverOk() (*Receiver, bool)
 }
 
 // SetReceiver sets field value
-func (o *CreateOrganizationDataConsentRequest) SetReceiver(v Receiver) {
+func (o *CreateOrganizationDataConsentRequest) SetReceiver(v ConsentRequestReceiver) {
 	o.Receiver = v
 }
 

@@ -1,114 +1,88 @@
-# Receiver
+# ConsentRequestReceiver
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to [**ReceiverType**](ReceiverType.md) |  | [optional] 
 **Identifiers** | Pointer to [**[]StringStringKeyValuePair**](StringStringKeyValuePair.md) | Consent request receiver identifiers | [optional] 
 **IdentificationStrategy** | Pointer to [**IdentificationStrategy**](IdentificationStrategy.md) |  | [optional] 
 
 ## Methods
 
-### NewReceiver
+### NewConsentRequestReceiver
 
-`func NewReceiver() *Receiver`
+`func NewConsentRequestReceiver() *ConsentRequestReceiver`
 
-NewReceiver instantiates a new Receiver object
+NewConsentRequestReceiver instantiates a new ConsentRequestReceiver object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewReceiverWithDefaults
+### NewConsentRequestReceiverWithDefaults
 
-`func NewReceiverWithDefaults() *Receiver`
+`func NewConsentRequestReceiverWithDefaults() *ConsentRequestReceiver`
 
-NewReceiverWithDefaults instantiates a new Receiver object
+NewConsentRequestReceiverWithDefaults instantiates a new ConsentRequestReceiver object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetType
-
-`func (o *Receiver) GetType() ReceiverType`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *Receiver) GetTypeOk() (*ReceiverType, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *Receiver) SetType(v ReceiverType)`
-
-SetType sets Type field to given value.
-
-### HasType
-
-`func (o *Receiver) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
 ### GetIdentifiers
 
-`func (o *Receiver) GetIdentifiers() []StringStringKeyValuePair`
+`func (o *ConsentRequestReceiver) GetIdentifiers() []StringStringKeyValuePair`
 
 GetIdentifiers returns the Identifiers field if non-nil, zero value otherwise.
 
 ### GetIdentifiersOk
 
-`func (o *Receiver) GetIdentifiersOk() (*[]StringStringKeyValuePair, bool)`
+`func (o *ConsentRequestReceiver) GetIdentifiersOk() (*[]StringStringKeyValuePair, bool)`
 
 GetIdentifiersOk returns a tuple with the Identifiers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIdentifiers
 
-`func (o *Receiver) SetIdentifiers(v []StringStringKeyValuePair)`
+`func (o *ConsentRequestReceiver) SetIdentifiers(v []StringStringKeyValuePair)`
 
 SetIdentifiers sets Identifiers field to given value.
 
 ### HasIdentifiers
 
-`func (o *Receiver) HasIdentifiers() bool`
+`func (o *ConsentRequestReceiver) HasIdentifiers() bool`
 
 HasIdentifiers returns a boolean if a field has been set.
 
 ### SetIdentifiersNil
 
-`func (o *Receiver) SetIdentifiersNil(b bool)`
+`func (o *ConsentRequestReceiver) SetIdentifiersNil(b bool)`
 
  SetIdentifiersNil sets the value for Identifiers to be an explicit nil
 
 ### UnsetIdentifiers
-`func (o *Receiver) UnsetIdentifiers()`
+`func (o *ConsentRequestReceiver) UnsetIdentifiers()`
 
 UnsetIdentifiers ensures that no value is present for Identifiers, not even an explicit nil
 ### GetIdentificationStrategy
 
-`func (o *Receiver) GetIdentificationStrategy() IdentificationStrategy`
+`func (o *ConsentRequestReceiver) GetIdentificationStrategy() IdentificationStrategy`
 
 GetIdentificationStrategy returns the IdentificationStrategy field if non-nil, zero value otherwise.
 
 ### GetIdentificationStrategyOk
 
-`func (o *Receiver) GetIdentificationStrategyOk() (*IdentificationStrategy, bool)`
+`func (o *ConsentRequestReceiver) GetIdentificationStrategyOk() (*IdentificationStrategy, bool)`
 
 GetIdentificationStrategyOk returns a tuple with the IdentificationStrategy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIdentificationStrategy
 
-`func (o *Receiver) SetIdentificationStrategy(v IdentificationStrategy)`
+`func (o *ConsentRequestReceiver) SetIdentificationStrategy(v IdentificationStrategy)`
 
 SetIdentificationStrategy sets IdentificationStrategy field to given value.
 
 ### HasIdentificationStrategy
 
-`func (o *Receiver) HasIdentificationStrategy() bool`
+`func (o *ConsentRequestReceiver) HasIdentificationStrategy() bool`
 
 HasIdentificationStrategy returns a boolean if a field has been set.
 

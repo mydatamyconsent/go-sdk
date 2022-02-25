@@ -19,14 +19,14 @@ import (
 type CreateIndividualDataConsentRequest struct {
 	// Consent template id
 	ConsentTemplateId *string `json:"consentTemplateId,omitempty"`
-	Receiver Receiver `json:"receiver"`
+	Receiver ConsentRequestReceiver `json:"receiver"`
 }
 
 // NewCreateIndividualDataConsentRequest instantiates a new CreateIndividualDataConsentRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateIndividualDataConsentRequest(receiver Receiver) *CreateIndividualDataConsentRequest {
+func NewCreateIndividualDataConsentRequest(receiver ConsentRequestReceiver) *CreateIndividualDataConsentRequest {
 	this := CreateIndividualDataConsentRequest{}
 	this.Receiver = receiver
 	return &this
@@ -73,9 +73,9 @@ func (o *CreateIndividualDataConsentRequest) SetConsentTemplateId(v string) {
 }
 
 // GetReceiver returns the Receiver field value
-func (o *CreateIndividualDataConsentRequest) GetReceiver() Receiver {
+func (o *CreateIndividualDataConsentRequest) GetReceiver() ConsentRequestReceiver {
 	if o == nil {
-		var ret Receiver
+		var ret ConsentRequestReceiver
 		return ret
 	}
 
@@ -84,7 +84,7 @@ func (o *CreateIndividualDataConsentRequest) GetReceiver() Receiver {
 
 // GetReceiverOk returns a tuple with the Receiver field value
 // and a boolean to check if the value has been set.
-func (o *CreateIndividualDataConsentRequest) GetReceiverOk() (*Receiver, bool) {
+func (o *CreateIndividualDataConsentRequest) GetReceiverOk() (*ConsentRequestReceiver, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *CreateIndividualDataConsentRequest) GetReceiverOk() (*Receiver, bool) {
 }
 
 // SetReceiver sets field value
-func (o *CreateIndividualDataConsentRequest) SetReceiver(v Receiver) {
+func (o *CreateIndividualDataConsentRequest) SetReceiver(v ConsentRequestReceiver) {
 	o.Receiver = v
 }
 

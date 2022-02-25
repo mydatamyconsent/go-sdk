@@ -172,7 +172,7 @@ import (
 )
 
 func main() {
-    createIndividualDataConsentRequest := *openapiclient.NewCreateIndividualDataConsentRequest(*openapiclient.NewReceiver()) // CreateIndividualDataConsentRequest | The Individual data consent request payload
+    createIndividualDataConsentRequest := *openapiclient.NewCreateIndividualDataConsentRequest(*openapiclient.NewConsentRequestReceiver()) // CreateIndividualDataConsentRequest | The Individual data consent request payload
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -238,7 +238,7 @@ import (
 )
 
 func main() {
-    createOrganizationDataConsentRequest := *openapiclient.NewCreateOrganizationDataConsentRequest(*openapiclient.NewReceiver()) // CreateOrganizationDataConsentRequest | M:MyDataMyConsent.DeveloperApi.Controllers.DataConsentRequestsController.CreateOrganizationDataConsentRequest(MyDataMyConsent.DeveloperApi.Models.CreateOrganizationDataConsentRequest).
+    createOrganizationDataConsentRequest := *openapiclient.NewCreateOrganizationDataConsentRequest(*openapiclient.NewConsentRequestReceiver()) // CreateOrganizationDataConsentRequest | M:MyDataMyConsent.DeveloperApi.Controllers.DataConsentRequestsController.CreateOrganizationDataConsentRequest(MyDataMyConsent.DeveloperApi.Models.CreateOrganizationDataConsentRequest).
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

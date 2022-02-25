@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConsentTemplateId** | Pointer to **string** | Consent template id | [optional] 
-**Receiver** | [**Receiver**](Receiver.md) |  | 
+**Receiver** | [**ConsentRequestReceiver**](ConsentRequestReceiver.md) |  | 
 
 ## Methods
 
 ### NewCreateIndividualDataConsentRequest
 
-`func NewCreateIndividualDataConsentRequest(receiver Receiver, ) *CreateIndividualDataConsentRequest`
+`func NewCreateIndividualDataConsentRequest(receiver ConsentRequestReceiver, ) *CreateIndividualDataConsentRequest`
 
 NewCreateIndividualDataConsentRequest instantiates a new CreateIndividualDataConsentRequest object
 This constructor will assign default values to properties that have it defined,
@@ -53,20 +53,20 @@ HasConsentTemplateId returns a boolean if a field has been set.
 
 ### GetReceiver
 
-`func (o *CreateIndividualDataConsentRequest) GetReceiver() Receiver`
+`func (o *CreateIndividualDataConsentRequest) GetReceiver() ConsentRequestReceiver`
 
 GetReceiver returns the Receiver field if non-nil, zero value otherwise.
 
 ### GetReceiverOk
 
-`func (o *CreateIndividualDataConsentRequest) GetReceiverOk() (*Receiver, bool)`
+`func (o *CreateIndividualDataConsentRequest) GetReceiverOk() (*ConsentRequestReceiver, bool)`
 
 GetReceiverOk returns a tuple with the Receiver field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReceiver
 
-`func (o *CreateIndividualDataConsentRequest) SetReceiver(v Receiver)`
+`func (o *CreateIndividualDataConsentRequest) SetReceiver(v ConsentRequestReceiver)`
 
 SetReceiver sets Receiver field to given value.
 

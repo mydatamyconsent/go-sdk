@@ -5,9 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DocumentTypeId** | **string** |  | 
-**DocumentIdentifier** | **string** |  | 
+**Identifier** | **string** |  | 
 **Description** | **string** |  | 
 **Receiver** | [**DocumentReceiver**](DocumentReceiver.md) |  | 
+**IssuedAtUtc** | **time.Time** |  | 
+**ValidFromUtc** | **time.Time** |  | 
 **ExpiresAtUtc** | Pointer to **NullableTime** |  | [optional] 
 **Metadata** | Pointer to **map[string]string** |  | [optional] 
 
@@ -15,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewDocumentIssueRequest
 
-`func NewDocumentIssueRequest(documentTypeId string, documentIdentifier string, description string, receiver DocumentReceiver, ) *DocumentIssueRequest`
+`func NewDocumentIssueRequest(documentTypeId string, identifier string, description string, receiver DocumentReceiver, issuedAtUtc time.Time, validFromUtc time.Time, ) *DocumentIssueRequest`
 
 NewDocumentIssueRequest instantiates a new DocumentIssueRequest object
 This constructor will assign default values to properties that have it defined,
@@ -50,24 +52,24 @@ and a boolean to check if the value has been set.
 SetDocumentTypeId sets DocumentTypeId field to given value.
 
 
-### GetDocumentIdentifier
+### GetIdentifier
 
-`func (o *DocumentIssueRequest) GetDocumentIdentifier() string`
+`func (o *DocumentIssueRequest) GetIdentifier() string`
 
-GetDocumentIdentifier returns the DocumentIdentifier field if non-nil, zero value otherwise.
+GetIdentifier returns the Identifier field if non-nil, zero value otherwise.
 
-### GetDocumentIdentifierOk
+### GetIdentifierOk
 
-`func (o *DocumentIssueRequest) GetDocumentIdentifierOk() (*string, bool)`
+`func (o *DocumentIssueRequest) GetIdentifierOk() (*string, bool)`
 
-GetDocumentIdentifierOk returns a tuple with the DocumentIdentifier field if it's non-nil, zero value otherwise
+GetIdentifierOk returns a tuple with the Identifier field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDocumentIdentifier
+### SetIdentifier
 
-`func (o *DocumentIssueRequest) SetDocumentIdentifier(v string)`
+`func (o *DocumentIssueRequest) SetIdentifier(v string)`
 
-SetDocumentIdentifier sets DocumentIdentifier field to given value.
+SetIdentifier sets Identifier field to given value.
 
 
 ### GetDescription
@@ -108,6 +110,46 @@ and a boolean to check if the value has been set.
 `func (o *DocumentIssueRequest) SetReceiver(v DocumentReceiver)`
 
 SetReceiver sets Receiver field to given value.
+
+
+### GetIssuedAtUtc
+
+`func (o *DocumentIssueRequest) GetIssuedAtUtc() time.Time`
+
+GetIssuedAtUtc returns the IssuedAtUtc field if non-nil, zero value otherwise.
+
+### GetIssuedAtUtcOk
+
+`func (o *DocumentIssueRequest) GetIssuedAtUtcOk() (*time.Time, bool)`
+
+GetIssuedAtUtcOk returns a tuple with the IssuedAtUtc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIssuedAtUtc
+
+`func (o *DocumentIssueRequest) SetIssuedAtUtc(v time.Time)`
+
+SetIssuedAtUtc sets IssuedAtUtc field to given value.
+
+
+### GetValidFromUtc
+
+`func (o *DocumentIssueRequest) GetValidFromUtc() time.Time`
+
+GetValidFromUtc returns the ValidFromUtc field if non-nil, zero value otherwise.
+
+### GetValidFromUtcOk
+
+`func (o *DocumentIssueRequest) GetValidFromUtcOk() (*time.Time, bool)`
+
+GetValidFromUtcOk returns a tuple with the ValidFromUtc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValidFromUtc
+
+`func (o *DocumentIssueRequest) SetValidFromUtc(v time.Time)`
+
+SetValidFromUtc sets ValidFromUtc field to given value.
 
 
 ### GetExpiresAtUtc

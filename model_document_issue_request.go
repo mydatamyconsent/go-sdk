@@ -19,9 +19,11 @@ import (
 // DocumentIssueRequest Document Issue Request.
 type DocumentIssueRequest struct {
 	DocumentTypeId string `json:"documentTypeId"`
-	DocumentIdentifier string `json:"documentIdentifier"`
+	Identifier string `json:"identifier"`
 	Description string `json:"description"`
 	Receiver DocumentReceiver `json:"receiver"`
+	IssuedAtUtc time.Time `json:"issuedAtUtc"`
+	ValidFromUtc time.Time `json:"validFromUtc"`
 	ExpiresAtUtc NullableTime `json:"expiresAtUtc,omitempty"`
 	Metadata map[string]string `json:"metadata,omitempty"`
 }
@@ -30,12 +32,14 @@ type DocumentIssueRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumentIssueRequest(documentTypeId string, documentIdentifier string, description string, receiver DocumentReceiver) *DocumentIssueRequest {
+func NewDocumentIssueRequest(documentTypeId string, identifier string, description string, receiver DocumentReceiver, issuedAtUtc time.Time, validFromUtc time.Time) *DocumentIssueRequest {
 	this := DocumentIssueRequest{}
 	this.DocumentTypeId = documentTypeId
-	this.DocumentIdentifier = documentIdentifier
+	this.Identifier = identifier
 	this.Description = description
 	this.Receiver = receiver
+	this.IssuedAtUtc = issuedAtUtc
+	this.ValidFromUtc = validFromUtc
 	return &this
 }
 
@@ -71,28 +75,28 @@ func (o *DocumentIssueRequest) SetDocumentTypeId(v string) {
 	o.DocumentTypeId = v
 }
 
-// GetDocumentIdentifier returns the DocumentIdentifier field value
-func (o *DocumentIssueRequest) GetDocumentIdentifier() string {
+// GetIdentifier returns the Identifier field value
+func (o *DocumentIssueRequest) GetIdentifier() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.DocumentIdentifier
+	return o.Identifier
 }
 
-// GetDocumentIdentifierOk returns a tuple with the DocumentIdentifier field value
+// GetIdentifierOk returns a tuple with the Identifier field value
 // and a boolean to check if the value has been set.
-func (o *DocumentIssueRequest) GetDocumentIdentifierOk() (*string, bool) {
+func (o *DocumentIssueRequest) GetIdentifierOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.DocumentIdentifier, true
+	return &o.Identifier, true
 }
 
-// SetDocumentIdentifier sets field value
-func (o *DocumentIssueRequest) SetDocumentIdentifier(v string) {
-	o.DocumentIdentifier = v
+// SetIdentifier sets field value
+func (o *DocumentIssueRequest) SetIdentifier(v string) {
+	o.Identifier = v
 }
 
 // GetDescription returns the Description field value
@@ -141,6 +145,54 @@ func (o *DocumentIssueRequest) GetReceiverOk() (*DocumentReceiver, bool) {
 // SetReceiver sets field value
 func (o *DocumentIssueRequest) SetReceiver(v DocumentReceiver) {
 	o.Receiver = v
+}
+
+// GetIssuedAtUtc returns the IssuedAtUtc field value
+func (o *DocumentIssueRequest) GetIssuedAtUtc() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.IssuedAtUtc
+}
+
+// GetIssuedAtUtcOk returns a tuple with the IssuedAtUtc field value
+// and a boolean to check if the value has been set.
+func (o *DocumentIssueRequest) GetIssuedAtUtcOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.IssuedAtUtc, true
+}
+
+// SetIssuedAtUtc sets field value
+func (o *DocumentIssueRequest) SetIssuedAtUtc(v time.Time) {
+	o.IssuedAtUtc = v
+}
+
+// GetValidFromUtc returns the ValidFromUtc field value
+func (o *DocumentIssueRequest) GetValidFromUtc() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.ValidFromUtc
+}
+
+// GetValidFromUtcOk returns a tuple with the ValidFromUtc field value
+// and a boolean to check if the value has been set.
+func (o *DocumentIssueRequest) GetValidFromUtcOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.ValidFromUtc, true
+}
+
+// SetValidFromUtc sets field value
+func (o *DocumentIssueRequest) SetValidFromUtc(v time.Time) {
+	o.ValidFromUtc = v
 }
 
 // GetExpiresAtUtc returns the ExpiresAtUtc field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -224,13 +276,19 @@ func (o DocumentIssueRequest) MarshalJSON() ([]byte, error) {
 		toSerialize["documentTypeId"] = o.DocumentTypeId
 	}
 	if true {
-		toSerialize["documentIdentifier"] = o.DocumentIdentifier
+		toSerialize["identifier"] = o.Identifier
 	}
 	if true {
 		toSerialize["description"] = o.Description
 	}
 	if true {
 		toSerialize["receiver"] = o.Receiver
+	}
+	if true {
+		toSerialize["issuedAtUtc"] = o.IssuedAtUtc
+	}
+	if true {
+		toSerialize["validFromUtc"] = o.ValidFromUtc
 	}
 	if o.ExpiresAtUtc.IsSet() {
 		toSerialize["expiresAtUtc"] = o.ExpiresAtUtc.Get()

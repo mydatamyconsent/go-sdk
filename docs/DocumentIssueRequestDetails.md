@@ -6,20 +6,22 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Request Id. | 
 **DocumentTypeId** | **string** |  | 
-**DocumentTypeName** | **string** |  | 
-**DocumentIdentifier** | **string** |  | 
-**Status** | Pointer to [**DocumentIssueRequestStatus**](DocumentIssueRequestStatus.md) |  | [optional] 
+**TypeName** | **string** |  | 
+**Identifier** | **string** |  | 
+**Status** | [**DocumentIssueRequestStatus**](DocumentIssueRequestStatus.md) |  | 
 **Description** | **string** |  | 
 **Receiver** | **interface{}** |  | 
+**IssuedAtUtc** | **time.Time** |  | 
+**ValidFromUtc** | **time.Time** |  | 
 **ExpiresAtUtc** | Pointer to **NullableTime** |  | [optional] 
-**Metadata** | Pointer to **interface{}** |  | [optional] 
+**MetaData** | Pointer to **interface{}** |  | [optional] 
 **CreatedAtUtc** | **time.Time** |  | 
 
 ## Methods
 
 ### NewDocumentIssueRequestDetails
 
-`func NewDocumentIssueRequestDetails(id string, documentTypeId string, documentTypeName string, documentIdentifier string, description string, receiver interface{}, createdAtUtc time.Time, ) *DocumentIssueRequestDetails`
+`func NewDocumentIssueRequestDetails(id string, documentTypeId string, typeName string, identifier string, status DocumentIssueRequestStatus, description string, receiver interface{}, issuedAtUtc time.Time, validFromUtc time.Time, createdAtUtc time.Time, ) *DocumentIssueRequestDetails`
 
 NewDocumentIssueRequestDetails instantiates a new DocumentIssueRequestDetails object
 This constructor will assign default values to properties that have it defined,
@@ -74,44 +76,44 @@ and a boolean to check if the value has been set.
 SetDocumentTypeId sets DocumentTypeId field to given value.
 
 
-### GetDocumentTypeName
+### GetTypeName
 
-`func (o *DocumentIssueRequestDetails) GetDocumentTypeName() string`
+`func (o *DocumentIssueRequestDetails) GetTypeName() string`
 
-GetDocumentTypeName returns the DocumentTypeName field if non-nil, zero value otherwise.
+GetTypeName returns the TypeName field if non-nil, zero value otherwise.
 
-### GetDocumentTypeNameOk
+### GetTypeNameOk
 
-`func (o *DocumentIssueRequestDetails) GetDocumentTypeNameOk() (*string, bool)`
+`func (o *DocumentIssueRequestDetails) GetTypeNameOk() (*string, bool)`
 
-GetDocumentTypeNameOk returns a tuple with the DocumentTypeName field if it's non-nil, zero value otherwise
+GetTypeNameOk returns a tuple with the TypeName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDocumentTypeName
+### SetTypeName
 
-`func (o *DocumentIssueRequestDetails) SetDocumentTypeName(v string)`
+`func (o *DocumentIssueRequestDetails) SetTypeName(v string)`
 
-SetDocumentTypeName sets DocumentTypeName field to given value.
+SetTypeName sets TypeName field to given value.
 
 
-### GetDocumentIdentifier
+### GetIdentifier
 
-`func (o *DocumentIssueRequestDetails) GetDocumentIdentifier() string`
+`func (o *DocumentIssueRequestDetails) GetIdentifier() string`
 
-GetDocumentIdentifier returns the DocumentIdentifier field if non-nil, zero value otherwise.
+GetIdentifier returns the Identifier field if non-nil, zero value otherwise.
 
-### GetDocumentIdentifierOk
+### GetIdentifierOk
 
-`func (o *DocumentIssueRequestDetails) GetDocumentIdentifierOk() (*string, bool)`
+`func (o *DocumentIssueRequestDetails) GetIdentifierOk() (*string, bool)`
 
-GetDocumentIdentifierOk returns a tuple with the DocumentIdentifier field if it's non-nil, zero value otherwise
+GetIdentifierOk returns a tuple with the Identifier field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDocumentIdentifier
+### SetIdentifier
 
-`func (o *DocumentIssueRequestDetails) SetDocumentIdentifier(v string)`
+`func (o *DocumentIssueRequestDetails) SetIdentifier(v string)`
 
-SetDocumentIdentifier sets DocumentIdentifier field to given value.
+SetIdentifier sets Identifier field to given value.
 
 
 ### GetStatus
@@ -133,11 +135,6 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
-### HasStatus
-
-`func (o *DocumentIssueRequestDetails) HasStatus() bool`
-
-HasStatus returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -189,6 +186,46 @@ SetReceiver sets Receiver field to given value.
 `func (o *DocumentIssueRequestDetails) UnsetReceiver()`
 
 UnsetReceiver ensures that no value is present for Receiver, not even an explicit nil
+### GetIssuedAtUtc
+
+`func (o *DocumentIssueRequestDetails) GetIssuedAtUtc() time.Time`
+
+GetIssuedAtUtc returns the IssuedAtUtc field if non-nil, zero value otherwise.
+
+### GetIssuedAtUtcOk
+
+`func (o *DocumentIssueRequestDetails) GetIssuedAtUtcOk() (*time.Time, bool)`
+
+GetIssuedAtUtcOk returns a tuple with the IssuedAtUtc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIssuedAtUtc
+
+`func (o *DocumentIssueRequestDetails) SetIssuedAtUtc(v time.Time)`
+
+SetIssuedAtUtc sets IssuedAtUtc field to given value.
+
+
+### GetValidFromUtc
+
+`func (o *DocumentIssueRequestDetails) GetValidFromUtc() time.Time`
+
+GetValidFromUtc returns the ValidFromUtc field if non-nil, zero value otherwise.
+
+### GetValidFromUtcOk
+
+`func (o *DocumentIssueRequestDetails) GetValidFromUtcOk() (*time.Time, bool)`
+
+GetValidFromUtcOk returns a tuple with the ValidFromUtc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValidFromUtc
+
+`func (o *DocumentIssueRequestDetails) SetValidFromUtc(v time.Time)`
+
+SetValidFromUtc sets ValidFromUtc field to given value.
+
+
 ### GetExpiresAtUtc
 
 `func (o *DocumentIssueRequestDetails) GetExpiresAtUtc() time.Time`
@@ -224,41 +261,41 @@ HasExpiresAtUtc returns a boolean if a field has been set.
 `func (o *DocumentIssueRequestDetails) UnsetExpiresAtUtc()`
 
 UnsetExpiresAtUtc ensures that no value is present for ExpiresAtUtc, not even an explicit nil
-### GetMetadata
+### GetMetaData
 
-`func (o *DocumentIssueRequestDetails) GetMetadata() interface{}`
+`func (o *DocumentIssueRequestDetails) GetMetaData() interface{}`
 
-GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+GetMetaData returns the MetaData field if non-nil, zero value otherwise.
 
-### GetMetadataOk
+### GetMetaDataOk
 
-`func (o *DocumentIssueRequestDetails) GetMetadataOk() (*interface{}, bool)`
+`func (o *DocumentIssueRequestDetails) GetMetaDataOk() (*interface{}, bool)`
 
-GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+GetMetaDataOk returns a tuple with the MetaData field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMetadata
+### SetMetaData
 
-`func (o *DocumentIssueRequestDetails) SetMetadata(v interface{})`
+`func (o *DocumentIssueRequestDetails) SetMetaData(v interface{})`
 
-SetMetadata sets Metadata field to given value.
+SetMetaData sets MetaData field to given value.
 
-### HasMetadata
+### HasMetaData
 
-`func (o *DocumentIssueRequestDetails) HasMetadata() bool`
+`func (o *DocumentIssueRequestDetails) HasMetaData() bool`
 
-HasMetadata returns a boolean if a field has been set.
+HasMetaData returns a boolean if a field has been set.
 
-### SetMetadataNil
+### SetMetaDataNil
 
-`func (o *DocumentIssueRequestDetails) SetMetadataNil(b bool)`
+`func (o *DocumentIssueRequestDetails) SetMetaDataNil(b bool)`
 
- SetMetadataNil sets the value for Metadata to be an explicit nil
+ SetMetaDataNil sets the value for MetaData to be an explicit nil
 
-### UnsetMetadata
-`func (o *DocumentIssueRequestDetails) UnsetMetadata()`
+### UnsetMetaData
+`func (o *DocumentIssueRequestDetails) UnsetMetaData()`
 
-UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
+UnsetMetaData ensures that no value is present for MetaData, not even an explicit nil
 ### GetCreatedAtUtc
 
 `func (o *DocumentIssueRequestDetails) GetCreatedAtUtc() time.Time`

@@ -15,65 +15,32 @@ import (
 	"encoding/json"
 )
 
-// Receiver Consent request receiver details
-type Receiver struct {
-	Type *ReceiverType `json:"type,omitempty"`
+// ConsentRequestReceiver Consent request receiver details
+type ConsentRequestReceiver struct {
 	// Consent request receiver identifiers
 	Identifiers []StringStringKeyValuePair `json:"identifiers,omitempty"`
 	IdentificationStrategy *IdentificationStrategy `json:"identificationStrategy,omitempty"`
 }
 
-// NewReceiver instantiates a new Receiver object
+// NewConsentRequestReceiver instantiates a new ConsentRequestReceiver object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReceiver() *Receiver {
-	this := Receiver{}
+func NewConsentRequestReceiver() *ConsentRequestReceiver {
+	this := ConsentRequestReceiver{}
 	return &this
 }
 
-// NewReceiverWithDefaults instantiates a new Receiver object
+// NewConsentRequestReceiverWithDefaults instantiates a new ConsentRequestReceiver object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewReceiverWithDefaults() *Receiver {
-	this := Receiver{}
+func NewConsentRequestReceiverWithDefaults() *ConsentRequestReceiver {
+	this := ConsentRequestReceiver{}
 	return &this
-}
-
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *Receiver) GetType() ReceiverType {
-	if o == nil || o.Type == nil {
-		var ret ReceiverType
-		return ret
-	}
-	return *o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Receiver) GetTypeOk() (*ReceiverType, bool) {
-	if o == nil || o.Type == nil {
-		return nil, false
-	}
-	return o.Type, true
-}
-
-// HasType returns a boolean if a field has been set.
-func (o *Receiver) HasType() bool {
-	if o != nil && o.Type != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given ReceiverType and assigns it to the Type field.
-func (o *Receiver) SetType(v ReceiverType) {
-	o.Type = &v
 }
 
 // GetIdentifiers returns the Identifiers field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Receiver) GetIdentifiers() []StringStringKeyValuePair {
+func (o *ConsentRequestReceiver) GetIdentifiers() []StringStringKeyValuePair {
 	if o == nil  {
 		var ret []StringStringKeyValuePair
 		return ret
@@ -84,7 +51,7 @@ func (o *Receiver) GetIdentifiers() []StringStringKeyValuePair {
 // GetIdentifiersOk returns a tuple with the Identifiers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Receiver) GetIdentifiersOk() ([]StringStringKeyValuePair, bool) {
+func (o *ConsentRequestReceiver) GetIdentifiersOk() ([]StringStringKeyValuePair, bool) {
 	if o == nil || o.Identifiers == nil {
 		return nil, false
 	}
@@ -92,7 +59,7 @@ func (o *Receiver) GetIdentifiersOk() ([]StringStringKeyValuePair, bool) {
 }
 
 // HasIdentifiers returns a boolean if a field has been set.
-func (o *Receiver) HasIdentifiers() bool {
+func (o *ConsentRequestReceiver) HasIdentifiers() bool {
 	if o != nil && o.Identifiers != nil {
 		return true
 	}
@@ -101,12 +68,12 @@ func (o *Receiver) HasIdentifiers() bool {
 }
 
 // SetIdentifiers gets a reference to the given []StringStringKeyValuePair and assigns it to the Identifiers field.
-func (o *Receiver) SetIdentifiers(v []StringStringKeyValuePair) {
+func (o *ConsentRequestReceiver) SetIdentifiers(v []StringStringKeyValuePair) {
 	o.Identifiers = v
 }
 
 // GetIdentificationStrategy returns the IdentificationStrategy field value if set, zero value otherwise.
-func (o *Receiver) GetIdentificationStrategy() IdentificationStrategy {
+func (o *ConsentRequestReceiver) GetIdentificationStrategy() IdentificationStrategy {
 	if o == nil || o.IdentificationStrategy == nil {
 		var ret IdentificationStrategy
 		return ret
@@ -116,7 +83,7 @@ func (o *Receiver) GetIdentificationStrategy() IdentificationStrategy {
 
 // GetIdentificationStrategyOk returns a tuple with the IdentificationStrategy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Receiver) GetIdentificationStrategyOk() (*IdentificationStrategy, bool) {
+func (o *ConsentRequestReceiver) GetIdentificationStrategyOk() (*IdentificationStrategy, bool) {
 	if o == nil || o.IdentificationStrategy == nil {
 		return nil, false
 	}
@@ -124,7 +91,7 @@ func (o *Receiver) GetIdentificationStrategyOk() (*IdentificationStrategy, bool)
 }
 
 // HasIdentificationStrategy returns a boolean if a field has been set.
-func (o *Receiver) HasIdentificationStrategy() bool {
+func (o *ConsentRequestReceiver) HasIdentificationStrategy() bool {
 	if o != nil && o.IdentificationStrategy != nil {
 		return true
 	}
@@ -133,15 +100,12 @@ func (o *Receiver) HasIdentificationStrategy() bool {
 }
 
 // SetIdentificationStrategy gets a reference to the given IdentificationStrategy and assigns it to the IdentificationStrategy field.
-func (o *Receiver) SetIdentificationStrategy(v IdentificationStrategy) {
+func (o *ConsentRequestReceiver) SetIdentificationStrategy(v IdentificationStrategy) {
 	o.IdentificationStrategy = &v
 }
 
-func (o Receiver) MarshalJSON() ([]byte, error) {
+func (o ConsentRequestReceiver) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Type != nil {
-		toSerialize["type"] = o.Type
-	}
 	if o.Identifiers != nil {
 		toSerialize["identifiers"] = o.Identifiers
 	}
@@ -151,38 +115,38 @@ func (o Receiver) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableReceiver struct {
-	value *Receiver
+type NullableConsentRequestReceiver struct {
+	value *ConsentRequestReceiver
 	isSet bool
 }
 
-func (v NullableReceiver) Get() *Receiver {
+func (v NullableConsentRequestReceiver) Get() *ConsentRequestReceiver {
 	return v.value
 }
 
-func (v *NullableReceiver) Set(val *Receiver) {
+func (v *NullableConsentRequestReceiver) Set(val *ConsentRequestReceiver) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableReceiver) IsSet() bool {
+func (v NullableConsentRequestReceiver) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableReceiver) Unset() {
+func (v *NullableConsentRequestReceiver) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableReceiver(val *Receiver) *NullableReceiver {
-	return &NullableReceiver{value: val, isSet: true}
+func NewNullableConsentRequestReceiver(val *ConsentRequestReceiver) *NullableConsentRequestReceiver {
+	return &NullableConsentRequestReceiver{value: val, isSet: true}
 }
 
-func (v NullableReceiver) MarshalJSON() ([]byte, error) {
+func (v NullableConsentRequestReceiver) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableReceiver) UnmarshalJSON(src []byte) error {
+func (v *NullableConsentRequestReceiver) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
