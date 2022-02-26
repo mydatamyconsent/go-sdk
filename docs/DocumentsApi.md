@@ -375,7 +375,7 @@ import (
 
 func main() {
     issueRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Issue Request Id System.Guid.
-    formFile := os.NewFile(1234, "some_file") // *os.File |  (optional)
+    formFile := os.NewFile(1234, "some_file") // *os.File | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -789,6 +789,9 @@ func (a *DocumentsApiService) UploadDocumentForIndividualExecute(r ApiUploadDocu
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.formFile == nil {
+		return localVarReturnValue, nil, reportError("formFile is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"multipart/form-data"}
@@ -813,10 +816,7 @@ func (a *DocumentsApiService) UploadDocumentForIndividualExecute(r ApiUploadDocu
 
 	formFileLocalVarFormFileName = "formFile"
 
-	var formFileLocalVarFile *os.File
-	if r.formFile != nil {
-		formFileLocalVarFile = *r.formFile
-	}
+	formFileLocalVarFile := *r.formFile
 	if formFileLocalVarFile != nil {
 		fbs, _ := ioutil.ReadAll(formFileLocalVarFile)
 		formFileLocalVarFileBytes = fbs

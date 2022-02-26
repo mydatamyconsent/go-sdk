@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// UserDocumentDetailsDto struct for UserDocumentDetailsDto
-type UserDocumentDetailsDto struct {
+// UserDocumentDetails struct for UserDocumentDetails
+type UserDocumentDetails struct {
 	Id *string `json:"id,omitempty"`
 	CategoryType *DocumentCategoryType `json:"categoryType,omitempty"`
 	TypeId *string `json:"typeId,omitempty"`
@@ -33,25 +33,25 @@ type UserDocumentDetailsDto struct {
 	OwnerId *string `json:"ownerId,omitempty"`
 }
 
-// NewUserDocumentDetailsDto instantiates a new UserDocumentDetailsDto object
+// NewUserDocumentDetails instantiates a new UserDocumentDetails object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserDocumentDetailsDto() *UserDocumentDetailsDto {
-	this := UserDocumentDetailsDto{}
+func NewUserDocumentDetails() *UserDocumentDetails {
+	this := UserDocumentDetails{}
 	return &this
 }
 
-// NewUserDocumentDetailsDtoWithDefaults instantiates a new UserDocumentDetailsDto object
+// NewUserDocumentDetailsWithDefaults instantiates a new UserDocumentDetails object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewUserDocumentDetailsDtoWithDefaults() *UserDocumentDetailsDto {
-	this := UserDocumentDetailsDto{}
+func NewUserDocumentDetailsWithDefaults() *UserDocumentDetails {
+	this := UserDocumentDetails{}
 	return &this
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *UserDocumentDetailsDto) GetId() string {
+func (o *UserDocumentDetails) GetId() string {
 	if o == nil || o.Id == nil {
 		var ret string
 		return ret
@@ -61,7 +61,7 @@ func (o *UserDocumentDetailsDto) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserDocumentDetailsDto) GetIdOk() (*string, bool) {
+func (o *UserDocumentDetails) GetIdOk() (*string, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -69,7 +69,7 @@ func (o *UserDocumentDetailsDto) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *UserDocumentDetailsDto) HasId() bool {
+func (o *UserDocumentDetails) HasId() bool {
 	if o != nil && o.Id != nil {
 		return true
 	}
@@ -78,12 +78,12 @@ func (o *UserDocumentDetailsDto) HasId() bool {
 }
 
 // SetId gets a reference to the given string and assigns it to the Id field.
-func (o *UserDocumentDetailsDto) SetId(v string) {
+func (o *UserDocumentDetails) SetId(v string) {
 	o.Id = &v
 }
 
 // GetCategoryType returns the CategoryType field value if set, zero value otherwise.
-func (o *UserDocumentDetailsDto) GetCategoryType() DocumentCategoryType {
+func (o *UserDocumentDetails) GetCategoryType() DocumentCategoryType {
 	if o == nil || o.CategoryType == nil {
 		var ret DocumentCategoryType
 		return ret
@@ -93,7 +93,7 @@ func (o *UserDocumentDetailsDto) GetCategoryType() DocumentCategoryType {
 
 // GetCategoryTypeOk returns a tuple with the CategoryType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserDocumentDetailsDto) GetCategoryTypeOk() (*DocumentCategoryType, bool) {
+func (o *UserDocumentDetails) GetCategoryTypeOk() (*DocumentCategoryType, bool) {
 	if o == nil || o.CategoryType == nil {
 		return nil, false
 	}
@@ -101,7 +101,7 @@ func (o *UserDocumentDetailsDto) GetCategoryTypeOk() (*DocumentCategoryType, boo
 }
 
 // HasCategoryType returns a boolean if a field has been set.
-func (o *UserDocumentDetailsDto) HasCategoryType() bool {
+func (o *UserDocumentDetails) HasCategoryType() bool {
 	if o != nil && o.CategoryType != nil {
 		return true
 	}
@@ -110,12 +110,12 @@ func (o *UserDocumentDetailsDto) HasCategoryType() bool {
 }
 
 // SetCategoryType gets a reference to the given DocumentCategoryType and assigns it to the CategoryType field.
-func (o *UserDocumentDetailsDto) SetCategoryType(v DocumentCategoryType) {
+func (o *UserDocumentDetails) SetCategoryType(v DocumentCategoryType) {
 	o.CategoryType = &v
 }
 
 // GetTypeId returns the TypeId field value if set, zero value otherwise.
-func (o *UserDocumentDetailsDto) GetTypeId() string {
+func (o *UserDocumentDetails) GetTypeId() string {
 	if o == nil || o.TypeId == nil {
 		var ret string
 		return ret
@@ -125,7 +125,7 @@ func (o *UserDocumentDetailsDto) GetTypeId() string {
 
 // GetTypeIdOk returns a tuple with the TypeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserDocumentDetailsDto) GetTypeIdOk() (*string, bool) {
+func (o *UserDocumentDetails) GetTypeIdOk() (*string, bool) {
 	if o == nil || o.TypeId == nil {
 		return nil, false
 	}
@@ -133,7 +133,7 @@ func (o *UserDocumentDetailsDto) GetTypeIdOk() (*string, bool) {
 }
 
 // HasTypeId returns a boolean if a field has been set.
-func (o *UserDocumentDetailsDto) HasTypeId() bool {
+func (o *UserDocumentDetails) HasTypeId() bool {
 	if o != nil && o.TypeId != nil {
 		return true
 	}
@@ -142,12 +142,12 @@ func (o *UserDocumentDetailsDto) HasTypeId() bool {
 }
 
 // SetTypeId gets a reference to the given string and assigns it to the TypeId field.
-func (o *UserDocumentDetailsDto) SetTypeId(v string) {
+func (o *UserDocumentDetails) SetTypeId(v string) {
 	o.TypeId = &v
 }
 
 // GetTypeName returns the TypeName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UserDocumentDetailsDto) GetTypeName() string {
+func (o *UserDocumentDetails) GetTypeName() string {
 	if o == nil || o.TypeName.Get() == nil {
 		var ret string
 		return ret
@@ -158,7 +158,7 @@ func (o *UserDocumentDetailsDto) GetTypeName() string {
 // GetTypeNameOk returns a tuple with the TypeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UserDocumentDetailsDto) GetTypeNameOk() (*string, bool) {
+func (o *UserDocumentDetails) GetTypeNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -166,7 +166,7 @@ func (o *UserDocumentDetailsDto) GetTypeNameOk() (*string, bool) {
 }
 
 // HasTypeName returns a boolean if a field has been set.
-func (o *UserDocumentDetailsDto) HasTypeName() bool {
+func (o *UserDocumentDetails) HasTypeName() bool {
 	if o != nil && o.TypeName.IsSet() {
 		return true
 	}
@@ -175,21 +175,21 @@ func (o *UserDocumentDetailsDto) HasTypeName() bool {
 }
 
 // SetTypeName gets a reference to the given NullableString and assigns it to the TypeName field.
-func (o *UserDocumentDetailsDto) SetTypeName(v string) {
+func (o *UserDocumentDetails) SetTypeName(v string) {
 	o.TypeName.Set(&v)
 }
 // SetTypeNameNil sets the value for TypeName to be an explicit nil
-func (o *UserDocumentDetailsDto) SetTypeNameNil() {
+func (o *UserDocumentDetails) SetTypeNameNil() {
 	o.TypeName.Set(nil)
 }
 
 // UnsetTypeName ensures that no value is present for TypeName, not even an explicit nil
-func (o *UserDocumentDetailsDto) UnsetTypeName() {
+func (o *UserDocumentDetails) UnsetTypeName() {
 	o.TypeName.Unset()
 }
 
 // GetFullName returns the FullName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UserDocumentDetailsDto) GetFullName() string {
+func (o *UserDocumentDetails) GetFullName() string {
 	if o == nil || o.FullName.Get() == nil {
 		var ret string
 		return ret
@@ -200,7 +200,7 @@ func (o *UserDocumentDetailsDto) GetFullName() string {
 // GetFullNameOk returns a tuple with the FullName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UserDocumentDetailsDto) GetFullNameOk() (*string, bool) {
+func (o *UserDocumentDetails) GetFullNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -208,7 +208,7 @@ func (o *UserDocumentDetailsDto) GetFullNameOk() (*string, bool) {
 }
 
 // HasFullName returns a boolean if a field has been set.
-func (o *UserDocumentDetailsDto) HasFullName() bool {
+func (o *UserDocumentDetails) HasFullName() bool {
 	if o != nil && o.FullName.IsSet() {
 		return true
 	}
@@ -217,21 +217,21 @@ func (o *UserDocumentDetailsDto) HasFullName() bool {
 }
 
 // SetFullName gets a reference to the given NullableString and assigns it to the FullName field.
-func (o *UserDocumentDetailsDto) SetFullName(v string) {
+func (o *UserDocumentDetails) SetFullName(v string) {
 	o.FullName.Set(&v)
 }
 // SetFullNameNil sets the value for FullName to be an explicit nil
-func (o *UserDocumentDetailsDto) SetFullNameNil() {
+func (o *UserDocumentDetails) SetFullNameNil() {
 	o.FullName.Set(nil)
 }
 
 // UnsetFullName ensures that no value is present for FullName, not even an explicit nil
-func (o *UserDocumentDetailsDto) UnsetFullName() {
+func (o *UserDocumentDetails) UnsetFullName() {
 	o.FullName.Unset()
 }
 
 // GetIdentifier returns the Identifier field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UserDocumentDetailsDto) GetIdentifier() string {
+func (o *UserDocumentDetails) GetIdentifier() string {
 	if o == nil || o.Identifier.Get() == nil {
 		var ret string
 		return ret
@@ -242,7 +242,7 @@ func (o *UserDocumentDetailsDto) GetIdentifier() string {
 // GetIdentifierOk returns a tuple with the Identifier field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UserDocumentDetailsDto) GetIdentifierOk() (*string, bool) {
+func (o *UserDocumentDetails) GetIdentifierOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -250,7 +250,7 @@ func (o *UserDocumentDetailsDto) GetIdentifierOk() (*string, bool) {
 }
 
 // HasIdentifier returns a boolean if a field has been set.
-func (o *UserDocumentDetailsDto) HasIdentifier() bool {
+func (o *UserDocumentDetails) HasIdentifier() bool {
 	if o != nil && o.Identifier.IsSet() {
 		return true
 	}
@@ -259,21 +259,21 @@ func (o *UserDocumentDetailsDto) HasIdentifier() bool {
 }
 
 // SetIdentifier gets a reference to the given NullableString and assigns it to the Identifier field.
-func (o *UserDocumentDetailsDto) SetIdentifier(v string) {
+func (o *UserDocumentDetails) SetIdentifier(v string) {
 	o.Identifier.Set(&v)
 }
 // SetIdentifierNil sets the value for Identifier to be an explicit nil
-func (o *UserDocumentDetailsDto) SetIdentifierNil() {
+func (o *UserDocumentDetails) SetIdentifierNil() {
 	o.Identifier.Set(nil)
 }
 
 // UnsetIdentifier ensures that no value is present for Identifier, not even an explicit nil
-func (o *UserDocumentDetailsDto) UnsetIdentifier() {
+func (o *UserDocumentDetails) UnsetIdentifier() {
 	o.Identifier.Unset()
 }
 
 // GetAccountId returns the AccountId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UserDocumentDetailsDto) GetAccountId() string {
+func (o *UserDocumentDetails) GetAccountId() string {
 	if o == nil || o.AccountId.Get() == nil {
 		var ret string
 		return ret
@@ -284,7 +284,7 @@ func (o *UserDocumentDetailsDto) GetAccountId() string {
 // GetAccountIdOk returns a tuple with the AccountId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UserDocumentDetailsDto) GetAccountIdOk() (*string, bool) {
+func (o *UserDocumentDetails) GetAccountIdOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -292,7 +292,7 @@ func (o *UserDocumentDetailsDto) GetAccountIdOk() (*string, bool) {
 }
 
 // HasAccountId returns a boolean if a field has been set.
-func (o *UserDocumentDetailsDto) HasAccountId() bool {
+func (o *UserDocumentDetails) HasAccountId() bool {
 	if o != nil && o.AccountId.IsSet() {
 		return true
 	}
@@ -301,21 +301,21 @@ func (o *UserDocumentDetailsDto) HasAccountId() bool {
 }
 
 // SetAccountId gets a reference to the given NullableString and assigns it to the AccountId field.
-func (o *UserDocumentDetailsDto) SetAccountId(v string) {
+func (o *UserDocumentDetails) SetAccountId(v string) {
 	o.AccountId.Set(&v)
 }
 // SetAccountIdNil sets the value for AccountId to be an explicit nil
-func (o *UserDocumentDetailsDto) SetAccountIdNil() {
+func (o *UserDocumentDetails) SetAccountIdNil() {
 	o.AccountId.Set(nil)
 }
 
 // UnsetAccountId ensures that no value is present for AccountId, not even an explicit nil
-func (o *UserDocumentDetailsDto) UnsetAccountId() {
+func (o *UserDocumentDetails) UnsetAccountId() {
 	o.AccountId.Unset()
 }
 
 // GetIssuerId returns the IssuerId field value if set, zero value otherwise.
-func (o *UserDocumentDetailsDto) GetIssuerId() string {
+func (o *UserDocumentDetails) GetIssuerId() string {
 	if o == nil || o.IssuerId == nil {
 		var ret string
 		return ret
@@ -325,7 +325,7 @@ func (o *UserDocumentDetailsDto) GetIssuerId() string {
 
 // GetIssuerIdOk returns a tuple with the IssuerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserDocumentDetailsDto) GetIssuerIdOk() (*string, bool) {
+func (o *UserDocumentDetails) GetIssuerIdOk() (*string, bool) {
 	if o == nil || o.IssuerId == nil {
 		return nil, false
 	}
@@ -333,7 +333,7 @@ func (o *UserDocumentDetailsDto) GetIssuerIdOk() (*string, bool) {
 }
 
 // HasIssuerId returns a boolean if a field has been set.
-func (o *UserDocumentDetailsDto) HasIssuerId() bool {
+func (o *UserDocumentDetails) HasIssuerId() bool {
 	if o != nil && o.IssuerId != nil {
 		return true
 	}
@@ -342,12 +342,12 @@ func (o *UserDocumentDetailsDto) HasIssuerId() bool {
 }
 
 // SetIssuerId gets a reference to the given string and assigns it to the IssuerId field.
-func (o *UserDocumentDetailsDto) SetIssuerId(v string) {
+func (o *UserDocumentDetails) SetIssuerId(v string) {
 	o.IssuerId = &v
 }
 
 // GetIssuerName returns the IssuerName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UserDocumentDetailsDto) GetIssuerName() string {
+func (o *UserDocumentDetails) GetIssuerName() string {
 	if o == nil || o.IssuerName.Get() == nil {
 		var ret string
 		return ret
@@ -358,7 +358,7 @@ func (o *UserDocumentDetailsDto) GetIssuerName() string {
 // GetIssuerNameOk returns a tuple with the IssuerName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UserDocumentDetailsDto) GetIssuerNameOk() (*string, bool) {
+func (o *UserDocumentDetails) GetIssuerNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -366,7 +366,7 @@ func (o *UserDocumentDetailsDto) GetIssuerNameOk() (*string, bool) {
 }
 
 // HasIssuerName returns a boolean if a field has been set.
-func (o *UserDocumentDetailsDto) HasIssuerName() bool {
+func (o *UserDocumentDetails) HasIssuerName() bool {
 	if o != nil && o.IssuerName.IsSet() {
 		return true
 	}
@@ -375,21 +375,21 @@ func (o *UserDocumentDetailsDto) HasIssuerName() bool {
 }
 
 // SetIssuerName gets a reference to the given NullableString and assigns it to the IssuerName field.
-func (o *UserDocumentDetailsDto) SetIssuerName(v string) {
+func (o *UserDocumentDetails) SetIssuerName(v string) {
 	o.IssuerName.Set(&v)
 }
 // SetIssuerNameNil sets the value for IssuerName to be an explicit nil
-func (o *UserDocumentDetailsDto) SetIssuerNameNil() {
+func (o *UserDocumentDetails) SetIssuerNameNil() {
 	o.IssuerName.Set(nil)
 }
 
 // UnsetIssuerName ensures that no value is present for IssuerName, not even an explicit nil
-func (o *UserDocumentDetailsDto) UnsetIssuerName() {
+func (o *UserDocumentDetails) UnsetIssuerName() {
 	o.IssuerName.Unset()
 }
 
 // GetStorageUrl returns the StorageUrl field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UserDocumentDetailsDto) GetStorageUrl() string {
+func (o *UserDocumentDetails) GetStorageUrl() string {
 	if o == nil || o.StorageUrl.Get() == nil {
 		var ret string
 		return ret
@@ -400,7 +400,7 @@ func (o *UserDocumentDetailsDto) GetStorageUrl() string {
 // GetStorageUrlOk returns a tuple with the StorageUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UserDocumentDetailsDto) GetStorageUrlOk() (*string, bool) {
+func (o *UserDocumentDetails) GetStorageUrlOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -408,7 +408,7 @@ func (o *UserDocumentDetailsDto) GetStorageUrlOk() (*string, bool) {
 }
 
 // HasStorageUrl returns a boolean if a field has been set.
-func (o *UserDocumentDetailsDto) HasStorageUrl() bool {
+func (o *UserDocumentDetails) HasStorageUrl() bool {
 	if o != nil && o.StorageUrl.IsSet() {
 		return true
 	}
@@ -417,21 +417,21 @@ func (o *UserDocumentDetailsDto) HasStorageUrl() bool {
 }
 
 // SetStorageUrl gets a reference to the given NullableString and assigns it to the StorageUrl field.
-func (o *UserDocumentDetailsDto) SetStorageUrl(v string) {
+func (o *UserDocumentDetails) SetStorageUrl(v string) {
 	o.StorageUrl.Set(&v)
 }
 // SetStorageUrlNil sets the value for StorageUrl to be an explicit nil
-func (o *UserDocumentDetailsDto) SetStorageUrlNil() {
+func (o *UserDocumentDetails) SetStorageUrlNil() {
 	o.StorageUrl.Set(nil)
 }
 
 // UnsetStorageUrl ensures that no value is present for StorageUrl, not even an explicit nil
-func (o *UserDocumentDetailsDto) UnsetStorageUrl() {
+func (o *UserDocumentDetails) UnsetStorageUrl() {
 	o.StorageUrl.Unset()
 }
 
 // GetIsQuickAccessEnabled returns the IsQuickAccessEnabled field value if set, zero value otherwise.
-func (o *UserDocumentDetailsDto) GetIsQuickAccessEnabled() bool {
+func (o *UserDocumentDetails) GetIsQuickAccessEnabled() bool {
 	if o == nil || o.IsQuickAccessEnabled == nil {
 		var ret bool
 		return ret
@@ -441,7 +441,7 @@ func (o *UserDocumentDetailsDto) GetIsQuickAccessEnabled() bool {
 
 // GetIsQuickAccessEnabledOk returns a tuple with the IsQuickAccessEnabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserDocumentDetailsDto) GetIsQuickAccessEnabledOk() (*bool, bool) {
+func (o *UserDocumentDetails) GetIsQuickAccessEnabledOk() (*bool, bool) {
 	if o == nil || o.IsQuickAccessEnabled == nil {
 		return nil, false
 	}
@@ -449,7 +449,7 @@ func (o *UserDocumentDetailsDto) GetIsQuickAccessEnabledOk() (*bool, bool) {
 }
 
 // HasIsQuickAccessEnabled returns a boolean if a field has been set.
-func (o *UserDocumentDetailsDto) HasIsQuickAccessEnabled() bool {
+func (o *UserDocumentDetails) HasIsQuickAccessEnabled() bool {
 	if o != nil && o.IsQuickAccessEnabled != nil {
 		return true
 	}
@@ -458,12 +458,12 @@ func (o *UserDocumentDetailsDto) HasIsQuickAccessEnabled() bool {
 }
 
 // SetIsQuickAccessEnabled gets a reference to the given bool and assigns it to the IsQuickAccessEnabled field.
-func (o *UserDocumentDetailsDto) SetIsQuickAccessEnabled(v bool) {
+func (o *UserDocumentDetails) SetIsQuickAccessEnabled(v bool) {
 	o.IsQuickAccessEnabled = &v
 }
 
 // GetIsOwner returns the IsOwner field value if set, zero value otherwise.
-func (o *UserDocumentDetailsDto) GetIsOwner() bool {
+func (o *UserDocumentDetails) GetIsOwner() bool {
 	if o == nil || o.IsOwner == nil {
 		var ret bool
 		return ret
@@ -473,7 +473,7 @@ func (o *UserDocumentDetailsDto) GetIsOwner() bool {
 
 // GetIsOwnerOk returns a tuple with the IsOwner field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserDocumentDetailsDto) GetIsOwnerOk() (*bool, bool) {
+func (o *UserDocumentDetails) GetIsOwnerOk() (*bool, bool) {
 	if o == nil || o.IsOwner == nil {
 		return nil, false
 	}
@@ -481,7 +481,7 @@ func (o *UserDocumentDetailsDto) GetIsOwnerOk() (*bool, bool) {
 }
 
 // HasIsOwner returns a boolean if a field has been set.
-func (o *UserDocumentDetailsDto) HasIsOwner() bool {
+func (o *UserDocumentDetails) HasIsOwner() bool {
 	if o != nil && o.IsOwner != nil {
 		return true
 	}
@@ -490,12 +490,12 @@ func (o *UserDocumentDetailsDto) HasIsOwner() bool {
 }
 
 // SetIsOwner gets a reference to the given bool and assigns it to the IsOwner field.
-func (o *UserDocumentDetailsDto) SetIsOwner(v bool) {
+func (o *UserDocumentDetails) SetIsOwner(v bool) {
 	o.IsOwner = &v
 }
 
 // GetDigitalSignatureDetails returns the DigitalSignatureDetails field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UserDocumentDetailsDto) GetDigitalSignatureDetails() []DigitalSignature {
+func (o *UserDocumentDetails) GetDigitalSignatureDetails() []DigitalSignature {
 	if o == nil  {
 		var ret []DigitalSignature
 		return ret
@@ -506,7 +506,7 @@ func (o *UserDocumentDetailsDto) GetDigitalSignatureDetails() []DigitalSignature
 // GetDigitalSignatureDetailsOk returns a tuple with the DigitalSignatureDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UserDocumentDetailsDto) GetDigitalSignatureDetailsOk() ([]DigitalSignature, bool) {
+func (o *UserDocumentDetails) GetDigitalSignatureDetailsOk() ([]DigitalSignature, bool) {
 	if o == nil || o.DigitalSignatureDetails == nil {
 		return nil, false
 	}
@@ -514,7 +514,7 @@ func (o *UserDocumentDetailsDto) GetDigitalSignatureDetailsOk() ([]DigitalSignat
 }
 
 // HasDigitalSignatureDetails returns a boolean if a field has been set.
-func (o *UserDocumentDetailsDto) HasDigitalSignatureDetails() bool {
+func (o *UserDocumentDetails) HasDigitalSignatureDetails() bool {
 	if o != nil && o.DigitalSignatureDetails != nil {
 		return true
 	}
@@ -523,12 +523,12 @@ func (o *UserDocumentDetailsDto) HasDigitalSignatureDetails() bool {
 }
 
 // SetDigitalSignatureDetails gets a reference to the given []DigitalSignature and assigns it to the DigitalSignatureDetails field.
-func (o *UserDocumentDetailsDto) SetDigitalSignatureDetails(v []DigitalSignature) {
+func (o *UserDocumentDetails) SetDigitalSignatureDetails(v []DigitalSignature) {
 	o.DigitalSignatureDetails = v
 }
 
 // GetOwnerId returns the OwnerId field value if set, zero value otherwise.
-func (o *UserDocumentDetailsDto) GetOwnerId() string {
+func (o *UserDocumentDetails) GetOwnerId() string {
 	if o == nil || o.OwnerId == nil {
 		var ret string
 		return ret
@@ -538,7 +538,7 @@ func (o *UserDocumentDetailsDto) GetOwnerId() string {
 
 // GetOwnerIdOk returns a tuple with the OwnerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserDocumentDetailsDto) GetOwnerIdOk() (*string, bool) {
+func (o *UserDocumentDetails) GetOwnerIdOk() (*string, bool) {
 	if o == nil || o.OwnerId == nil {
 		return nil, false
 	}
@@ -546,7 +546,7 @@ func (o *UserDocumentDetailsDto) GetOwnerIdOk() (*string, bool) {
 }
 
 // HasOwnerId returns a boolean if a field has been set.
-func (o *UserDocumentDetailsDto) HasOwnerId() bool {
+func (o *UserDocumentDetails) HasOwnerId() bool {
 	if o != nil && o.OwnerId != nil {
 		return true
 	}
@@ -555,11 +555,11 @@ func (o *UserDocumentDetailsDto) HasOwnerId() bool {
 }
 
 // SetOwnerId gets a reference to the given string and assigns it to the OwnerId field.
-func (o *UserDocumentDetailsDto) SetOwnerId(v string) {
+func (o *UserDocumentDetails) SetOwnerId(v string) {
 	o.OwnerId = &v
 }
 
-func (o UserDocumentDetailsDto) MarshalJSON() ([]byte, error) {
+func (o UserDocumentDetails) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
@@ -606,38 +606,38 @@ func (o UserDocumentDetailsDto) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableUserDocumentDetailsDto struct {
-	value *UserDocumentDetailsDto
+type NullableUserDocumentDetails struct {
+	value *UserDocumentDetails
 	isSet bool
 }
 
-func (v NullableUserDocumentDetailsDto) Get() *UserDocumentDetailsDto {
+func (v NullableUserDocumentDetails) Get() *UserDocumentDetails {
 	return v.value
 }
 
-func (v *NullableUserDocumentDetailsDto) Set(val *UserDocumentDetailsDto) {
+func (v *NullableUserDocumentDetails) Set(val *UserDocumentDetails) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableUserDocumentDetailsDto) IsSet() bool {
+func (v NullableUserDocumentDetails) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableUserDocumentDetailsDto) Unset() {
+func (v *NullableUserDocumentDetails) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableUserDocumentDetailsDto(val *UserDocumentDetailsDto) *NullableUserDocumentDetailsDto {
-	return &NullableUserDocumentDetailsDto{value: val, isSet: true}
+func NewNullableUserDocumentDetails(val *UserDocumentDetails) *NullableUserDocumentDetails {
+	return &NullableUserDocumentDetails{value: val, isSet: true}
 }
 
-func (v NullableUserDocumentDetailsDto) MarshalJSON() ([]byte, error) {
+func (v NullableUserDocumentDetails) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableUserDocumentDetailsDto) UnmarshalJSON(src []byte) error {
+func (v *NullableUserDocumentDetails) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

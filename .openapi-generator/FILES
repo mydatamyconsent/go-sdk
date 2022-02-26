@@ -59,7 +59,7 @@ docs/Life.md
 docs/OrganizationDataConsentInfoDto.md
 docs/OrganizationDataConsentInfoDtoPaginatedList.md
 docs/OrganizationDataConsentRequestResponse.md
-docs/OrganizationDocumentDetailsDto.md
+docs/OrganizationDocumentDetails.md
 docs/OrganizationDocumentDownloadDto.md
 docs/OrganizationFinancialAccountDto.md
 docs/OrganizationFinancialTransactionsDto.md
@@ -78,8 +78,8 @@ docs/UserAccountFinancialTransactionsDto.md
 docs/UserAccountFinancialTransactionsDtoPaginatedList.md
 docs/UserDataConsentInfoDto.md
 docs/UserDataConsentInfoDtoPaginatedList.md
-docs/UserDocumentDetailsDto.md
-docs/UserDocumentDownloadDto.md
+docs/UserDocumentDetails.md
+docs/UserDocumentDownload.md
 go.mod
 go.sum
 model_activity.go
@@ -126,7 +126,7 @@ model_life.go
 model_organization_data_consent_info_dto.go
 model_organization_data_consent_info_dto_paginated_list.go
 model_organization_data_consent_request_response.go
-model_organization_document_details_dto.go
+model_organization_document_details.go
 model_organization_document_download_dto.go
 model_organization_financial_account_dto.go
 model_organization_financial_transactions_dto.go
@@ -144,7 +144,7 @@ model_user_account_financial_transactions_dto.go
 model_user_account_financial_transactions_dto_paginated_list.go
 model_user_data_consent_info_dto.go
 model_user_data_consent_info_dto_paginated_list.go
-model_user_document_details_dto.go
-model_user_document_download_dto.go
+model_user_document_details.go
+model_user_document_download.go
 response.go
 utils.go

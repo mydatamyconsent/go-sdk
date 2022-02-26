@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// OrganizationDocumentDetailsDto struct for OrganizationDocumentDetailsDto
-type OrganizationDocumentDetailsDto struct {
+// OrganizationDocumentDetails struct for OrganizationDocumentDetails
+type OrganizationDocumentDetails struct {
 	Id *string `json:"id,omitempty"`
 	OrganizationId *string `json:"organizationId,omitempty"`
 	OrganizationName NullableString `json:"organizationName,omitempty"`
@@ -30,25 +30,25 @@ type OrganizationDocumentDetailsDto struct {
 	IssuerName NullableString `json:"issuerName,omitempty"`
 }
 
-// NewOrganizationDocumentDetailsDto instantiates a new OrganizationDocumentDetailsDto object
+// NewOrganizationDocumentDetails instantiates a new OrganizationDocumentDetails object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrganizationDocumentDetailsDto() *OrganizationDocumentDetailsDto {
-	this := OrganizationDocumentDetailsDto{}
+func NewOrganizationDocumentDetails() *OrganizationDocumentDetails {
+	this := OrganizationDocumentDetails{}
 	return &this
 }
 
-// NewOrganizationDocumentDetailsDtoWithDefaults instantiates a new OrganizationDocumentDetailsDto object
+// NewOrganizationDocumentDetailsWithDefaults instantiates a new OrganizationDocumentDetails object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewOrganizationDocumentDetailsDtoWithDefaults() *OrganizationDocumentDetailsDto {
-	this := OrganizationDocumentDetailsDto{}
+func NewOrganizationDocumentDetailsWithDefaults() *OrganizationDocumentDetails {
+	this := OrganizationDocumentDetails{}
 	return &this
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *OrganizationDocumentDetailsDto) GetId() string {
+func (o *OrganizationDocumentDetails) GetId() string {
 	if o == nil || o.Id == nil {
 		var ret string
 		return ret
@@ -58,7 +58,7 @@ func (o *OrganizationDocumentDetailsDto) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrganizationDocumentDetailsDto) GetIdOk() (*string, bool) {
+func (o *OrganizationDocumentDetails) GetIdOk() (*string, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -66,7 +66,7 @@ func (o *OrganizationDocumentDetailsDto) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *OrganizationDocumentDetailsDto) HasId() bool {
+func (o *OrganizationDocumentDetails) HasId() bool {
 	if o != nil && o.Id != nil {
 		return true
 	}
@@ -75,12 +75,12 @@ func (o *OrganizationDocumentDetailsDto) HasId() bool {
 }
 
 // SetId gets a reference to the given string and assigns it to the Id field.
-func (o *OrganizationDocumentDetailsDto) SetId(v string) {
+func (o *OrganizationDocumentDetails) SetId(v string) {
 	o.Id = &v
 }
 
 // GetOrganizationId returns the OrganizationId field value if set, zero value otherwise.
-func (o *OrganizationDocumentDetailsDto) GetOrganizationId() string {
+func (o *OrganizationDocumentDetails) GetOrganizationId() string {
 	if o == nil || o.OrganizationId == nil {
 		var ret string
 		return ret
@@ -90,7 +90,7 @@ func (o *OrganizationDocumentDetailsDto) GetOrganizationId() string {
 
 // GetOrganizationIdOk returns a tuple with the OrganizationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrganizationDocumentDetailsDto) GetOrganizationIdOk() (*string, bool) {
+func (o *OrganizationDocumentDetails) GetOrganizationIdOk() (*string, bool) {
 	if o == nil || o.OrganizationId == nil {
 		return nil, false
 	}
@@ -98,7 +98,7 @@ func (o *OrganizationDocumentDetailsDto) GetOrganizationIdOk() (*string, bool) {
 }
 
 // HasOrganizationId returns a boolean if a field has been set.
-func (o *OrganizationDocumentDetailsDto) HasOrganizationId() bool {
+func (o *OrganizationDocumentDetails) HasOrganizationId() bool {
 	if o != nil && o.OrganizationId != nil {
 		return true
 	}
@@ -107,12 +107,12 @@ func (o *OrganizationDocumentDetailsDto) HasOrganizationId() bool {
 }
 
 // SetOrganizationId gets a reference to the given string and assigns it to the OrganizationId field.
-func (o *OrganizationDocumentDetailsDto) SetOrganizationId(v string) {
+func (o *OrganizationDocumentDetails) SetOrganizationId(v string) {
 	o.OrganizationId = &v
 }
 
 // GetOrganizationName returns the OrganizationName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrganizationDocumentDetailsDto) GetOrganizationName() string {
+func (o *OrganizationDocumentDetails) GetOrganizationName() string {
 	if o == nil || o.OrganizationName.Get() == nil {
 		var ret string
 		return ret
@@ -123,7 +123,7 @@ func (o *OrganizationDocumentDetailsDto) GetOrganizationName() string {
 // GetOrganizationNameOk returns a tuple with the OrganizationName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrganizationDocumentDetailsDto) GetOrganizationNameOk() (*string, bool) {
+func (o *OrganizationDocumentDetails) GetOrganizationNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -131,7 +131,7 @@ func (o *OrganizationDocumentDetailsDto) GetOrganizationNameOk() (*string, bool)
 }
 
 // HasOrganizationName returns a boolean if a field has been set.
-func (o *OrganizationDocumentDetailsDto) HasOrganizationName() bool {
+func (o *OrganizationDocumentDetails) HasOrganizationName() bool {
 	if o != nil && o.OrganizationName.IsSet() {
 		return true
 	}
@@ -140,21 +140,21 @@ func (o *OrganizationDocumentDetailsDto) HasOrganizationName() bool {
 }
 
 // SetOrganizationName gets a reference to the given NullableString and assigns it to the OrganizationName field.
-func (o *OrganizationDocumentDetailsDto) SetOrganizationName(v string) {
+func (o *OrganizationDocumentDetails) SetOrganizationName(v string) {
 	o.OrganizationName.Set(&v)
 }
 // SetOrganizationNameNil sets the value for OrganizationName to be an explicit nil
-func (o *OrganizationDocumentDetailsDto) SetOrganizationNameNil() {
+func (o *OrganizationDocumentDetails) SetOrganizationNameNil() {
 	o.OrganizationName.Set(nil)
 }
 
 // UnsetOrganizationName ensures that no value is present for OrganizationName, not even an explicit nil
-func (o *OrganizationDocumentDetailsDto) UnsetOrganizationName() {
+func (o *OrganizationDocumentDetails) UnsetOrganizationName() {
 	o.OrganizationName.Unset()
 }
 
 // GetTypeId returns the TypeId field value if set, zero value otherwise.
-func (o *OrganizationDocumentDetailsDto) GetTypeId() string {
+func (o *OrganizationDocumentDetails) GetTypeId() string {
 	if o == nil || o.TypeId == nil {
 		var ret string
 		return ret
@@ -164,7 +164,7 @@ func (o *OrganizationDocumentDetailsDto) GetTypeId() string {
 
 // GetTypeIdOk returns a tuple with the TypeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrganizationDocumentDetailsDto) GetTypeIdOk() (*string, bool) {
+func (o *OrganizationDocumentDetails) GetTypeIdOk() (*string, bool) {
 	if o == nil || o.TypeId == nil {
 		return nil, false
 	}
@@ -172,7 +172,7 @@ func (o *OrganizationDocumentDetailsDto) GetTypeIdOk() (*string, bool) {
 }
 
 // HasTypeId returns a boolean if a field has been set.
-func (o *OrganizationDocumentDetailsDto) HasTypeId() bool {
+func (o *OrganizationDocumentDetails) HasTypeId() bool {
 	if o != nil && o.TypeId != nil {
 		return true
 	}
@@ -181,12 +181,12 @@ func (o *OrganizationDocumentDetailsDto) HasTypeId() bool {
 }
 
 // SetTypeId gets a reference to the given string and assigns it to the TypeId field.
-func (o *OrganizationDocumentDetailsDto) SetTypeId(v string) {
+func (o *OrganizationDocumentDetails) SetTypeId(v string) {
 	o.TypeId = &v
 }
 
 // GetTypeName returns the TypeName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrganizationDocumentDetailsDto) GetTypeName() string {
+func (o *OrganizationDocumentDetails) GetTypeName() string {
 	if o == nil || o.TypeName.Get() == nil {
 		var ret string
 		return ret
@@ -197,7 +197,7 @@ func (o *OrganizationDocumentDetailsDto) GetTypeName() string {
 // GetTypeNameOk returns a tuple with the TypeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrganizationDocumentDetailsDto) GetTypeNameOk() (*string, bool) {
+func (o *OrganizationDocumentDetails) GetTypeNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -205,7 +205,7 @@ func (o *OrganizationDocumentDetailsDto) GetTypeNameOk() (*string, bool) {
 }
 
 // HasTypeName returns a boolean if a field has been set.
-func (o *OrganizationDocumentDetailsDto) HasTypeName() bool {
+func (o *OrganizationDocumentDetails) HasTypeName() bool {
 	if o != nil && o.TypeName.IsSet() {
 		return true
 	}
@@ -214,21 +214,21 @@ func (o *OrganizationDocumentDetailsDto) HasTypeName() bool {
 }
 
 // SetTypeName gets a reference to the given NullableString and assigns it to the TypeName field.
-func (o *OrganizationDocumentDetailsDto) SetTypeName(v string) {
+func (o *OrganizationDocumentDetails) SetTypeName(v string) {
 	o.TypeName.Set(&v)
 }
 // SetTypeNameNil sets the value for TypeName to be an explicit nil
-func (o *OrganizationDocumentDetailsDto) SetTypeNameNil() {
+func (o *OrganizationDocumentDetails) SetTypeNameNil() {
 	o.TypeName.Set(nil)
 }
 
 // UnsetTypeName ensures that no value is present for TypeName, not even an explicit nil
-func (o *OrganizationDocumentDetailsDto) UnsetTypeName() {
+func (o *OrganizationDocumentDetails) UnsetTypeName() {
 	o.TypeName.Unset()
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrganizationDocumentDetailsDto) GetName() string {
+func (o *OrganizationDocumentDetails) GetName() string {
 	if o == nil || o.Name.Get() == nil {
 		var ret string
 		return ret
@@ -239,7 +239,7 @@ func (o *OrganizationDocumentDetailsDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrganizationDocumentDetailsDto) GetNameOk() (*string, bool) {
+func (o *OrganizationDocumentDetails) GetNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -247,7 +247,7 @@ func (o *OrganizationDocumentDetailsDto) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *OrganizationDocumentDetailsDto) HasName() bool {
+func (o *OrganizationDocumentDetails) HasName() bool {
 	if o != nil && o.Name.IsSet() {
 		return true
 	}
@@ -256,21 +256,21 @@ func (o *OrganizationDocumentDetailsDto) HasName() bool {
 }
 
 // SetName gets a reference to the given NullableString and assigns it to the Name field.
-func (o *OrganizationDocumentDetailsDto) SetName(v string) {
+func (o *OrganizationDocumentDetails) SetName(v string) {
 	o.Name.Set(&v)
 }
 // SetNameNil sets the value for Name to be an explicit nil
-func (o *OrganizationDocumentDetailsDto) SetNameNil() {
+func (o *OrganizationDocumentDetails) SetNameNil() {
 	o.Name.Set(nil)
 }
 
 // UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *OrganizationDocumentDetailsDto) UnsetName() {
+func (o *OrganizationDocumentDetails) UnsetName() {
 	o.Name.Unset()
 }
 
 // GetIdentifier returns the Identifier field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrganizationDocumentDetailsDto) GetIdentifier() string {
+func (o *OrganizationDocumentDetails) GetIdentifier() string {
 	if o == nil || o.Identifier.Get() == nil {
 		var ret string
 		return ret
@@ -281,7 +281,7 @@ func (o *OrganizationDocumentDetailsDto) GetIdentifier() string {
 // GetIdentifierOk returns a tuple with the Identifier field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrganizationDocumentDetailsDto) GetIdentifierOk() (*string, bool) {
+func (o *OrganizationDocumentDetails) GetIdentifierOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -289,7 +289,7 @@ func (o *OrganizationDocumentDetailsDto) GetIdentifierOk() (*string, bool) {
 }
 
 // HasIdentifier returns a boolean if a field has been set.
-func (o *OrganizationDocumentDetailsDto) HasIdentifier() bool {
+func (o *OrganizationDocumentDetails) HasIdentifier() bool {
 	if o != nil && o.Identifier.IsSet() {
 		return true
 	}
@@ -298,21 +298,21 @@ func (o *OrganizationDocumentDetailsDto) HasIdentifier() bool {
 }
 
 // SetIdentifier gets a reference to the given NullableString and assigns it to the Identifier field.
-func (o *OrganizationDocumentDetailsDto) SetIdentifier(v string) {
+func (o *OrganizationDocumentDetails) SetIdentifier(v string) {
 	o.Identifier.Set(&v)
 }
 // SetIdentifierNil sets the value for Identifier to be an explicit nil
-func (o *OrganizationDocumentDetailsDto) SetIdentifierNil() {
+func (o *OrganizationDocumentDetails) SetIdentifierNil() {
 	o.Identifier.Set(nil)
 }
 
 // UnsetIdentifier ensures that no value is present for Identifier, not even an explicit nil
-func (o *OrganizationDocumentDetailsDto) UnsetIdentifier() {
+func (o *OrganizationDocumentDetails) UnsetIdentifier() {
 	o.Identifier.Unset()
 }
 
 // GetStorageUrl returns the StorageUrl field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrganizationDocumentDetailsDto) GetStorageUrl() string {
+func (o *OrganizationDocumentDetails) GetStorageUrl() string {
 	if o == nil || o.StorageUrl.Get() == nil {
 		var ret string
 		return ret
@@ -323,7 +323,7 @@ func (o *OrganizationDocumentDetailsDto) GetStorageUrl() string {
 // GetStorageUrlOk returns a tuple with the StorageUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrganizationDocumentDetailsDto) GetStorageUrlOk() (*string, bool) {
+func (o *OrganizationDocumentDetails) GetStorageUrlOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -331,7 +331,7 @@ func (o *OrganizationDocumentDetailsDto) GetStorageUrlOk() (*string, bool) {
 }
 
 // HasStorageUrl returns a boolean if a field has been set.
-func (o *OrganizationDocumentDetailsDto) HasStorageUrl() bool {
+func (o *OrganizationDocumentDetails) HasStorageUrl() bool {
 	if o != nil && o.StorageUrl.IsSet() {
 		return true
 	}
@@ -340,21 +340,21 @@ func (o *OrganizationDocumentDetailsDto) HasStorageUrl() bool {
 }
 
 // SetStorageUrl gets a reference to the given NullableString and assigns it to the StorageUrl field.
-func (o *OrganizationDocumentDetailsDto) SetStorageUrl(v string) {
+func (o *OrganizationDocumentDetails) SetStorageUrl(v string) {
 	o.StorageUrl.Set(&v)
 }
 // SetStorageUrlNil sets the value for StorageUrl to be an explicit nil
-func (o *OrganizationDocumentDetailsDto) SetStorageUrlNil() {
+func (o *OrganizationDocumentDetails) SetStorageUrlNil() {
 	o.StorageUrl.Set(nil)
 }
 
 // UnsetStorageUrl ensures that no value is present for StorageUrl, not even an explicit nil
-func (o *OrganizationDocumentDetailsDto) UnsetStorageUrl() {
+func (o *OrganizationDocumentDetails) UnsetStorageUrl() {
 	o.StorageUrl.Unset()
 }
 
 // GetCountryIso2 returns the CountryIso2 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrganizationDocumentDetailsDto) GetCountryIso2() string {
+func (o *OrganizationDocumentDetails) GetCountryIso2() string {
 	if o == nil || o.CountryIso2.Get() == nil {
 		var ret string
 		return ret
@@ -365,7 +365,7 @@ func (o *OrganizationDocumentDetailsDto) GetCountryIso2() string {
 // GetCountryIso2Ok returns a tuple with the CountryIso2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrganizationDocumentDetailsDto) GetCountryIso2Ok() (*string, bool) {
+func (o *OrganizationDocumentDetails) GetCountryIso2Ok() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -373,7 +373,7 @@ func (o *OrganizationDocumentDetailsDto) GetCountryIso2Ok() (*string, bool) {
 }
 
 // HasCountryIso2 returns a boolean if a field has been set.
-func (o *OrganizationDocumentDetailsDto) HasCountryIso2() bool {
+func (o *OrganizationDocumentDetails) HasCountryIso2() bool {
 	if o != nil && o.CountryIso2.IsSet() {
 		return true
 	}
@@ -382,21 +382,21 @@ func (o *OrganizationDocumentDetailsDto) HasCountryIso2() bool {
 }
 
 // SetCountryIso2 gets a reference to the given NullableString and assigns it to the CountryIso2 field.
-func (o *OrganizationDocumentDetailsDto) SetCountryIso2(v string) {
+func (o *OrganizationDocumentDetails) SetCountryIso2(v string) {
 	o.CountryIso2.Set(&v)
 }
 // SetCountryIso2Nil sets the value for CountryIso2 to be an explicit nil
-func (o *OrganizationDocumentDetailsDto) SetCountryIso2Nil() {
+func (o *OrganizationDocumentDetails) SetCountryIso2Nil() {
 	o.CountryIso2.Set(nil)
 }
 
 // UnsetCountryIso2 ensures that no value is present for CountryIso2, not even an explicit nil
-func (o *OrganizationDocumentDetailsDto) UnsetCountryIso2() {
+func (o *OrganizationDocumentDetails) UnsetCountryIso2() {
 	o.CountryIso2.Unset()
 }
 
 // GetIssuerId returns the IssuerId field value if set, zero value otherwise.
-func (o *OrganizationDocumentDetailsDto) GetIssuerId() string {
+func (o *OrganizationDocumentDetails) GetIssuerId() string {
 	if o == nil || o.IssuerId == nil {
 		var ret string
 		return ret
@@ -406,7 +406,7 @@ func (o *OrganizationDocumentDetailsDto) GetIssuerId() string {
 
 // GetIssuerIdOk returns a tuple with the IssuerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OrganizationDocumentDetailsDto) GetIssuerIdOk() (*string, bool) {
+func (o *OrganizationDocumentDetails) GetIssuerIdOk() (*string, bool) {
 	if o == nil || o.IssuerId == nil {
 		return nil, false
 	}
@@ -414,7 +414,7 @@ func (o *OrganizationDocumentDetailsDto) GetIssuerIdOk() (*string, bool) {
 }
 
 // HasIssuerId returns a boolean if a field has been set.
-func (o *OrganizationDocumentDetailsDto) HasIssuerId() bool {
+func (o *OrganizationDocumentDetails) HasIssuerId() bool {
 	if o != nil && o.IssuerId != nil {
 		return true
 	}
@@ -423,12 +423,12 @@ func (o *OrganizationDocumentDetailsDto) HasIssuerId() bool {
 }
 
 // SetIssuerId gets a reference to the given string and assigns it to the IssuerId field.
-func (o *OrganizationDocumentDetailsDto) SetIssuerId(v string) {
+func (o *OrganizationDocumentDetails) SetIssuerId(v string) {
 	o.IssuerId = &v
 }
 
 // GetIssuerName returns the IssuerName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrganizationDocumentDetailsDto) GetIssuerName() string {
+func (o *OrganizationDocumentDetails) GetIssuerName() string {
 	if o == nil || o.IssuerName.Get() == nil {
 		var ret string
 		return ret
@@ -439,7 +439,7 @@ func (o *OrganizationDocumentDetailsDto) GetIssuerName() string {
 // GetIssuerNameOk returns a tuple with the IssuerName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrganizationDocumentDetailsDto) GetIssuerNameOk() (*string, bool) {
+func (o *OrganizationDocumentDetails) GetIssuerNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -447,7 +447,7 @@ func (o *OrganizationDocumentDetailsDto) GetIssuerNameOk() (*string, bool) {
 }
 
 // HasIssuerName returns a boolean if a field has been set.
-func (o *OrganizationDocumentDetailsDto) HasIssuerName() bool {
+func (o *OrganizationDocumentDetails) HasIssuerName() bool {
 	if o != nil && o.IssuerName.IsSet() {
 		return true
 	}
@@ -456,20 +456,20 @@ func (o *OrganizationDocumentDetailsDto) HasIssuerName() bool {
 }
 
 // SetIssuerName gets a reference to the given NullableString and assigns it to the IssuerName field.
-func (o *OrganizationDocumentDetailsDto) SetIssuerName(v string) {
+func (o *OrganizationDocumentDetails) SetIssuerName(v string) {
 	o.IssuerName.Set(&v)
 }
 // SetIssuerNameNil sets the value for IssuerName to be an explicit nil
-func (o *OrganizationDocumentDetailsDto) SetIssuerNameNil() {
+func (o *OrganizationDocumentDetails) SetIssuerNameNil() {
 	o.IssuerName.Set(nil)
 }
 
 // UnsetIssuerName ensures that no value is present for IssuerName, not even an explicit nil
-func (o *OrganizationDocumentDetailsDto) UnsetIssuerName() {
+func (o *OrganizationDocumentDetails) UnsetIssuerName() {
 	o.IssuerName.Unset()
 }
 
-func (o OrganizationDocumentDetailsDto) MarshalJSON() ([]byte, error) {
+func (o OrganizationDocumentDetails) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
@@ -507,38 +507,38 @@ func (o OrganizationDocumentDetailsDto) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableOrganizationDocumentDetailsDto struct {
-	value *OrganizationDocumentDetailsDto
+type NullableOrganizationDocumentDetails struct {
+	value *OrganizationDocumentDetails
 	isSet bool
 }
 
-func (v NullableOrganizationDocumentDetailsDto) Get() *OrganizationDocumentDetailsDto {
+func (v NullableOrganizationDocumentDetails) Get() *OrganizationDocumentDetails {
 	return v.value
 }
 
-func (v *NullableOrganizationDocumentDetailsDto) Set(val *OrganizationDocumentDetailsDto) {
+func (v *NullableOrganizationDocumentDetails) Set(val *OrganizationDocumentDetails) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableOrganizationDocumentDetailsDto) IsSet() bool {
+func (v NullableOrganizationDocumentDetails) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableOrganizationDocumentDetailsDto) Unset() {
+func (v *NullableOrganizationDocumentDetails) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableOrganizationDocumentDetailsDto(val *OrganizationDocumentDetailsDto) *NullableOrganizationDocumentDetailsDto {
-	return &NullableOrganizationDocumentDetailsDto{value: val, isSet: true}
+func NewNullableOrganizationDocumentDetails(val *OrganizationDocumentDetails) *NullableOrganizationDocumentDetails {
+	return &NullableOrganizationDocumentDetails{value: val, isSet: true}
 }
 
-func (v NullableOrganizationDocumentDetailsDto) MarshalJSON() ([]byte, error) {
+func (v NullableOrganizationDocumentDetails) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableOrganizationDocumentDetailsDto) UnmarshalJSON(src []byte) error {
+func (v *NullableOrganizationDocumentDetails) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -37,7 +37,7 @@ type ApiDownloadConsentedDocumentByIdRequest struct {
 }
 
 
-func (r ApiDownloadConsentedDocumentByIdRequest) Execute() (*UserDocumentDownloadDto, *http.Response, error) {
+func (r ApiDownloadConsentedDocumentByIdRequest) Execute() (*UserDocumentDownload, *http.Response, error) {
 	return r.ApiService.DownloadConsentedDocumentByIdExecute(r)
 }
 
@@ -59,13 +59,13 @@ func (a *DataConsentsApiService) DownloadConsentedDocumentById(ctx context.Conte
 }
 
 // Execute executes the request
-//  @return UserDocumentDownloadDto
-func (a *DataConsentsApiService) DownloadConsentedDocumentByIdExecute(r ApiDownloadConsentedDocumentByIdRequest) (*UserDocumentDownloadDto, *http.Response, error) {
+//  @return UserDocumentDownload
+func (a *DataConsentsApiService) DownloadConsentedDocumentByIdExecute(r ApiDownloadConsentedDocumentByIdRequest) (*UserDocumentDownload, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UserDocumentDownloadDto
+		localVarReturnValue  *UserDocumentDownload
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.DownloadConsentedDocumentById")
@@ -411,7 +411,7 @@ func (a *DataConsentsApiService) GetAllConsentedFinancialAccountsExecute(r ApiGe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/consents/individuals/{consentId}/accounts"
+	localVarPath := localBasePath + "/v1/consents/individuals/{consentId}/financial-accounts"
 	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -744,7 +744,7 @@ func (a *DataConsentsApiService) GetConsentFinancialAccountsExecute(r ApiGetCons
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/consents/organizations/{consentId}/accounts"
+	localVarPath := localBasePath + "/v1/consents/organizations/{consentId}/financial-accounts"
 	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -858,7 +858,7 @@ func (a *DataConsentsApiService) GetConsentedAccountByIdExecute(r ApiGetConsente
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/consents/individuals/{consentId}/accounts/{accountId}"
+	localVarPath := localBasePath + "/v1/consents/individuals/{consentId}/financial-accounts/{accountId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"accountId"+"}", url.PathEscape(parameterToString(r.accountId, "")), -1)
 
@@ -937,7 +937,7 @@ type ApiGetConsentedDocumentByIdRequest struct {
 }
 
 
-func (r ApiGetConsentedDocumentByIdRequest) Execute() (*UserDocumentDetailsDto, *http.Response, error) {
+func (r ApiGetConsentedDocumentByIdRequest) Execute() (*UserDocumentDetails, *http.Response, error) {
 	return r.ApiService.GetConsentedDocumentByIdExecute(r)
 }
 
@@ -959,13 +959,13 @@ func (a *DataConsentsApiService) GetConsentedDocumentById(ctx context.Context, c
 }
 
 // Execute executes the request
-//  @return UserDocumentDetailsDto
-func (a *DataConsentsApiService) GetConsentedDocumentByIdExecute(r ApiGetConsentedDocumentByIdRequest) (*UserDocumentDetailsDto, *http.Response, error) {
+//  @return UserDocumentDetails
+func (a *DataConsentsApiService) GetConsentedDocumentByIdExecute(r ApiGetConsentedDocumentByIdRequest) (*UserDocumentDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UserDocumentDetailsDto
+		localVarReturnValue  *UserDocumentDetails
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetConsentedDocumentById")
@@ -1088,7 +1088,7 @@ func (a *DataConsentsApiService) GetConsentedFinancialAccountExecute(r ApiGetCon
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/consents/organizations/{consentId}/accounts/{accountId}"
+	localVarPath := localBasePath + "/v1/consents/organizations/{consentId}/financial-accounts/{accountId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"accountId"+"}", url.PathEscape(parameterToString(r.accountId, "")), -1)
 
@@ -1233,7 +1233,7 @@ func (a *DataConsentsApiService) GetConsentedFinancialAccountTransactionsExecute
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/consents/individuals/{consentId}/accounts/{accountId}/transactions"
+	localVarPath := localBasePath + "/v1/consents/individuals/{consentId}/financial-accounts/{accountId}/transactions"
 	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"accountId"+"}", url.PathEscape(parameterToString(r.accountId, "")), -1)
 
@@ -1697,7 +1697,7 @@ func (a *DataConsentsApiService) GetOrgConsentedAccountTransactionsExecute(r Api
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/consents/organizations/{consentId}/accounts/{accountId}/transactions"
+	localVarPath := localBasePath + "/v1/consents/organizations/{consentId}/financial-accounts/{accountId}/transactions"
 	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"accountId"+"}", url.PathEscape(parameterToString(r.accountId, "")), -1)
 
@@ -1902,7 +1902,7 @@ type ApiGetOrganizationConsentedDocumentByIdRequest struct {
 }
 
 
-func (r ApiGetOrganizationConsentedDocumentByIdRequest) Execute() (*OrganizationDocumentDetailsDto, *http.Response, error) {
+func (r ApiGetOrganizationConsentedDocumentByIdRequest) Execute() (*OrganizationDocumentDetails, *http.Response, error) {
 	return r.ApiService.GetOrganizationConsentedDocumentByIdExecute(r)
 }
 
@@ -1924,13 +1924,13 @@ func (a *DataConsentsApiService) GetOrganizationConsentedDocumentById(ctx contex
 }
 
 // Execute executes the request
-//  @return OrganizationDocumentDetailsDto
-func (a *DataConsentsApiService) GetOrganizationConsentedDocumentByIdExecute(r ApiGetOrganizationConsentedDocumentByIdRequest) (*OrganizationDocumentDetailsDto, *http.Response, error) {
+//  @return OrganizationDocumentDetails
+func (a *DataConsentsApiService) GetOrganizationConsentedDocumentByIdExecute(r ApiGetOrganizationConsentedDocumentByIdRequest) (*OrganizationDocumentDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *OrganizationDocumentDetailsDto
+		localVarReturnValue  *OrganizationDocumentDetails
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetOrganizationConsentedDocumentById")
