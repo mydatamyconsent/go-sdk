@@ -25,7 +25,9 @@ const (
 	EDUCATION DocumentCategoryType = "Education"
 	HEALTH DocumentCategoryType = "Health"
 	FINANCE DocumentCategoryType = "Finance"
-	CERTIFICATES DocumentCategoryType = "Certificates"
+	WORK_AND_AWARDS DocumentCategoryType = "WorkAndAwards"
+	LICENCES_AND_CERTIFICATES DocumentCategoryType = "LicencesAndCertificates"
+	OTHERS DocumentCategoryType = "Others"
 )
 
 // All allowed values of DocumentCategoryType enum
@@ -34,7 +36,9 @@ var AllowedDocumentCategoryTypeEnumValues = []DocumentCategoryType{
 	"Education",
 	"Health",
 	"Finance",
-	"Certificates",
+	"WorkAndAwards",
+	"LicencesAndCertificates",
+	"Others",
 }
 
 func (v *DocumentCategoryType) UnmarshalJSON(src []byte) error {

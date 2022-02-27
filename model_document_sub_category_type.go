@@ -22,39 +22,55 @@ type DocumentSubCategoryType string
 // List of DocumentSubCategoryType
 const (
 	IDENTITY DocumentSubCategoryType = "Identity"
-	HOUSE DocumentSubCategoryType = "House"
+	PROPERTY DocumentSubCategoryType = "Property"
 	VEHICLE DocumentSubCategoryType = "Vehicle"
-	MARKS_MEMOS DocumentSubCategoryType = "MarksMemos"
+	ADMIT_AND_ID_CARDS DocumentSubCategoryType = "AdmitAndIdCards"
+	MARKSHEETS DocumentSubCategoryType = "Marksheets"
 	TRANSCRIPTS DocumentSubCategoryType = "Transcripts"
 	CERTIFICATES DocumentSubCategoryType = "Certificates"
 	PRESCRIPTIONS DocumentSubCategoryType = "Prescriptions"
 	MEDICAL_REPORTS DocumentSubCategoryType = "MedicalReports"
 	DISCHARGE_SUMMARY DocumentSubCategoryType = "DischargeSummary"
-	BILLS DocumentSubCategoryType = "Bills"
-	INVOICES DocumentSubCategoryType = "Invoices"
+	ACCOUNT_AND_CERTIFICATES DocumentSubCategoryType = "AccountAndCertificates"
+	BILLS_AND_INVOICES DocumentSubCategoryType = "BillsAndInvoices"
+	INSURANCE DocumentSubCategoryType = "Insurance"
+	RECEIPTS_AND_SUBSCRIPTIONS DocumentSubCategoryType = "ReceiptsAndSubscriptions"
 	TAXES DocumentSubCategoryType = "Taxes"
+	LICENCES_AND_CERTIFICATES DocumentSubCategoryType = "LicencesAndCertificates"
 	CORPORATES DocumentSubCategoryType = "Corporates"
 	COMPETITIONS DocumentSubCategoryType = "Competitions"
 	INTELLECTUAL_PROPERTIES DocumentSubCategoryType = "IntellectualProperties"
+	OTHERS DocumentSubCategoryType = "Others"
+	APPLICATIONS_AND_CERTIFICATES DocumentSubCategoryType = "ApplicationsAndCertificates"
+	LICENSES DocumentSubCategoryType = "Licenses"
+	ORGANIZATION_IDS DocumentSubCategoryType = "OrganizationIds"
 )
 
 // All allowed values of DocumentSubCategoryType enum
 var AllowedDocumentSubCategoryTypeEnumValues = []DocumentSubCategoryType{
 	"Identity",
-	"House",
+	"Property",
 	"Vehicle",
-	"MarksMemos",
+	"AdmitAndIdCards",
+	"Marksheets",
 	"Transcripts",
 	"Certificates",
 	"Prescriptions",
 	"MedicalReports",
 	"DischargeSummary",
-	"Bills",
-	"Invoices",
+	"AccountAndCertificates",
+	"BillsAndInvoices",
+	"Insurance",
+	"ReceiptsAndSubscriptions",
 	"Taxes",
+	"LicencesAndCertificates",
 	"Corporates",
 	"Competitions",
 	"IntellectualProperties",
+	"Others",
+	"ApplicationsAndCertificates",
+	"Licenses",
+	"OrganizationIds",
 }
 
 func (v *DocumentSubCategoryType) UnmarshalJSON(src []byte) error {

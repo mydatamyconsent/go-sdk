@@ -11,7 +11,11 @@
 
 * `FINANCE` (value: `"Finance"`)
 
-* `CERTIFICATES` (value: `"Certificates"`)
+* `WORK_AND_AWARDS` (value: `"WorkAndAwards"`)
+
+* `LICENCES_AND_CERTIFICATES` (value: `"LicencesAndCertificates"`)
+
+* `OTHERS` (value: `"Others"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
