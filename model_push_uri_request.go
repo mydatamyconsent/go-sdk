@@ -17,7 +17,7 @@ import (
 
 // PushUriRequest struct for PushUriRequest
 type PushUriRequest struct {
-	UriDetails *UriDetails `json:"uriDetails,omitempty"`
+	UriDetails UriDetails `json:"uriDetails"`
 	Ns2 NullableString `json:"ns2,omitempty"`
 	Ver NullableString `json:"ver,omitempty"`
 	Ts NullableString `json:"ts,omitempty"`
@@ -30,8 +30,9 @@ type PushUriRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPushUriRequest() *PushUriRequest {
+func NewPushUriRequest(uriDetails UriDetails) *PushUriRequest {
 	this := PushUriRequest{}
+	this.UriDetails = uriDetails
 	return &this
 }
 
@@ -43,36 +44,28 @@ func NewPushUriRequestWithDefaults() *PushUriRequest {
 	return &this
 }
 
-// GetUriDetails returns the UriDetails field value if set, zero value otherwise.
+// GetUriDetails returns the UriDetails field value
 func (o *PushUriRequest) GetUriDetails() UriDetails {
-	if o == nil || o.UriDetails == nil {
+	if o == nil {
 		var ret UriDetails
 		return ret
 	}
-	return *o.UriDetails
+
+	return o.UriDetails
 }
 
-// GetUriDetailsOk returns a tuple with the UriDetails field value if set, nil otherwise
+// GetUriDetailsOk returns a tuple with the UriDetails field value
 // and a boolean to check if the value has been set.
 func (o *PushUriRequest) GetUriDetailsOk() (*UriDetails, bool) {
-	if o == nil || o.UriDetails == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.UriDetails, true
+	return &o.UriDetails, true
 }
 
-// HasUriDetails returns a boolean if a field has been set.
-func (o *PushUriRequest) HasUriDetails() bool {
-	if o != nil && o.UriDetails != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetUriDetails gets a reference to the given UriDetails and assigns it to the UriDetails field.
+// SetUriDetails sets field value
 func (o *PushUriRequest) SetUriDetails(v UriDetails) {
-	o.UriDetails = &v
+	o.UriDetails = v
 }
 
 // GetNs2 returns the Ns2 field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -329,7 +322,7 @@ func (o *PushUriRequest) UnsetKeyhash() {
 
 func (o PushUriRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.UriDetails != nil {
+	if true {
 		toSerialize["uriDetails"] = o.UriDetails
 	}
 	if o.Ns2.IsSet() {

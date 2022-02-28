@@ -17,6 +17,7 @@ docs/CreateDataProcessingAgreementRequestModel.md
 docs/CreateIndividualDataConsentRequest.md
 docs/CreateOrganizationDataConsentRequest.md
 docs/DataConsentDetailsDto.md
+docs/DataConsentDocumentDetailsDto.md
 docs/DataConsentDocumentsDto.md
 docs/DataConsentFinancialsDto.md
 docs/DataConsentRequestedDocument.md
@@ -69,6 +70,9 @@ docs/PushUriRequest.md
 docs/PushUriResponse.md
 docs/SharedWith.md
 docs/StringStringKeyValuePair.md
+docs/SupportedDocumentDetailsDto.md
+docs/SupportedDocumentProviderDetailsDto.md
+docs/SupportedDocumentTypeCategoryDetailsDto.md
 docs/SupportedEntityType.md
 docs/SupportedIdentifier.md
 docs/SupportedIdentifiersApi.md
@@ -90,6 +94,7 @@ model_create_data_processing_agreement_request_model.go
 model_create_individual_data_consent_request.go
 model_create_organization_data_consent_request.go
 model_data_consent_details_dto.go
+model_data_consent_document_details_dto.go
 model_data_consent_documents_dto.go
 model_data_consent_financials_dto.go
 model_data_consent_requested_document.go
@@ -136,6 +141,9 @@ model_push_uri_request.go
 model_push_uri_response.go
 model_shared_with.go
 model_string_string_key_value_pair.go
+model_supported_document_details_dto.go
+model_supported_document_provider_details_dto.go
+model_supported_document_type_category_details_dto.go
 model_supported_entity_type.go
 model_supported_identifier.go
 model_update_data_processing_agreement_request_model.go

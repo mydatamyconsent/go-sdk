@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Aadhaar** | Pointer to **NullableString** |  | [optional] 
-**Uri** | Pointer to **NullableString** |  | [optional] 
-**DocType** | Pointer to **NullableString** |  | [optional] 
-**DocName** | Pointer to **NullableString** |  | [optional] 
-**DocId** | Pointer to **NullableString** |  | [optional] 
-**IssuedOn** | Pointer to **NullableString** |  | [optional] 
-**ValidFrom** | Pointer to **NullableString** |  | [optional] 
+**Aadhaar** | **string** |  | 
+**Uri** | **string** |  | 
+**DocType** | **string** |  | 
+**DocName** | **string** |  | 
+**DocId** | **string** |  | 
+**IssuedOn** | **string** |  | 
+**ValidFrom** | **string** |  | 
 **ValidTo** | Pointer to **NullableString** |  | [optional] 
 **Timestamp** | Pointer to **NullableString** |  | [optional] 
 **Action** | Pointer to **NullableString** |  | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewUriDetails
 
-`func NewUriDetails() *UriDetails`
+`func NewUriDetails(aadhaar string, uri string, docType string, docName string, docId string, issuedOn string, validFrom string, ) *UriDetails`
 
 NewUriDetails instantiates a new UriDetails object
 This constructor will assign default values to properties that have it defined,
@@ -53,22 +53,7 @@ and a boolean to check if the value has been set.
 
 SetAadhaar sets Aadhaar field to given value.
 
-### HasAadhaar
 
-`func (o *UriDetails) HasAadhaar() bool`
-
-HasAadhaar returns a boolean if a field has been set.
-
-### SetAadhaarNil
-
-`func (o *UriDetails) SetAadhaarNil(b bool)`
-
- SetAadhaarNil sets the value for Aadhaar to be an explicit nil
-
-### UnsetAadhaar
-`func (o *UriDetails) UnsetAadhaar()`
-
-UnsetAadhaar ensures that no value is present for Aadhaar, not even an explicit nil
 ### GetUri
 
 `func (o *UriDetails) GetUri() string`
@@ -88,22 +73,7 @@ and a boolean to check if the value has been set.
 
 SetUri sets Uri field to given value.
 
-### HasUri
 
-`func (o *UriDetails) HasUri() bool`
-
-HasUri returns a boolean if a field has been set.
-
-### SetUriNil
-
-`func (o *UriDetails) SetUriNil(b bool)`
-
- SetUriNil sets the value for Uri to be an explicit nil
-
-### UnsetUri
-`func (o *UriDetails) UnsetUri()`
-
-UnsetUri ensures that no value is present for Uri, not even an explicit nil
 ### GetDocType
 
 `func (o *UriDetails) GetDocType() string`
@@ -123,22 +93,7 @@ and a boolean to check if the value has been set.
 
 SetDocType sets DocType field to given value.
 
-### HasDocType
 
-`func (o *UriDetails) HasDocType() bool`
-
-HasDocType returns a boolean if a field has been set.
-
-### SetDocTypeNil
-
-`func (o *UriDetails) SetDocTypeNil(b bool)`
-
- SetDocTypeNil sets the value for DocType to be an explicit nil
-
-### UnsetDocType
-`func (o *UriDetails) UnsetDocType()`
-
-UnsetDocType ensures that no value is present for DocType, not even an explicit nil
 ### GetDocName
 
 `func (o *UriDetails) GetDocName() string`
@@ -158,22 +113,7 @@ and a boolean to check if the value has been set.
 
 SetDocName sets DocName field to given value.
 
-### HasDocName
 
-`func (o *UriDetails) HasDocName() bool`
-
-HasDocName returns a boolean if a field has been set.
-
-### SetDocNameNil
-
-`func (o *UriDetails) SetDocNameNil(b bool)`
-
- SetDocNameNil sets the value for DocName to be an explicit nil
-
-### UnsetDocName
-`func (o *UriDetails) UnsetDocName()`
-
-UnsetDocName ensures that no value is present for DocName, not even an explicit nil
 ### GetDocId
 
 `func (o *UriDetails) GetDocId() string`
@@ -193,22 +133,7 @@ and a boolean to check if the value has been set.
 
 SetDocId sets DocId field to given value.
 
-### HasDocId
 
-`func (o *UriDetails) HasDocId() bool`
-
-HasDocId returns a boolean if a field has been set.
-
-### SetDocIdNil
-
-`func (o *UriDetails) SetDocIdNil(b bool)`
-
- SetDocIdNil sets the value for DocId to be an explicit nil
-
-### UnsetDocId
-`func (o *UriDetails) UnsetDocId()`
-
-UnsetDocId ensures that no value is present for DocId, not even an explicit nil
 ### GetIssuedOn
 
 `func (o *UriDetails) GetIssuedOn() string`
@@ -228,22 +153,7 @@ and a boolean to check if the value has been set.
 
 SetIssuedOn sets IssuedOn field to given value.
 
-### HasIssuedOn
 
-`func (o *UriDetails) HasIssuedOn() bool`
-
-HasIssuedOn returns a boolean if a field has been set.
-
-### SetIssuedOnNil
-
-`func (o *UriDetails) SetIssuedOnNil(b bool)`
-
- SetIssuedOnNil sets the value for IssuedOn to be an explicit nil
-
-### UnsetIssuedOn
-`func (o *UriDetails) UnsetIssuedOn()`
-
-UnsetIssuedOn ensures that no value is present for IssuedOn, not even an explicit nil
 ### GetValidFrom
 
 `func (o *UriDetails) GetValidFrom() string`
@@ -263,22 +173,7 @@ and a boolean to check if the value has been set.
 
 SetValidFrom sets ValidFrom field to given value.
 
-### HasValidFrom
 
-`func (o *UriDetails) HasValidFrom() bool`
-
-HasValidFrom returns a boolean if a field has been set.
-
-### SetValidFromNil
-
-`func (o *UriDetails) SetValidFromNil(b bool)`
-
- SetValidFromNil sets the value for ValidFrom to be an explicit nil
-
-### UnsetValidFrom
-`func (o *UriDetails) UnsetValidFrom()`
-
-UnsetValidFrom ensures that no value is present for ValidFrom, not even an explicit nil
 ### GetValidTo
 
 `func (o *UriDetails) GetValidTo() string`

@@ -31,7 +31,7 @@ type DataConsentDetailsDto struct {
 	ExpiresAtUtc *time.Time `json:"expiresAtUtc,omitempty"`
 	RequestedAtUtc *time.Time `json:"requestedAtUtc,omitempty"`
 	Identifiers *JsonSchema `json:"identifiers,omitempty"`
-	Documents NullableString `json:"documents,omitempty"`
+	Documents []DataConsentDocumentDetailsDto `json:"documents,omitempty"`
 	Financials NullableString `json:"financials,omitempty"`
 	HealthRecords NullableString `json:"healthRecords,omitempty"`
 }
@@ -533,45 +533,36 @@ func (o *DataConsentDetailsDto) SetIdentifiers(v JsonSchema) {
 }
 
 // GetDocuments returns the Documents field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetDocuments() string {
-	if o == nil || o.Documents.Get() == nil {
-		var ret string
+func (o *DataConsentDetailsDto) GetDocuments() []DataConsentDocumentDetailsDto {
+	if o == nil  {
+		var ret []DataConsentDocumentDetailsDto
 		return ret
 	}
-	return *o.Documents.Get()
+	return o.Documents
 }
 
 // GetDocumentsOk returns a tuple with the Documents field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetDocumentsOk() (*string, bool) {
-	if o == nil  {
+func (o *DataConsentDetailsDto) GetDocumentsOk() ([]DataConsentDocumentDetailsDto, bool) {
+	if o == nil || o.Documents == nil {
 		return nil, false
 	}
-	return o.Documents.Get(), o.Documents.IsSet()
+	return o.Documents, true
 }
 
 // HasDocuments returns a boolean if a field has been set.
 func (o *DataConsentDetailsDto) HasDocuments() bool {
-	if o != nil && o.Documents.IsSet() {
+	if o != nil && o.Documents != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetDocuments gets a reference to the given NullableString and assigns it to the Documents field.
-func (o *DataConsentDetailsDto) SetDocuments(v string) {
-	o.Documents.Set(&v)
-}
-// SetDocumentsNil sets the value for Documents to be an explicit nil
-func (o *DataConsentDetailsDto) SetDocumentsNil() {
-	o.Documents.Set(nil)
-}
-
-// UnsetDocuments ensures that no value is present for Documents, not even an explicit nil
-func (o *DataConsentDetailsDto) UnsetDocuments() {
-	o.Documents.Unset()
+// SetDocuments gets a reference to the given []DataConsentDocumentDetailsDto and assigns it to the Documents field.
+func (o *DataConsentDetailsDto) SetDocuments(v []DataConsentDocumentDetailsDto) {
+	o.Documents = v
 }
 
 // GetFinancials returns the Financials field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -699,8 +690,8 @@ func (o DataConsentDetailsDto) MarshalJSON() ([]byte, error) {
 	if o.Identifiers != nil {
 		toSerialize["identifiers"] = o.Identifiers
 	}
-	if o.Documents.IsSet() {
-		toSerialize["documents"] = o.Documents.Get()
+	if o.Documents != nil {
+		toSerialize["documents"] = o.Documents
 	}
 	if o.Financials.IsSet() {
 		toSerialize["financials"] = o.Financials.Get()

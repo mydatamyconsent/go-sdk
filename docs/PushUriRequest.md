@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UriDetails** | Pointer to [**UriDetails**](UriDetails.md) |  | [optional] 
+**UriDetails** | [**UriDetails**](UriDetails.md) |  | 
 **Ns2** | Pointer to **NullableString** |  | [optional] 
 **Ver** | Pointer to **NullableString** |  | [optional] 
 **Ts** | Pointer to **NullableString** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewPushUriRequest
 
-`func NewPushUriRequest() *PushUriRequest`
+`func NewPushUriRequest(uriDetails UriDetails, ) *PushUriRequest`
 
 NewPushUriRequest instantiates a new PushUriRequest object
 This constructor will assign default values to properties that have it defined,
@@ -50,11 +50,6 @@ and a boolean to check if the value has been set.
 
 SetUriDetails sets UriDetails field to given value.
 
-### HasUriDetails
-
-`func (o *PushUriRequest) HasUriDetails() bool`
-
-HasUriDetails returns a boolean if a field has been set.
 
 ### GetNs2
 

@@ -17,13 +17,13 @@ import (
 
 // UriDetails struct for UriDetails
 type UriDetails struct {
-	Aadhaar NullableString `json:"aadhaar,omitempty"`
-	Uri NullableString `json:"uri,omitempty"`
-	DocType NullableString `json:"docType,omitempty"`
-	DocName NullableString `json:"docName,omitempty"`
-	DocId NullableString `json:"docId,omitempty"`
-	IssuedOn NullableString `json:"issuedOn,omitempty"`
-	ValidFrom NullableString `json:"validFrom,omitempty"`
+	Aadhaar string `json:"aadhaar"`
+	Uri string `json:"uri"`
+	DocType string `json:"docType"`
+	DocName string `json:"docName"`
+	DocId string `json:"docId"`
+	IssuedOn string `json:"issuedOn"`
+	ValidFrom string `json:"validFrom"`
 	ValidTo NullableString `json:"validTo,omitempty"`
 	Timestamp NullableString `json:"timestamp,omitempty"`
 	Action NullableString `json:"action,omitempty"`
@@ -33,8 +33,15 @@ type UriDetails struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUriDetails() *UriDetails {
+func NewUriDetails(aadhaar string, uri string, docType string, docName string, docId string, issuedOn string, validFrom string) *UriDetails {
 	this := UriDetails{}
+	this.Aadhaar = aadhaar
+	this.Uri = uri
+	this.DocType = docType
+	this.DocName = docName
+	this.DocId = docId
+	this.IssuedOn = issuedOn
+	this.ValidFrom = validFrom
 	return &this
 }
 
@@ -46,298 +53,172 @@ func NewUriDetailsWithDefaults() *UriDetails {
 	return &this
 }
 
-// GetAadhaar returns the Aadhaar field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAadhaar returns the Aadhaar field value
 func (o *UriDetails) GetAadhaar() string {
-	if o == nil || o.Aadhaar.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Aadhaar.Get()
+
+	return o.Aadhaar
 }
 
-// GetAadhaarOk returns a tuple with the Aadhaar field value if set, nil otherwise
+// GetAadhaarOk returns a tuple with the Aadhaar field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UriDetails) GetAadhaarOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Aadhaar.Get(), o.Aadhaar.IsSet()
+	return &o.Aadhaar, true
 }
 
-// HasAadhaar returns a boolean if a field has been set.
-func (o *UriDetails) HasAadhaar() bool {
-	if o != nil && o.Aadhaar.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAadhaar gets a reference to the given NullableString and assigns it to the Aadhaar field.
+// SetAadhaar sets field value
 func (o *UriDetails) SetAadhaar(v string) {
-	o.Aadhaar.Set(&v)
-}
-// SetAadhaarNil sets the value for Aadhaar to be an explicit nil
-func (o *UriDetails) SetAadhaarNil() {
-	o.Aadhaar.Set(nil)
+	o.Aadhaar = v
 }
 
-// UnsetAadhaar ensures that no value is present for Aadhaar, not even an explicit nil
-func (o *UriDetails) UnsetAadhaar() {
-	o.Aadhaar.Unset()
-}
-
-// GetUri returns the Uri field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUri returns the Uri field value
 func (o *UriDetails) GetUri() string {
-	if o == nil || o.Uri.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Uri.Get()
+
+	return o.Uri
 }
 
-// GetUriOk returns a tuple with the Uri field value if set, nil otherwise
+// GetUriOk returns a tuple with the Uri field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UriDetails) GetUriOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Uri.Get(), o.Uri.IsSet()
+	return &o.Uri, true
 }
 
-// HasUri returns a boolean if a field has been set.
-func (o *UriDetails) HasUri() bool {
-	if o != nil && o.Uri.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUri gets a reference to the given NullableString and assigns it to the Uri field.
+// SetUri sets field value
 func (o *UriDetails) SetUri(v string) {
-	o.Uri.Set(&v)
-}
-// SetUriNil sets the value for Uri to be an explicit nil
-func (o *UriDetails) SetUriNil() {
-	o.Uri.Set(nil)
+	o.Uri = v
 }
 
-// UnsetUri ensures that no value is present for Uri, not even an explicit nil
-func (o *UriDetails) UnsetUri() {
-	o.Uri.Unset()
-}
-
-// GetDocType returns the DocType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDocType returns the DocType field value
 func (o *UriDetails) GetDocType() string {
-	if o == nil || o.DocType.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.DocType.Get()
+
+	return o.DocType
 }
 
-// GetDocTypeOk returns a tuple with the DocType field value if set, nil otherwise
+// GetDocTypeOk returns a tuple with the DocType field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UriDetails) GetDocTypeOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.DocType.Get(), o.DocType.IsSet()
+	return &o.DocType, true
 }
 
-// HasDocType returns a boolean if a field has been set.
-func (o *UriDetails) HasDocType() bool {
-	if o != nil && o.DocType.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDocType gets a reference to the given NullableString and assigns it to the DocType field.
+// SetDocType sets field value
 func (o *UriDetails) SetDocType(v string) {
-	o.DocType.Set(&v)
-}
-// SetDocTypeNil sets the value for DocType to be an explicit nil
-func (o *UriDetails) SetDocTypeNil() {
-	o.DocType.Set(nil)
+	o.DocType = v
 }
 
-// UnsetDocType ensures that no value is present for DocType, not even an explicit nil
-func (o *UriDetails) UnsetDocType() {
-	o.DocType.Unset()
-}
-
-// GetDocName returns the DocName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDocName returns the DocName field value
 func (o *UriDetails) GetDocName() string {
-	if o == nil || o.DocName.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.DocName.Get()
+
+	return o.DocName
 }
 
-// GetDocNameOk returns a tuple with the DocName field value if set, nil otherwise
+// GetDocNameOk returns a tuple with the DocName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UriDetails) GetDocNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.DocName.Get(), o.DocName.IsSet()
+	return &o.DocName, true
 }
 
-// HasDocName returns a boolean if a field has been set.
-func (o *UriDetails) HasDocName() bool {
-	if o != nil && o.DocName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDocName gets a reference to the given NullableString and assigns it to the DocName field.
+// SetDocName sets field value
 func (o *UriDetails) SetDocName(v string) {
-	o.DocName.Set(&v)
-}
-// SetDocNameNil sets the value for DocName to be an explicit nil
-func (o *UriDetails) SetDocNameNil() {
-	o.DocName.Set(nil)
+	o.DocName = v
 }
 
-// UnsetDocName ensures that no value is present for DocName, not even an explicit nil
-func (o *UriDetails) UnsetDocName() {
-	o.DocName.Unset()
-}
-
-// GetDocId returns the DocId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDocId returns the DocId field value
 func (o *UriDetails) GetDocId() string {
-	if o == nil || o.DocId.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.DocId.Get()
+
+	return o.DocId
 }
 
-// GetDocIdOk returns a tuple with the DocId field value if set, nil otherwise
+// GetDocIdOk returns a tuple with the DocId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UriDetails) GetDocIdOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.DocId.Get(), o.DocId.IsSet()
+	return &o.DocId, true
 }
 
-// HasDocId returns a boolean if a field has been set.
-func (o *UriDetails) HasDocId() bool {
-	if o != nil && o.DocId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDocId gets a reference to the given NullableString and assigns it to the DocId field.
+// SetDocId sets field value
 func (o *UriDetails) SetDocId(v string) {
-	o.DocId.Set(&v)
-}
-// SetDocIdNil sets the value for DocId to be an explicit nil
-func (o *UriDetails) SetDocIdNil() {
-	o.DocId.Set(nil)
+	o.DocId = v
 }
 
-// UnsetDocId ensures that no value is present for DocId, not even an explicit nil
-func (o *UriDetails) UnsetDocId() {
-	o.DocId.Unset()
-}
-
-// GetIssuedOn returns the IssuedOn field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIssuedOn returns the IssuedOn field value
 func (o *UriDetails) GetIssuedOn() string {
-	if o == nil || o.IssuedOn.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.IssuedOn.Get()
+
+	return o.IssuedOn
 }
 
-// GetIssuedOnOk returns a tuple with the IssuedOn field value if set, nil otherwise
+// GetIssuedOnOk returns a tuple with the IssuedOn field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UriDetails) GetIssuedOnOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.IssuedOn.Get(), o.IssuedOn.IsSet()
+	return &o.IssuedOn, true
 }
 
-// HasIssuedOn returns a boolean if a field has been set.
-func (o *UriDetails) HasIssuedOn() bool {
-	if o != nil && o.IssuedOn.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIssuedOn gets a reference to the given NullableString and assigns it to the IssuedOn field.
+// SetIssuedOn sets field value
 func (o *UriDetails) SetIssuedOn(v string) {
-	o.IssuedOn.Set(&v)
-}
-// SetIssuedOnNil sets the value for IssuedOn to be an explicit nil
-func (o *UriDetails) SetIssuedOnNil() {
-	o.IssuedOn.Set(nil)
+	o.IssuedOn = v
 }
 
-// UnsetIssuedOn ensures that no value is present for IssuedOn, not even an explicit nil
-func (o *UriDetails) UnsetIssuedOn() {
-	o.IssuedOn.Unset()
-}
-
-// GetValidFrom returns the ValidFrom field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetValidFrom returns the ValidFrom field value
 func (o *UriDetails) GetValidFrom() string {
-	if o == nil || o.ValidFrom.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ValidFrom.Get()
+
+	return o.ValidFrom
 }
 
-// GetValidFromOk returns a tuple with the ValidFrom field value if set, nil otherwise
+// GetValidFromOk returns a tuple with the ValidFrom field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UriDetails) GetValidFromOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.ValidFrom.Get(), o.ValidFrom.IsSet()
+	return &o.ValidFrom, true
 }
 
-// HasValidFrom returns a boolean if a field has been set.
-func (o *UriDetails) HasValidFrom() bool {
-	if o != nil && o.ValidFrom.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetValidFrom gets a reference to the given NullableString and assigns it to the ValidFrom field.
+// SetValidFrom sets field value
 func (o *UriDetails) SetValidFrom(v string) {
-	o.ValidFrom.Set(&v)
-}
-// SetValidFromNil sets the value for ValidFrom to be an explicit nil
-func (o *UriDetails) SetValidFromNil() {
-	o.ValidFrom.Set(nil)
-}
-
-// UnsetValidFrom ensures that no value is present for ValidFrom, not even an explicit nil
-func (o *UriDetails) UnsetValidFrom() {
-	o.ValidFrom.Unset()
+	o.ValidFrom = v
 }
 
 // GetValidTo returns the ValidTo field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -468,26 +349,26 @@ func (o *UriDetails) UnsetAction() {
 
 func (o UriDetails) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Aadhaar.IsSet() {
-		toSerialize["aadhaar"] = o.Aadhaar.Get()
+	if true {
+		toSerialize["aadhaar"] = o.Aadhaar
 	}
-	if o.Uri.IsSet() {
-		toSerialize["uri"] = o.Uri.Get()
+	if true {
+		toSerialize["uri"] = o.Uri
 	}
-	if o.DocType.IsSet() {
-		toSerialize["docType"] = o.DocType.Get()
+	if true {
+		toSerialize["docType"] = o.DocType
 	}
-	if o.DocName.IsSet() {
-		toSerialize["docName"] = o.DocName.Get()
+	if true {
+		toSerialize["docName"] = o.DocName
 	}
-	if o.DocId.IsSet() {
-		toSerialize["docId"] = o.DocId.Get()
+	if true {
+		toSerialize["docId"] = o.DocId
 	}
-	if o.IssuedOn.IsSet() {
-		toSerialize["issuedOn"] = o.IssuedOn.Get()
+	if true {
+		toSerialize["issuedOn"] = o.IssuedOn
 	}
-	if o.ValidFrom.IsSet() {
-		toSerialize["validFrom"] = o.ValidFrom.Get()
+	if true {
+		toSerialize["validFrom"] = o.ValidFrom
 	}
 	if o.ValidTo.IsSet() {
 		toSerialize["validTo"] = o.ValidTo.Get()

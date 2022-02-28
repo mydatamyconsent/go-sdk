@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **ExpiresAtUtc** | Pointer to **time.Time** |  | [optional] 
 **RequestedAtUtc** | Pointer to **time.Time** |  | [optional] 
 **Identifiers** | Pointer to [**JsonSchema**](JsonSchema.md) |  | [optional] 
-**Documents** | Pointer to **NullableString** |  | [optional] 
+**Documents** | Pointer to [**[]DataConsentDocumentDetailsDto**](DataConsentDocumentDetailsDto.md) |  | [optional] 
 **Financials** | Pointer to **NullableString** |  | [optional] 
 **HealthRecords** | Pointer to **NullableString** |  | [optional] 
 
@@ -432,20 +432,20 @@ HasIdentifiers returns a boolean if a field has been set.
 
 ### GetDocuments
 
-`func (o *DataConsentDetailsDto) GetDocuments() string`
+`func (o *DataConsentDetailsDto) GetDocuments() []DataConsentDocumentDetailsDto`
 
 GetDocuments returns the Documents field if non-nil, zero value otherwise.
 
 ### GetDocumentsOk
 
-`func (o *DataConsentDetailsDto) GetDocumentsOk() (*string, bool)`
+`func (o *DataConsentDetailsDto) GetDocumentsOk() (*[]DataConsentDocumentDetailsDto, bool)`
 
 GetDocumentsOk returns a tuple with the Documents field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDocuments
 
-`func (o *DataConsentDetailsDto) SetDocuments(v string)`
+`func (o *DataConsentDetailsDto) SetDocuments(v []DataConsentDocumentDetailsDto)`
 
 SetDocuments sets Documents field to given value.
 
