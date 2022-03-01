@@ -55,7 +55,6 @@ docs/Identifier.md
 docs/IndividualDataConsentRequestResponse.md
 docs/IssuedDocument.md
 docs/IssuedDocumentPaginatedList.md
-docs/JsonSchema.md
 docs/Life.md
 docs/OrganizationDataConsentInfoDto.md
 docs/OrganizationDataConsentInfoDtoPaginatedList.md
@@ -68,6 +67,7 @@ docs/OrganizationFinancialTransactionsDtoPaginatedList.md
 docs/ProblemDetails.md
 docs/PushUriRequest.md
 docs/PushUriResponse.md
+docs/Requester.md
 docs/SharedWith.md
 docs/StringStringKeyValuePair.md
 docs/SupportedDocumentDetailsDto.md
@@ -126,7 +126,6 @@ model_identifier.go
 model_individual_data_consent_request_response.go
 model_issued_document.go
 model_issued_document_paginated_list.go
-model_json_schema.go
 model_life.go
 model_organization_data_consent_info_dto.go
 model_organization_data_consent_info_dto_paginated_list.go
@@ -139,6 +138,7 @@ model_organization_financial_transactions_dto_paginated_list.go
 model_problem_details.go
 model_push_uri_request.go
 model_push_uri_response.go
+model_requester.go
 model_shared_with.go
 model_string_string_key_value_pair.go
 model_supported_document_details_dto.go

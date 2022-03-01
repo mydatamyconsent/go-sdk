@@ -8,15 +8,13 @@ Name | Type | Description | Notes
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **DataLife** | Pointer to [**Life**](Life.md) |  | [optional] 
-**RequesterName** | Pointer to **NullableString** |  | [optional] 
-**RequesterLogo** | Pointer to **NullableString** |  | [optional] 
-**Location** | Pointer to **NullableString** |  | [optional] 
+**RequestedByOrg** | Pointer to [**Requester**](Requester.md) |  | [optional] 
 **Status** | Pointer to [**DataConsentStatus**](DataConsentStatus.md) |  | [optional] 
 **ApprovedAtUtc** | Pointer to **NullableTime** |  | [optional] 
 **RejectedAtUtc** | Pointer to **NullableTime** |  | [optional] 
 **ExpiresAtUtc** | Pointer to **time.Time** |  | [optional] 
 **RequestedAtUtc** | Pointer to **time.Time** |  | [optional] 
-**Identifiers** | Pointer to [**JsonSchema**](JsonSchema.md) |  | [optional] 
+**Identifiers** | Pointer to **interface{}** |  | [optional] 
 **Documents** | Pointer to [**[]DataConsentDocumentDetailsDto**](DataConsentDocumentDetailsDto.md) |  | [optional] 
 **Financials** | Pointer to **NullableString** |  | [optional] 
 **HealthRecords** | Pointer to **NullableString** |  | [optional] 
@@ -155,111 +153,31 @@ SetDataLife sets DataLife field to given value.
 
 HasDataLife returns a boolean if a field has been set.
 
-### GetRequesterName
+### GetRequestedByOrg
 
-`func (o *DataConsentDetailsDto) GetRequesterName() string`
+`func (o *DataConsentDetailsDto) GetRequestedByOrg() Requester`
 
-GetRequesterName returns the RequesterName field if non-nil, zero value otherwise.
+GetRequestedByOrg returns the RequestedByOrg field if non-nil, zero value otherwise.
 
-### GetRequesterNameOk
+### GetRequestedByOrgOk
 
-`func (o *DataConsentDetailsDto) GetRequesterNameOk() (*string, bool)`
+`func (o *DataConsentDetailsDto) GetRequestedByOrgOk() (*Requester, bool)`
 
-GetRequesterNameOk returns a tuple with the RequesterName field if it's non-nil, zero value otherwise
+GetRequestedByOrgOk returns a tuple with the RequestedByOrg field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRequesterName
+### SetRequestedByOrg
 
-`func (o *DataConsentDetailsDto) SetRequesterName(v string)`
+`func (o *DataConsentDetailsDto) SetRequestedByOrg(v Requester)`
 
-SetRequesterName sets RequesterName field to given value.
+SetRequestedByOrg sets RequestedByOrg field to given value.
 
-### HasRequesterName
+### HasRequestedByOrg
 
-`func (o *DataConsentDetailsDto) HasRequesterName() bool`
+`func (o *DataConsentDetailsDto) HasRequestedByOrg() bool`
 
-HasRequesterName returns a boolean if a field has been set.
+HasRequestedByOrg returns a boolean if a field has been set.
 
-### SetRequesterNameNil
-
-`func (o *DataConsentDetailsDto) SetRequesterNameNil(b bool)`
-
- SetRequesterNameNil sets the value for RequesterName to be an explicit nil
-
-### UnsetRequesterName
-`func (o *DataConsentDetailsDto) UnsetRequesterName()`
-
-UnsetRequesterName ensures that no value is present for RequesterName, not even an explicit nil
-### GetRequesterLogo
-
-`func (o *DataConsentDetailsDto) GetRequesterLogo() string`
-
-GetRequesterLogo returns the RequesterLogo field if non-nil, zero value otherwise.
-
-### GetRequesterLogoOk
-
-`func (o *DataConsentDetailsDto) GetRequesterLogoOk() (*string, bool)`
-
-GetRequesterLogoOk returns a tuple with the RequesterLogo field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRequesterLogo
-
-`func (o *DataConsentDetailsDto) SetRequesterLogo(v string)`
-
-SetRequesterLogo sets RequesterLogo field to given value.
-
-### HasRequesterLogo
-
-`func (o *DataConsentDetailsDto) HasRequesterLogo() bool`
-
-HasRequesterLogo returns a boolean if a field has been set.
-
-### SetRequesterLogoNil
-
-`func (o *DataConsentDetailsDto) SetRequesterLogoNil(b bool)`
-
- SetRequesterLogoNil sets the value for RequesterLogo to be an explicit nil
-
-### UnsetRequesterLogo
-`func (o *DataConsentDetailsDto) UnsetRequesterLogo()`
-
-UnsetRequesterLogo ensures that no value is present for RequesterLogo, not even an explicit nil
-### GetLocation
-
-`func (o *DataConsentDetailsDto) GetLocation() string`
-
-GetLocation returns the Location field if non-nil, zero value otherwise.
-
-### GetLocationOk
-
-`func (o *DataConsentDetailsDto) GetLocationOk() (*string, bool)`
-
-GetLocationOk returns a tuple with the Location field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLocation
-
-`func (o *DataConsentDetailsDto) SetLocation(v string)`
-
-SetLocation sets Location field to given value.
-
-### HasLocation
-
-`func (o *DataConsentDetailsDto) HasLocation() bool`
-
-HasLocation returns a boolean if a field has been set.
-
-### SetLocationNil
-
-`func (o *DataConsentDetailsDto) SetLocationNil(b bool)`
-
- SetLocationNil sets the value for Location to be an explicit nil
-
-### UnsetLocation
-`func (o *DataConsentDetailsDto) UnsetLocation()`
-
-UnsetLocation ensures that no value is present for Location, not even an explicit nil
 ### GetStatus
 
 `func (o *DataConsentDetailsDto) GetStatus() DataConsentStatus`
@@ -407,20 +325,20 @@ HasRequestedAtUtc returns a boolean if a field has been set.
 
 ### GetIdentifiers
 
-`func (o *DataConsentDetailsDto) GetIdentifiers() JsonSchema`
+`func (o *DataConsentDetailsDto) GetIdentifiers() interface{}`
 
 GetIdentifiers returns the Identifiers field if non-nil, zero value otherwise.
 
 ### GetIdentifiersOk
 
-`func (o *DataConsentDetailsDto) GetIdentifiersOk() (*JsonSchema, bool)`
+`func (o *DataConsentDetailsDto) GetIdentifiersOk() (*interface{}, bool)`
 
 GetIdentifiersOk returns a tuple with the Identifiers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIdentifiers
 
-`func (o *DataConsentDetailsDto) SetIdentifiers(v JsonSchema)`
+`func (o *DataConsentDetailsDto) SetIdentifiers(v interface{})`
 
 SetIdentifiers sets Identifiers field to given value.
 
@@ -430,6 +348,16 @@ SetIdentifiers sets Identifiers field to given value.
 
 HasIdentifiers returns a boolean if a field has been set.
 
+### SetIdentifiersNil
+
+`func (o *DataConsentDetailsDto) SetIdentifiersNil(b bool)`
+
+ SetIdentifiersNil sets the value for Identifiers to be an explicit nil
+
+### UnsetIdentifiers
+`func (o *DataConsentDetailsDto) UnsetIdentifiers()`
+
+UnsetIdentifiers ensures that no value is present for Identifiers, not even an explicit nil
 ### GetDocuments
 
 `func (o *DataConsentDetailsDto) GetDocuments() []DataConsentDocumentDetailsDto`
