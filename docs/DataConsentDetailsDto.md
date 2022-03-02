@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
+**ConsentRequestId** | **string** |  | 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **DataLife** | Pointer to [**Life**](Life.md) |  | [optional] 
@@ -12,18 +12,17 @@ Name | Type | Description | Notes
 **Status** | Pointer to [**DataConsentStatus**](DataConsentStatus.md) |  | [optional] 
 **ApprovedAtUtc** | Pointer to **NullableTime** |  | [optional] 
 **RejectedAtUtc** | Pointer to **NullableTime** |  | [optional] 
-**ExpiresAtUtc** | Pointer to **time.Time** |  | [optional] 
+**RevokedAtUtc** | Pointer to **NullableTime** |  | [optional] 
+**RequestedExpiresAtUtc** | Pointer to **time.Time** |  | [optional] 
 **RequestedAtUtc** | Pointer to **time.Time** |  | [optional] 
 **Identifiers** | Pointer to **interface{}** |  | [optional] 
 **Documents** | Pointer to [**[]DataConsentDocumentDetailsDto**](DataConsentDocumentDetailsDto.md) |  | [optional] 
-**Financials** | Pointer to **NullableString** |  | [optional] 
-**HealthRecords** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewDataConsentDetailsDto
 
-`func NewDataConsentDetailsDto(id string, ) *DataConsentDetailsDto`
+`func NewDataConsentDetailsDto(consentRequestId string, ) *DataConsentDetailsDto`
 
 NewDataConsentDetailsDto instantiates a new DataConsentDetailsDto object
 This constructor will assign default values to properties that have it defined,
@@ -38,24 +37,24 @@ NewDataConsentDetailsDtoWithDefaults instantiates a new DataConsentDetailsDto ob
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetId
+### GetConsentRequestId
 
-`func (o *DataConsentDetailsDto) GetId() string`
+`func (o *DataConsentDetailsDto) GetConsentRequestId() string`
 
-GetId returns the Id field if non-nil, zero value otherwise.
+GetConsentRequestId returns the ConsentRequestId field if non-nil, zero value otherwise.
 
-### GetIdOk
+### GetConsentRequestIdOk
 
-`func (o *DataConsentDetailsDto) GetIdOk() (*string, bool)`
+`func (o *DataConsentDetailsDto) GetConsentRequestIdOk() (*string, bool)`
 
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+GetConsentRequestIdOk returns a tuple with the ConsentRequestId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetId
+### SetConsentRequestId
 
-`func (o *DataConsentDetailsDto) SetId(v string)`
+`func (o *DataConsentDetailsDto) SetConsentRequestId(v string)`
 
-SetId sets Id field to given value.
+SetConsentRequestId sets ConsentRequestId field to given value.
 
 
 ### GetTitle
@@ -273,30 +272,65 @@ HasRejectedAtUtc returns a boolean if a field has been set.
 `func (o *DataConsentDetailsDto) UnsetRejectedAtUtc()`
 
 UnsetRejectedAtUtc ensures that no value is present for RejectedAtUtc, not even an explicit nil
-### GetExpiresAtUtc
+### GetRevokedAtUtc
 
-`func (o *DataConsentDetailsDto) GetExpiresAtUtc() time.Time`
+`func (o *DataConsentDetailsDto) GetRevokedAtUtc() time.Time`
 
-GetExpiresAtUtc returns the ExpiresAtUtc field if non-nil, zero value otherwise.
+GetRevokedAtUtc returns the RevokedAtUtc field if non-nil, zero value otherwise.
 
-### GetExpiresAtUtcOk
+### GetRevokedAtUtcOk
 
-`func (o *DataConsentDetailsDto) GetExpiresAtUtcOk() (*time.Time, bool)`
+`func (o *DataConsentDetailsDto) GetRevokedAtUtcOk() (*time.Time, bool)`
 
-GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field if it's non-nil, zero value otherwise
+GetRevokedAtUtcOk returns a tuple with the RevokedAtUtc field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetExpiresAtUtc
+### SetRevokedAtUtc
 
-`func (o *DataConsentDetailsDto) SetExpiresAtUtc(v time.Time)`
+`func (o *DataConsentDetailsDto) SetRevokedAtUtc(v time.Time)`
 
-SetExpiresAtUtc sets ExpiresAtUtc field to given value.
+SetRevokedAtUtc sets RevokedAtUtc field to given value.
 
-### HasExpiresAtUtc
+### HasRevokedAtUtc
 
-`func (o *DataConsentDetailsDto) HasExpiresAtUtc() bool`
+`func (o *DataConsentDetailsDto) HasRevokedAtUtc() bool`
 
-HasExpiresAtUtc returns a boolean if a field has been set.
+HasRevokedAtUtc returns a boolean if a field has been set.
+
+### SetRevokedAtUtcNil
+
+`func (o *DataConsentDetailsDto) SetRevokedAtUtcNil(b bool)`
+
+ SetRevokedAtUtcNil sets the value for RevokedAtUtc to be an explicit nil
+
+### UnsetRevokedAtUtc
+`func (o *DataConsentDetailsDto) UnsetRevokedAtUtc()`
+
+UnsetRevokedAtUtc ensures that no value is present for RevokedAtUtc, not even an explicit nil
+### GetRequestedExpiresAtUtc
+
+`func (o *DataConsentDetailsDto) GetRequestedExpiresAtUtc() time.Time`
+
+GetRequestedExpiresAtUtc returns the RequestedExpiresAtUtc field if non-nil, zero value otherwise.
+
+### GetRequestedExpiresAtUtcOk
+
+`func (o *DataConsentDetailsDto) GetRequestedExpiresAtUtcOk() (*time.Time, bool)`
+
+GetRequestedExpiresAtUtcOk returns a tuple with the RequestedExpiresAtUtc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequestedExpiresAtUtc
+
+`func (o *DataConsentDetailsDto) SetRequestedExpiresAtUtc(v time.Time)`
+
+SetRequestedExpiresAtUtc sets RequestedExpiresAtUtc field to given value.
+
+### HasRequestedExpiresAtUtc
+
+`func (o *DataConsentDetailsDto) HasRequestedExpiresAtUtc() bool`
+
+HasRequestedExpiresAtUtc returns a boolean if a field has been set.
 
 ### GetRequestedAtUtc
 
@@ -393,76 +427,6 @@ HasDocuments returns a boolean if a field has been set.
 `func (o *DataConsentDetailsDto) UnsetDocuments()`
 
 UnsetDocuments ensures that no value is present for Documents, not even an explicit nil
-### GetFinancials
-
-`func (o *DataConsentDetailsDto) GetFinancials() string`
-
-GetFinancials returns the Financials field if non-nil, zero value otherwise.
-
-### GetFinancialsOk
-
-`func (o *DataConsentDetailsDto) GetFinancialsOk() (*string, bool)`
-
-GetFinancialsOk returns a tuple with the Financials field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFinancials
-
-`func (o *DataConsentDetailsDto) SetFinancials(v string)`
-
-SetFinancials sets Financials field to given value.
-
-### HasFinancials
-
-`func (o *DataConsentDetailsDto) HasFinancials() bool`
-
-HasFinancials returns a boolean if a field has been set.
-
-### SetFinancialsNil
-
-`func (o *DataConsentDetailsDto) SetFinancialsNil(b bool)`
-
- SetFinancialsNil sets the value for Financials to be an explicit nil
-
-### UnsetFinancials
-`func (o *DataConsentDetailsDto) UnsetFinancials()`
-
-UnsetFinancials ensures that no value is present for Financials, not even an explicit nil
-### GetHealthRecords
-
-`func (o *DataConsentDetailsDto) GetHealthRecords() string`
-
-GetHealthRecords returns the HealthRecords field if non-nil, zero value otherwise.
-
-### GetHealthRecordsOk
-
-`func (o *DataConsentDetailsDto) GetHealthRecordsOk() (*string, bool)`
-
-GetHealthRecordsOk returns a tuple with the HealthRecords field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHealthRecords
-
-`func (o *DataConsentDetailsDto) SetHealthRecords(v string)`
-
-SetHealthRecords sets HealthRecords field to given value.
-
-### HasHealthRecords
-
-`func (o *DataConsentDetailsDto) HasHealthRecords() bool`
-
-HasHealthRecords returns a boolean if a field has been set.
-
-### SetHealthRecordsNil
-
-`func (o *DataConsentDetailsDto) SetHealthRecordsNil(b bool)`
-
- SetHealthRecordsNil sets the value for HealthRecords to be an explicit nil
-
-### UnsetHealthRecords
-`func (o *DataConsentDetailsDto) UnsetHealthRecords()`
-
-UnsetHealthRecords ensures that no value is present for HealthRecords, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

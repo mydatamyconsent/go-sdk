@@ -18,7 +18,7 @@ import (
 
 // DataConsentDetailsDto struct for DataConsentDetailsDto
 type DataConsentDetailsDto struct {
-	Id string `json:"id"`
+	ConsentRequestId string `json:"consentRequestId"`
 	Title NullableString `json:"title,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	DataLife *Life `json:"dataLife,omitempty"`
@@ -26,21 +26,20 @@ type DataConsentDetailsDto struct {
 	Status *DataConsentStatus `json:"status,omitempty"`
 	ApprovedAtUtc NullableTime `json:"approvedAtUtc,omitempty"`
 	RejectedAtUtc NullableTime `json:"rejectedAtUtc,omitempty"`
-	ExpiresAtUtc *time.Time `json:"expiresAtUtc,omitempty"`
+	RevokedAtUtc NullableTime `json:"revokedAtUtc,omitempty"`
+	RequestedExpiresAtUtc *time.Time `json:"requestedExpiresAtUtc,omitempty"`
 	RequestedAtUtc *time.Time `json:"requestedAtUtc,omitempty"`
 	Identifiers interface{} `json:"identifiers,omitempty"`
 	Documents []DataConsentDocumentDetailsDto `json:"documents,omitempty"`
-	Financials NullableString `json:"financials,omitempty"`
-	HealthRecords NullableString `json:"healthRecords,omitempty"`
 }
 
 // NewDataConsentDetailsDto instantiates a new DataConsentDetailsDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDataConsentDetailsDto(id string) *DataConsentDetailsDto {
+func NewDataConsentDetailsDto(consentRequestId string) *DataConsentDetailsDto {
 	this := DataConsentDetailsDto{}
-	this.Id = id
+	this.ConsentRequestId = consentRequestId
 	return &this
 }
 
@@ -52,28 +51,28 @@ func NewDataConsentDetailsDtoWithDefaults() *DataConsentDetailsDto {
 	return &this
 }
 
-// GetId returns the Id field value
-func (o *DataConsentDetailsDto) GetId() string {
+// GetConsentRequestId returns the ConsentRequestId field value
+func (o *DataConsentDetailsDto) GetConsentRequestId() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Id
+	return o.ConsentRequestId
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetConsentRequestIdOk returns a tuple with the ConsentRequestId field value
 // and a boolean to check if the value has been set.
-func (o *DataConsentDetailsDto) GetIdOk() (*string, bool) {
+func (o *DataConsentDetailsDto) GetConsentRequestIdOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Id, true
+	return &o.ConsentRequestId, true
 }
 
-// SetId sets field value
-func (o *DataConsentDetailsDto) SetId(v string) {
-	o.Id = v
+// SetConsentRequestId sets field value
+func (o *DataConsentDetailsDto) SetConsentRequestId(v string) {
+	o.ConsentRequestId = v
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -340,36 +339,78 @@ func (o *DataConsentDetailsDto) UnsetRejectedAtUtc() {
 	o.RejectedAtUtc.Unset()
 }
 
-// GetExpiresAtUtc returns the ExpiresAtUtc field value if set, zero value otherwise.
-func (o *DataConsentDetailsDto) GetExpiresAtUtc() time.Time {
-	if o == nil || o.ExpiresAtUtc == nil {
+// GetRevokedAtUtc returns the RevokedAtUtc field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DataConsentDetailsDto) GetRevokedAtUtc() time.Time {
+	if o == nil || o.RevokedAtUtc.Get() == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.ExpiresAtUtc
+	return *o.RevokedAtUtc.Get()
 }
 
-// GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field value if set, nil otherwise
+// GetRevokedAtUtcOk returns a tuple with the RevokedAtUtc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DataConsentDetailsDto) GetExpiresAtUtcOk() (*time.Time, bool) {
-	if o == nil || o.ExpiresAtUtc == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DataConsentDetailsDto) GetRevokedAtUtcOk() (*time.Time, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.ExpiresAtUtc, true
+	return o.RevokedAtUtc.Get(), o.RevokedAtUtc.IsSet()
 }
 
-// HasExpiresAtUtc returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasExpiresAtUtc() bool {
-	if o != nil && o.ExpiresAtUtc != nil {
+// HasRevokedAtUtc returns a boolean if a field has been set.
+func (o *DataConsentDetailsDto) HasRevokedAtUtc() bool {
+	if o != nil && o.RevokedAtUtc.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetExpiresAtUtc gets a reference to the given time.Time and assigns it to the ExpiresAtUtc field.
-func (o *DataConsentDetailsDto) SetExpiresAtUtc(v time.Time) {
-	o.ExpiresAtUtc = &v
+// SetRevokedAtUtc gets a reference to the given NullableTime and assigns it to the RevokedAtUtc field.
+func (o *DataConsentDetailsDto) SetRevokedAtUtc(v time.Time) {
+	o.RevokedAtUtc.Set(&v)
+}
+// SetRevokedAtUtcNil sets the value for RevokedAtUtc to be an explicit nil
+func (o *DataConsentDetailsDto) SetRevokedAtUtcNil() {
+	o.RevokedAtUtc.Set(nil)
+}
+
+// UnsetRevokedAtUtc ensures that no value is present for RevokedAtUtc, not even an explicit nil
+func (o *DataConsentDetailsDto) UnsetRevokedAtUtc() {
+	o.RevokedAtUtc.Unset()
+}
+
+// GetRequestedExpiresAtUtc returns the RequestedExpiresAtUtc field value if set, zero value otherwise.
+func (o *DataConsentDetailsDto) GetRequestedExpiresAtUtc() time.Time {
+	if o == nil || o.RequestedExpiresAtUtc == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.RequestedExpiresAtUtc
+}
+
+// GetRequestedExpiresAtUtcOk returns a tuple with the RequestedExpiresAtUtc field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DataConsentDetailsDto) GetRequestedExpiresAtUtcOk() (*time.Time, bool) {
+	if o == nil || o.RequestedExpiresAtUtc == nil {
+		return nil, false
+	}
+	return o.RequestedExpiresAtUtc, true
+}
+
+// HasRequestedExpiresAtUtc returns a boolean if a field has been set.
+func (o *DataConsentDetailsDto) HasRequestedExpiresAtUtc() bool {
+	if o != nil && o.RequestedExpiresAtUtc != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRequestedExpiresAtUtc gets a reference to the given time.Time and assigns it to the RequestedExpiresAtUtc field.
+func (o *DataConsentDetailsDto) SetRequestedExpiresAtUtc(v time.Time) {
+	o.RequestedExpiresAtUtc = &v
 }
 
 // GetRequestedAtUtc returns the RequestedAtUtc field value if set, zero value otherwise.
@@ -470,94 +511,10 @@ func (o *DataConsentDetailsDto) SetDocuments(v []DataConsentDocumentDetailsDto) 
 	o.Documents = v
 }
 
-// GetFinancials returns the Financials field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetFinancials() string {
-	if o == nil || o.Financials.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.Financials.Get()
-}
-
-// GetFinancialsOk returns a tuple with the Financials field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetFinancialsOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.Financials.Get(), o.Financials.IsSet()
-}
-
-// HasFinancials returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasFinancials() bool {
-	if o != nil && o.Financials.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetFinancials gets a reference to the given NullableString and assigns it to the Financials field.
-func (o *DataConsentDetailsDto) SetFinancials(v string) {
-	o.Financials.Set(&v)
-}
-// SetFinancialsNil sets the value for Financials to be an explicit nil
-func (o *DataConsentDetailsDto) SetFinancialsNil() {
-	o.Financials.Set(nil)
-}
-
-// UnsetFinancials ensures that no value is present for Financials, not even an explicit nil
-func (o *DataConsentDetailsDto) UnsetFinancials() {
-	o.Financials.Unset()
-}
-
-// GetHealthRecords returns the HealthRecords field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataConsentDetailsDto) GetHealthRecords() string {
-	if o == nil || o.HealthRecords.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.HealthRecords.Get()
-}
-
-// GetHealthRecordsOk returns a tuple with the HealthRecords field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataConsentDetailsDto) GetHealthRecordsOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.HealthRecords.Get(), o.HealthRecords.IsSet()
-}
-
-// HasHealthRecords returns a boolean if a field has been set.
-func (o *DataConsentDetailsDto) HasHealthRecords() bool {
-	if o != nil && o.HealthRecords.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHealthRecords gets a reference to the given NullableString and assigns it to the HealthRecords field.
-func (o *DataConsentDetailsDto) SetHealthRecords(v string) {
-	o.HealthRecords.Set(&v)
-}
-// SetHealthRecordsNil sets the value for HealthRecords to be an explicit nil
-func (o *DataConsentDetailsDto) SetHealthRecordsNil() {
-	o.HealthRecords.Set(nil)
-}
-
-// UnsetHealthRecords ensures that no value is present for HealthRecords, not even an explicit nil
-func (o *DataConsentDetailsDto) UnsetHealthRecords() {
-	o.HealthRecords.Unset()
-}
-
 func (o DataConsentDetailsDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["id"] = o.Id
+		toSerialize["consentRequestId"] = o.ConsentRequestId
 	}
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()
@@ -580,8 +537,11 @@ func (o DataConsentDetailsDto) MarshalJSON() ([]byte, error) {
 	if o.RejectedAtUtc.IsSet() {
 		toSerialize["rejectedAtUtc"] = o.RejectedAtUtc.Get()
 	}
-	if o.ExpiresAtUtc != nil {
-		toSerialize["expiresAtUtc"] = o.ExpiresAtUtc
+	if o.RevokedAtUtc.IsSet() {
+		toSerialize["revokedAtUtc"] = o.RevokedAtUtc.Get()
+	}
+	if o.RequestedExpiresAtUtc != nil {
+		toSerialize["requestedExpiresAtUtc"] = o.RequestedExpiresAtUtc
 	}
 	if o.RequestedAtUtc != nil {
 		toSerialize["requestedAtUtc"] = o.RequestedAtUtc
@@ -591,12 +551,6 @@ func (o DataConsentDetailsDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.Documents != nil {
 		toSerialize["documents"] = o.Documents
-	}
-	if o.Financials.IsSet() {
-		toSerialize["financials"] = o.Financials.Get()
-	}
-	if o.HealthRecords.IsSet() {
-		toSerialize["healthRecords"] = o.HealthRecords.Get()
 	}
 	return json.Marshal(toSerialize)
 }
