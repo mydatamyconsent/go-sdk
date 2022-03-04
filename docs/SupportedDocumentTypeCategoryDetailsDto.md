@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **DocumentTypeCategoryId** | **string** |  | 
 **DocumentTypeCategoryName** | **string** |  | 
 **SupportedDocuments** | [**[]SupportedDocumentDetailsDto**](SupportedDocumentDetailsDto.md) |  | 
-**SupportedDocumentProviderDetails** | [**[]SupportedDocumentProviderDetailsDto**](SupportedDocumentProviderDetailsDto.md) |  | 
+**SupportedDocumentProviderDetails** | Pointer to [**[]SupportedDocumentProviderDetailsDto**](SupportedDocumentProviderDetailsDto.md) |  | [optional] 
 
 ## Methods
 
 ### NewSupportedDocumentTypeCategoryDetailsDto
 
-`func NewSupportedDocumentTypeCategoryDetailsDto(documentTypeCategoryId string, documentTypeCategoryName string, supportedDocuments []SupportedDocumentDetailsDto, supportedDocumentProviderDetails []SupportedDocumentProviderDetailsDto, ) *SupportedDocumentTypeCategoryDetailsDto`
+`func NewSupportedDocumentTypeCategoryDetailsDto(documentTypeCategoryId string, documentTypeCategoryName string, supportedDocuments []SupportedDocumentDetailsDto, ) *SupportedDocumentTypeCategoryDetailsDto`
 
 NewSupportedDocumentTypeCategoryDetailsDto instantiates a new SupportedDocumentTypeCategoryDetailsDto object
 This constructor will assign default values to properties that have it defined,
@@ -107,7 +107,22 @@ and a boolean to check if the value has been set.
 
 SetSupportedDocumentProviderDetails sets SupportedDocumentProviderDetails field to given value.
 
+### HasSupportedDocumentProviderDetails
 
+`func (o *SupportedDocumentTypeCategoryDetailsDto) HasSupportedDocumentProviderDetails() bool`
+
+HasSupportedDocumentProviderDetails returns a boolean if a field has been set.
+
+### SetSupportedDocumentProviderDetailsNil
+
+`func (o *SupportedDocumentTypeCategoryDetailsDto) SetSupportedDocumentProviderDetailsNil(b bool)`
+
+ SetSupportedDocumentProviderDetailsNil sets the value for SupportedDocumentProviderDetails to be an explicit nil
+
+### UnsetSupportedDocumentProviderDetails
+`func (o *SupportedDocumentTypeCategoryDetailsDto) UnsetSupportedDocumentProviderDetails()`
+
+UnsetSupportedDocumentProviderDetails ensures that no value is present for SupportedDocumentProviderDetails, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

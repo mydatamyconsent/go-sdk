@@ -26,6 +26,7 @@ const (
 	REJECTED DataConsentStatus = "Rejected"
 	REVOKED DataConsentStatus = "Revoked"
 	EXPIRED DataConsentStatus = "Expired"
+	TIMEOUT DataConsentStatus = "Timeout"
 	CANCELED DataConsentStatus = "Canceled"
 )
 
@@ -36,6 +37,7 @@ var AllowedDataConsentStatusEnumValues = []DataConsentStatus{
 	"Rejected",
 	"Revoked",
 	"Expired",
+	"Timeout",
 	"Canceled",
 }
 

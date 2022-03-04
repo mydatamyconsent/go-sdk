@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **RequestedByOrg** | Pointer to [**Requester**](Requester.md) |  | [optional] 
 **Status** | Pointer to [**DataConsentStatus**](DataConsentStatus.md) |  | [optional] 
 **ApprovedAtUtc** | Pointer to **NullableTime** |  | [optional] 
+**ApprovedExpiresAtUtc** | Pointer to **NullableTime** |  | [optional] 
 **RejectedAtUtc** | Pointer to **NullableTime** |  | [optional] 
 **RevokedAtUtc** | Pointer to **NullableTime** |  | [optional] 
 **RequestedExpiresAtUtc** | Pointer to **time.Time** |  | [optional] 
@@ -237,6 +238,41 @@ HasApprovedAtUtc returns a boolean if a field has been set.
 `func (o *DataConsentDetailsDto) UnsetApprovedAtUtc()`
 
 UnsetApprovedAtUtc ensures that no value is present for ApprovedAtUtc, not even an explicit nil
+### GetApprovedExpiresAtUtc
+
+`func (o *DataConsentDetailsDto) GetApprovedExpiresAtUtc() time.Time`
+
+GetApprovedExpiresAtUtc returns the ApprovedExpiresAtUtc field if non-nil, zero value otherwise.
+
+### GetApprovedExpiresAtUtcOk
+
+`func (o *DataConsentDetailsDto) GetApprovedExpiresAtUtcOk() (*time.Time, bool)`
+
+GetApprovedExpiresAtUtcOk returns a tuple with the ApprovedExpiresAtUtc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApprovedExpiresAtUtc
+
+`func (o *DataConsentDetailsDto) SetApprovedExpiresAtUtc(v time.Time)`
+
+SetApprovedExpiresAtUtc sets ApprovedExpiresAtUtc field to given value.
+
+### HasApprovedExpiresAtUtc
+
+`func (o *DataConsentDetailsDto) HasApprovedExpiresAtUtc() bool`
+
+HasApprovedExpiresAtUtc returns a boolean if a field has been set.
+
+### SetApprovedExpiresAtUtcNil
+
+`func (o *DataConsentDetailsDto) SetApprovedExpiresAtUtcNil(b bool)`
+
+ SetApprovedExpiresAtUtcNil sets the value for ApprovedExpiresAtUtc to be an explicit nil
+
+### UnsetApprovedExpiresAtUtc
+`func (o *DataConsentDetailsDto) UnsetApprovedExpiresAtUtc()`
+
+UnsetApprovedExpiresAtUtc ensures that no value is present for ApprovedExpiresAtUtc, not even an explicit nil
 ### GetRejectedAtUtc
 
 `func (o *DataConsentDetailsDto) GetRejectedAtUtc() time.Time`

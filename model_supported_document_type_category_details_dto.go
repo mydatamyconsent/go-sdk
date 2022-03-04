@@ -20,19 +20,18 @@ type SupportedDocumentTypeCategoryDetailsDto struct {
 	DocumentTypeCategoryId string `json:"documentTypeCategoryId"`
 	DocumentTypeCategoryName string `json:"documentTypeCategoryName"`
 	SupportedDocuments []SupportedDocumentDetailsDto `json:"supportedDocuments"`
-	SupportedDocumentProviderDetails []SupportedDocumentProviderDetailsDto `json:"supportedDocumentProviderDetails"`
+	SupportedDocumentProviderDetails []SupportedDocumentProviderDetailsDto `json:"supportedDocumentProviderDetails,omitempty"`
 }
 
 // NewSupportedDocumentTypeCategoryDetailsDto instantiates a new SupportedDocumentTypeCategoryDetailsDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSupportedDocumentTypeCategoryDetailsDto(documentTypeCategoryId string, documentTypeCategoryName string, supportedDocuments []SupportedDocumentDetailsDto, supportedDocumentProviderDetails []SupportedDocumentProviderDetailsDto) *SupportedDocumentTypeCategoryDetailsDto {
+func NewSupportedDocumentTypeCategoryDetailsDto(documentTypeCategoryId string, documentTypeCategoryName string, supportedDocuments []SupportedDocumentDetailsDto) *SupportedDocumentTypeCategoryDetailsDto {
 	this := SupportedDocumentTypeCategoryDetailsDto{}
 	this.DocumentTypeCategoryId = documentTypeCategoryId
 	this.DocumentTypeCategoryName = documentTypeCategoryName
 	this.SupportedDocuments = supportedDocuments
-	this.SupportedDocumentProviderDetails = supportedDocumentProviderDetails
 	return &this
 }
 
@@ -116,26 +115,35 @@ func (o *SupportedDocumentTypeCategoryDetailsDto) SetSupportedDocuments(v []Supp
 	o.SupportedDocuments = v
 }
 
-// GetSupportedDocumentProviderDetails returns the SupportedDocumentProviderDetails field value
+// GetSupportedDocumentProviderDetails returns the SupportedDocumentProviderDetails field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SupportedDocumentTypeCategoryDetailsDto) GetSupportedDocumentProviderDetails() []SupportedDocumentProviderDetailsDto {
-	if o == nil {
+	if o == nil  {
 		var ret []SupportedDocumentProviderDetailsDto
 		return ret
 	}
-
 	return o.SupportedDocumentProviderDetails
 }
 
-// GetSupportedDocumentProviderDetailsOk returns a tuple with the SupportedDocumentProviderDetails field value
+// GetSupportedDocumentProviderDetailsOk returns a tuple with the SupportedDocumentProviderDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SupportedDocumentTypeCategoryDetailsDto) GetSupportedDocumentProviderDetailsOk() ([]SupportedDocumentProviderDetailsDto, bool) {
-	if o == nil  {
+	if o == nil || o.SupportedDocumentProviderDetails == nil {
 		return nil, false
 	}
 	return o.SupportedDocumentProviderDetails, true
 }
 
-// SetSupportedDocumentProviderDetails sets field value
+// HasSupportedDocumentProviderDetails returns a boolean if a field has been set.
+func (o *SupportedDocumentTypeCategoryDetailsDto) HasSupportedDocumentProviderDetails() bool {
+	if o != nil && o.SupportedDocumentProviderDetails != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSupportedDocumentProviderDetails gets a reference to the given []SupportedDocumentProviderDetailsDto and assigns it to the SupportedDocumentProviderDetails field.
 func (o *SupportedDocumentTypeCategoryDetailsDto) SetSupportedDocumentProviderDetails(v []SupportedDocumentProviderDetailsDto) {
 	o.SupportedDocumentProviderDetails = v
 }
@@ -151,7 +159,7 @@ func (o SupportedDocumentTypeCategoryDetailsDto) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["supportedDocuments"] = o.SupportedDocuments
 	}
-	if true {
+	if o.SupportedDocumentProviderDetails != nil {
 		toSerialize["supportedDocumentProviderDetails"] = o.SupportedDocumentProviderDetails
 	}
 	return json.Marshal(toSerialize)

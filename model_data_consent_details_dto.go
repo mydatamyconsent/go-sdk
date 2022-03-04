@@ -25,6 +25,7 @@ type DataConsentDetailsDto struct {
 	RequestedByOrg *Requester `json:"requestedByOrg,omitempty"`
 	Status *DataConsentStatus `json:"status,omitempty"`
 	ApprovedAtUtc NullableTime `json:"approvedAtUtc,omitempty"`
+	ApprovedExpiresAtUtc NullableTime `json:"approvedExpiresAtUtc,omitempty"`
 	RejectedAtUtc NullableTime `json:"rejectedAtUtc,omitempty"`
 	RevokedAtUtc NullableTime `json:"revokedAtUtc,omitempty"`
 	RequestedExpiresAtUtc *time.Time `json:"requestedExpiresAtUtc,omitempty"`
@@ -297,6 +298,48 @@ func (o *DataConsentDetailsDto) UnsetApprovedAtUtc() {
 	o.ApprovedAtUtc.Unset()
 }
 
+// GetApprovedExpiresAtUtc returns the ApprovedExpiresAtUtc field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DataConsentDetailsDto) GetApprovedExpiresAtUtc() time.Time {
+	if o == nil || o.ApprovedExpiresAtUtc.Get() == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.ApprovedExpiresAtUtc.Get()
+}
+
+// GetApprovedExpiresAtUtcOk returns a tuple with the ApprovedExpiresAtUtc field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DataConsentDetailsDto) GetApprovedExpiresAtUtcOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.ApprovedExpiresAtUtc.Get(), o.ApprovedExpiresAtUtc.IsSet()
+}
+
+// HasApprovedExpiresAtUtc returns a boolean if a field has been set.
+func (o *DataConsentDetailsDto) HasApprovedExpiresAtUtc() bool {
+	if o != nil && o.ApprovedExpiresAtUtc.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetApprovedExpiresAtUtc gets a reference to the given NullableTime and assigns it to the ApprovedExpiresAtUtc field.
+func (o *DataConsentDetailsDto) SetApprovedExpiresAtUtc(v time.Time) {
+	o.ApprovedExpiresAtUtc.Set(&v)
+}
+// SetApprovedExpiresAtUtcNil sets the value for ApprovedExpiresAtUtc to be an explicit nil
+func (o *DataConsentDetailsDto) SetApprovedExpiresAtUtcNil() {
+	o.ApprovedExpiresAtUtc.Set(nil)
+}
+
+// UnsetApprovedExpiresAtUtc ensures that no value is present for ApprovedExpiresAtUtc, not even an explicit nil
+func (o *DataConsentDetailsDto) UnsetApprovedExpiresAtUtc() {
+	o.ApprovedExpiresAtUtc.Unset()
+}
+
 // GetRejectedAtUtc returns the RejectedAtUtc field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataConsentDetailsDto) GetRejectedAtUtc() time.Time {
 	if o == nil || o.RejectedAtUtc.Get() == nil {
@@ -533,6 +576,9 @@ func (o DataConsentDetailsDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.ApprovedAtUtc.IsSet() {
 		toSerialize["approvedAtUtc"] = o.ApprovedAtUtc.Get()
+	}
+	if o.ApprovedExpiresAtUtc.IsSet() {
+		toSerialize["approvedExpiresAtUtc"] = o.ApprovedExpiresAtUtc.Get()
 	}
 	if o.RejectedAtUtc.IsSet() {
 		toSerialize["rejectedAtUtc"] = o.RejectedAtUtc.Get()
