@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **DataLife** | Pointer to [**Life**](Life.md) |  | [optional] 
 **RequestedByOrg** | Pointer to [**Requester**](Requester.md) |  | [optional] 
+**Collectables** | [**[]CollectibleTypes**](CollectibleTypes.md) |  | 
 **Status** | Pointer to [**DataConsentStatus**](DataConsentStatus.md) |  | [optional] 
 **ApprovedAtUtc** | Pointer to **NullableTime** |  | [optional] 
 **ApprovedExpiresAtUtc** | Pointer to **NullableTime** |  | [optional] 
@@ -23,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewDataConsentDetailsDto
 
-`func NewDataConsentDetailsDto(consentRequestId string, ) *DataConsentDetailsDto`
+`func NewDataConsentDetailsDto(consentRequestId string, collectables []CollectibleTypes, ) *DataConsentDetailsDto`
 
 NewDataConsentDetailsDto instantiates a new DataConsentDetailsDto object
 This constructor will assign default values to properties that have it defined,
@@ -177,6 +178,26 @@ SetRequestedByOrg sets RequestedByOrg field to given value.
 `func (o *DataConsentDetailsDto) HasRequestedByOrg() bool`
 
 HasRequestedByOrg returns a boolean if a field has been set.
+
+### GetCollectables
+
+`func (o *DataConsentDetailsDto) GetCollectables() []CollectibleTypes`
+
+GetCollectables returns the Collectables field if non-nil, zero value otherwise.
+
+### GetCollectablesOk
+
+`func (o *DataConsentDetailsDto) GetCollectablesOk() (*[]CollectibleTypes, bool)`
+
+GetCollectablesOk returns a tuple with the Collectables field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCollectables
+
+`func (o *DataConsentDetailsDto) SetCollectables(v []CollectibleTypes)`
+
+SetCollectables sets Collectables field to given value.
+
 
 ### GetStatus
 

@@ -23,6 +23,7 @@ type DataConsentDetailsDto struct {
 	Description NullableString `json:"description,omitempty"`
 	DataLife *Life `json:"dataLife,omitempty"`
 	RequestedByOrg *Requester `json:"requestedByOrg,omitempty"`
+	Collectables []CollectibleTypes `json:"collectables"`
 	Status *DataConsentStatus `json:"status,omitempty"`
 	ApprovedAtUtc NullableTime `json:"approvedAtUtc,omitempty"`
 	ApprovedExpiresAtUtc NullableTime `json:"approvedExpiresAtUtc,omitempty"`
@@ -38,9 +39,10 @@ type DataConsentDetailsDto struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDataConsentDetailsDto(consentRequestId string) *DataConsentDetailsDto {
+func NewDataConsentDetailsDto(consentRequestId string, collectables []CollectibleTypes) *DataConsentDetailsDto {
 	this := DataConsentDetailsDto{}
 	this.ConsentRequestId = consentRequestId
+	this.Collectables = collectables
 	return &this
 }
 
@@ -222,6 +224,30 @@ func (o *DataConsentDetailsDto) HasRequestedByOrg() bool {
 // SetRequestedByOrg gets a reference to the given Requester and assigns it to the RequestedByOrg field.
 func (o *DataConsentDetailsDto) SetRequestedByOrg(v Requester) {
 	o.RequestedByOrg = &v
+}
+
+// GetCollectables returns the Collectables field value
+func (o *DataConsentDetailsDto) GetCollectables() []CollectibleTypes {
+	if o == nil {
+		var ret []CollectibleTypes
+		return ret
+	}
+
+	return o.Collectables
+}
+
+// GetCollectablesOk returns a tuple with the Collectables field value
+// and a boolean to check if the value has been set.
+func (o *DataConsentDetailsDto) GetCollectablesOk() ([]CollectibleTypes, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.Collectables, true
+}
+
+// SetCollectables sets field value
+func (o *DataConsentDetailsDto) SetCollectables(v []CollectibleTypes) {
+	o.Collectables = v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
@@ -570,6 +596,9 @@ func (o DataConsentDetailsDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.RequestedByOrg != nil {
 		toSerialize["requestedByOrg"] = o.RequestedByOrg
+	}
+	if true {
+		toSerialize["collectables"] = o.Collectables
 	}
 	if o.Status != nil {
 		toSerialize["status"] = o.Status

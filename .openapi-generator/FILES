@@ -12,6 +12,7 @@ configuration.go
 docs/Activity.md
 docs/ApprovedConsentRequest.md
 docs/BankAccountType.md
+docs/CollectibleTypes.md
 docs/ConsentRequestReceiver.md
 docs/CreateDataProcessingAgreementRequestModel.md
 docs/CreateIndividualDataConsentRequest.md
@@ -89,6 +90,7 @@ go.sum
 model_activity.go
 model_approved_consent_request.go
 model_bank_account_type.go
+model_collectible_types.go
 model_consent_request_receiver.go
 model_create_data_processing_agreement_request_model.go
 model_create_individual_data_consent_request.go
