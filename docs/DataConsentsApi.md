@@ -4,6 +4,7 @@ All URIs are relative to *https://api.mydatamyconsent.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**DownloadConsentedDocumentAnalysis**](DataConsentsApi.md#DownloadConsentedDocumentAnalysis) | **Get** /v1/consents/{consentId}/documents/{documentId}/analysis | Get analysis of a consented document.
 [**DownloadConsentedDocumentById**](DataConsentsApi.md#DownloadConsentedDocumentById) | **Get** /v1/consents/individuals/{consentId}/documents/{documentId}/download | Download a individuals consented document.
 [**DownloadOrgConsentedDocumentById**](DataConsentsApi.md#DownloadOrgConsentedDocumentById) | **Get** /v1/consents/organizations/{consentId}/documents/{documentId}/download | Download a organizations consented document.
 [**GetAllConsentedDocuments**](DataConsentsApi.md#GetAllConsentedDocuments) | **Get** /v1/consents/individuals/{consentId}/documents | Get the individual documents based on ConsentId.
@@ -14,6 +15,7 @@ Method | HTTP request | Description
 [**GetConsentedAccountById**](DataConsentsApi.md#GetConsentedAccountById) | **Get** /v1/consents/individuals/{consentId}/financial-accounts/{accountId} | Get individual consented financial account details based on account id.
 [**GetConsentedDocumentById**](DataConsentsApi.md#GetConsentedDocumentById) | **Get** /v1/consents/individuals/{consentId}/documents/{documentId} | Get individuals consent document based on document id.
 [**GetConsentedFinancialAccount**](DataConsentsApi.md#GetConsentedFinancialAccount) | **Get** /v1/consents/organizations/{consentId}/financial-accounts/{accountId} | Get organization consented financial account details based on account id.
+[**GetConsentedFinancialAccountInsights**](DataConsentsApi.md#GetConsentedFinancialAccountInsights) | **Get** /v1/consents/{consentId}/financial-accounts/{accountId}/insights | Get consented financial account insights.
 [**GetConsentedFinancialAccountTransactions**](DataConsentsApi.md#GetConsentedFinancialAccountTransactions) | **Get** /v1/consents/individuals/{consentId}/financial-accounts/{accountId}/transactions | Get individual consented financial account transactions of an individual based on accountId.
 [**GetConsentsForOrganizations**](DataConsentsApi.md#GetConsentsForOrganizations) | **Get** /v1/consents/organizations | Get the list of data consents sent for organizations.
 [**GetConsentsSentToIndividuals**](DataConsentsApi.md#GetConsentsSentToIndividuals) | **Get** /v1/consents/individuals | Get the list of Consents Sent to Individuals.
@@ -21,6 +23,75 @@ Method | HTTP request | Description
 [**GetOrganizationConsentDetailsById**](DataConsentsApi.md#GetOrganizationConsentDetailsById) | **Get** /v1/consents/organizations/{consentId} | Get all organization consent details by consent id.
 [**GetOrganizationConsentedDocumentById**](DataConsentsApi.md#GetOrganizationConsentedDocumentById) | **Get** /v1/consents/organizations/{consentId}/documents/{documentId} | Get organization consent document based on document id.
 
+
+
+## DownloadConsentedDocumentAnalysis
+
+> DownloadConsentedDocumentAnalysis(ctx, consentId, documentId).Execute()
+
+Get analysis of a consented document.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    consentId := "consentId_example" // string | 
+    documentId := "documentId_example" // string | Document Id.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DataConsentsApi.DownloadConsentedDocumentAnalysis(context.Background(), consentId, documentId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.DownloadConsentedDocumentAnalysis``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**consentId** | **string** |  | 
+**documentId** | **string** | Document Id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDownloadConsentedDocumentAnalysisRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## DownloadConsentedDocumentById
@@ -703,6 +774,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OrganizationFinancialAccountDto**](OrganizationFinancialAccountDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetConsentedFinancialAccountInsights
+
+> GetConsentedFinancialAccountInsights(ctx, consentId, accountId).Execute()
+
+Get consented financial account insights.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    consentId := "consentId_example" // string | 
+    accountId := "accountId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DataConsentsApi.GetConsentedFinancialAccountInsights(context.Background(), consentId, accountId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetConsentedFinancialAccountInsights``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**consentId** | **string** |  | 
+**accountId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetConsentedFinancialAccountInsightsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 
