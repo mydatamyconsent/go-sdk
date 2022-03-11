@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Document Identifier. | 
-**Identifier** | **string** | Document Identifier. eg: GJ05FG67866586. | 
-**DocumentType** | **string** | Document type name. eg: Driving License. | 
-**IssuedTo** | **string** |  | 
-**IssuedAtUtc** | **time.Time** |  | 
+**Id** | **string** | Document Id. | 
+**Identifier** | **string** | Document Identifier. | 
+**DocumentType** | **string** | Document type name. | 
+**IssuedTo** | **string** | User name. | 
+**IssuedAtUtc** | **time.Time** | Issued datetime in UTC timezone. | 
 
 ## Methods
 

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DocumentTypeId** | **string** |  | 
-**Identifier** | **string** |  | 
-**Description** | **string** |  | 
+**DocumentTypeId** | **string** | Document type id. | 
+**Identifier** | **string** | Document identifier. | 
+**Description** | **string** | Document description. | 
 **Receiver** | [**DocumentReceiver**](DocumentReceiver.md) |  | 
-**IssuedAtUtc** | **time.Time** |  | 
-**ValidFromUtc** | **time.Time** |  | 
-**ExpiresAtUtc** | Pointer to **NullableTime** |  | [optional] 
-**Metadata** | Pointer to **map[string]string** |  | [optional] 
+**IssuedAtUtc** | **time.Time** | Datetime of issue in UTC timezone. | 
+**ValidFromUtc** | **time.Time** | Valid from datetime in UTC timezone. | 
+**ExpiresAtUtc** | Pointer to **NullableTime** | Datetime of expiry in UTC timezone. | [optional] 
+**Metadata** | Pointer to **map[string]string** | Metadata. | [optional] 
 
 ## Methods
 

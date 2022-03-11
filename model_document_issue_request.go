@@ -18,13 +18,20 @@ import (
 
 // DocumentIssueRequest Document Issue Request.
 type DocumentIssueRequest struct {
+	// Document type id.
 	DocumentTypeId string `json:"documentTypeId"`
+	// Document identifier.
 	Identifier string `json:"identifier"`
+	// Document description.
 	Description string `json:"description"`
 	Receiver DocumentReceiver `json:"receiver"`
+	// Datetime of issue in UTC timezone.
 	IssuedAtUtc time.Time `json:"issuedAtUtc"`
+	// Valid from datetime in UTC timezone.
 	ValidFromUtc time.Time `json:"validFromUtc"`
+	// Datetime of expiry in UTC timezone.
 	ExpiresAtUtc NullableTime `json:"expiresAtUtc,omitempty"`
+	// Metadata.
 	Metadata map[string]string `json:"metadata,omitempty"`
 }
 

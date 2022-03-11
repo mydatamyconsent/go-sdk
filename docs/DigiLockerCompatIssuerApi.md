@@ -27,7 +27,7 @@ import (
 )
 
 func main() {
-    pushUriRequest := *openapiclient.NewPushUriRequest(*openapiclient.NewUriDetails("Aadhaar_example", "Uri_example", "DocType_example", "DocName_example", "DocId_example", "IssuedOn_example", "ValidFrom_example")) // PushUriRequest | Push uri request MyDataMyConsent.Models.DigiLocker.PushUriRequest. (optional)
+    pushUriRequest := *openapiclient.NewPushUriRequest(*openapiclient.NewUriDetails("Aadhaar_example", "Uri_example", "DocType_example", "DocName_example", "DocId_example", "IssuedOn_example", "ValidFrom_example")) // PushUriRequest | Push uri request MyDataMyConsent.DeveloperApi.Models.DigiLocker.PushUriRequest. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -52,7 +52,7 @@ Other parameters are passed through a pointer to a apiDigilockerCompatIssueDocum
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pushUriRequest** | [**PushUriRequest**](PushUriRequest.md) | Push uri request MyDataMyConsent.Models.DigiLocker.PushUriRequest. | 
+ **pushUriRequest** | [**PushUriRequest**](PushUriRequest.md) | Push uri request MyDataMyConsent.DeveloperApi.Models.DigiLocker.PushUriRequest. | 
 
 ### Return type
 

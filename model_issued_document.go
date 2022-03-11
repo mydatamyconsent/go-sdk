@@ -18,13 +18,15 @@ import (
 
 // IssuedDocument Issued Document Identifier.
 type IssuedDocument struct {
-	// Document Identifier.
+	// Document Id.
 	Id string `json:"id"`
-	// Document Identifier. eg: GJ05FG67866586.
+	// Document Identifier.
 	Identifier string `json:"identifier"`
-	// Document type name. eg: Driving License.
+	// Document type name.
 	DocumentType string `json:"documentType"`
+	// User name.
 	IssuedTo string `json:"issuedTo"`
+	// Issued datetime in UTC timezone.
 	IssuedAtUtc time.Time `json:"issuedAtUtc"`
 }
 

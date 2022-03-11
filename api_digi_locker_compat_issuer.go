@@ -33,7 +33,7 @@ type ApiDigilockerCompatIssueDocumentRequest struct {
 	pushUriRequest *PushUriRequest
 }
 
-// Push uri request MyDataMyConsent.Models.DigiLocker.PushUriRequest.
+// Push uri request MyDataMyConsent.DeveloperApi.Models.DigiLocker.PushUriRequest.
 func (r ApiDigilockerCompatIssueDocumentRequest) PushUriRequest(pushUriRequest PushUriRequest) ApiDigilockerCompatIssueDocumentRequest {
 	r.pushUriRequest = &pushUriRequest
 	return r

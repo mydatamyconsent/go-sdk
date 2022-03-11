@@ -171,12 +171,12 @@ type ApiGetIssuedDocumentsRequest struct {
 	pageSize *int32
 }
 
-// From DateTime.
+// From DateTime in UTC timezone.
 func (r ApiGetIssuedDocumentsRequest) FromDateTime(fromDateTime time.Time) ApiGetIssuedDocumentsRequest {
 	r.fromDateTime = &fromDateTime
 	return r
 }
-// To DateTime.
+// To DateTime in UTC timezone.
 func (r ApiGetIssuedDocumentsRequest) ToDateTime(toDateTime time.Time) ApiGetIssuedDocumentsRequest {
 	r.toDateTime = &toDateTime
 	return r
@@ -341,7 +341,7 @@ func (r ApiGetRegisteredDocumentTypesRequest) Execute() (*DocumentTypePaginatedL
 }
 
 /*
-GetRegisteredDocumentTypes Get registered document types.
+GetRegisteredDocumentTypes Get paginated list of registered document types.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetRegisteredDocumentTypesRequest
@@ -749,7 +749,7 @@ func (r ApiUploadDocumentForIndividualRequest) FormFile(formFile *os.File) ApiUp
 	return r
 }
 
-func (r ApiUploadDocumentForIndividualRequest) Execute() (string, *http.Response, error) {
+func (r ApiUploadDocumentForIndividualRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UploadDocumentForIndividualExecute(r)
 }
 
@@ -757,7 +757,7 @@ func (r ApiUploadDocumentForIndividualRequest) Execute() (string, *http.Response
 UploadDocumentForIndividual Upload a document for issuance request of individual.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param issueRequestId Issue Request Id System.Guid.
+ @param issueRequestId Document issue request id.
  @return ApiUploadDocumentForIndividualRequest
 */
 func (a *DocumentsApiService) UploadDocumentForIndividual(ctx context.Context, issueRequestId string) ApiUploadDocumentForIndividualRequest {
@@ -769,18 +769,16 @@ func (a *DocumentsApiService) UploadDocumentForIndividual(ctx context.Context, i
 }
 
 // Execute executes the request
-//  @return string
-func (a *DocumentsApiService) UploadDocumentForIndividualExecute(r ApiUploadDocumentForIndividualRequest) (string, *http.Response, error) {
+func (a *DocumentsApiService) UploadDocumentForIndividualExecute(r ApiUploadDocumentForIndividualRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.UploadDocumentForIndividual")
 	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/v1/documents/issue/individual/upload/{issueRequestId}"
@@ -790,7 +788,7 @@ func (a *DocumentsApiService) UploadDocumentForIndividualExecute(r ApiUploadDocu
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 	if r.formFile == nil {
-		return localVarReturnValue, nil, reportError("formFile is required and must be specified")
+		return nil, reportError("formFile is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -826,19 +824,19 @@ func (a *DocumentsApiService) UploadDocumentForIndividualExecute(r ApiUploadDocu
 	formFiles = append(formFiles, formFile{fileBytes: formFileLocalVarFileBytes, fileName: formFileLocalVarFileName, formFileName: formFileLocalVarFormFileName})
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -851,33 +849,24 @@ func (a *DocumentsApiService) UploadDocumentForIndividualExecute(r ApiUploadDocu
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
+		return localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
+	return localVarHTTPResponse, nil
 }
 
 type ApiUploadDocumentForOrganizationRequest struct {
@@ -892,7 +881,7 @@ func (r ApiUploadDocumentForOrganizationRequest) FormFile(formFile *os.File) Api
 	return r
 }
 
-func (r ApiUploadDocumentForOrganizationRequest) Execute() (string, *http.Response, error) {
+func (r ApiUploadDocumentForOrganizationRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UploadDocumentForOrganizationExecute(r)
 }
 
@@ -900,7 +889,7 @@ func (r ApiUploadDocumentForOrganizationRequest) Execute() (string, *http.Respon
 UploadDocumentForOrganization Upload a document for issuance request of organization.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param issueRequestId Issue Request Id System.Guid.
+ @param issueRequestId Document issue request id System.Guid.
  @return ApiUploadDocumentForOrganizationRequest
 */
 func (a *DocumentsApiService) UploadDocumentForOrganization(ctx context.Context, issueRequestId string) ApiUploadDocumentForOrganizationRequest {
@@ -912,18 +901,16 @@ func (a *DocumentsApiService) UploadDocumentForOrganization(ctx context.Context,
 }
 
 // Execute executes the request
-//  @return string
-func (a *DocumentsApiService) UploadDocumentForOrganizationExecute(r ApiUploadDocumentForOrganizationRequest) (string, *http.Response, error) {
+func (a *DocumentsApiService) UploadDocumentForOrganizationExecute(r ApiUploadDocumentForOrganizationRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.UploadDocumentForOrganization")
 	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/v1/documents/issue/organization/upload/{issueRequestId}"
@@ -933,7 +920,7 @@ func (a *DocumentsApiService) UploadDocumentForOrganizationExecute(r ApiUploadDo
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 	if r.formFile == nil {
-		return localVarReturnValue, nil, reportError("formFile is required and must be specified")
+		return nil, reportError("formFile is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -969,19 +956,19 @@ func (a *DocumentsApiService) UploadDocumentForOrganizationExecute(r ApiUploadDo
 	formFiles = append(formFiles, formFile{fileBytes: formFileLocalVarFileBytes, fileName: formFileLocalVarFileName, formFileName: formFileLocalVarFormFileName})
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -994,31 +981,22 @@ func (a *DocumentsApiService) UploadDocumentForOrganizationExecute(r ApiUploadDo
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v map[string]interface{}
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
+		return localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
+	return localVarHTTPResponse, nil
 }

@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetIssuedDocumentById**](DocumentsApi.md#GetIssuedDocumentById) | **Get** /v1/documents/issued/{documentId} | Get issued document.
 [**GetIssuedDocuments**](DocumentsApi.md#GetIssuedDocuments) | **Get** /v1/documents/issued/{documentTypeId} | Get paginated list of issued documents of given document type.
-[**GetRegisteredDocumentTypes**](DocumentsApi.md#GetRegisteredDocumentTypes) | **Get** /v1/documents/types | Get registered document types.
+[**GetRegisteredDocumentTypes**](DocumentsApi.md#GetRegisteredDocumentTypes) | **Get** /v1/documents/types | Get paginated list of registered document types.
 [**IssueDocumentToIndividual**](DocumentsApi.md#IssueDocumentToIndividual) | **Post** /v1/documents/issue/individual | Issue a new document to an individual user.
 [**IssueDocumentToOrganization**](DocumentsApi.md#IssueDocumentToOrganization) | **Post** /v1/documents/issue/organization | Issue a new document to an organization.
 [**UploadDocumentForIndividual**](DocumentsApi.md#UploadDocumentForIndividual) | **Post** /v1/documents/issue/individual/upload/{issueRequestId} | Upload a document for issuance request of individual.
@@ -103,8 +103,8 @@ import (
 
 func main() {
     documentTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Document type id.
-    fromDateTime := time.Now() // time.Time | From DateTime. (optional)
-    toDateTime := time.Now() // time.Time | To DateTime. (optional)
+    fromDateTime := time.Now() // time.Time | From DateTime in UTC timezone. (optional)
+    toDateTime := time.Now() // time.Time | To DateTime in UTC timezone. (optional)
     pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
     pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
 
@@ -136,8 +136,8 @@ Other parameters are passed through a pointer to a apiGetIssuedDocumentsRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **fromDateTime** | **time.Time** | From DateTime. | 
- **toDateTime** | **time.Time** | To DateTime. | 
+ **fromDateTime** | **time.Time** | From DateTime in UTC timezone. | 
+ **toDateTime** | **time.Time** | To DateTime in UTC timezone. | 
  **pageNo** | **int32** | Page number. | [default to 1]
  **pageSize** | **int32** | Number of items to return. | [default to 25]
 
@@ -163,7 +163,7 @@ No authorization required
 
 > DocumentTypePaginatedList GetRegisteredDocumentTypes(ctx).PageNo(pageNo).PageSize(pageSize).Execute()
 
-Get registered document types.
+Get paginated list of registered document types.
 
 ### Example
 
@@ -245,7 +245,7 @@ import (
 )
 
 func main() {
-    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "Identifier_example", "Description_example", *openapiclient.NewDocumentReceiver("CountryIso2Code_example", []openapiclient.StringStringKeyValuePair{*openapiclient.NewStringStringKeyValuePair()}, openapiclient.IdentificationStrategy("MatchAtLeastOneIdentifier")), time.Now(), time.Now()) // DocumentIssueRequest | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest.
+    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "GJ05FG67866586.", "Description_example", *openapiclient.NewDocumentReceiver("CountryIso2Code_example", []openapiclient.StringStringKeyValuePair{*openapiclient.NewStringStringKeyValuePair()}, openapiclient.IdentificationStrategy("MatchAtLeastOneIdentifier")), time.Now(), time.Now()) // DocumentIssueRequest | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -310,7 +310,7 @@ import (
 )
 
 func main() {
-    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "Identifier_example", "Description_example", *openapiclient.NewDocumentReceiver("CountryIso2Code_example", []openapiclient.StringStringKeyValuePair{*openapiclient.NewStringStringKeyValuePair()}, openapiclient.IdentificationStrategy("MatchAtLeastOneIdentifier")), time.Now(), time.Now()) // DocumentIssueRequest | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest.
+    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "GJ05FG67866586.", "Description_example", *openapiclient.NewDocumentReceiver("CountryIso2Code_example", []openapiclient.StringStringKeyValuePair{*openapiclient.NewStringStringKeyValuePair()}, openapiclient.IdentificationStrategy("MatchAtLeastOneIdentifier")), time.Now(), time.Now()) // DocumentIssueRequest | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -357,7 +357,7 @@ No authorization required
 
 ## UploadDocumentForIndividual
 
-> string UploadDocumentForIndividual(ctx, issueRequestId).FormFile(formFile).Execute()
+> UploadDocumentForIndividual(ctx, issueRequestId).FormFile(formFile).Execute()
 
 Upload a document for issuance request of individual.
 
@@ -374,7 +374,7 @@ import (
 )
 
 func main() {
-    issueRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Issue Request Id System.Guid.
+    issueRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Document issue request id.
     formFile := os.NewFile(1234, "some_file") // *os.File | 
 
     configuration := openapiclient.NewConfiguration()
@@ -384,8 +384,6 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.UploadDocumentForIndividual``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UploadDocumentForIndividual`: string
-    fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.UploadDocumentForIndividual`: %v\n", resp)
 }
 ```
 
@@ -395,7 +393,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**issueRequestId** | **string** | Issue Request Id System.Guid. | 
+**issueRequestId** | **string** | Document issue request id. | 
 
 ### Other Parameters
 
@@ -409,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+ (empty response body)
 
 ### Authorization
 
@@ -427,7 +425,7 @@ No authorization required
 
 ## UploadDocumentForOrganization
 
-> string UploadDocumentForOrganization(ctx, issueRequestId).FormFile(formFile).Execute()
+> UploadDocumentForOrganization(ctx, issueRequestId).FormFile(formFile).Execute()
 
 Upload a document for issuance request of organization.
 
@@ -444,7 +442,7 @@ import (
 )
 
 func main() {
-    issueRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Issue Request Id System.Guid.
+    issueRequestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Document issue request id System.Guid.
     formFile := os.NewFile(1234, "some_file") // *os.File | 
 
     configuration := openapiclient.NewConfiguration()
@@ -454,8 +452,6 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.UploadDocumentForOrganization``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UploadDocumentForOrganization`: string
-    fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.UploadDocumentForOrganization`: %v\n", resp)
 }
 ```
 
@@ -465,7 +461,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**issueRequestId** | **string** | Issue Request Id System.Guid. | 
+**issueRequestId** | **string** | Document issue request id System.Guid. | 
 
 ### Other Parameters
 
@@ -479,7 +475,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+ (empty response body)
 
 ### Authorization
 

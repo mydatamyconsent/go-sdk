@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Request Id. | 
-**DocumentTypeId** | **string** |  | 
-**TypeName** | **string** |  | 
-**Identifier** | **string** |  | 
+**Id** | **string** | Document issue request Id. | 
+**DocumentTypeId** | **string** | Document type Id. | 
+**TypeName** | **string** | Document type name. | 
+**Identifier** | **string** | Document identifier. | 
 **Status** | [**DocumentIssueRequestStatus**](DocumentIssueRequestStatus.md) |  | 
-**Description** | **string** |  | 
-**Receiver** | **interface{}** |  | 
-**IssuedAtUtc** | **time.Time** |  | 
-**ValidFromUtc** | **time.Time** |  | 
-**ExpiresAtUtc** | Pointer to **NullableTime** |  | [optional] 
-**MetaData** | Pointer to **interface{}** |  | [optional] 
-**CreatedAtUtc** | **time.Time** |  | 
+**Description** | **string** | Document description. | 
+**Receiver** | **interface{}** | Document receiver details. | 
+**IssuedAtUtc** | **time.Time** | Datetime of issue in UTC timezone. | 
+**ValidFromUtc** | **time.Time** | Valid from datetime in UTC timezone. | 
+**ExpiresAtUtc** | Pointer to **NullableTime** | Datetime of expiry in UTC timezone. | [optional] 
+**MetaData** | Pointer to **interface{}** | Metadata. | [optional] 
+**CreatedAtUtc** | **time.Time** | Creation datetime of issue request in UTC timezone. | 
 
 ## Methods
 
