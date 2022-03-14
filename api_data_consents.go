@@ -45,8 +45,8 @@ func (r ApiDownloadConsentedDocumentAnalysisRequest) Execute() (*http.Response, 
 DownloadConsentedDocumentAnalysis Get analysis of a consented document.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param consentId
- @param documentId Document Id.
+ @param consentId Data consent id.
+ @param documentId Consented document Id.
  @return ApiDownloadConsentedDocumentAnalysisRequest
 */
 func (a *DataConsentsApiService) DownloadConsentedDocumentAnalysis(ctx context.Context, consentId string, documentId string) ApiDownloadConsentedDocumentAnalysisRequest {
@@ -133,7 +133,7 @@ func (a *DataConsentsApiService) DownloadConsentedDocumentAnalysisExecute(r ApiD
 	return localVarHTTPResponse, nil
 }
 
-type ApiDownloadConsentedDocumentByIdRequest struct {
+type ApiDownloadIndividualConsentedDocumentByIdRequest struct {
 	ctx context.Context
 	ApiService *DataConsentsApiService
 	consentId string
@@ -141,20 +141,20 @@ type ApiDownloadConsentedDocumentByIdRequest struct {
 }
 
 
-func (r ApiDownloadConsentedDocumentByIdRequest) Execute() (*UserDocumentDownload, *http.Response, error) {
-	return r.ApiService.DownloadConsentedDocumentByIdExecute(r)
+func (r ApiDownloadIndividualConsentedDocumentByIdRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DownloadIndividualConsentedDocumentByIdExecute(r)
 }
 
 /*
-DownloadConsentedDocumentById Download a individuals consented document.
+DownloadIndividualConsentedDocumentById Download individual consented document by document id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param consentId Consent id.
- @param documentId Document id.
- @return ApiDownloadConsentedDocumentByIdRequest
+ @param consentId Individual data consent id.
+ @param documentId Consented document id.
+ @return ApiDownloadIndividualConsentedDocumentByIdRequest
 */
-func (a *DataConsentsApiService) DownloadConsentedDocumentById(ctx context.Context, consentId string, documentId string) ApiDownloadConsentedDocumentByIdRequest {
-	return ApiDownloadConsentedDocumentByIdRequest{
+func (a *DataConsentsApiService) DownloadIndividualConsentedDocumentById(ctx context.Context, consentId string, documentId string) ApiDownloadIndividualConsentedDocumentByIdRequest {
+	return ApiDownloadIndividualConsentedDocumentByIdRequest{
 		ApiService: a,
 		ctx: ctx,
 		consentId: consentId,
@@ -163,18 +163,16 @@ func (a *DataConsentsApiService) DownloadConsentedDocumentById(ctx context.Conte
 }
 
 // Execute executes the request
-//  @return UserDocumentDownload
-func (a *DataConsentsApiService) DownloadConsentedDocumentByIdExecute(r ApiDownloadConsentedDocumentByIdRequest) (*UserDocumentDownload, *http.Response, error) {
+func (a *DataConsentsApiService) DownloadIndividualConsentedDocumentByIdExecute(r ApiDownloadIndividualConsentedDocumentByIdRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UserDocumentDownload
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.DownloadConsentedDocumentById")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.DownloadIndividualConsentedDocumentById")
 	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/v1/consents/individuals/{consentId}/documents/{documentId}/download"
@@ -204,19 +202,19 @@ func (a *DataConsentsApiService) DownloadConsentedDocumentByIdExecute(r ApiDownl
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -229,26 +227,17 @@ func (a *DataConsentsApiService) DownloadConsentedDocumentByIdExecute(r ApiDownl
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
+		return localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
+	return localVarHTTPResponse, nil
 }
 
-type ApiDownloadOrgConsentedDocumentByIdRequest struct {
+type ApiDownloadOrganizationConsentedDocumentByIdRequest struct {
 	ctx context.Context
 	ApiService *DataConsentsApiService
 	consentId string
@@ -256,20 +245,20 @@ type ApiDownloadOrgConsentedDocumentByIdRequest struct {
 }
 
 
-func (r ApiDownloadOrgConsentedDocumentByIdRequest) Execute() (*OrganizationDocumentDownloadDto, *http.Response, error) {
-	return r.ApiService.DownloadOrgConsentedDocumentByIdExecute(r)
+func (r ApiDownloadOrganizationConsentedDocumentByIdRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DownloadOrganizationConsentedDocumentByIdExecute(r)
 }
 
 /*
-DownloadOrgConsentedDocumentById Download a organizations consented document.
+DownloadOrganizationConsentedDocumentById Download organization consent document based on document id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param consentId Consent id.
- @param documentId Document id.
- @return ApiDownloadOrgConsentedDocumentByIdRequest
+ @param consentId Organization data consent id.
+ @param documentId Organization consented document Id.
+ @return ApiDownloadOrganizationConsentedDocumentByIdRequest
 */
-func (a *DataConsentsApiService) DownloadOrgConsentedDocumentById(ctx context.Context, consentId string, documentId string) ApiDownloadOrgConsentedDocumentByIdRequest {
-	return ApiDownloadOrgConsentedDocumentByIdRequest{
+func (a *DataConsentsApiService) DownloadOrganizationConsentedDocumentById(ctx context.Context, consentId string, documentId string) ApiDownloadOrganizationConsentedDocumentByIdRequest {
+	return ApiDownloadOrganizationConsentedDocumentByIdRequest{
 		ApiService: a,
 		ctx: ctx,
 		consentId: consentId,
@@ -278,18 +267,16 @@ func (a *DataConsentsApiService) DownloadOrgConsentedDocumentById(ctx context.Co
 }
 
 // Execute executes the request
-//  @return OrganizationDocumentDownloadDto
-func (a *DataConsentsApiService) DownloadOrgConsentedDocumentByIdExecute(r ApiDownloadOrgConsentedDocumentByIdRequest) (*OrganizationDocumentDownloadDto, *http.Response, error) {
+func (a *DataConsentsApiService) DownloadOrganizationConsentedDocumentByIdExecute(r ApiDownloadOrganizationConsentedDocumentByIdRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *OrganizationDocumentDownloadDto
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.DownloadOrgConsentedDocumentById")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.DownloadOrganizationConsentedDocumentById")
 	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/v1/consents/organizations/{consentId}/documents/{documentId}/download"
@@ -319,19 +306,19 @@ func (a *DataConsentsApiService) DownloadOrgConsentedDocumentByIdExecute(r ApiDo
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -344,134 +331,14 @@ func (a *DataConsentsApiService) DownloadOrgConsentedDocumentByIdExecute(r ApiDo
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
+		return localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetAllConsentedDocumentsRequest struct {
-	ctx context.Context
-	ApiService *DataConsentsApiService
-	consentId string
-}
-
-
-func (r ApiGetAllConsentedDocumentsRequest) Execute() (*DataConsentDocumentsDto, *http.Response, error) {
-	return r.ApiService.GetAllConsentedDocumentsExecute(r)
-}
-
-/*
-GetAllConsentedDocuments Get the individual documents based on ConsentId.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param consentId Consent id.
- @return ApiGetAllConsentedDocumentsRequest
-*/
-func (a *DataConsentsApiService) GetAllConsentedDocuments(ctx context.Context, consentId string) ApiGetAllConsentedDocumentsRequest {
-	return ApiGetAllConsentedDocumentsRequest{
-		ApiService: a,
-		ctx: ctx,
-		consentId: consentId,
-	}
-}
-
-// Execute executes the request
-//  @return DataConsentDocumentsDto
-func (a *DataConsentsApiService) GetAllConsentedDocumentsExecute(r ApiGetAllConsentedDocumentsRequest) (*DataConsentDocumentsDto, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DataConsentDocumentsDto
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetAllConsentedDocuments")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/v1/consents/individuals/{consentId}/documents"
-	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v map[string]interface{}
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
+	return localVarHTTPResponse, nil
 }
 
 type ApiGetAllConsentedFinancialAccountsRequest struct {
@@ -516,228 +383,6 @@ func (a *DataConsentsApiService) GetAllConsentedFinancialAccountsExecute(r ApiGe
 	}
 
 	localVarPath := localBasePath + "/v1/consents/individuals/{consentId}/financial-accounts"
-	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v map[string]interface{}
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetAllOrganizationConsentedDocumentsRequest struct {
-	ctx context.Context
-	ApiService *DataConsentsApiService
-	consentId string
-}
-
-
-func (r ApiGetAllOrganizationConsentedDocumentsRequest) Execute() (*DataConsentDocumentsDto, *http.Response, error) {
-	return r.ApiService.GetAllOrganizationConsentedDocumentsExecute(r)
-}
-
-/*
-GetAllOrganizationConsentedDocuments Get the organization documents based on ConsentId.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param consentId Consent id.
- @return ApiGetAllOrganizationConsentedDocumentsRequest
-*/
-func (a *DataConsentsApiService) GetAllOrganizationConsentedDocuments(ctx context.Context, consentId string) ApiGetAllOrganizationConsentedDocumentsRequest {
-	return ApiGetAllOrganizationConsentedDocumentsRequest{
-		ApiService: a,
-		ctx: ctx,
-		consentId: consentId,
-	}
-}
-
-// Execute executes the request
-//  @return DataConsentDocumentsDto
-func (a *DataConsentsApiService) GetAllOrganizationConsentedDocumentsExecute(r ApiGetAllOrganizationConsentedDocumentsRequest) (*DataConsentDocumentsDto, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DataConsentDocumentsDto
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetAllOrganizationConsentedDocuments")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/v1/consents/organizations/{consentId}/documents"
-	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v map[string]interface{}
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetConsentDetailsByIdRequest struct {
-	ctx context.Context
-	ApiService *DataConsentsApiService
-	consentId string
-}
-
-
-func (r ApiGetConsentDetailsByIdRequest) Execute() (*DataConsentDetailsDto, *http.Response, error) {
-	return r.ApiService.GetConsentDetailsByIdExecute(r)
-}
-
-/*
-GetConsentDetailsById Get all individuals consent details by consent id.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param consentId Consent id.
- @return ApiGetConsentDetailsByIdRequest
-*/
-func (a *DataConsentsApiService) GetConsentDetailsById(ctx context.Context, consentId string) ApiGetConsentDetailsByIdRequest {
-	return ApiGetConsentDetailsByIdRequest{
-		ApiService: a,
-		ctx: ctx,
-		consentId: consentId,
-	}
-}
-
-// Execute executes the request
-//  @return DataConsentDetailsDto
-func (a *DataConsentsApiService) GetConsentDetailsByIdExecute(r ApiGetConsentDetailsByIdRequest) (*DataConsentDetailsDto, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DataConsentDetailsDto
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetConsentDetailsById")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/v1/consents/individuals/{consentId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1041,16 +686,16 @@ type ApiGetConsentedDocumentByIdRequest struct {
 }
 
 
-func (r ApiGetConsentedDocumentByIdRequest) Execute() (*UserDocumentDetails, *http.Response, error) {
+func (r ApiGetConsentedDocumentByIdRequest) Execute() (*IndividualDataConsentDocument, *http.Response, error) {
 	return r.ApiService.GetConsentedDocumentByIdExecute(r)
 }
 
 /*
-GetConsentedDocumentById Get individuals consent document based on document id.
+GetConsentedDocumentById Get individual consented document by document id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param consentId Consent id.
- @param documentId Document Id.
+ @param consentId Individual data consent id.
+ @param documentId Consented document id.
  @return ApiGetConsentedDocumentByIdRequest
 */
 func (a *DataConsentsApiService) GetConsentedDocumentById(ctx context.Context, consentId string, documentId string) ApiGetConsentedDocumentByIdRequest {
@@ -1063,13 +708,13 @@ func (a *DataConsentsApiService) GetConsentedDocumentById(ctx context.Context, c
 }
 
 // Execute executes the request
-//  @return UserDocumentDetails
-func (a *DataConsentsApiService) GetConsentedDocumentByIdExecute(r ApiGetConsentedDocumentByIdRequest) (*UserDocumentDetails, *http.Response, error) {
+//  @return IndividualDataConsentDocument
+func (a *DataConsentsApiService) GetConsentedDocumentByIdExecute(r ApiGetConsentedDocumentByIdRequest) (*IndividualDataConsentDocument, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UserDocumentDetails
+		localVarReturnValue  *IndividualDataConsentDocument
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetConsentedDocumentById")
@@ -1527,75 +1172,77 @@ func (a *DataConsentsApiService) GetConsentedFinancialAccountTransactionsExecute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetConsentsForOrganizationsRequest struct {
+type ApiGetConsentsRequest struct {
 	ctx context.Context
 	ApiService *DataConsentsApiService
 	status *DataConsentStatus
-	from *time.Time
-	to *time.Time
+	fromDateTime *time.Time
+	toDateTime *time.Time
 	pageNo *int32
 	pageSize *int32
 }
 
 // Data consent status MyDataMyConsent.Domain.Entities.ConsentAggregate.Enums.DataConsentStatus.
-func (r ApiGetConsentsForOrganizationsRequest) Status(status DataConsentStatus) ApiGetConsentsForOrganizationsRequest {
+func (r ApiGetConsentsRequest) Status(status DataConsentStatus) ApiGetConsentsRequest {
 	r.status = &status
 	return r
 }
-// From date time in utc timezone.
-func (r ApiGetConsentsForOrganizationsRequest) From(from time.Time) ApiGetConsentsForOrganizationsRequest {
-	r.from = &from
+// From datetime in UTC timezone.
+func (r ApiGetConsentsRequest) FromDateTime(fromDateTime time.Time) ApiGetConsentsRequest {
+	r.fromDateTime = &fromDateTime
 	return r
 }
-// Til date time in utc timezone.
-func (r ApiGetConsentsForOrganizationsRequest) To(to time.Time) ApiGetConsentsForOrganizationsRequest {
-	r.to = &to
+// To datetime in UTC timezone.
+func (r ApiGetConsentsRequest) ToDateTime(toDateTime time.Time) ApiGetConsentsRequest {
+	r.toDateTime = &toDateTime
 	return r
 }
 // Page number.
-func (r ApiGetConsentsForOrganizationsRequest) PageNo(pageNo int32) ApiGetConsentsForOrganizationsRequest {
+func (r ApiGetConsentsRequest) PageNo(pageNo int32) ApiGetConsentsRequest {
 	r.pageNo = &pageNo
 	return r
 }
 // Number of items to return.
-func (r ApiGetConsentsForOrganizationsRequest) PageSize(pageSize int32) ApiGetConsentsForOrganizationsRequest {
+func (r ApiGetConsentsRequest) PageSize(pageSize int32) ApiGetConsentsRequest {
 	r.pageSize = &pageSize
 	return r
 }
 
-func (r ApiGetConsentsForOrganizationsRequest) Execute() (*OrganizationDataConsentInfoDtoPaginatedList, *http.Response, error) {
-	return r.ApiService.GetConsentsForOrganizationsExecute(r)
+func (r ApiGetConsentsRequest) Execute() (*IndividualDataConsentDetailsPaginatedList, *http.Response, error) {
+	return r.ApiService.GetConsentsExecute(r)
 }
 
 /*
-GetConsentsForOrganizations Get the list of data consents sent for organizations.
+GetConsents Get the paginated list of individual data consents.
+
+GetIndividualDataConsents
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetConsentsForOrganizationsRequest
+ @return ApiGetConsentsRequest
 */
-func (a *DataConsentsApiService) GetConsentsForOrganizations(ctx context.Context) ApiGetConsentsForOrganizationsRequest {
-	return ApiGetConsentsForOrganizationsRequest{
+func (a *DataConsentsApiService) GetConsents(ctx context.Context) ApiGetConsentsRequest {
+	return ApiGetConsentsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return OrganizationDataConsentInfoDtoPaginatedList
-func (a *DataConsentsApiService) GetConsentsForOrganizationsExecute(r ApiGetConsentsForOrganizationsRequest) (*OrganizationDataConsentInfoDtoPaginatedList, *http.Response, error) {
+//  @return IndividualDataConsentDetailsPaginatedList
+func (a *DataConsentsApiService) GetConsentsExecute(r ApiGetConsentsRequest) (*IndividualDataConsentDetailsPaginatedList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *OrganizationDataConsentInfoDtoPaginatedList
+		localVarReturnValue  *IndividualDataConsentDetailsPaginatedList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetConsentsForOrganizations")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetConsents")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/consents/organizations"
+	localVarPath := localBasePath + "/v1/consents/individuals"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1604,11 +1251,11 @@ func (a *DataConsentsApiService) GetConsentsForOrganizationsExecute(r ApiGetCons
 	if r.status != nil {
 		localVarQueryParams.Add("status", parameterToString(*r.status, ""))
 	}
-	if r.from != nil {
-		localVarQueryParams.Add("from", parameterToString(*r.from, ""))
+	if r.fromDateTime != nil {
+		localVarQueryParams.Add("fromDateTime", parameterToString(*r.fromDateTime, ""))
 	}
-	if r.to != nil {
-		localVarQueryParams.Add("to", parameterToString(*r.to, ""))
+	if r.toDateTime != nil {
+		localVarQueryParams.Add("toDateTime", parameterToString(*r.toDateTime, ""))
 	}
 	if r.pageNo != nil {
 		localVarQueryParams.Add("pageNo", parameterToString(*r.pageNo, ""))
@@ -1679,95 +1326,165 @@ func (a *DataConsentsApiService) GetConsentsForOrganizationsExecute(r ApiGetCons
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetConsentsSentToIndividualsRequest struct {
+type ApiGetIndividualConsentedDocumentsRequest struct {
 	ctx context.Context
 	ApiService *DataConsentsApiService
-	status *DataConsentStatus
-	from *time.Time
-	to *time.Time
-	pageNo *int32
-	pageSize *int32
+	consentId string
 }
 
-// Data consent status MyDataMyConsent.Domain.Entities.ConsentAggregate.Enums.DataConsentStatus.
-func (r ApiGetConsentsSentToIndividualsRequest) Status(status DataConsentStatus) ApiGetConsentsSentToIndividualsRequest {
-	r.status = &status
-	return r
-}
-// From date time in utc timezone.
-func (r ApiGetConsentsSentToIndividualsRequest) From(from time.Time) ApiGetConsentsSentToIndividualsRequest {
-	r.from = &from
-	return r
-}
-// Til date time in utc timezone.
-func (r ApiGetConsentsSentToIndividualsRequest) To(to time.Time) ApiGetConsentsSentToIndividualsRequest {
-	r.to = &to
-	return r
-}
-// Page number.
-func (r ApiGetConsentsSentToIndividualsRequest) PageNo(pageNo int32) ApiGetConsentsSentToIndividualsRequest {
-	r.pageNo = &pageNo
-	return r
-}
-// Number of items to return.
-func (r ApiGetConsentsSentToIndividualsRequest) PageSize(pageSize int32) ApiGetConsentsSentToIndividualsRequest {
-	r.pageSize = &pageSize
-	return r
-}
 
-func (r ApiGetConsentsSentToIndividualsRequest) Execute() (*UserDataConsentInfoDtoPaginatedList, *http.Response, error) {
-	return r.ApiService.GetConsentsSentToIndividualsExecute(r)
+func (r ApiGetIndividualConsentedDocumentsRequest) Execute() ([]IndividualDataConsentDocument, *http.Response, error) {
+	return r.ApiService.GetIndividualConsentedDocumentsExecute(r)
 }
 
 /*
-GetConsentsSentToIndividuals Get the list of Consents Sent to Individuals.
+GetIndividualConsentedDocuments Get individual consented documents by consent id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetConsentsSentToIndividualsRequest
+ @param consentId Individual data consent id.
+ @return ApiGetIndividualConsentedDocumentsRequest
 */
-func (a *DataConsentsApiService) GetConsentsSentToIndividuals(ctx context.Context) ApiGetConsentsSentToIndividualsRequest {
-	return ApiGetConsentsSentToIndividualsRequest{
+func (a *DataConsentsApiService) GetIndividualConsentedDocuments(ctx context.Context, consentId string) ApiGetIndividualConsentedDocumentsRequest {
+	return ApiGetIndividualConsentedDocumentsRequest{
 		ApiService: a,
 		ctx: ctx,
+		consentId: consentId,
 	}
 }
 
 // Execute executes the request
-//  @return UserDataConsentInfoDtoPaginatedList
-func (a *DataConsentsApiService) GetConsentsSentToIndividualsExecute(r ApiGetConsentsSentToIndividualsRequest) (*UserDataConsentInfoDtoPaginatedList, *http.Response, error) {
+//  @return []IndividualDataConsentDocument
+func (a *DataConsentsApiService) GetIndividualConsentedDocumentsExecute(r ApiGetIndividualConsentedDocumentsRequest) ([]IndividualDataConsentDocument, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UserDataConsentInfoDtoPaginatedList
+		localVarReturnValue  []IndividualDataConsentDocument
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetConsentsSentToIndividuals")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetIndividualConsentedDocuments")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/consents/individuals"
+	localVarPath := localBasePath + "/v1/consents/individuals/{consentId}/documents"
+	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.status != nil {
-		localVarQueryParams.Add("status", parameterToString(*r.status, ""))
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
 	}
-	if r.from != nil {
-		localVarQueryParams.Add("from", parameterToString(*r.from, ""))
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.to != nil {
-		localVarQueryParams.Add("to", parameterToString(*r.to, ""))
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
 	}
-	if r.pageNo != nil {
-		localVarQueryParams.Add("pageNo", parameterToString(*r.pageNo, ""))
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetIndividualDataConsentByIdRequest struct {
+	ctx context.Context
+	ApiService *DataConsentsApiService
+	consentId string
+}
+
+
+func (r ApiGetIndividualDataConsentByIdRequest) Execute() (*OneOfDataConsentIndividualDataConsentOrganizationDataConsent, *http.Response, error) {
+	return r.ApiService.GetIndividualDataConsentByIdExecute(r)
+}
+
+/*
+GetIndividualDataConsentById Get individuals data consent details by consent id.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param consentId Individual data consent id.
+ @return ApiGetIndividualDataConsentByIdRequest
+*/
+func (a *DataConsentsApiService) GetIndividualDataConsentById(ctx context.Context, consentId string) ApiGetIndividualDataConsentByIdRequest {
+	return ApiGetIndividualDataConsentByIdRequest{
+		ApiService: a,
+		ctx: ctx,
+		consentId: consentId,
+	}
+}
+
+// Execute executes the request
+//  @return OneOfDataConsentIndividualDataConsentOrganizationDataConsent
+func (a *DataConsentsApiService) GetIndividualDataConsentByIdExecute(r ApiGetIndividualDataConsentByIdRequest) (*OneOfDataConsentIndividualDataConsentOrganizationDataConsent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OneOfDataConsentIndividualDataConsentOrganizationDataConsent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetIndividualDataConsentById")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/consents/individuals/{consentId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1991,26 +1708,141 @@ func (a *DataConsentsApiService) GetOrgConsentedAccountTransactionsExecute(r Api
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetOrganizationConsentDetailsByIdRequest struct {
+type ApiGetOrganizationConsentedDocumentByIdRequest struct {
+	ctx context.Context
+	ApiService *DataConsentsApiService
+	consentId string
+	documentId string
+}
+
+
+func (r ApiGetOrganizationConsentedDocumentByIdRequest) Execute() (*OrganizationDataConsentDocument, *http.Response, error) {
+	return r.ApiService.GetOrganizationConsentedDocumentByIdExecute(r)
+}
+
+/*
+GetOrganizationConsentedDocumentById Get organization consent document based on document id.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param consentId Organization data consent id.
+ @param documentId Organization consented document Id.
+ @return ApiGetOrganizationConsentedDocumentByIdRequest
+*/
+func (a *DataConsentsApiService) GetOrganizationConsentedDocumentById(ctx context.Context, consentId string, documentId string) ApiGetOrganizationConsentedDocumentByIdRequest {
+	return ApiGetOrganizationConsentedDocumentByIdRequest{
+		ApiService: a,
+		ctx: ctx,
+		consentId: consentId,
+		documentId: documentId,
+	}
+}
+
+// Execute executes the request
+//  @return OrganizationDataConsentDocument
+func (a *DataConsentsApiService) GetOrganizationConsentedDocumentByIdExecute(r ApiGetOrganizationConsentedDocumentByIdRequest) (*OrganizationDataConsentDocument, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OrganizationDataConsentDocument
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetOrganizationConsentedDocumentById")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/consents/organizations/{consentId}/documents/{documentId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"documentId"+"}", url.PathEscape(parameterToString(r.documentId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetOrganizationConsentedDocumentsRequest struct {
 	ctx context.Context
 	ApiService *DataConsentsApiService
 	consentId string
 }
 
 
-func (r ApiGetOrganizationConsentDetailsByIdRequest) Execute() (*DataConsentDetailsDto, *http.Response, error) {
-	return r.ApiService.GetOrganizationConsentDetailsByIdExecute(r)
+func (r ApiGetOrganizationConsentedDocumentsRequest) Execute() ([]OrganizationDataConsentDocument, *http.Response, error) {
+	return r.ApiService.GetOrganizationConsentedDocumentsExecute(r)
 }
 
 /*
-GetOrganizationConsentDetailsById Get all organization consent details by consent id.
+GetOrganizationConsentedDocuments Get organization consented documents by consent id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param consentId Consent id.
- @return ApiGetOrganizationConsentDetailsByIdRequest
+ @param consentId Organization data consent id.
+ @return ApiGetOrganizationConsentedDocumentsRequest
 */
-func (a *DataConsentsApiService) GetOrganizationConsentDetailsById(ctx context.Context, consentId string) ApiGetOrganizationConsentDetailsByIdRequest {
-	return ApiGetOrganizationConsentDetailsByIdRequest{
+func (a *DataConsentsApiService) GetOrganizationConsentedDocuments(ctx context.Context, consentId string) ApiGetOrganizationConsentedDocumentsRequest {
+	return ApiGetOrganizationConsentedDocumentsRequest{
 		ApiService: a,
 		ctx: ctx,
 		consentId: consentId,
@@ -2018,16 +1850,127 @@ func (a *DataConsentsApiService) GetOrganizationConsentDetailsById(ctx context.C
 }
 
 // Execute executes the request
-//  @return DataConsentDetailsDto
-func (a *DataConsentsApiService) GetOrganizationConsentDetailsByIdExecute(r ApiGetOrganizationConsentDetailsByIdRequest) (*DataConsentDetailsDto, *http.Response, error) {
+//  @return []OrganizationDataConsentDocument
+func (a *DataConsentsApiService) GetOrganizationConsentedDocumentsExecute(r ApiGetOrganizationConsentedDocumentsRequest) ([]OrganizationDataConsentDocument, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DataConsentDetailsDto
+		localVarReturnValue  []OrganizationDataConsentDocument
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetOrganizationConsentDetailsById")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetOrganizationConsentedDocuments")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/consents/organizations/{consentId}/documents"
+	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetOrganizationDataConsentByIdRequest struct {
+	ctx context.Context
+	ApiService *DataConsentsApiService
+	consentId string
+}
+
+
+func (r ApiGetOrganizationDataConsentByIdRequest) Execute() (*OneOfDataConsentIndividualDataConsentOrganizationDataConsent, *http.Response, error) {
+	return r.ApiService.GetOrganizationDataConsentByIdExecute(r)
+}
+
+/*
+GetOrganizationDataConsentById Get organizations data consent details by consent id.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param consentId Organization data consent id.
+ @return ApiGetOrganizationDataConsentByIdRequest
+*/
+func (a *DataConsentsApiService) GetOrganizationDataConsentById(ctx context.Context, consentId string) ApiGetOrganizationDataConsentByIdRequest {
+	return ApiGetOrganizationDataConsentByIdRequest{
+		ApiService: a,
+		ctx: ctx,
+		consentId: consentId,
+	}
+}
+
+// Execute executes the request
+//  @return OneOfDataConsentIndividualDataConsentOrganizationDataConsent
+func (a *DataConsentsApiService) GetOrganizationDataConsentByIdExecute(r ApiGetOrganizationDataConsentByIdRequest) (*OneOfDataConsentIndividualDataConsentOrganizationDataConsent, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OneOfDataConsentIndividualDataConsentOrganizationDataConsent
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetOrganizationDataConsentById")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2112,58 +2055,95 @@ func (a *DataConsentsApiService) GetOrganizationConsentDetailsByIdExecute(r ApiG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetOrganizationConsentedDocumentByIdRequest struct {
+type ApiGetOrganizationDataConsentsRequest struct {
 	ctx context.Context
 	ApiService *DataConsentsApiService
-	consentId string
-	documentId string
+	status *DataConsentStatus
+	fromDateTime *time.Time
+	toDateTime *time.Time
+	pageNo *int32
+	pageSize *int32
 }
 
+// Data consent status MyDataMyConsent.Domain.Entities.ConsentAggregate.Enums.DataConsentStatus.
+func (r ApiGetOrganizationDataConsentsRequest) Status(status DataConsentStatus) ApiGetOrganizationDataConsentsRequest {
+	r.status = &status
+	return r
+}
+// From datetime in UTC timezone.
+func (r ApiGetOrganizationDataConsentsRequest) FromDateTime(fromDateTime time.Time) ApiGetOrganizationDataConsentsRequest {
+	r.fromDateTime = &fromDateTime
+	return r
+}
+// To datetime in UTC timezone.
+func (r ApiGetOrganizationDataConsentsRequest) ToDateTime(toDateTime time.Time) ApiGetOrganizationDataConsentsRequest {
+	r.toDateTime = &toDateTime
+	return r
+}
+// Page number.
+func (r ApiGetOrganizationDataConsentsRequest) PageNo(pageNo int32) ApiGetOrganizationDataConsentsRequest {
+	r.pageNo = &pageNo
+	return r
+}
+// Number of items to return.
+func (r ApiGetOrganizationDataConsentsRequest) PageSize(pageSize int32) ApiGetOrganizationDataConsentsRequest {
+	r.pageSize = &pageSize
+	return r
+}
 
-func (r ApiGetOrganizationConsentedDocumentByIdRequest) Execute() (*OrganizationDocumentDetails, *http.Response, error) {
-	return r.ApiService.GetOrganizationConsentedDocumentByIdExecute(r)
+func (r ApiGetOrganizationDataConsentsRequest) Execute() (*OrganizationDataConsentDetailsPaginatedList, *http.Response, error) {
+	return r.ApiService.GetOrganizationDataConsentsExecute(r)
 }
 
 /*
-GetOrganizationConsentedDocumentById Get organization consent document based on document id.
+GetOrganizationDataConsents Get the paginated list of organization data consents.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param consentId Consent id.
- @param documentId Document Id.
- @return ApiGetOrganizationConsentedDocumentByIdRequest
+ @return ApiGetOrganizationDataConsentsRequest
 */
-func (a *DataConsentsApiService) GetOrganizationConsentedDocumentById(ctx context.Context, consentId string, documentId string) ApiGetOrganizationConsentedDocumentByIdRequest {
-	return ApiGetOrganizationConsentedDocumentByIdRequest{
+func (a *DataConsentsApiService) GetOrganizationDataConsents(ctx context.Context) ApiGetOrganizationDataConsentsRequest {
+	return ApiGetOrganizationDataConsentsRequest{
 		ApiService: a,
 		ctx: ctx,
-		consentId: consentId,
-		documentId: documentId,
 	}
 }
 
 // Execute executes the request
-//  @return OrganizationDocumentDetails
-func (a *DataConsentsApiService) GetOrganizationConsentedDocumentByIdExecute(r ApiGetOrganizationConsentedDocumentByIdRequest) (*OrganizationDocumentDetails, *http.Response, error) {
+//  @return OrganizationDataConsentDetailsPaginatedList
+func (a *DataConsentsApiService) GetOrganizationDataConsentsExecute(r ApiGetOrganizationDataConsentsRequest) (*OrganizationDataConsentDetailsPaginatedList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *OrganizationDocumentDetails
+		localVarReturnValue  *OrganizationDataConsentDetailsPaginatedList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetOrganizationConsentedDocumentById")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataConsentsApiService.GetOrganizationDataConsents")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/consents/organizations/{consentId}/documents/{documentId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"consentId"+"}", url.PathEscape(parameterToString(r.consentId, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"documentId"+"}", url.PathEscape(parameterToString(r.documentId, "")), -1)
+	localVarPath := localBasePath + "/v1/consents/organizations"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.status != nil {
+		localVarQueryParams.Add("status", parameterToString(*r.status, ""))
+	}
+	if r.fromDateTime != nil {
+		localVarQueryParams.Add("fromDateTime", parameterToString(*r.fromDateTime, ""))
+	}
+	if r.toDateTime != nil {
+		localVarQueryParams.Add("toDateTime", parameterToString(*r.toDateTime, ""))
+	}
+	if r.pageNo != nil {
+		localVarQueryParams.Add("pageNo", parameterToString(*r.pageNo, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

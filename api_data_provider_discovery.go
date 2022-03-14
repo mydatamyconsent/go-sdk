@@ -40,10 +40,10 @@ func (r ApiGetDataProviderByIdRequest) Execute() (*DataProvider, *http.Response,
 }
 
 /*
-GetDataProviderById Get a Data Provider details based on provider id.
+GetDataProviderById Get a Data Provider details by provider id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param providerId Provider id.
+ @param providerId Data provider id.
  @return ApiGetDataProviderByIdRequest
 */
 func (a *DataProviderDiscoveryApiService) GetDataProviderById(ctx context.Context, providerId string) ApiGetDataProviderByIdRequest {
@@ -167,7 +167,7 @@ type ApiGetDataProvidersRequest struct {
 	organizationCategory *string
 	pageNo *int32
 	pageSize *int32
-	country *string
+	countryIso2Code *string
 }
 
 // Account type.
@@ -196,8 +196,8 @@ func (r ApiGetDataProvidersRequest) PageSize(pageSize int32) ApiGetDataProviders
 	return r
 }
 // ISO2 Country code.
-func (r ApiGetDataProvidersRequest) Country(country string) ApiGetDataProvidersRequest {
-	r.country = &country
+func (r ApiGetDataProvidersRequest) CountryIso2Code(countryIso2Code string) ApiGetDataProvidersRequest {
+	r.countryIso2Code = &countryIso2Code
 	return r
 }
 
@@ -254,8 +254,8 @@ func (a *DataProviderDiscoveryApiService) GetDataProvidersExecute(r ApiGetDataPr
 	if r.pageSize != nil {
 		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
 	}
-	if r.country != nil {
-		localVarQueryParams.Add("country", parameterToString(*r.country, ""))
+	if r.countryIso2Code != nil {
+		localVarQueryParams.Add("countryIso2Code", parameterToString(*r.countryIso2Code, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

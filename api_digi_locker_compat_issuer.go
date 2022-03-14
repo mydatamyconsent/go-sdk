@@ -33,7 +33,7 @@ type ApiDigilockerCompatIssueDocumentRequest struct {
 	pushUriRequest *PushUriRequest
 }
 
-// Push uri request MyDataMyConsent.DeveloperApi.Models.DigiLocker.PushUriRequest.
+// Push URI request payload
 func (r ApiDigilockerCompatIssueDocumentRequest) PushUriRequest(pushUriRequest PushUriRequest) ApiDigilockerCompatIssueDocumentRequest {
 	r.pushUriRequest = &pushUriRequest
 	return r
@@ -76,6 +76,9 @@ func (a *DigiLockerCompatIssuerApiService) DigilockerCompatIssueDocumentExecute(
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.pushUriRequest == nil {
+		return localVarReturnValue, nil, reportError("pushUriRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/xml"}

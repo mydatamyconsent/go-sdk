@@ -17,17 +17,22 @@ import (
 
 // ConsentRequestReceiver Consent request receiver details
 type ConsentRequestReceiver struct {
+	// Consent request receiver country ISO 2 code
+	CountryIso2Code string `json:"countryIso2Code"`
 	// Consent request receiver identifiers
-	Identifiers []StringStringKeyValuePair `json:"identifiers,omitempty"`
-	IdentificationStrategy *IdentificationStrategy `json:"identificationStrategy,omitempty"`
+	Identifiers []StringStringKeyValuePair `json:"identifiers"`
+	IdentificationStrategy IdentificationStrategy `json:"identificationStrategy"`
 }
 
 // NewConsentRequestReceiver instantiates a new ConsentRequestReceiver object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConsentRequestReceiver() *ConsentRequestReceiver {
+func NewConsentRequestReceiver(countryIso2Code string, identifiers []StringStringKeyValuePair, identificationStrategy IdentificationStrategy) *ConsentRequestReceiver {
 	this := ConsentRequestReceiver{}
+	this.CountryIso2Code = countryIso2Code
+	this.Identifiers = identifiers
+	this.IdentificationStrategy = identificationStrategy
 	return &this
 }
 
@@ -39,77 +44,87 @@ func NewConsentRequestReceiverWithDefaults() *ConsentRequestReceiver {
 	return &this
 }
 
-// GetIdentifiers returns the Identifiers field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ConsentRequestReceiver) GetIdentifiers() []StringStringKeyValuePair {
+// GetCountryIso2Code returns the CountryIso2Code field value
+func (o *ConsentRequestReceiver) GetCountryIso2Code() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CountryIso2Code
+}
+
+// GetCountryIso2CodeOk returns a tuple with the CountryIso2Code field value
+// and a boolean to check if the value has been set.
+func (o *ConsentRequestReceiver) GetCountryIso2CodeOk() (*string, bool) {
 	if o == nil  {
+		return nil, false
+	}
+	return &o.CountryIso2Code, true
+}
+
+// SetCountryIso2Code sets field value
+func (o *ConsentRequestReceiver) SetCountryIso2Code(v string) {
+	o.CountryIso2Code = v
+}
+
+// GetIdentifiers returns the Identifiers field value
+func (o *ConsentRequestReceiver) GetIdentifiers() []StringStringKeyValuePair {
+	if o == nil {
 		var ret []StringStringKeyValuePair
 		return ret
 	}
+
 	return o.Identifiers
 }
 
-// GetIdentifiersOk returns a tuple with the Identifiers field value if set, nil otherwise
+// GetIdentifiersOk returns a tuple with the Identifiers field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConsentRequestReceiver) GetIdentifiersOk() ([]StringStringKeyValuePair, bool) {
-	if o == nil || o.Identifiers == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return o.Identifiers, true
 }
 
-// HasIdentifiers returns a boolean if a field has been set.
-func (o *ConsentRequestReceiver) HasIdentifiers() bool {
-	if o != nil && o.Identifiers != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetIdentifiers gets a reference to the given []StringStringKeyValuePair and assigns it to the Identifiers field.
+// SetIdentifiers sets field value
 func (o *ConsentRequestReceiver) SetIdentifiers(v []StringStringKeyValuePair) {
 	o.Identifiers = v
 }
 
-// GetIdentificationStrategy returns the IdentificationStrategy field value if set, zero value otherwise.
+// GetIdentificationStrategy returns the IdentificationStrategy field value
 func (o *ConsentRequestReceiver) GetIdentificationStrategy() IdentificationStrategy {
-	if o == nil || o.IdentificationStrategy == nil {
+	if o == nil {
 		var ret IdentificationStrategy
 		return ret
 	}
-	return *o.IdentificationStrategy
+
+	return o.IdentificationStrategy
 }
 
-// GetIdentificationStrategyOk returns a tuple with the IdentificationStrategy field value if set, nil otherwise
+// GetIdentificationStrategyOk returns a tuple with the IdentificationStrategy field value
 // and a boolean to check if the value has been set.
 func (o *ConsentRequestReceiver) GetIdentificationStrategyOk() (*IdentificationStrategy, bool) {
-	if o == nil || o.IdentificationStrategy == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.IdentificationStrategy, true
+	return &o.IdentificationStrategy, true
 }
 
-// HasIdentificationStrategy returns a boolean if a field has been set.
-func (o *ConsentRequestReceiver) HasIdentificationStrategy() bool {
-	if o != nil && o.IdentificationStrategy != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetIdentificationStrategy gets a reference to the given IdentificationStrategy and assigns it to the IdentificationStrategy field.
+// SetIdentificationStrategy sets field value
 func (o *ConsentRequestReceiver) SetIdentificationStrategy(v IdentificationStrategy) {
-	o.IdentificationStrategy = &v
+	o.IdentificationStrategy = v
 }
 
 func (o ConsentRequestReceiver) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Identifiers != nil {
+	if true {
+		toSerialize["countryIso2Code"] = o.CountryIso2Code
+	}
+	if true {
 		toSerialize["identifiers"] = o.Identifiers
 	}
-	if o.IdentificationStrategy != nil {
+	if true {
 		toSerialize["identificationStrategy"] = o.IdentificationStrategy
 	}
 	return json.Marshal(toSerialize)

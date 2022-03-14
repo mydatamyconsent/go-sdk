@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**CreateDataProcessingAgreement**](DataProcessingAgreementsApi.md#CreateDataProcessingAgreement) | **Post** /v1/data-agreements | Create a data processing agreement.
 [**DeleteDataProcessingAgreementById**](DataProcessingAgreementsApi.md#DeleteDataProcessingAgreementById) | **Delete** /v1/data-agreements/{id} | Delete a data processing agreement. This will not delete a published or a agreement in use with consents.
 [**GetDataProcessingAgreementById**](DataProcessingAgreementsApi.md#GetDataProcessingAgreementById) | **Get** /v1/data-agreements/{id} | Get data processing agreement by id.
-[**GetDataProcessingAgreements**](DataProcessingAgreementsApi.md#GetDataProcessingAgreements) | **Get** /v1/data-agreements | Get all data processing agreements.
+[**GetDataProcessingAgreements**](DataProcessingAgreementsApi.md#GetDataProcessingAgreements) | **Get** /v1/data-agreements | Get paginated data processing agreements.
 [**TerminateDataProcessingAgreementById**](DataProcessingAgreementsApi.md#TerminateDataProcessingAgreementById) | **Put** /v1/data-agreements/{id}/terminate | Terminate a data processing agreement.
 [**UpdateDataProcessingAgreement**](DataProcessingAgreementsApi.md#UpdateDataProcessingAgreement) | **Put** /v1/data-agreements/{id} | Update a data processing agreement.
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## CreateDataProcessingAgreement
 
-> DataProcessingAgreementDto CreateDataProcessingAgreement(ctx).CreateDataProcessingAgreementRequestModel(createDataProcessingAgreementRequestModel).Execute()
+> DataProcessingAgreement CreateDataProcessingAgreement(ctx).CreateDataProcessingAgreement(createDataProcessingAgreement).Execute()
 
 Create a data processing agreement.
 
@@ -32,16 +32,16 @@ import (
 )
 
 func main() {
-    createDataProcessingAgreementRequestModel := *openapiclient.NewCreateDataProcessingAgreementRequestModel("Version_example", "Body_example", "AttachmentUrl_example") // CreateDataProcessingAgreementRequestModel | Create data processing agreement MyDataMyConsent.Models.DataProcessingAgreements.CreateDataProcessingAgreementRequestModel. (optional)
+    createDataProcessingAgreement := *openapiclient.NewCreateDataProcessingAgreement("Version_example", "Body_example", "AttachmentUrl_example") // CreateDataProcessingAgreement | Create data processing agreement payload
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataProcessingAgreementsApi.CreateDataProcessingAgreement(context.Background()).CreateDataProcessingAgreementRequestModel(createDataProcessingAgreementRequestModel).Execute()
+    resp, r, err := apiClient.DataProcessingAgreementsApi.CreateDataProcessingAgreement(context.Background()).CreateDataProcessingAgreement(createDataProcessingAgreement).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.CreateDataProcessingAgreement``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateDataProcessingAgreement`: DataProcessingAgreementDto
+    // response from `CreateDataProcessingAgreement`: DataProcessingAgreement
     fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.CreateDataProcessingAgreement`: %v\n", resp)
 }
 ```
@@ -57,11 +57,11 @@ Other parameters are passed through a pointer to a apiCreateDataProcessingAgreem
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createDataProcessingAgreementRequestModel** | [**CreateDataProcessingAgreementRequestModel**](CreateDataProcessingAgreementRequestModel.md) | Create data processing agreement MyDataMyConsent.Models.DataProcessingAgreements.CreateDataProcessingAgreementRequestModel. | 
+ **createDataProcessingAgreement** | [**CreateDataProcessingAgreement**](CreateDataProcessingAgreement.md) | Create data processing agreement payload | 
 
 ### Return type
 
-[**DataProcessingAgreementDto**](DataProcessingAgreementDto.md)
+[**DataProcessingAgreement**](DataProcessingAgreement.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ No authorization required
 
 ## GetDataProcessingAgreementById
 
-> DataProcessingAgreementDto GetDataProcessingAgreementById(ctx, id).Execute()
+> DataProcessingAgreement GetDataProcessingAgreementById(ctx, id).Execute()
 
 Get data processing agreement by id.
 
@@ -171,7 +171,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.GetDataProcessingAgreementById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDataProcessingAgreementById`: DataProcessingAgreementDto
+    // response from `GetDataProcessingAgreementById`: DataProcessingAgreement
     fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.GetDataProcessingAgreementById`: %v\n", resp)
 }
 ```
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataProcessingAgreementDto**](DataProcessingAgreementDto.md)
+[**DataProcessingAgreement**](DataProcessingAgreement.md)
 
 ### Authorization
 
@@ -213,9 +213,9 @@ No authorization required
 
 ## GetDataProcessingAgreements
 
-> DataProcessingAgreementDtoPaginatedList GetDataProcessingAgreements(ctx).PageNo(pageNo).PageSize(pageSize).Execute()
+> DataProcessingAgreementPaginatedList GetDataProcessingAgreements(ctx).PageNo(pageNo).PageSize(pageSize).Execute()
 
-Get all data processing agreements.
+Get paginated data processing agreements.
 
 ### Example
 
@@ -240,7 +240,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.GetDataProcessingAgreements``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetDataProcessingAgreements`: DataProcessingAgreementDtoPaginatedList
+    // response from `GetDataProcessingAgreements`: DataProcessingAgreementPaginatedList
     fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.GetDataProcessingAgreements`: %v\n", resp)
 }
 ```
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataProcessingAgreementDtoPaginatedList**](DataProcessingAgreementDtoPaginatedList.md)
+[**DataProcessingAgreementPaginatedList**](DataProcessingAgreementPaginatedList.md)
 
 ### Authorization
 
@@ -345,7 +345,7 @@ No authorization required
 
 ## UpdateDataProcessingAgreement
 
-> DataProcessingAgreementDto UpdateDataProcessingAgreement(ctx, id).UpdateDataProcessingAgreementRequestModel(updateDataProcessingAgreementRequestModel).Execute()
+> DataProcessingAgreement UpdateDataProcessingAgreement(ctx, id).UpdateDataProcessingAgreement(updateDataProcessingAgreement).Execute()
 
 Update a data processing agreement.
 
@@ -363,16 +363,16 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Agreement id.
-    updateDataProcessingAgreementRequestModel := *openapiclient.NewUpdateDataProcessingAgreementRequestModel("Version_example", "Body_example", "AttachmentUrl_example") // UpdateDataProcessingAgreementRequestModel | Updated data processing agreement MyDataMyConsent.Models.DataProcessingAgreements.UpdateDataProcessingAgreementRequestModel. (optional)
+    updateDataProcessingAgreement := *openapiclient.NewUpdateDataProcessingAgreement("Version_example", "Body_example", "AttachmentUrl_example") // UpdateDataProcessingAgreement | Update data processing agreement payload
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataProcessingAgreementsApi.UpdateDataProcessingAgreement(context.Background(), id).UpdateDataProcessingAgreementRequestModel(updateDataProcessingAgreementRequestModel).Execute()
+    resp, r, err := apiClient.DataProcessingAgreementsApi.UpdateDataProcessingAgreement(context.Background(), id).UpdateDataProcessingAgreement(updateDataProcessingAgreement).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DataProcessingAgreementsApi.UpdateDataProcessingAgreement``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateDataProcessingAgreement`: DataProcessingAgreementDto
+    // response from `UpdateDataProcessingAgreement`: DataProcessingAgreement
     fmt.Fprintf(os.Stdout, "Response from `DataProcessingAgreementsApi.UpdateDataProcessingAgreement`: %v\n", resp)
 }
 ```
@@ -393,11 +393,11 @@ Other parameters are passed through a pointer to a apiUpdateDataProcessingAgreem
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateDataProcessingAgreementRequestModel** | [**UpdateDataProcessingAgreementRequestModel**](UpdateDataProcessingAgreementRequestModel.md) | Updated data processing agreement MyDataMyConsent.Models.DataProcessingAgreements.UpdateDataProcessingAgreementRequestModel. | 
+ **updateDataProcessingAgreement** | [**UpdateDataProcessingAgreement**](UpdateDataProcessingAgreement.md) | Update data processing agreement payload | 
 
 ### Return type
 
-[**DataProcessingAgreementDto**](DataProcessingAgreementDto.md)
+[**DataProcessingAgreement**](DataProcessingAgreement.md)
 
 ### Authorization
 

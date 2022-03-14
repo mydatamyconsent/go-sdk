@@ -4,24 +4,24 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **NullableString** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Id** | **string** |  | 
+**Name** | **string** |  | 
+**Category** | **string** |  | 
 **LogoUrl** | Pointer to **NullableString** |  | [optional] 
 **Website** | Pointer to **NullableString** |  | [optional] 
-**Email** | Pointer to **NullableString** |  | [optional] 
-**SupportPhoneNumber** | Pointer to **NullableString** |  | [optional] 
+**SupportEmail** | Pointer to **NullableString** |  | [optional] 
+**HelpLineNumber** | Pointer to **NullableString** |  | [optional] 
 **PrivacyPolicy** | Pointer to **NullableString** |  | [optional] 
 **TermOfService** | Pointer to **NullableString** |  | [optional] 
-**Category** | Pointer to **NullableString** |  | [optional] 
 **DataProtectionOfficer** | Pointer to [**DataProtectionOfficer**](DataProtectionOfficer.md) |  | [optional] 
+**SupportedDocumentTypes** | **[]string** |  | 
 **SupportedAccountTypes** | Pointer to **[]string** |  | [optional] 
-**SupportedDocumentTypes** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
 ### NewDataProvider
 
-`func NewDataProvider() *DataProvider`
+`func NewDataProvider(id string, name string, category string, supportedDocumentTypes []string, ) *DataProvider`
 
 NewDataProvider instantiates a new DataProvider object
 This constructor will assign default values to properties that have it defined,
@@ -55,22 +55,7 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
 
-`func (o *DataProvider) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
-### SetIdNil
-
-`func (o *DataProvider) SetIdNil(b bool)`
-
- SetIdNil sets the value for Id to be an explicit nil
-
-### UnsetId
-`func (o *DataProvider) UnsetId()`
-
-UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *DataProvider) GetName() string`
@@ -90,22 +75,27 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *DataProvider) HasName() bool`
+### GetCategory
 
-HasName returns a boolean if a field has been set.
+`func (o *DataProvider) GetCategory() string`
 
-### SetNameNil
+GetCategory returns the Category field if non-nil, zero value otherwise.
 
-`func (o *DataProvider) SetNameNil(b bool)`
+### GetCategoryOk
 
- SetNameNil sets the value for Name to be an explicit nil
+`func (o *DataProvider) GetCategoryOk() (*string, bool)`
 
-### UnsetName
-`func (o *DataProvider) UnsetName()`
+GetCategoryOk returns a tuple with the Category field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
 
-UnsetName ensures that no value is present for Name, not even an explicit nil
+### SetCategory
+
+`func (o *DataProvider) SetCategory(v string)`
+
+SetCategory sets Category field to given value.
+
+
 ### GetLogoUrl
 
 `func (o *DataProvider) GetLogoUrl() string`
@@ -176,76 +166,76 @@ HasWebsite returns a boolean if a field has been set.
 `func (o *DataProvider) UnsetWebsite()`
 
 UnsetWebsite ensures that no value is present for Website, not even an explicit nil
-### GetEmail
+### GetSupportEmail
 
-`func (o *DataProvider) GetEmail() string`
+`func (o *DataProvider) GetSupportEmail() string`
 
-GetEmail returns the Email field if non-nil, zero value otherwise.
+GetSupportEmail returns the SupportEmail field if non-nil, zero value otherwise.
 
-### GetEmailOk
+### GetSupportEmailOk
 
-`func (o *DataProvider) GetEmailOk() (*string, bool)`
+`func (o *DataProvider) GetSupportEmailOk() (*string, bool)`
 
-GetEmailOk returns a tuple with the Email field if it's non-nil, zero value otherwise
+GetSupportEmailOk returns a tuple with the SupportEmail field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEmail
+### SetSupportEmail
 
-`func (o *DataProvider) SetEmail(v string)`
+`func (o *DataProvider) SetSupportEmail(v string)`
 
-SetEmail sets Email field to given value.
+SetSupportEmail sets SupportEmail field to given value.
 
-### HasEmail
+### HasSupportEmail
 
-`func (o *DataProvider) HasEmail() bool`
+`func (o *DataProvider) HasSupportEmail() bool`
 
-HasEmail returns a boolean if a field has been set.
+HasSupportEmail returns a boolean if a field has been set.
 
-### SetEmailNil
+### SetSupportEmailNil
 
-`func (o *DataProvider) SetEmailNil(b bool)`
+`func (o *DataProvider) SetSupportEmailNil(b bool)`
 
- SetEmailNil sets the value for Email to be an explicit nil
+ SetSupportEmailNil sets the value for SupportEmail to be an explicit nil
 
-### UnsetEmail
-`func (o *DataProvider) UnsetEmail()`
+### UnsetSupportEmail
+`func (o *DataProvider) UnsetSupportEmail()`
 
-UnsetEmail ensures that no value is present for Email, not even an explicit nil
-### GetSupportPhoneNumber
+UnsetSupportEmail ensures that no value is present for SupportEmail, not even an explicit nil
+### GetHelpLineNumber
 
-`func (o *DataProvider) GetSupportPhoneNumber() string`
+`func (o *DataProvider) GetHelpLineNumber() string`
 
-GetSupportPhoneNumber returns the SupportPhoneNumber field if non-nil, zero value otherwise.
+GetHelpLineNumber returns the HelpLineNumber field if non-nil, zero value otherwise.
 
-### GetSupportPhoneNumberOk
+### GetHelpLineNumberOk
 
-`func (o *DataProvider) GetSupportPhoneNumberOk() (*string, bool)`
+`func (o *DataProvider) GetHelpLineNumberOk() (*string, bool)`
 
-GetSupportPhoneNumberOk returns a tuple with the SupportPhoneNumber field if it's non-nil, zero value otherwise
+GetHelpLineNumberOk returns a tuple with the HelpLineNumber field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSupportPhoneNumber
+### SetHelpLineNumber
 
-`func (o *DataProvider) SetSupportPhoneNumber(v string)`
+`func (o *DataProvider) SetHelpLineNumber(v string)`
 
-SetSupportPhoneNumber sets SupportPhoneNumber field to given value.
+SetHelpLineNumber sets HelpLineNumber field to given value.
 
-### HasSupportPhoneNumber
+### HasHelpLineNumber
 
-`func (o *DataProvider) HasSupportPhoneNumber() bool`
+`func (o *DataProvider) HasHelpLineNumber() bool`
 
-HasSupportPhoneNumber returns a boolean if a field has been set.
+HasHelpLineNumber returns a boolean if a field has been set.
 
-### SetSupportPhoneNumberNil
+### SetHelpLineNumberNil
 
-`func (o *DataProvider) SetSupportPhoneNumberNil(b bool)`
+`func (o *DataProvider) SetHelpLineNumberNil(b bool)`
 
- SetSupportPhoneNumberNil sets the value for SupportPhoneNumber to be an explicit nil
+ SetHelpLineNumberNil sets the value for HelpLineNumber to be an explicit nil
 
-### UnsetSupportPhoneNumber
-`func (o *DataProvider) UnsetSupportPhoneNumber()`
+### UnsetHelpLineNumber
+`func (o *DataProvider) UnsetHelpLineNumber()`
 
-UnsetSupportPhoneNumber ensures that no value is present for SupportPhoneNumber, not even an explicit nil
+UnsetHelpLineNumber ensures that no value is present for HelpLineNumber, not even an explicit nil
 ### GetPrivacyPolicy
 
 `func (o *DataProvider) GetPrivacyPolicy() string`
@@ -316,41 +306,6 @@ HasTermOfService returns a boolean if a field has been set.
 `func (o *DataProvider) UnsetTermOfService()`
 
 UnsetTermOfService ensures that no value is present for TermOfService, not even an explicit nil
-### GetCategory
-
-`func (o *DataProvider) GetCategory() string`
-
-GetCategory returns the Category field if non-nil, zero value otherwise.
-
-### GetCategoryOk
-
-`func (o *DataProvider) GetCategoryOk() (*string, bool)`
-
-GetCategoryOk returns a tuple with the Category field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCategory
-
-`func (o *DataProvider) SetCategory(v string)`
-
-SetCategory sets Category field to given value.
-
-### HasCategory
-
-`func (o *DataProvider) HasCategory() bool`
-
-HasCategory returns a boolean if a field has been set.
-
-### SetCategoryNil
-
-`func (o *DataProvider) SetCategoryNil(b bool)`
-
- SetCategoryNil sets the value for Category to be an explicit nil
-
-### UnsetCategory
-`func (o *DataProvider) UnsetCategory()`
-
-UnsetCategory ensures that no value is present for Category, not even an explicit nil
 ### GetDataProtectionOfficer
 
 `func (o *DataProvider) GetDataProtectionOfficer() DataProtectionOfficer`
@@ -375,6 +330,26 @@ SetDataProtectionOfficer sets DataProtectionOfficer field to given value.
 `func (o *DataProvider) HasDataProtectionOfficer() bool`
 
 HasDataProtectionOfficer returns a boolean if a field has been set.
+
+### GetSupportedDocumentTypes
+
+`func (o *DataProvider) GetSupportedDocumentTypes() []string`
+
+GetSupportedDocumentTypes returns the SupportedDocumentTypes field if non-nil, zero value otherwise.
+
+### GetSupportedDocumentTypesOk
+
+`func (o *DataProvider) GetSupportedDocumentTypesOk() (*[]string, bool)`
+
+GetSupportedDocumentTypesOk returns a tuple with the SupportedDocumentTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedDocumentTypes
+
+`func (o *DataProvider) SetSupportedDocumentTypes(v []string)`
+
+SetSupportedDocumentTypes sets SupportedDocumentTypes field to given value.
+
 
 ### GetSupportedAccountTypes
 
@@ -411,41 +386,6 @@ HasSupportedAccountTypes returns a boolean if a field has been set.
 `func (o *DataProvider) UnsetSupportedAccountTypes()`
 
 UnsetSupportedAccountTypes ensures that no value is present for SupportedAccountTypes, not even an explicit nil
-### GetSupportedDocumentTypes
-
-`func (o *DataProvider) GetSupportedDocumentTypes() []string`
-
-GetSupportedDocumentTypes returns the SupportedDocumentTypes field if non-nil, zero value otherwise.
-
-### GetSupportedDocumentTypesOk
-
-`func (o *DataProvider) GetSupportedDocumentTypesOk() (*[]string, bool)`
-
-GetSupportedDocumentTypesOk returns a tuple with the SupportedDocumentTypes field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSupportedDocumentTypes
-
-`func (o *DataProvider) SetSupportedDocumentTypes(v []string)`
-
-SetSupportedDocumentTypes sets SupportedDocumentTypes field to given value.
-
-### HasSupportedDocumentTypes
-
-`func (o *DataProvider) HasSupportedDocumentTypes() bool`
-
-HasSupportedDocumentTypes returns a boolean if a field has been set.
-
-### SetSupportedDocumentTypesNil
-
-`func (o *DataProvider) SetSupportedDocumentTypesNil(b bool)`
-
- SetSupportedDocumentTypesNil sets the value for SupportedDocumentTypes to be an explicit nil
-
-### UnsetSupportedDocumentTypes
-`func (o *DataProvider) UnsetSupportedDocumentTypes()`
-
-UnsetSupportedDocumentTypes ensures that no value is present for SupportedDocumentTypes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

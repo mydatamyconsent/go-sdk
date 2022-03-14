@@ -4,7 +4,7 @@ All URIs are relative to *https://api.mydatamyconsent.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetDataProviderById**](DataProviderDiscoveryApi.md#GetDataProviderById) | **Get** /v1/data-providers/{providerId} | Get a Data Provider details based on provider id.
+[**GetDataProviderById**](DataProviderDiscoveryApi.md#GetDataProviderById) | **Get** /v1/data-providers/{providerId} | Get a Data Provider details by provider id.
 [**GetDataProviders**](DataProviderDiscoveryApi.md#GetDataProviders) | **Get** /v1/data-providers | Discover all data providers in My Data My Consent by country and filters.
 
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 > DataProvider GetDataProviderById(ctx, providerId).Execute()
 
-Get a Data Provider details based on provider id.
+Get a Data Provider details by provider id.
 
 ### Example
 
@@ -28,7 +28,7 @@ import (
 )
 
 func main() {
-    providerId := "providerId_example" // string | Provider id.
+    providerId := "providerId_example" // string | Data provider id.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -48,7 +48,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**providerId** | **string** | Provider id. | 
+**providerId** | **string** | Data provider id. | 
 
 ### Other Parameters
 
@@ -79,7 +79,7 @@ No authorization required
 
 ## GetDataProviders
 
-> DataProviderPaginatedList GetDataProviders(ctx).AccountType(accountType).DocumentType(documentType).OrganizationCategory(organizationCategory).PageNo(pageNo).PageSize(pageSize).Country(country).Execute()
+> DataProviderPaginatedList GetDataProviders(ctx).AccountType(accountType).DocumentType(documentType).OrganizationCategory(organizationCategory).PageNo(pageNo).PageSize(pageSize).CountryIso2Code(countryIso2Code).Execute()
 
 Discover all data providers in My Data My Consent by country and filters.
 
@@ -101,11 +101,11 @@ func main() {
     organizationCategory := "organizationCategory_example" // string | Organization category. (optional)
     pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
     pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
-    country := "country_example" // string | ISO2 Country code. (optional) (default to "IN")
+    countryIso2Code := "countryIso2Code_example" // string | ISO2 Country code. (optional) (default to "IN")
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataProviderDiscoveryApi.GetDataProviders(context.Background()).AccountType(accountType).DocumentType(documentType).OrganizationCategory(organizationCategory).PageNo(pageNo).PageSize(pageSize).Country(country).Execute()
+    resp, r, err := apiClient.DataProviderDiscoveryApi.GetDataProviders(context.Background()).AccountType(accountType).DocumentType(documentType).OrganizationCategory(organizationCategory).PageNo(pageNo).PageSize(pageSize).CountryIso2Code(countryIso2Code).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DataProviderDiscoveryApi.GetDataProviders``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
  **organizationCategory** | **string** | Organization category. | 
  **pageNo** | **int32** | Page number. | [default to 1]
  **pageSize** | **int32** | Number of items to return. | [default to 25]
- **country** | **string** | ISO2 Country code. | [default to &quot;IN&quot;]
+ **countryIso2Code** | **string** | ISO2 Country code. | [default to &quot;IN&quot;]
 
 ### Return type
 

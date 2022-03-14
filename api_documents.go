@@ -459,7 +459,7 @@ type ApiIssueDocumentToIndividualRequest struct {
 	documentIssueRequest *DocumentIssueRequest
 }
 
-// Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest.
+// Document issue request payload
 func (r ApiIssueDocumentToIndividualRequest) DocumentIssueRequest(documentIssueRequest DocumentIssueRequest) ApiIssueDocumentToIndividualRequest {
 	r.documentIssueRequest = &documentIssueRequest
 	return r
@@ -597,7 +597,7 @@ type ApiIssueDocumentToOrganizationRequest struct {
 	documentIssueRequest *DocumentIssueRequest
 }
 
-// Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest.
+// Document issue request payload
 func (r ApiIssueDocumentToOrganizationRequest) DocumentIssueRequest(documentIssueRequest DocumentIssueRequest) ApiIssueDocumentToOrganizationRequest {
 	r.documentIssueRequest = &documentIssueRequest
 	return r

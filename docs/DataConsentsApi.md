@@ -5,23 +5,23 @@ All URIs are relative to *https://api.mydatamyconsent.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DownloadConsentedDocumentAnalysis**](DataConsentsApi.md#DownloadConsentedDocumentAnalysis) | **Get** /v1/consents/{consentId}/documents/{documentId}/analysis | Get analysis of a consented document.
-[**DownloadConsentedDocumentById**](DataConsentsApi.md#DownloadConsentedDocumentById) | **Get** /v1/consents/individuals/{consentId}/documents/{documentId}/download | Download a individuals consented document.
-[**DownloadOrgConsentedDocumentById**](DataConsentsApi.md#DownloadOrgConsentedDocumentById) | **Get** /v1/consents/organizations/{consentId}/documents/{documentId}/download | Download a organizations consented document.
-[**GetAllConsentedDocuments**](DataConsentsApi.md#GetAllConsentedDocuments) | **Get** /v1/consents/individuals/{consentId}/documents | Get the individual documents based on ConsentId.
+[**DownloadIndividualConsentedDocumentById**](DataConsentsApi.md#DownloadIndividualConsentedDocumentById) | **Get** /v1/consents/individuals/{consentId}/documents/{documentId}/download | Download individual consented document by document id.
+[**DownloadOrganizationConsentedDocumentById**](DataConsentsApi.md#DownloadOrganizationConsentedDocumentById) | **Get** /v1/consents/organizations/{consentId}/documents/{documentId}/download | Download organization consent document based on document id.
 [**GetAllConsentedFinancialAccounts**](DataConsentsApi.md#GetAllConsentedFinancialAccounts) | **Get** /v1/consents/individuals/{consentId}/financial-accounts | Get all individual consented financial accounts.
-[**GetAllOrganizationConsentedDocuments**](DataConsentsApi.md#GetAllOrganizationConsentedDocuments) | **Get** /v1/consents/organizations/{consentId}/documents | Get the organization documents based on ConsentId.
-[**GetConsentDetailsById**](DataConsentsApi.md#GetConsentDetailsById) | **Get** /v1/consents/individuals/{consentId} | Get all individuals consent details by consent id.
 [**GetConsentFinancialAccounts**](DataConsentsApi.md#GetConsentFinancialAccounts) | **Get** /v1/consents/organizations/{consentId}/financial-accounts | Get all organizational consented financial accounts.
 [**GetConsentedAccountById**](DataConsentsApi.md#GetConsentedAccountById) | **Get** /v1/consents/individuals/{consentId}/financial-accounts/{accountId} | Get individual consented financial account details based on account id.
-[**GetConsentedDocumentById**](DataConsentsApi.md#GetConsentedDocumentById) | **Get** /v1/consents/individuals/{consentId}/documents/{documentId} | Get individuals consent document based on document id.
+[**GetConsentedDocumentById**](DataConsentsApi.md#GetConsentedDocumentById) | **Get** /v1/consents/individuals/{consentId}/documents/{documentId} | Get individual consented document by document id.
 [**GetConsentedFinancialAccount**](DataConsentsApi.md#GetConsentedFinancialAccount) | **Get** /v1/consents/organizations/{consentId}/financial-accounts/{accountId} | Get organization consented financial account details based on account id.
 [**GetConsentedFinancialAccountInsights**](DataConsentsApi.md#GetConsentedFinancialAccountInsights) | **Get** /v1/consents/{consentId}/financial-accounts/{accountId}/insights | Get consented financial account insights.
 [**GetConsentedFinancialAccountTransactions**](DataConsentsApi.md#GetConsentedFinancialAccountTransactions) | **Get** /v1/consents/individuals/{consentId}/financial-accounts/{accountId}/transactions | Get individual consented financial account transactions of an individual based on accountId.
-[**GetConsentsForOrganizations**](DataConsentsApi.md#GetConsentsForOrganizations) | **Get** /v1/consents/organizations | Get the list of data consents sent for organizations.
-[**GetConsentsSentToIndividuals**](DataConsentsApi.md#GetConsentsSentToIndividuals) | **Get** /v1/consents/individuals | Get the list of Consents Sent to Individuals.
+[**GetConsents**](DataConsentsApi.md#GetConsents) | **Get** /v1/consents/individuals | Get the paginated list of individual data consents.
+[**GetIndividualConsentedDocuments**](DataConsentsApi.md#GetIndividualConsentedDocuments) | **Get** /v1/consents/individuals/{consentId}/documents | Get individual consented documents by consent id.
+[**GetIndividualDataConsentById**](DataConsentsApi.md#GetIndividualDataConsentById) | **Get** /v1/consents/individuals/{consentId} | Get individuals data consent details by consent id.
 [**GetOrgConsentedAccountTransactions**](DataConsentsApi.md#GetOrgConsentedAccountTransactions) | **Get** /v1/consents/organizations/{consentId}/financial-accounts/{accountId}/transactions | Get organization consented financial account transactions of an individual based on accountId.
-[**GetOrganizationConsentDetailsById**](DataConsentsApi.md#GetOrganizationConsentDetailsById) | **Get** /v1/consents/organizations/{consentId} | Get all organization consent details by consent id.
 [**GetOrganizationConsentedDocumentById**](DataConsentsApi.md#GetOrganizationConsentedDocumentById) | **Get** /v1/consents/organizations/{consentId}/documents/{documentId} | Get organization consent document based on document id.
+[**GetOrganizationConsentedDocuments**](DataConsentsApi.md#GetOrganizationConsentedDocuments) | **Get** /v1/consents/organizations/{consentId}/documents | Get organization consented documents by consent id.
+[**GetOrganizationDataConsentById**](DataConsentsApi.md#GetOrganizationDataConsentById) | **Get** /v1/consents/organizations/{consentId} | Get organizations data consent details by consent id.
+[**GetOrganizationDataConsents**](DataConsentsApi.md#GetOrganizationDataConsents) | **Get** /v1/consents/organizations | Get the paginated list of organization data consents.
 
 
 
@@ -44,8 +44,8 @@ import (
 )
 
 func main() {
-    consentId := "consentId_example" // string | 
-    documentId := "documentId_example" // string | Document Id.
+    consentId := "consentId_example" // string | Data consent id.
+    documentId := "documentId_example" // string | Consented document Id.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -63,8 +63,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**consentId** | **string** |  | 
-**documentId** | **string** | Document Id. | 
+**consentId** | **string** | Data consent id. | 
+**documentId** | **string** | Consented document Id. | 
 
 ### Other Parameters
 
@@ -94,11 +94,11 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## DownloadConsentedDocumentById
+## DownloadIndividualConsentedDocumentById
 
-> UserDocumentDownload DownloadConsentedDocumentById(ctx, consentId, documentId).Execute()
+> DownloadIndividualConsentedDocumentById(ctx, consentId, documentId).Execute()
 
-Download a individuals consented document.
+Download individual consented document by document id.
 
 ### Example
 
@@ -113,18 +113,16 @@ import (
 )
 
 func main() {
-    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Consent id.
-    documentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Document id.
+    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Individual data consent id.
+    documentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Consented document id.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataConsentsApi.DownloadConsentedDocumentById(context.Background(), consentId, documentId).Execute()
+    resp, r, err := apiClient.DataConsentsApi.DownloadIndividualConsentedDocumentById(context.Background(), consentId, documentId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.DownloadConsentedDocumentById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.DownloadIndividualConsentedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DownloadConsentedDocumentById`: UserDocumentDownload
-    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.DownloadConsentedDocumentById`: %v\n", resp)
 }
 ```
 
@@ -134,12 +132,12 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**consentId** | **string** | Consent id. | 
-**documentId** | **string** | Document id. | 
+**consentId** | **string** | Individual data consent id. | 
+**documentId** | **string** | Consented document id. | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDownloadConsentedDocumentByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDownloadIndividualConsentedDocumentByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -149,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserDocumentDownload**](UserDocumentDownload.md)
+ (empty response body)
 
 ### Authorization
 
@@ -165,82 +163,11 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## DownloadOrgConsentedDocumentById
+## DownloadOrganizationConsentedDocumentById
 
-> OrganizationDocumentDownloadDto DownloadOrgConsentedDocumentById(ctx, consentId, documentId).Execute()
+> DownloadOrganizationConsentedDocumentById(ctx, consentId, documentId).Execute()
 
-Download a organizations consented document.
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Consent id.
-    documentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Document id.
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataConsentsApi.DownloadOrgConsentedDocumentById(context.Background(), consentId, documentId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.DownloadOrgConsentedDocumentById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DownloadOrgConsentedDocumentById`: OrganizationDocumentDownloadDto
-    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.DownloadOrgConsentedDocumentById`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**consentId** | **string** | Consent id. | 
-**documentId** | **string** | Document id. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDownloadOrgConsentedDocumentByIdRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-### Return type
-
-[**OrganizationDocumentDownloadDto**](OrganizationDocumentDownloadDto.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetAllConsentedDocuments
-
-> DataConsentDocumentsDto GetAllConsentedDocuments(ctx, consentId).Execute()
-
-Get the individual documents based on ConsentId.
+Download organization consent document based on document id.
 
 ### Example
 
@@ -255,17 +182,16 @@ import (
 )
 
 func main() {
-    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Consent id.
+    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Organization data consent id.
+    documentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Organization consented document Id.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataConsentsApi.GetAllConsentedDocuments(context.Background(), consentId).Execute()
+    resp, r, err := apiClient.DataConsentsApi.DownloadOrganizationConsentedDocumentById(context.Background(), consentId, documentId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetAllConsentedDocuments``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.DownloadOrganizationConsentedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetAllConsentedDocuments`: DataConsentDocumentsDto
-    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetAllConsentedDocuments`: %v\n", resp)
 }
 ```
 
@@ -275,20 +201,22 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**consentId** | **string** | Consent id. | 
+**consentId** | **string** | Organization data consent id. | 
+**documentId** | **string** | Organization consented document Id. | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetAllConsentedDocumentsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDownloadOrganizationConsentedDocumentByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+
 ### Return type
 
-[**DataConsentDocumentsDto**](DataConsentDocumentsDto.md)
+ (empty response body)
 
 ### Authorization
 
@@ -357,142 +285,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DataConsentFinancialsDto**](DataConsentFinancialsDto.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetAllOrganizationConsentedDocuments
-
-> DataConsentDocumentsDto GetAllOrganizationConsentedDocuments(ctx, consentId).Execute()
-
-Get the organization documents based on ConsentId.
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Consent id.
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataConsentsApi.GetAllOrganizationConsentedDocuments(context.Background(), consentId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetAllOrganizationConsentedDocuments``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAllOrganizationConsentedDocuments`: DataConsentDocumentsDto
-    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetAllOrganizationConsentedDocuments`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**consentId** | **string** | Consent id. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetAllOrganizationConsentedDocumentsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**DataConsentDocumentsDto**](DataConsentDocumentsDto.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetConsentDetailsById
-
-> DataConsentDetailsDto GetConsentDetailsById(ctx, consentId).Execute()
-
-Get all individuals consent details by consent id.
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Consent id.
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataConsentsApi.GetConsentDetailsById(context.Background(), consentId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetConsentDetailsById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetConsentDetailsById`: DataConsentDetailsDto
-    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetConsentDetailsById`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**consentId** | **string** | Consent id. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetConsentDetailsByIdRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**DataConsentDetailsDto**](DataConsentDetailsDto.md)
 
 ### Authorization
 
@@ -649,9 +441,9 @@ No authorization required
 
 ## GetConsentedDocumentById
 
-> UserDocumentDetails GetConsentedDocumentById(ctx, consentId, documentId).Execute()
+> IndividualDataConsentDocument GetConsentedDocumentById(ctx, consentId, documentId).Execute()
 
-Get individuals consent document based on document id.
+Get individual consented document by document id.
 
 ### Example
 
@@ -666,8 +458,8 @@ import (
 )
 
 func main() {
-    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Consent id.
-    documentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Document Id.
+    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Individual data consent id.
+    documentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Consented document id.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -676,7 +468,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetConsentedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetConsentedDocumentById`: UserDocumentDetails
+    // response from `GetConsentedDocumentById`: IndividualDataConsentDocument
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetConsentedDocumentById`: %v\n", resp)
 }
 ```
@@ -687,8 +479,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**consentId** | **string** | Consent id. | 
-**documentId** | **string** | Document Id. | 
+**consentId** | **string** | Individual data consent id. | 
+**documentId** | **string** | Consented document id. | 
 
 ### Other Parameters
 
@@ -702,7 +494,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserDocumentDetails**](UserDocumentDetails.md)
+[**IndividualDataConsentDocument**](IndividualDataConsentDocument.md)
 
 ### Authorization
 
@@ -940,11 +732,13 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetConsentsForOrganizations
+## GetConsents
 
-> OrganizationDataConsentInfoDtoPaginatedList GetConsentsForOrganizations(ctx).Status(status).From(from).To(to).PageNo(pageNo).PageSize(pageSize).Execute()
+> IndividualDataConsentDetailsPaginatedList GetConsents(ctx).Status(status).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
 
-Get the list of data consents sent for organizations.
+Get the paginated list of individual data consents.
+
+
 
 ### Example
 
@@ -961,20 +755,20 @@ import (
 
 func main() {
     status := openapiclient.DataConsentStatus("Pending") // DataConsentStatus | Data consent status MyDataMyConsent.Domain.Entities.ConsentAggregate.Enums.DataConsentStatus. (optional)
-    from := time.Now() // time.Time | From date time in utc timezone. (optional)
-    to := time.Now() // time.Time | Til date time in utc timezone. (optional)
+    fromDateTime := time.Now() // time.Time | From datetime in UTC timezone. (optional)
+    toDateTime := time.Now() // time.Time | To datetime in UTC timezone. (optional)
     pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
     pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataConsentsApi.GetConsentsForOrganizations(context.Background()).Status(status).From(from).To(to).PageNo(pageNo).PageSize(pageSize).Execute()
+    resp, r, err := apiClient.DataConsentsApi.GetConsents(context.Background()).Status(status).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetConsentsForOrganizations``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetConsents``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetConsentsForOrganizations`: OrganizationDataConsentInfoDtoPaginatedList
-    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetConsentsForOrganizations`: %v\n", resp)
+    // response from `GetConsents`: IndividualDataConsentDetailsPaginatedList
+    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetConsents`: %v\n", resp)
 }
 ```
 
@@ -984,20 +778,20 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetConsentsForOrganizationsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetConsentsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | [**DataConsentStatus**](DataConsentStatus.md) | Data consent status MyDataMyConsent.Domain.Entities.ConsentAggregate.Enums.DataConsentStatus. | 
- **from** | **time.Time** | From date time in utc timezone. | 
- **to** | **time.Time** | Til date time in utc timezone. | 
+ **fromDateTime** | **time.Time** | From datetime in UTC timezone. | 
+ **toDateTime** | **time.Time** | To datetime in UTC timezone. | 
  **pageNo** | **int32** | Page number. | [default to 1]
  **pageSize** | **int32** | Number of items to return. | [default to 25]
 
 ### Return type
 
-[**OrganizationDataConsentInfoDtoPaginatedList**](OrganizationDataConsentInfoDtoPaginatedList.md)
+[**IndividualDataConsentDetailsPaginatedList**](IndividualDataConsentDetailsPaginatedList.md)
 
 ### Authorization
 
@@ -1013,11 +807,11 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetConsentsSentToIndividuals
+## GetIndividualConsentedDocuments
 
-> UserDataConsentInfoDtoPaginatedList GetConsentsSentToIndividuals(ctx).Status(status).From(from).To(to).PageNo(pageNo).PageSize(pageSize).Execute()
+> []IndividualDataConsentDocument GetIndividualConsentedDocuments(ctx, consentId).Execute()
 
-Get the list of Consents Sent to Individuals.
+Get individual consented documents by consent id.
 
 ### Example
 
@@ -1028,49 +822,112 @@ import (
     "context"
     "fmt"
     "os"
-    "time"
     openapiclient "./openapi"
 )
 
 func main() {
-    status := openapiclient.DataConsentStatus("Pending") // DataConsentStatus | Data consent status MyDataMyConsent.Domain.Entities.ConsentAggregate.Enums.DataConsentStatus. (optional)
-    from := time.Now() // time.Time | From date time in utc timezone. (optional)
-    to := time.Now() // time.Time | Til date time in utc timezone. (optional)
-    pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
-    pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
+    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Individual data consent id.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataConsentsApi.GetConsentsSentToIndividuals(context.Background()).Status(status).From(from).To(to).PageNo(pageNo).PageSize(pageSize).Execute()
+    resp, r, err := apiClient.DataConsentsApi.GetIndividualConsentedDocuments(context.Background(), consentId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetConsentsSentToIndividuals``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetIndividualConsentedDocuments``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetConsentsSentToIndividuals`: UserDataConsentInfoDtoPaginatedList
-    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetConsentsSentToIndividuals`: %v\n", resp)
+    // response from `GetIndividualConsentedDocuments`: []IndividualDataConsentDocument
+    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetIndividualConsentedDocuments`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**consentId** | **string** | Individual data consent id. | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetConsentsSentToIndividualsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetIndividualConsentedDocumentsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | [**DataConsentStatus**](DataConsentStatus.md) | Data consent status MyDataMyConsent.Domain.Entities.ConsentAggregate.Enums.DataConsentStatus. | 
- **from** | **time.Time** | From date time in utc timezone. | 
- **to** | **time.Time** | Til date time in utc timezone. | 
- **pageNo** | **int32** | Page number. | [default to 1]
- **pageSize** | **int32** | Number of items to return. | [default to 25]
+
 
 ### Return type
 
-[**UserDataConsentInfoDtoPaginatedList**](UserDataConsentInfoDtoPaginatedList.md)
+[**[]IndividualDataConsentDocument**](IndividualDataConsentDocument.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetIndividualDataConsentById
+
+> OneOfDataConsentIndividualDataConsentOrganizationDataConsent GetIndividualDataConsentById(ctx, consentId).Execute()
+
+Get individuals data consent details by consent id.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Individual data consent id.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DataConsentsApi.GetIndividualDataConsentById(context.Background(), consentId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetIndividualDataConsentById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetIndividualDataConsentById`: OneOfDataConsentIndividualDataConsentOrganizationDataConsent
+    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetIndividualDataConsentById`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**consentId** | **string** | Individual data consent id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetIndividualDataConsentByIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**OneOfDataConsentIndividualDataConsentOrganizationDataConsent**](oneOf&lt;DataConsent,IndividualDataConsent,OrganizationDataConsent&gt;.md)
 
 ### Authorization
 
@@ -1168,77 +1025,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetOrganizationConsentDetailsById
-
-> DataConsentDetailsDto GetOrganizationConsentDetailsById(ctx, consentId).Execute()
-
-Get all organization consent details by consent id.
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Consent id.
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DataConsentsApi.GetOrganizationConsentDetailsById(context.Background(), consentId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetOrganizationConsentDetailsById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetOrganizationConsentDetailsById`: DataConsentDetailsDto
-    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetOrganizationConsentDetailsById`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**consentId** | **string** | Consent id. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetOrganizationConsentDetailsByIdRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**DataConsentDetailsDto**](DataConsentDetailsDto.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## GetOrganizationConsentedDocumentById
 
-> OrganizationDocumentDetails GetOrganizationConsentedDocumentById(ctx, consentId, documentId).Execute()
+> OrganizationDataConsentDocument GetOrganizationConsentedDocumentById(ctx, consentId, documentId).Execute()
 
 Get organization consent document based on document id.
 
@@ -1255,8 +1044,8 @@ import (
 )
 
 func main() {
-    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Consent id.
-    documentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Document Id.
+    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Organization data consent id.
+    documentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Organization consented document Id.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1265,7 +1054,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetOrganizationConsentedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetOrganizationConsentedDocumentById`: OrganizationDocumentDetails
+    // response from `GetOrganizationConsentedDocumentById`: OrganizationDataConsentDocument
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetOrganizationConsentedDocumentById`: %v\n", resp)
 }
 ```
@@ -1276,8 +1065,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**consentId** | **string** | Consent id. | 
-**documentId** | **string** | Document Id. | 
+**consentId** | **string** | Organization data consent id. | 
+**documentId** | **string** | Organization consented document Id. | 
 
 ### Other Parameters
 
@@ -1291,7 +1080,216 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationDocumentDetails**](OrganizationDocumentDetails.md)
+[**OrganizationDataConsentDocument**](OrganizationDataConsentDocument.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetOrganizationConsentedDocuments
+
+> []OrganizationDataConsentDocument GetOrganizationConsentedDocuments(ctx, consentId).Execute()
+
+Get organization consented documents by consent id.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Organization data consent id.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DataConsentsApi.GetOrganizationConsentedDocuments(context.Background(), consentId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetOrganizationConsentedDocuments``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetOrganizationConsentedDocuments`: []OrganizationDataConsentDocument
+    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetOrganizationConsentedDocuments`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**consentId** | **string** | Organization data consent id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetOrganizationConsentedDocumentsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**[]OrganizationDataConsentDocument**](OrganizationDataConsentDocument.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetOrganizationDataConsentById
+
+> OneOfDataConsentIndividualDataConsentOrganizationDataConsent GetOrganizationDataConsentById(ctx, consentId).Execute()
+
+Get organizations data consent details by consent id.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Organization data consent id.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DataConsentsApi.GetOrganizationDataConsentById(context.Background(), consentId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetOrganizationDataConsentById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetOrganizationDataConsentById`: OneOfDataConsentIndividualDataConsentOrganizationDataConsent
+    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetOrganizationDataConsentById`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**consentId** | **string** | Organization data consent id. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetOrganizationDataConsentByIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**OneOfDataConsentIndividualDataConsentOrganizationDataConsent**](oneOf&lt;DataConsent,IndividualDataConsent,OrganizationDataConsent&gt;.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetOrganizationDataConsents
+
+> OrganizationDataConsentDetailsPaginatedList GetOrganizationDataConsents(ctx).Status(status).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
+
+Get the paginated list of organization data consents.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    "time"
+    openapiclient "./openapi"
+)
+
+func main() {
+    status := openapiclient.DataConsentStatus("Pending") // DataConsentStatus | Data consent status MyDataMyConsent.Domain.Entities.ConsentAggregate.Enums.DataConsentStatus. (optional)
+    fromDateTime := time.Now() // time.Time | From datetime in UTC timezone. (optional)
+    toDateTime := time.Now() // time.Time | To datetime in UTC timezone. (optional)
+    pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
+    pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DataConsentsApi.GetOrganizationDataConsents(context.Background()).Status(status).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetOrganizationDataConsents``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetOrganizationDataConsents`: OrganizationDataConsentDetailsPaginatedList
+    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetOrganizationDataConsents`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetOrganizationDataConsentsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **status** | [**DataConsentStatus**](DataConsentStatus.md) | Data consent status MyDataMyConsent.Domain.Entities.ConsentAggregate.Enums.DataConsentStatus. | 
+ **fromDateTime** | **time.Time** | From datetime in UTC timezone. | 
+ **toDateTime** | **time.Time** | To datetime in UTC timezone. | 
+ **pageNo** | **int32** | Page number. | [default to 1]
+ **pageSize** | **int32** | Number of items to return. | [default to 25]
+
+### Return type
+
+[**OrganizationDataConsentDetailsPaginatedList**](OrganizationDataConsentDetailsPaginatedList.md)
 
 ### Authorization
 

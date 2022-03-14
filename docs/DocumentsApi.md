@@ -245,7 +245,7 @@ import (
 )
 
 func main() {
-    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "GJ05FG67866586.", "Description_example", *openapiclient.NewDocumentReceiver("CountryIso2Code_example", []openapiclient.StringStringKeyValuePair{*openapiclient.NewStringStringKeyValuePair()}, openapiclient.IdentificationStrategy("MatchAtLeastOneIdentifier")), time.Now(), time.Now()) // DocumentIssueRequest | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest.
+    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "GJ05FG67866586.", "Description_example", *openapiclient.NewDocumentReceiver("CountryIso2Code_example", []openapiclient.StringStringKeyValuePair{*openapiclient.NewStringStringKeyValuePair()}, openapiclient.IdentificationStrategy("MatchAtLeastOneIdentifier")), time.Now(), time.Now()) // DocumentIssueRequest | Document issue request payload
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -270,7 +270,7 @@ Other parameters are passed through a pointer to a apiIssueDocumentToIndividualR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentIssueRequest** | [**DocumentIssueRequest**](DocumentIssueRequest.md) | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest. | 
+ **documentIssueRequest** | [**DocumentIssueRequest**](DocumentIssueRequest.md) | Document issue request payload | 
 
 ### Return type
 
@@ -310,7 +310,7 @@ import (
 )
 
 func main() {
-    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "GJ05FG67866586.", "Description_example", *openapiclient.NewDocumentReceiver("CountryIso2Code_example", []openapiclient.StringStringKeyValuePair{*openapiclient.NewStringStringKeyValuePair()}, openapiclient.IdentificationStrategy("MatchAtLeastOneIdentifier")), time.Now(), time.Now()) // DocumentIssueRequest | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest.
+    documentIssueRequest := *openapiclient.NewDocumentIssueRequest("DocumentTypeId_example", "GJ05FG67866586.", "Description_example", *openapiclient.NewDocumentReceiver("CountryIso2Code_example", []openapiclient.StringStringKeyValuePair{*openapiclient.NewStringStringKeyValuePair()}, openapiclient.IdentificationStrategy("MatchAtLeastOneIdentifier")), time.Now(), time.Now()) // DocumentIssueRequest | Document issue request payload
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -335,7 +335,7 @@ Other parameters are passed through a pointer to a apiIssueDocumentToOrganizatio
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentIssueRequest** | [**DocumentIssueRequest**](DocumentIssueRequest.md) | Document issue request MyDataMyConsent.DeveloperApi.Models.DocumentIssueRequest. | 
+ **documentIssueRequest** | [**DocumentIssueRequest**](DocumentIssueRequest.md) | Document issue request payload | 
 
 ### Return type
 

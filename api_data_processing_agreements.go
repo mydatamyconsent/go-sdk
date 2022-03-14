@@ -31,16 +31,16 @@ type DataProcessingAgreementsApiService service
 type ApiCreateDataProcessingAgreementRequest struct {
 	ctx context.Context
 	ApiService *DataProcessingAgreementsApiService
-	createDataProcessingAgreementRequestModel *CreateDataProcessingAgreementRequestModel
+	createDataProcessingAgreement *CreateDataProcessingAgreement
 }
 
-// Create data processing agreement MyDataMyConsent.Models.DataProcessingAgreements.CreateDataProcessingAgreementRequestModel.
-func (r ApiCreateDataProcessingAgreementRequest) CreateDataProcessingAgreementRequestModel(createDataProcessingAgreementRequestModel CreateDataProcessingAgreementRequestModel) ApiCreateDataProcessingAgreementRequest {
-	r.createDataProcessingAgreementRequestModel = &createDataProcessingAgreementRequestModel
+// Create data processing agreement payload
+func (r ApiCreateDataProcessingAgreementRequest) CreateDataProcessingAgreement(createDataProcessingAgreement CreateDataProcessingAgreement) ApiCreateDataProcessingAgreementRequest {
+	r.createDataProcessingAgreement = &createDataProcessingAgreement
 	return r
 }
 
-func (r ApiCreateDataProcessingAgreementRequest) Execute() (*DataProcessingAgreementDto, *http.Response, error) {
+func (r ApiCreateDataProcessingAgreementRequest) Execute() (*DataProcessingAgreement, *http.Response, error) {
 	return r.ApiService.CreateDataProcessingAgreementExecute(r)
 }
 
@@ -58,13 +58,13 @@ func (a *DataProcessingAgreementsApiService) CreateDataProcessingAgreement(ctx c
 }
 
 // Execute executes the request
-//  @return DataProcessingAgreementDto
-func (a *DataProcessingAgreementsApiService) CreateDataProcessingAgreementExecute(r ApiCreateDataProcessingAgreementRequest) (*DataProcessingAgreementDto, *http.Response, error) {
+//  @return DataProcessingAgreement
+func (a *DataProcessingAgreementsApiService) CreateDataProcessingAgreementExecute(r ApiCreateDataProcessingAgreementRequest) (*DataProcessingAgreement, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DataProcessingAgreementDto
+		localVarReturnValue  *DataProcessingAgreement
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataProcessingAgreementsApiService.CreateDataProcessingAgreement")
@@ -77,6 +77,9 @@ func (a *DataProcessingAgreementsApiService) CreateDataProcessingAgreementExecut
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.createDataProcessingAgreement == nil {
+		return localVarReturnValue, nil, reportError("createDataProcessingAgreement is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -96,7 +99,7 @@ func (a *DataProcessingAgreementsApiService) CreateDataProcessingAgreementExecut
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createDataProcessingAgreementRequestModel
+	localVarPostBody = r.createDataProcessingAgreement
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -118,6 +121,16 @@ func (a *DataProcessingAgreementsApiService) CreateDataProcessingAgreementExecut
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v map[string]interface{}
@@ -270,7 +283,7 @@ type ApiGetDataProcessingAgreementByIdRequest struct {
 }
 
 
-func (r ApiGetDataProcessingAgreementByIdRequest) Execute() (*DataProcessingAgreementDto, *http.Response, error) {
+func (r ApiGetDataProcessingAgreementByIdRequest) Execute() (*DataProcessingAgreement, *http.Response, error) {
 	return r.ApiService.GetDataProcessingAgreementByIdExecute(r)
 }
 
@@ -290,13 +303,13 @@ func (a *DataProcessingAgreementsApiService) GetDataProcessingAgreementById(ctx 
 }
 
 // Execute executes the request
-//  @return DataProcessingAgreementDto
-func (a *DataProcessingAgreementsApiService) GetDataProcessingAgreementByIdExecute(r ApiGetDataProcessingAgreementByIdRequest) (*DataProcessingAgreementDto, *http.Response, error) {
+//  @return DataProcessingAgreement
+func (a *DataProcessingAgreementsApiService) GetDataProcessingAgreementByIdExecute(r ApiGetDataProcessingAgreementByIdRequest) (*DataProcessingAgreement, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DataProcessingAgreementDto
+		localVarReturnValue  *DataProcessingAgreement
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataProcessingAgreementsApiService.GetDataProcessingAgreementById")
@@ -412,12 +425,12 @@ func (r ApiGetDataProcessingAgreementsRequest) PageSize(pageSize int32) ApiGetDa
 	return r
 }
 
-func (r ApiGetDataProcessingAgreementsRequest) Execute() (*DataProcessingAgreementDtoPaginatedList, *http.Response, error) {
+func (r ApiGetDataProcessingAgreementsRequest) Execute() (*DataProcessingAgreementPaginatedList, *http.Response, error) {
 	return r.ApiService.GetDataProcessingAgreementsExecute(r)
 }
 
 /*
-GetDataProcessingAgreements Get all data processing agreements.
+GetDataProcessingAgreements Get paginated data processing agreements.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetDataProcessingAgreementsRequest
@@ -430,13 +443,13 @@ func (a *DataProcessingAgreementsApiService) GetDataProcessingAgreements(ctx con
 }
 
 // Execute executes the request
-//  @return DataProcessingAgreementDtoPaginatedList
-func (a *DataProcessingAgreementsApiService) GetDataProcessingAgreementsExecute(r ApiGetDataProcessingAgreementsRequest) (*DataProcessingAgreementDtoPaginatedList, *http.Response, error) {
+//  @return DataProcessingAgreementPaginatedList
+func (a *DataProcessingAgreementsApiService) GetDataProcessingAgreementsExecute(r ApiGetDataProcessingAgreementsRequest) (*DataProcessingAgreementPaginatedList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DataProcessingAgreementDtoPaginatedList
+		localVarReturnValue  *DataProcessingAgreementPaginatedList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataProcessingAgreementsApiService.GetDataProcessingAgreements")
@@ -494,6 +507,16 @@ func (a *DataProcessingAgreementsApiService) GetDataProcessingAgreementsExecute(
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v map[string]interface{}
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v map[string]interface{}
@@ -643,16 +666,16 @@ type ApiUpdateDataProcessingAgreementRequest struct {
 	ctx context.Context
 	ApiService *DataProcessingAgreementsApiService
 	id string
-	updateDataProcessingAgreementRequestModel *UpdateDataProcessingAgreementRequestModel
+	updateDataProcessingAgreement *UpdateDataProcessingAgreement
 }
 
-// Updated data processing agreement MyDataMyConsent.Models.DataProcessingAgreements.UpdateDataProcessingAgreementRequestModel.
-func (r ApiUpdateDataProcessingAgreementRequest) UpdateDataProcessingAgreementRequestModel(updateDataProcessingAgreementRequestModel UpdateDataProcessingAgreementRequestModel) ApiUpdateDataProcessingAgreementRequest {
-	r.updateDataProcessingAgreementRequestModel = &updateDataProcessingAgreementRequestModel
+// Update data processing agreement payload
+func (r ApiUpdateDataProcessingAgreementRequest) UpdateDataProcessingAgreement(updateDataProcessingAgreement UpdateDataProcessingAgreement) ApiUpdateDataProcessingAgreementRequest {
+	r.updateDataProcessingAgreement = &updateDataProcessingAgreement
 	return r
 }
 
-func (r ApiUpdateDataProcessingAgreementRequest) Execute() (*DataProcessingAgreementDto, *http.Response, error) {
+func (r ApiUpdateDataProcessingAgreementRequest) Execute() (*DataProcessingAgreement, *http.Response, error) {
 	return r.ApiService.UpdateDataProcessingAgreementExecute(r)
 }
 
@@ -672,13 +695,13 @@ func (a *DataProcessingAgreementsApiService) UpdateDataProcessingAgreement(ctx c
 }
 
 // Execute executes the request
-//  @return DataProcessingAgreementDto
-func (a *DataProcessingAgreementsApiService) UpdateDataProcessingAgreementExecute(r ApiUpdateDataProcessingAgreementRequest) (*DataProcessingAgreementDto, *http.Response, error) {
+//  @return DataProcessingAgreement
+func (a *DataProcessingAgreementsApiService) UpdateDataProcessingAgreementExecute(r ApiUpdateDataProcessingAgreementRequest) (*DataProcessingAgreement, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DataProcessingAgreementDto
+		localVarReturnValue  *DataProcessingAgreement
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DataProcessingAgreementsApiService.UpdateDataProcessingAgreement")
@@ -692,6 +715,9 @@ func (a *DataProcessingAgreementsApiService) UpdateDataProcessingAgreementExecut
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.updateDataProcessingAgreement == nil {
+		return localVarReturnValue, nil, reportError("updateDataProcessingAgreement is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -711,7 +737,7 @@ func (a *DataProcessingAgreementsApiService) UpdateDataProcessingAgreementExecut
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateDataProcessingAgreementRequestModel
+	localVarPostBody = r.updateDataProcessingAgreement
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
