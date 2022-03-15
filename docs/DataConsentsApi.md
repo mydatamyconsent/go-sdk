@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 ## DownloadConsentedDocumentAnalysis
 
-> DownloadConsentedDocumentAnalysis(ctx, consentId, documentId).Execute()
+> map[string]interface{} DownloadConsentedDocumentAnalysis(ctx, consentId, documentId).Execute()
 
 Get analysis of a consented document.
 
@@ -54,6 +54,8 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.DownloadConsentedDocumentAnalysis``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `DownloadConsentedDocumentAnalysis`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.DownloadConsentedDocumentAnalysis`: %v\n", resp)
 }
 ```
 
@@ -78,7 +80,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -96,7 +98,7 @@ No authorization required
 
 ## DownloadIndividualConsentedDocumentById
 
-> DownloadIndividualConsentedDocumentById(ctx, consentId, documentId).Execute()
+> map[string]interface{} DownloadIndividualConsentedDocumentById(ctx, consentId, documentId).Execute()
 
 Download individual consented document by document id.
 
@@ -114,7 +116,7 @@ import (
 
 func main() {
     consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Individual data consent id.
-    documentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Consented document id.
+    documentId := "documentId_example" // string | Consented document id.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -123,6 +125,8 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.DownloadIndividualConsentedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `DownloadIndividualConsentedDocumentById`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.DownloadIndividualConsentedDocumentById`: %v\n", resp)
 }
 ```
 
@@ -147,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -165,7 +169,7 @@ No authorization required
 
 ## DownloadOrganizationConsentedDocumentById
 
-> DownloadOrganizationConsentedDocumentById(ctx, consentId, documentId).Execute()
+> map[string]interface{} DownloadOrganizationConsentedDocumentById(ctx, consentId, documentId).Execute()
 
 Download organization consent document based on document id.
 
@@ -183,7 +187,7 @@ import (
 
 func main() {
     consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Organization data consent id.
-    documentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Organization consented document Id.
+    documentId := "documentId_example" // string | Organization consented document Id.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -192,6 +196,8 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.DownloadOrganizationConsentedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `DownloadOrganizationConsentedDocumentById`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.DownloadOrganizationConsentedDocumentById`: %v\n", resp)
 }
 ```
 
@@ -216,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -441,7 +447,7 @@ No authorization required
 
 ## GetConsentedDocumentById
 
-> IndividualDataConsentDocument GetConsentedDocumentById(ctx, consentId, documentId).Execute()
+> map[string]interface{} GetConsentedDocumentById(ctx, consentId, documentId).Execute()
 
 Get individual consented document by document id.
 
@@ -459,7 +465,7 @@ import (
 
 func main() {
     consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Individual data consent id.
-    documentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Consented document id.
+    documentId := "documentId_example" // string | Consented document id.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -468,7 +474,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetConsentedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetConsentedDocumentById`: IndividualDataConsentDocument
+    // response from `GetConsentedDocumentById`: map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetConsentedDocumentById`: %v\n", resp)
 }
 ```
@@ -494,7 +500,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IndividualDataConsentDocument**](IndividualDataConsentDocument.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -734,7 +740,7 @@ No authorization required
 
 ## GetConsents
 
-> IndividualDataConsentDetailsPaginatedList GetConsents(ctx).Status(status).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
+> map[string]interface{} GetConsents(ctx).Status(status).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
 
 Get the paginated list of individual data consents.
 
@@ -767,7 +773,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetConsents``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetConsents`: IndividualDataConsentDetailsPaginatedList
+    // response from `GetConsents`: map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetConsents`: %v\n", resp)
 }
 ```
@@ -791,7 +797,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IndividualDataConsentDetailsPaginatedList**](IndividualDataConsentDetailsPaginatedList.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -809,7 +815,7 @@ No authorization required
 
 ## GetIndividualConsentedDocuments
 
-> []IndividualDataConsentDocument GetIndividualConsentedDocuments(ctx, consentId).Execute()
+> map[string]interface{} GetIndividualConsentedDocuments(ctx, consentId).Execute()
 
 Get individual consented documents by consent id.
 
@@ -835,7 +841,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetIndividualConsentedDocuments``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetIndividualConsentedDocuments`: []IndividualDataConsentDocument
+    // response from `GetIndividualConsentedDocuments`: map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetIndividualConsentedDocuments`: %v\n", resp)
 }
 ```
@@ -859,7 +865,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]IndividualDataConsentDocument**](IndividualDataConsentDocument.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -877,7 +883,7 @@ No authorization required
 
 ## GetIndividualDataConsentById
 
-> OneOfDataConsentIndividualDataConsentOrganizationDataConsent GetIndividualDataConsentById(ctx, consentId).Execute()
+> map[string]interface{} GetIndividualDataConsentById(ctx, consentId).Execute()
 
 Get individuals data consent details by consent id.
 
@@ -903,7 +909,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetIndividualDataConsentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetIndividualDataConsentById`: OneOfDataConsentIndividualDataConsentOrganizationDataConsent
+    // response from `GetIndividualDataConsentById`: map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetIndividualDataConsentById`: %v\n", resp)
 }
 ```
@@ -927,7 +933,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OneOfDataConsentIndividualDataConsentOrganizationDataConsent**](oneOf&lt;DataConsent,IndividualDataConsent,OrganizationDataConsent&gt;.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -1027,7 +1033,7 @@ No authorization required
 
 ## GetOrganizationConsentedDocumentById
 
-> OrganizationDataConsentDocument GetOrganizationConsentedDocumentById(ctx, consentId, documentId).Execute()
+> map[string]interface{} GetOrganizationConsentedDocumentById(ctx, consentId, documentId).Execute()
 
 Get organization consent document based on document id.
 
@@ -1045,7 +1051,7 @@ import (
 
 func main() {
     consentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Organization data consent id.
-    documentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Organization consented document Id.
+    documentId := "documentId_example" // string | Organization consented document Id.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1054,7 +1060,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetOrganizationConsentedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetOrganizationConsentedDocumentById`: OrganizationDataConsentDocument
+    // response from `GetOrganizationConsentedDocumentById`: map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetOrganizationConsentedDocumentById`: %v\n", resp)
 }
 ```
@@ -1080,7 +1086,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationDataConsentDocument**](OrganizationDataConsentDocument.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -1098,7 +1104,7 @@ No authorization required
 
 ## GetOrganizationConsentedDocuments
 
-> []OrganizationDataConsentDocument GetOrganizationConsentedDocuments(ctx, consentId).Execute()
+> map[string]interface{} GetOrganizationConsentedDocuments(ctx, consentId).Execute()
 
 Get organization consented documents by consent id.
 
@@ -1124,7 +1130,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetOrganizationConsentedDocuments``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetOrganizationConsentedDocuments`: []OrganizationDataConsentDocument
+    // response from `GetOrganizationConsentedDocuments`: map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetOrganizationConsentedDocuments`: %v\n", resp)
 }
 ```
@@ -1148,7 +1154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]OrganizationDataConsentDocument**](OrganizationDataConsentDocument.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -1166,7 +1172,7 @@ No authorization required
 
 ## GetOrganizationDataConsentById
 
-> OneOfDataConsentIndividualDataConsentOrganizationDataConsent GetOrganizationDataConsentById(ctx, consentId).Execute()
+> map[string]interface{} GetOrganizationDataConsentById(ctx, consentId).Execute()
 
 Get organizations data consent details by consent id.
 
@@ -1192,7 +1198,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetOrganizationDataConsentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetOrganizationDataConsentById`: OneOfDataConsentIndividualDataConsentOrganizationDataConsent
+    // response from `GetOrganizationDataConsentById`: map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetOrganizationDataConsentById`: %v\n", resp)
 }
 ```
@@ -1216,7 +1222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OneOfDataConsentIndividualDataConsentOrganizationDataConsent**](oneOf&lt;DataConsent,IndividualDataConsent,OrganizationDataConsent&gt;.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -1234,7 +1240,7 @@ No authorization required
 
 ## GetOrganizationDataConsents
 
-> OrganizationDataConsentDetailsPaginatedList GetOrganizationDataConsents(ctx).Status(status).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
+> map[string]interface{} GetOrganizationDataConsents(ctx).Status(status).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
 
 Get the paginated list of organization data consents.
 
@@ -1265,7 +1271,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetOrganizationDataConsents``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetOrganizationDataConsents`: OrganizationDataConsentDetailsPaginatedList
+    // response from `GetOrganizationDataConsents`: map[string]interface{}
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetOrganizationDataConsents`: %v\n", resp)
 }
 ```
@@ -1289,7 +1295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationDataConsentDetailsPaginatedList**](OrganizationDataConsentDetailsPaginatedList.md)
+**map[string]interface{}**
 
 ### Authorization
 
