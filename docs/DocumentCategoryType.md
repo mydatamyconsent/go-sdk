@@ -11,7 +11,7 @@
 
 * `FINANCE` (value: `"Finance"`)
 
-* `WORK_AND_AWARDS` (value: `"WorkAndAwards"`)
+* `PROFESSIONAL` (value: `"Professional"`)
 
 * `LICENCES_AND_CERTIFICATES` (value: `"LicencesAndCertificates"`)
 

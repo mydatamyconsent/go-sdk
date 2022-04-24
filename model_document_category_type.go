@@ -25,7 +25,7 @@ const (
 	EDUCATION DocumentCategoryType = "Education"
 	HEALTH DocumentCategoryType = "Health"
 	FINANCE DocumentCategoryType = "Finance"
-	WORK_AND_AWARDS DocumentCategoryType = "WorkAndAwards"
+	PROFESSIONAL DocumentCategoryType = "Professional"
 	LICENCES_AND_CERTIFICATES DocumentCategoryType = "LicencesAndCertificates"
 	OTHERS DocumentCategoryType = "Others"
 )
@@ -36,7 +36,7 @@ var AllowedDocumentCategoryTypeEnumValues = []DocumentCategoryType{
 	"Education",
 	"Health",
 	"Finance",
-	"WorkAndAwards",
+	"Professional",
 	"LicencesAndCertificates",
 	"Others",
 }
