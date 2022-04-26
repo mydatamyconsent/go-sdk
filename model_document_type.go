@@ -44,15 +44,13 @@ type DocumentType struct {
 	PayableAmountCurrency NullableString `json:"payableAmountCurrency,omitempty"`
 	// DateTime of approval in UTC timezone.
 	ApprovedAtUtc NullableTime `json:"approvedAtUtc,omitempty"`
-	// Document type approval status.
-	Approved bool `json:"approved"`
 }
 
 // NewDocumentType instantiates a new DocumentType object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryType DocumentSubCategoryType, name string, slug string, logoUrl string, supportedEntityTypes []SupportedEntityType, addedBy string, approved bool) *DocumentType {
+func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryType DocumentSubCategoryType, name string, slug string, logoUrl string, supportedEntityTypes []SupportedEntityType, addedBy string) *DocumentType {
 	this := DocumentType{}
 	this.Id = id
 	this.CategoryType = categoryType
@@ -62,7 +60,6 @@ func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryTy
 	this.LogoUrl = logoUrl
 	this.SupportedEntityTypes = supportedEntityTypes
 	this.AddedBy = addedBy
-	this.Approved = approved
 	return &this
 }
 
@@ -518,30 +515,6 @@ func (o *DocumentType) UnsetApprovedAtUtc() {
 	o.ApprovedAtUtc.Unset()
 }
 
-// GetApproved returns the Approved field value
-func (o *DocumentType) GetApproved() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.Approved
-}
-
-// GetApprovedOk returns a tuple with the Approved field value
-// and a boolean to check if the value has been set.
-func (o *DocumentType) GetApprovedOk() (*bool, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Approved, true
-}
-
-// SetApproved sets field value
-func (o *DocumentType) SetApproved(v bool) {
-	o.Approved = v
-}
-
 func (o DocumentType) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -585,9 +558,6 @@ func (o DocumentType) MarshalJSON() ([]byte, error) {
 	}
 	if o.ApprovedAtUtc.IsSet() {
 		toSerialize["approvedAtUtc"] = o.ApprovedAtUtc.Get()
-	}
-	if true {
-		toSerialize["approved"] = o.Approved
 	}
 	return json.Marshal(toSerialize)
 }

@@ -22,6 +22,8 @@ type DataConsentRequest struct {
 	Id string `json:"id"`
 	// Data consent template id.
 	TemplateId NullableString `json:"templateId,omitempty"`
+	// Data consent id.
+	ConsentId NullableString `json:"consentId,omitempty"`
 	// Data consent title.
 	Title string `json:"title"`
 	// Data consent description.
@@ -31,6 +33,7 @@ type DataConsentRequest struct {
 	DataLife *Life `json:"dataLife,omitempty"`
 	// List of supported collectables.
 	Collectables []CollectibleTypes `json:"collectables"`
+	Receiver ConsentRequestReceiver `json:"receiver"`
 	Status DataConsentStatus `json:"status"`
 	// Request creation datetime in UTC timezone.
 	CreatedAtUtc time.Time `json:"createdAtUtc"`
@@ -50,12 +53,13 @@ type DataConsentRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDataConsentRequest(id string, title string, description string, collectables []CollectibleTypes, status DataConsentStatus, createdAtUtc time.Time, expiresAtUtc time.Time) *DataConsentRequest {
+func NewDataConsentRequest(id string, title string, description string, collectables []CollectibleTypes, receiver ConsentRequestReceiver, status DataConsentStatus, createdAtUtc time.Time, expiresAtUtc time.Time) *DataConsentRequest {
 	this := DataConsentRequest{}
 	this.Id = id
 	this.Title = title
 	this.Description = description
 	this.Collectables = collectables
+	this.Receiver = receiver
 	this.Status = status
 	this.CreatedAtUtc = createdAtUtc
 	this.ExpiresAtUtc = expiresAtUtc
@@ -134,6 +138,48 @@ func (o *DataConsentRequest) SetTemplateIdNil() {
 // UnsetTemplateId ensures that no value is present for TemplateId, not even an explicit nil
 func (o *DataConsentRequest) UnsetTemplateId() {
 	o.TemplateId.Unset()
+}
+
+// GetConsentId returns the ConsentId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DataConsentRequest) GetConsentId() string {
+	if o == nil || o.ConsentId.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.ConsentId.Get()
+}
+
+// GetConsentIdOk returns a tuple with the ConsentId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DataConsentRequest) GetConsentIdOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.ConsentId.Get(), o.ConsentId.IsSet()
+}
+
+// HasConsentId returns a boolean if a field has been set.
+func (o *DataConsentRequest) HasConsentId() bool {
+	if o != nil && o.ConsentId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetConsentId gets a reference to the given NullableString and assigns it to the ConsentId field.
+func (o *DataConsentRequest) SetConsentId(v string) {
+	o.ConsentId.Set(&v)
+}
+// SetConsentIdNil sets the value for ConsentId to be an explicit nil
+func (o *DataConsentRequest) SetConsentIdNil() {
+	o.ConsentId.Set(nil)
+}
+
+// UnsetConsentId ensures that no value is present for ConsentId, not even an explicit nil
+func (o *DataConsentRequest) UnsetConsentId() {
+	o.ConsentId.Unset()
 }
 
 // GetTitle returns the Title field value
@@ -280,6 +326,30 @@ func (o *DataConsentRequest) GetCollectablesOk() ([]CollectibleTypes, bool) {
 // SetCollectables sets field value
 func (o *DataConsentRequest) SetCollectables(v []CollectibleTypes) {
 	o.Collectables = v
+}
+
+// GetReceiver returns the Receiver field value
+func (o *DataConsentRequest) GetReceiver() ConsentRequestReceiver {
+	if o == nil {
+		var ret ConsentRequestReceiver
+		return ret
+	}
+
+	return o.Receiver
+}
+
+// GetReceiverOk returns a tuple with the Receiver field value
+// and a boolean to check if the value has been set.
+func (o *DataConsentRequest) GetReceiverOk() (*ConsentRequestReceiver, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Receiver, true
+}
+
+// SetReceiver sets field value
+func (o *DataConsentRequest) SetReceiver(v ConsentRequestReceiver) {
+	o.Receiver = v
 }
 
 // GetStatus returns the Status field value
@@ -530,6 +600,9 @@ func (o DataConsentRequest) MarshalJSON() ([]byte, error) {
 	if o.TemplateId.IsSet() {
 		toSerialize["templateId"] = o.TemplateId.Get()
 	}
+	if o.ConsentId.IsSet() {
+		toSerialize["consentId"] = o.ConsentId.Get()
+	}
 	if true {
 		toSerialize["title"] = o.Title
 	}
@@ -544,6 +617,9 @@ func (o DataConsentRequest) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["collectables"] = o.Collectables
+	}
+	if true {
+		toSerialize["receiver"] = o.Receiver
 	}
 	if true {
 		toSerialize["status"] = o.Status

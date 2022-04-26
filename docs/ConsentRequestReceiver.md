@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CountryIso2Code** | **string** | Consent request receiver country ISO 2 code | 
-**Identifiers** | [**[]StringStringKeyValuePair**](StringStringKeyValuePair.md) | Consent request receiver identifiers | 
+**CountryIso2Code** | **string** |  | 
+**Identifiers** | [**[]StringStringKeyValuePair**](StringStringKeyValuePair.md) |  | 
 **IdentificationStrategy** | [**IdentificationStrategy**](IdentificationStrategy.md) |  | 
 
 ## Methods

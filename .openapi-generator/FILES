@@ -16,6 +16,11 @@ docs/CollectibleTypes.md
 docs/ConsentRequestReceiver.md
 docs/CreateDataConsentRequest.md
 docs/CreateDataProcessingAgreement.md
+docs/DataConsent.md
+docs/DataConsentDetails.md
+docs/DataConsentDetailsPaginatedList.md
+docs/DataConsentDocument.md
+docs/DataConsentDocumentIssuer.md
 docs/DataConsentFinancialsDto.md
 docs/DataConsentRequest.md
 docs/DataConsentRequestDetails.md
@@ -33,6 +38,7 @@ docs/DataProviderDiscoveryApi.md
 docs/DataProviderPaginatedList.md
 docs/DigiLockerCompatIssuerApi.md
 docs/DocumentCategoryType.md
+docs/DocumentDigitalSignature.md
 docs/DocumentIssueRequest.md
 docs/DocumentIssueRequestDetails.md
 docs/DocumentIssueRequestStatus.md
@@ -52,6 +58,7 @@ docs/Identifier.md
 docs/IndividualDataConsentRequestDetails.md
 docs/IndividualDataConsentRequestDetailsPaginatedList.md
 docs/IssuedDocument.md
+docs/IssuedDocumentDetails.md
 docs/IssuedDocumentPaginatedList.md
 docs/Life.md
 docs/OrganizationDataConsentRequestDetails.md
@@ -80,6 +87,11 @@ model_collectible_types.go
 model_consent_request_receiver.go
 model_create_data_consent_request.go
 model_create_data_processing_agreement.go
+model_data_consent.go
+model_data_consent_details.go
+model_data_consent_details_paginated_list.go
+model_data_consent_document.go
+model_data_consent_document_issuer.go
 model_data_consent_financials_dto.go
 model_data_consent_request.go
 model_data_consent_request_details.go
@@ -92,6 +104,7 @@ model_data_protection_officer.go
 model_data_provider.go
 model_data_provider_paginated_list.go
 model_document_category_type.go
+model_document_digital_signature.go
 model_document_issue_request.go
 model_document_issue_request_details.go
 model_document_issue_request_status.go
@@ -110,6 +123,7 @@ model_identifier.go
 model_individual_data_consent_request_details.go
 model_individual_data_consent_request_details_paginated_list.go
 model_issued_document.go
+model_issued_document_details.go
 model_issued_document_paginated_list.go
 model_life.go
 model_organization_data_consent_request_details.go

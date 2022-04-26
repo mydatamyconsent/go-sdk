@@ -15,11 +15,9 @@ import (
 	"encoding/json"
 )
 
-// ConsentRequestReceiver Consent request receiver details
+// ConsentRequestReceiver struct for ConsentRequestReceiver
 type ConsentRequestReceiver struct {
-	// Consent request receiver country ISO 2 code
 	CountryIso2Code string `json:"countryIso2Code"`
-	// Consent request receiver identifiers
 	Identifiers []StringStringKeyValuePair `json:"identifiers"`
 	IdentificationStrategy IdentificationStrategy `json:"identificationStrategy"`
 }

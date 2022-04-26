@@ -15,34 +15,34 @@ import (
 	"encoding/json"
 )
 
-// IssuedDocumentPaginatedList struct for IssuedDocumentPaginatedList
-type IssuedDocumentPaginatedList struct {
+// DataConsentDetailsPaginatedList struct for DataConsentDetailsPaginatedList
+type DataConsentDetailsPaginatedList struct {
 	PageIndex *int32 `json:"pageIndex,omitempty"`
 	PageSize *int32 `json:"pageSize,omitempty"`
 	TotalPages *int32 `json:"totalPages,omitempty"`
 	TotalItems *int64 `json:"totalItems,omitempty"`
-	Items []OneOfIssuedDocumentIssuedDocumentDetails `json:"items,omitempty"`
+	Items []DataConsentDetails `json:"items,omitempty"`
 }
 
-// NewIssuedDocumentPaginatedList instantiates a new IssuedDocumentPaginatedList object
+// NewDataConsentDetailsPaginatedList instantiates a new DataConsentDetailsPaginatedList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIssuedDocumentPaginatedList() *IssuedDocumentPaginatedList {
-	this := IssuedDocumentPaginatedList{}
+func NewDataConsentDetailsPaginatedList() *DataConsentDetailsPaginatedList {
+	this := DataConsentDetailsPaginatedList{}
 	return &this
 }
 
-// NewIssuedDocumentPaginatedListWithDefaults instantiates a new IssuedDocumentPaginatedList object
+// NewDataConsentDetailsPaginatedListWithDefaults instantiates a new DataConsentDetailsPaginatedList object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewIssuedDocumentPaginatedListWithDefaults() *IssuedDocumentPaginatedList {
-	this := IssuedDocumentPaginatedList{}
+func NewDataConsentDetailsPaginatedListWithDefaults() *DataConsentDetailsPaginatedList {
+	this := DataConsentDetailsPaginatedList{}
 	return &this
 }
 
 // GetPageIndex returns the PageIndex field value if set, zero value otherwise.
-func (o *IssuedDocumentPaginatedList) GetPageIndex() int32 {
+func (o *DataConsentDetailsPaginatedList) GetPageIndex() int32 {
 	if o == nil || o.PageIndex == nil {
 		var ret int32
 		return ret
@@ -52,7 +52,7 @@ func (o *IssuedDocumentPaginatedList) GetPageIndex() int32 {
 
 // GetPageIndexOk returns a tuple with the PageIndex field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IssuedDocumentPaginatedList) GetPageIndexOk() (*int32, bool) {
+func (o *DataConsentDetailsPaginatedList) GetPageIndexOk() (*int32, bool) {
 	if o == nil || o.PageIndex == nil {
 		return nil, false
 	}
@@ -60,7 +60,7 @@ func (o *IssuedDocumentPaginatedList) GetPageIndexOk() (*int32, bool) {
 }
 
 // HasPageIndex returns a boolean if a field has been set.
-func (o *IssuedDocumentPaginatedList) HasPageIndex() bool {
+func (o *DataConsentDetailsPaginatedList) HasPageIndex() bool {
 	if o != nil && o.PageIndex != nil {
 		return true
 	}
@@ -69,12 +69,12 @@ func (o *IssuedDocumentPaginatedList) HasPageIndex() bool {
 }
 
 // SetPageIndex gets a reference to the given int32 and assigns it to the PageIndex field.
-func (o *IssuedDocumentPaginatedList) SetPageIndex(v int32) {
+func (o *DataConsentDetailsPaginatedList) SetPageIndex(v int32) {
 	o.PageIndex = &v
 }
 
 // GetPageSize returns the PageSize field value if set, zero value otherwise.
-func (o *IssuedDocumentPaginatedList) GetPageSize() int32 {
+func (o *DataConsentDetailsPaginatedList) GetPageSize() int32 {
 	if o == nil || o.PageSize == nil {
 		var ret int32
 		return ret
@@ -84,7 +84,7 @@ func (o *IssuedDocumentPaginatedList) GetPageSize() int32 {
 
 // GetPageSizeOk returns a tuple with the PageSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IssuedDocumentPaginatedList) GetPageSizeOk() (*int32, bool) {
+func (o *DataConsentDetailsPaginatedList) GetPageSizeOk() (*int32, bool) {
 	if o == nil || o.PageSize == nil {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *IssuedDocumentPaginatedList) GetPageSizeOk() (*int32, bool) {
 }
 
 // HasPageSize returns a boolean if a field has been set.
-func (o *IssuedDocumentPaginatedList) HasPageSize() bool {
+func (o *DataConsentDetailsPaginatedList) HasPageSize() bool {
 	if o != nil && o.PageSize != nil {
 		return true
 	}
@@ -101,12 +101,12 @@ func (o *IssuedDocumentPaginatedList) HasPageSize() bool {
 }
 
 // SetPageSize gets a reference to the given int32 and assigns it to the PageSize field.
-func (o *IssuedDocumentPaginatedList) SetPageSize(v int32) {
+func (o *DataConsentDetailsPaginatedList) SetPageSize(v int32) {
 	o.PageSize = &v
 }
 
 // GetTotalPages returns the TotalPages field value if set, zero value otherwise.
-func (o *IssuedDocumentPaginatedList) GetTotalPages() int32 {
+func (o *DataConsentDetailsPaginatedList) GetTotalPages() int32 {
 	if o == nil || o.TotalPages == nil {
 		var ret int32
 		return ret
@@ -116,7 +116,7 @@ func (o *IssuedDocumentPaginatedList) GetTotalPages() int32 {
 
 // GetTotalPagesOk returns a tuple with the TotalPages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IssuedDocumentPaginatedList) GetTotalPagesOk() (*int32, bool) {
+func (o *DataConsentDetailsPaginatedList) GetTotalPagesOk() (*int32, bool) {
 	if o == nil || o.TotalPages == nil {
 		return nil, false
 	}
@@ -124,7 +124,7 @@ func (o *IssuedDocumentPaginatedList) GetTotalPagesOk() (*int32, bool) {
 }
 
 // HasTotalPages returns a boolean if a field has been set.
-func (o *IssuedDocumentPaginatedList) HasTotalPages() bool {
+func (o *DataConsentDetailsPaginatedList) HasTotalPages() bool {
 	if o != nil && o.TotalPages != nil {
 		return true
 	}
@@ -133,12 +133,12 @@ func (o *IssuedDocumentPaginatedList) HasTotalPages() bool {
 }
 
 // SetTotalPages gets a reference to the given int32 and assigns it to the TotalPages field.
-func (o *IssuedDocumentPaginatedList) SetTotalPages(v int32) {
+func (o *DataConsentDetailsPaginatedList) SetTotalPages(v int32) {
 	o.TotalPages = &v
 }
 
 // GetTotalItems returns the TotalItems field value if set, zero value otherwise.
-func (o *IssuedDocumentPaginatedList) GetTotalItems() int64 {
+func (o *DataConsentDetailsPaginatedList) GetTotalItems() int64 {
 	if o == nil || o.TotalItems == nil {
 		var ret int64
 		return ret
@@ -148,7 +148,7 @@ func (o *IssuedDocumentPaginatedList) GetTotalItems() int64 {
 
 // GetTotalItemsOk returns a tuple with the TotalItems field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *IssuedDocumentPaginatedList) GetTotalItemsOk() (*int64, bool) {
+func (o *DataConsentDetailsPaginatedList) GetTotalItemsOk() (*int64, bool) {
 	if o == nil || o.TotalItems == nil {
 		return nil, false
 	}
@@ -156,7 +156,7 @@ func (o *IssuedDocumentPaginatedList) GetTotalItemsOk() (*int64, bool) {
 }
 
 // HasTotalItems returns a boolean if a field has been set.
-func (o *IssuedDocumentPaginatedList) HasTotalItems() bool {
+func (o *DataConsentDetailsPaginatedList) HasTotalItems() bool {
 	if o != nil && o.TotalItems != nil {
 		return true
 	}
@@ -165,14 +165,14 @@ func (o *IssuedDocumentPaginatedList) HasTotalItems() bool {
 }
 
 // SetTotalItems gets a reference to the given int64 and assigns it to the TotalItems field.
-func (o *IssuedDocumentPaginatedList) SetTotalItems(v int64) {
+func (o *DataConsentDetailsPaginatedList) SetTotalItems(v int64) {
 	o.TotalItems = &v
 }
 
 // GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IssuedDocumentPaginatedList) GetItems() []OneOfIssuedDocumentIssuedDocumentDetails {
+func (o *DataConsentDetailsPaginatedList) GetItems() []DataConsentDetails {
 	if o == nil  {
-		var ret []OneOfIssuedDocumentIssuedDocumentDetails
+		var ret []DataConsentDetails
 		return ret
 	}
 	return o.Items
@@ -181,7 +181,7 @@ func (o *IssuedDocumentPaginatedList) GetItems() []OneOfIssuedDocumentIssuedDocu
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IssuedDocumentPaginatedList) GetItemsOk() ([]OneOfIssuedDocumentIssuedDocumentDetails, bool) {
+func (o *DataConsentDetailsPaginatedList) GetItemsOk() ([]DataConsentDetails, bool) {
 	if o == nil || o.Items == nil {
 		return nil, false
 	}
@@ -189,7 +189,7 @@ func (o *IssuedDocumentPaginatedList) GetItemsOk() ([]OneOfIssuedDocumentIssuedD
 }
 
 // HasItems returns a boolean if a field has been set.
-func (o *IssuedDocumentPaginatedList) HasItems() bool {
+func (o *DataConsentDetailsPaginatedList) HasItems() bool {
 	if o != nil && o.Items != nil {
 		return true
 	}
@@ -197,12 +197,12 @@ func (o *IssuedDocumentPaginatedList) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []OneOfIssuedDocumentIssuedDocumentDetails and assigns it to the Items field.
-func (o *IssuedDocumentPaginatedList) SetItems(v []OneOfIssuedDocumentIssuedDocumentDetails) {
+// SetItems gets a reference to the given []DataConsentDetails and assigns it to the Items field.
+func (o *DataConsentDetailsPaginatedList) SetItems(v []DataConsentDetails) {
 	o.Items = v
 }
 
-func (o IssuedDocumentPaginatedList) MarshalJSON() ([]byte, error) {
+func (o DataConsentDetailsPaginatedList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.PageIndex != nil {
 		toSerialize["pageIndex"] = o.PageIndex
@@ -222,38 +222,38 @@ func (o IssuedDocumentPaginatedList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableIssuedDocumentPaginatedList struct {
-	value *IssuedDocumentPaginatedList
+type NullableDataConsentDetailsPaginatedList struct {
+	value *DataConsentDetailsPaginatedList
 	isSet bool
 }
 
-func (v NullableIssuedDocumentPaginatedList) Get() *IssuedDocumentPaginatedList {
+func (v NullableDataConsentDetailsPaginatedList) Get() *DataConsentDetailsPaginatedList {
 	return v.value
 }
 
-func (v *NullableIssuedDocumentPaginatedList) Set(val *IssuedDocumentPaginatedList) {
+func (v *NullableDataConsentDetailsPaginatedList) Set(val *DataConsentDetailsPaginatedList) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableIssuedDocumentPaginatedList) IsSet() bool {
+func (v NullableDataConsentDetailsPaginatedList) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableIssuedDocumentPaginatedList) Unset() {
+func (v *NullableDataConsentDetailsPaginatedList) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableIssuedDocumentPaginatedList(val *IssuedDocumentPaginatedList) *NullableIssuedDocumentPaginatedList {
-	return &NullableIssuedDocumentPaginatedList{value: val, isSet: true}
+func NewNullableDataConsentDetailsPaginatedList(val *DataConsentDetailsPaginatedList) *NullableDataConsentDetailsPaginatedList {
+	return &NullableDataConsentDetailsPaginatedList{value: val, isSet: true}
 }
 
-func (v NullableIssuedDocumentPaginatedList) MarshalJSON() ([]byte, error) {
+func (v NullableDataConsentDetailsPaginatedList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableIssuedDocumentPaginatedList) UnmarshalJSON(src []byte) error {
+func (v *NullableDataConsentDetailsPaginatedList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

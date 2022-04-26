@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **DocumentType** | **string** | Document type name. | 
 **IssuedTo** | **string** | User name. | 
 **IssuedAtUtc** | **time.Time** | Issued datetime in UTC timezone. | 
+**ExpiresAtUtc** | Pointer to **NullableTime** | Expires datetime in UTC timezone. | [optional] 
+**AcceptedAtUtc** | Pointer to **NullableTime** | Accepted datetime in UTC timezone. | [optional] 
 
 ## Methods
 
@@ -129,6 +131,76 @@ and a boolean to check if the value has been set.
 SetIssuedAtUtc sets IssuedAtUtc field to given value.
 
 
+### GetExpiresAtUtc
+
+`func (o *IssuedDocument) GetExpiresAtUtc() time.Time`
+
+GetExpiresAtUtc returns the ExpiresAtUtc field if non-nil, zero value otherwise.
+
+### GetExpiresAtUtcOk
+
+`func (o *IssuedDocument) GetExpiresAtUtcOk() (*time.Time, bool)`
+
+GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExpiresAtUtc
+
+`func (o *IssuedDocument) SetExpiresAtUtc(v time.Time)`
+
+SetExpiresAtUtc sets ExpiresAtUtc field to given value.
+
+### HasExpiresAtUtc
+
+`func (o *IssuedDocument) HasExpiresAtUtc() bool`
+
+HasExpiresAtUtc returns a boolean if a field has been set.
+
+### SetExpiresAtUtcNil
+
+`func (o *IssuedDocument) SetExpiresAtUtcNil(b bool)`
+
+ SetExpiresAtUtcNil sets the value for ExpiresAtUtc to be an explicit nil
+
+### UnsetExpiresAtUtc
+`func (o *IssuedDocument) UnsetExpiresAtUtc()`
+
+UnsetExpiresAtUtc ensures that no value is present for ExpiresAtUtc, not even an explicit nil
+### GetAcceptedAtUtc
+
+`func (o *IssuedDocument) GetAcceptedAtUtc() time.Time`
+
+GetAcceptedAtUtc returns the AcceptedAtUtc field if non-nil, zero value otherwise.
+
+### GetAcceptedAtUtcOk
+
+`func (o *IssuedDocument) GetAcceptedAtUtcOk() (*time.Time, bool)`
+
+GetAcceptedAtUtcOk returns a tuple with the AcceptedAtUtc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAcceptedAtUtc
+
+`func (o *IssuedDocument) SetAcceptedAtUtc(v time.Time)`
+
+SetAcceptedAtUtc sets AcceptedAtUtc field to given value.
+
+### HasAcceptedAtUtc
+
+`func (o *IssuedDocument) HasAcceptedAtUtc() bool`
+
+HasAcceptedAtUtc returns a boolean if a field has been set.
+
+### SetAcceptedAtUtcNil
+
+`func (o *IssuedDocument) SetAcceptedAtUtcNil(b bool)`
+
+ SetAcceptedAtUtcNil sets the value for AcceptedAtUtc to be an explicit nil
+
+### UnsetAcceptedAtUtc
+`func (o *IssuedDocument) UnsetAcceptedAtUtc()`
+
+UnsetAcceptedAtUtc ensures that no value is present for AcceptedAtUtc, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

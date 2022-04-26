@@ -22,6 +22,8 @@ type DataConsentRequestDetails struct {
 	Id string `json:"id"`
 	// Consent request template id
 	TemplateId NullableString `json:"templateId,omitempty"`
+	// Data Consent id
+	ConsentId NullableString `json:"consentId,omitempty"`
 	// Consent request title.
 	Title string `json:"title"`
 	// Consent request description.
@@ -33,19 +35,22 @@ type DataConsentRequestDetails struct {
 	TransactionId NullableString `json:"transactionId,omitempty"`
 	// Request creation datetime in UTC timezone
 	CreatedAtUtc time.Time `json:"createdAtUtc"`
+	// Request expiration datetime in UTC timezone
+	ExpiresAtUtc time.Time `json:"expiresAtUtc"`
 }
 
 // NewDataConsentRequestDetails instantiates a new DataConsentRequestDetails object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDataConsentRequestDetails(id string, title string, description string, status DataConsentStatus, createdAtUtc time.Time) *DataConsentRequestDetails {
+func NewDataConsentRequestDetails(id string, title string, description string, status DataConsentStatus, createdAtUtc time.Time, expiresAtUtc time.Time) *DataConsentRequestDetails {
 	this := DataConsentRequestDetails{}
 	this.Id = id
 	this.Title = title
 	this.Description = description
 	this.Status = status
 	this.CreatedAtUtc = createdAtUtc
+	this.ExpiresAtUtc = expiresAtUtc
 	return &this
 }
 
@@ -121,6 +126,48 @@ func (o *DataConsentRequestDetails) SetTemplateIdNil() {
 // UnsetTemplateId ensures that no value is present for TemplateId, not even an explicit nil
 func (o *DataConsentRequestDetails) UnsetTemplateId() {
 	o.TemplateId.Unset()
+}
+
+// GetConsentId returns the ConsentId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DataConsentRequestDetails) GetConsentId() string {
+	if o == nil || o.ConsentId.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.ConsentId.Get()
+}
+
+// GetConsentIdOk returns a tuple with the ConsentId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DataConsentRequestDetails) GetConsentIdOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.ConsentId.Get(), o.ConsentId.IsSet()
+}
+
+// HasConsentId returns a boolean if a field has been set.
+func (o *DataConsentRequestDetails) HasConsentId() bool {
+	if o != nil && o.ConsentId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetConsentId gets a reference to the given NullableString and assigns it to the ConsentId field.
+func (o *DataConsentRequestDetails) SetConsentId(v string) {
+	o.ConsentId.Set(&v)
+}
+// SetConsentIdNil sets the value for ConsentId to be an explicit nil
+func (o *DataConsentRequestDetails) SetConsentIdNil() {
+	o.ConsentId.Set(nil)
+}
+
+// UnsetConsentId ensures that no value is present for ConsentId, not even an explicit nil
+func (o *DataConsentRequestDetails) UnsetConsentId() {
+	o.ConsentId.Unset()
 }
 
 // GetTitle returns the Title field value
@@ -303,6 +350,30 @@ func (o *DataConsentRequestDetails) SetCreatedAtUtc(v time.Time) {
 	o.CreatedAtUtc = v
 }
 
+// GetExpiresAtUtc returns the ExpiresAtUtc field value
+func (o *DataConsentRequestDetails) GetExpiresAtUtc() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.ExpiresAtUtc
+}
+
+// GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field value
+// and a boolean to check if the value has been set.
+func (o *DataConsentRequestDetails) GetExpiresAtUtcOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.ExpiresAtUtc, true
+}
+
+// SetExpiresAtUtc sets field value
+func (o *DataConsentRequestDetails) SetExpiresAtUtc(v time.Time) {
+	o.ExpiresAtUtc = v
+}
+
 func (o DataConsentRequestDetails) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -310,6 +381,9 @@ func (o DataConsentRequestDetails) MarshalJSON() ([]byte, error) {
 	}
 	if o.TemplateId.IsSet() {
 		toSerialize["templateId"] = o.TemplateId.Get()
+	}
+	if o.ConsentId.IsSet() {
+		toSerialize["consentId"] = o.ConsentId.Get()
 	}
 	if true {
 		toSerialize["title"] = o.Title
@@ -328,6 +402,9 @@ func (o DataConsentRequestDetails) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["createdAtUtc"] = o.CreatedAtUtc
+	}
+	if true {
+		toSerialize["expiresAtUtc"] = o.ExpiresAtUtc
 	}
 	return json.Marshal(toSerialize)
 }

@@ -18,13 +18,12 @@ Name | Type | Description | Notes
 **PayableAmount** | Pointer to **NullableFloat64** | Payable amount if document is chargeable. eg: 10.25. | [optional] 
 **PayableAmountCurrency** | Pointer to **NullableString** | Payable amount currency. eg: INR, USD etc.,. | [optional] 
 **ApprovedAtUtc** | Pointer to **NullableTime** | DateTime of approval in UTC timezone. | [optional] 
-**Approved** | **bool** | Document type approval status. | 
 
 ## Methods
 
 ### NewDocumentType
 
-`func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryType DocumentSubCategoryType, name string, slug string, logoUrl string, supportedEntityTypes []SupportedEntityType, addedBy string, approved bool, ) *DocumentType`
+`func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryType DocumentSubCategoryType, name string, slug string, logoUrl string, supportedEntityTypes []SupportedEntityType, addedBy string, ) *DocumentType`
 
 NewDocumentType instantiates a new DocumentType object
 This constructor will assign default values to properties that have it defined,
@@ -409,26 +408,6 @@ HasApprovedAtUtc returns a boolean if a field has been set.
 `func (o *DocumentType) UnsetApprovedAtUtc()`
 
 UnsetApprovedAtUtc ensures that no value is present for ApprovedAtUtc, not even an explicit nil
-### GetApproved
-
-`func (o *DocumentType) GetApproved() bool`
-
-GetApproved returns the Approved field if non-nil, zero value otherwise.
-
-### GetApprovedOk
-
-`func (o *DocumentType) GetApprovedOk() (*bool, bool)`
-
-GetApprovedOk returns a tuple with the Approved field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApproved
-
-`func (o *DocumentType) SetApproved(v bool)`
-
-SetApproved sets Approved field to given value.
-
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

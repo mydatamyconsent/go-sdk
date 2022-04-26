@@ -16,8 +16,13 @@ import (
 	"time"
 )
 
-// IssuedDocument Issued Document Identifier.
-type IssuedDocument struct {
+// IssuedDocumentDetails struct for IssuedDocumentDetails
+type IssuedDocumentDetails struct {
+	Receiver DocumentReceiver `json:"receiver"`
+	// Metadata.
+	Metadata map[string]string `json:"metadata,omitempty"`
+	// Digital signatures.
+	DigitalSignatures []DocumentDigitalSignature `json:"digitalSignatures"`
 	// Document Id.
 	Id string `json:"id"`
 	// Document Identifier.
@@ -34,12 +39,12 @@ type IssuedDocument struct {
 	AcceptedAtUtc NullableTime `json:"acceptedAtUtc,omitempty"`
 }
 
-// NewIssuedDocument instantiates a new IssuedDocument object
+// NewIssuedDocumentDetails instantiates a new IssuedDocumentDetails object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIssuedDocument(id string, identifier string, documentType string, issuedTo string, issuedAtUtc time.Time) *IssuedDocument {
-	this := IssuedDocument{}
+func NewIssuedDocumentDetails(receiver DocumentReceiver, digitalSignatures []DocumentDigitalSignature, id string, identifier string, documentType string, issuedTo string, issuedAtUtc time.Time) *IssuedDocumentDetails {
+	this := IssuedDocumentDetails{}
 	this.Id = id
 	this.Identifier = identifier
 	this.DocumentType = documentType
@@ -48,16 +53,97 @@ func NewIssuedDocument(id string, identifier string, documentType string, issued
 	return &this
 }
 
-// NewIssuedDocumentWithDefaults instantiates a new IssuedDocument object
+// NewIssuedDocumentDetailsWithDefaults instantiates a new IssuedDocumentDetails object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewIssuedDocumentWithDefaults() *IssuedDocument {
-	this := IssuedDocument{}
+func NewIssuedDocumentDetailsWithDefaults() *IssuedDocumentDetails {
+	this := IssuedDocumentDetails{}
 	return &this
 }
 
+// GetReceiver returns the Receiver field value
+func (o *IssuedDocumentDetails) GetReceiver() DocumentReceiver {
+	if o == nil {
+		var ret DocumentReceiver
+		return ret
+	}
+
+	return o.Receiver
+}
+
+// GetReceiverOk returns a tuple with the Receiver field value
+// and a boolean to check if the value has been set.
+func (o *IssuedDocumentDetails) GetReceiverOk() (*DocumentReceiver, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Receiver, true
+}
+
+// SetReceiver sets field value
+func (o *IssuedDocumentDetails) SetReceiver(v DocumentReceiver) {
+	o.Receiver = v
+}
+
+// GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IssuedDocumentDetails) GetMetadata() map[string]string {
+	if o == nil  {
+		var ret map[string]string
+		return ret
+	}
+	return o.Metadata
+}
+
+// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IssuedDocumentDetails) GetMetadataOk() (*map[string]string, bool) {
+	if o == nil || o.Metadata == nil {
+		return nil, false
+	}
+	return &o.Metadata, true
+}
+
+// HasMetadata returns a boolean if a field has been set.
+func (o *IssuedDocumentDetails) HasMetadata() bool {
+	if o != nil && o.Metadata != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMetadata gets a reference to the given map[string]string and assigns it to the Metadata field.
+func (o *IssuedDocumentDetails) SetMetadata(v map[string]string) {
+	o.Metadata = v
+}
+
+// GetDigitalSignatures returns the DigitalSignatures field value
+func (o *IssuedDocumentDetails) GetDigitalSignatures() []DocumentDigitalSignature {
+	if o == nil {
+		var ret []DocumentDigitalSignature
+		return ret
+	}
+
+	return o.DigitalSignatures
+}
+
+// GetDigitalSignaturesOk returns a tuple with the DigitalSignatures field value
+// and a boolean to check if the value has been set.
+func (o *IssuedDocumentDetails) GetDigitalSignaturesOk() ([]DocumentDigitalSignature, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.DigitalSignatures, true
+}
+
+// SetDigitalSignatures sets field value
+func (o *IssuedDocumentDetails) SetDigitalSignatures(v []DocumentDigitalSignature) {
+	o.DigitalSignatures = v
+}
+
 // GetId returns the Id field value
-func (o *IssuedDocument) GetId() string {
+func (o *IssuedDocumentDetails) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -68,7 +154,7 @@ func (o *IssuedDocument) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *IssuedDocument) GetIdOk() (*string, bool) {
+func (o *IssuedDocumentDetails) GetIdOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -76,12 +162,12 @@ func (o *IssuedDocument) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *IssuedDocument) SetId(v string) {
+func (o *IssuedDocumentDetails) SetId(v string) {
 	o.Id = v
 }
 
 // GetIdentifier returns the Identifier field value
-func (o *IssuedDocument) GetIdentifier() string {
+func (o *IssuedDocumentDetails) GetIdentifier() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -92,7 +178,7 @@ func (o *IssuedDocument) GetIdentifier() string {
 
 // GetIdentifierOk returns a tuple with the Identifier field value
 // and a boolean to check if the value has been set.
-func (o *IssuedDocument) GetIdentifierOk() (*string, bool) {
+func (o *IssuedDocumentDetails) GetIdentifierOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -100,12 +186,12 @@ func (o *IssuedDocument) GetIdentifierOk() (*string, bool) {
 }
 
 // SetIdentifier sets field value
-func (o *IssuedDocument) SetIdentifier(v string) {
+func (o *IssuedDocumentDetails) SetIdentifier(v string) {
 	o.Identifier = v
 }
 
 // GetDocumentType returns the DocumentType field value
-func (o *IssuedDocument) GetDocumentType() string {
+func (o *IssuedDocumentDetails) GetDocumentType() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -116,7 +202,7 @@ func (o *IssuedDocument) GetDocumentType() string {
 
 // GetDocumentTypeOk returns a tuple with the DocumentType field value
 // and a boolean to check if the value has been set.
-func (o *IssuedDocument) GetDocumentTypeOk() (*string, bool) {
+func (o *IssuedDocumentDetails) GetDocumentTypeOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -124,12 +210,12 @@ func (o *IssuedDocument) GetDocumentTypeOk() (*string, bool) {
 }
 
 // SetDocumentType sets field value
-func (o *IssuedDocument) SetDocumentType(v string) {
+func (o *IssuedDocumentDetails) SetDocumentType(v string) {
 	o.DocumentType = v
 }
 
 // GetIssuedTo returns the IssuedTo field value
-func (o *IssuedDocument) GetIssuedTo() string {
+func (o *IssuedDocumentDetails) GetIssuedTo() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -140,7 +226,7 @@ func (o *IssuedDocument) GetIssuedTo() string {
 
 // GetIssuedToOk returns a tuple with the IssuedTo field value
 // and a boolean to check if the value has been set.
-func (o *IssuedDocument) GetIssuedToOk() (*string, bool) {
+func (o *IssuedDocumentDetails) GetIssuedToOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -148,12 +234,12 @@ func (o *IssuedDocument) GetIssuedToOk() (*string, bool) {
 }
 
 // SetIssuedTo sets field value
-func (o *IssuedDocument) SetIssuedTo(v string) {
+func (o *IssuedDocumentDetails) SetIssuedTo(v string) {
 	o.IssuedTo = v
 }
 
 // GetIssuedAtUtc returns the IssuedAtUtc field value
-func (o *IssuedDocument) GetIssuedAtUtc() time.Time {
+func (o *IssuedDocumentDetails) GetIssuedAtUtc() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
@@ -164,7 +250,7 @@ func (o *IssuedDocument) GetIssuedAtUtc() time.Time {
 
 // GetIssuedAtUtcOk returns a tuple with the IssuedAtUtc field value
 // and a boolean to check if the value has been set.
-func (o *IssuedDocument) GetIssuedAtUtcOk() (*time.Time, bool) {
+func (o *IssuedDocumentDetails) GetIssuedAtUtcOk() (*time.Time, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -172,12 +258,12 @@ func (o *IssuedDocument) GetIssuedAtUtcOk() (*time.Time, bool) {
 }
 
 // SetIssuedAtUtc sets field value
-func (o *IssuedDocument) SetIssuedAtUtc(v time.Time) {
+func (o *IssuedDocumentDetails) SetIssuedAtUtc(v time.Time) {
 	o.IssuedAtUtc = v
 }
 
 // GetExpiresAtUtc returns the ExpiresAtUtc field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IssuedDocument) GetExpiresAtUtc() time.Time {
+func (o *IssuedDocumentDetails) GetExpiresAtUtc() time.Time {
 	if o == nil || o.ExpiresAtUtc.Get() == nil {
 		var ret time.Time
 		return ret
@@ -188,7 +274,7 @@ func (o *IssuedDocument) GetExpiresAtUtc() time.Time {
 // GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IssuedDocument) GetExpiresAtUtcOk() (*time.Time, bool) {
+func (o *IssuedDocumentDetails) GetExpiresAtUtcOk() (*time.Time, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -196,7 +282,7 @@ func (o *IssuedDocument) GetExpiresAtUtcOk() (*time.Time, bool) {
 }
 
 // HasExpiresAtUtc returns a boolean if a field has been set.
-func (o *IssuedDocument) HasExpiresAtUtc() bool {
+func (o *IssuedDocumentDetails) HasExpiresAtUtc() bool {
 	if o != nil && o.ExpiresAtUtc.IsSet() {
 		return true
 	}
@@ -205,21 +291,21 @@ func (o *IssuedDocument) HasExpiresAtUtc() bool {
 }
 
 // SetExpiresAtUtc gets a reference to the given NullableTime and assigns it to the ExpiresAtUtc field.
-func (o *IssuedDocument) SetExpiresAtUtc(v time.Time) {
+func (o *IssuedDocumentDetails) SetExpiresAtUtc(v time.Time) {
 	o.ExpiresAtUtc.Set(&v)
 }
 // SetExpiresAtUtcNil sets the value for ExpiresAtUtc to be an explicit nil
-func (o *IssuedDocument) SetExpiresAtUtcNil() {
+func (o *IssuedDocumentDetails) SetExpiresAtUtcNil() {
 	o.ExpiresAtUtc.Set(nil)
 }
 
 // UnsetExpiresAtUtc ensures that no value is present for ExpiresAtUtc, not even an explicit nil
-func (o *IssuedDocument) UnsetExpiresAtUtc() {
+func (o *IssuedDocumentDetails) UnsetExpiresAtUtc() {
 	o.ExpiresAtUtc.Unset()
 }
 
 // GetAcceptedAtUtc returns the AcceptedAtUtc field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IssuedDocument) GetAcceptedAtUtc() time.Time {
+func (o *IssuedDocumentDetails) GetAcceptedAtUtc() time.Time {
 	if o == nil || o.AcceptedAtUtc.Get() == nil {
 		var ret time.Time
 		return ret
@@ -230,7 +316,7 @@ func (o *IssuedDocument) GetAcceptedAtUtc() time.Time {
 // GetAcceptedAtUtcOk returns a tuple with the AcceptedAtUtc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IssuedDocument) GetAcceptedAtUtcOk() (*time.Time, bool) {
+func (o *IssuedDocumentDetails) GetAcceptedAtUtcOk() (*time.Time, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -238,7 +324,7 @@ func (o *IssuedDocument) GetAcceptedAtUtcOk() (*time.Time, bool) {
 }
 
 // HasAcceptedAtUtc returns a boolean if a field has been set.
-func (o *IssuedDocument) HasAcceptedAtUtc() bool {
+func (o *IssuedDocumentDetails) HasAcceptedAtUtc() bool {
 	if o != nil && o.AcceptedAtUtc.IsSet() {
 		return true
 	}
@@ -247,21 +333,30 @@ func (o *IssuedDocument) HasAcceptedAtUtc() bool {
 }
 
 // SetAcceptedAtUtc gets a reference to the given NullableTime and assigns it to the AcceptedAtUtc field.
-func (o *IssuedDocument) SetAcceptedAtUtc(v time.Time) {
+func (o *IssuedDocumentDetails) SetAcceptedAtUtc(v time.Time) {
 	o.AcceptedAtUtc.Set(&v)
 }
 // SetAcceptedAtUtcNil sets the value for AcceptedAtUtc to be an explicit nil
-func (o *IssuedDocument) SetAcceptedAtUtcNil() {
+func (o *IssuedDocumentDetails) SetAcceptedAtUtcNil() {
 	o.AcceptedAtUtc.Set(nil)
 }
 
 // UnsetAcceptedAtUtc ensures that no value is present for AcceptedAtUtc, not even an explicit nil
-func (o *IssuedDocument) UnsetAcceptedAtUtc() {
+func (o *IssuedDocumentDetails) UnsetAcceptedAtUtc() {
 	o.AcceptedAtUtc.Unset()
 }
 
-func (o IssuedDocument) MarshalJSON() ([]byte, error) {
+func (o IssuedDocumentDetails) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["receiver"] = o.Receiver
+	}
+	if o.Metadata != nil {
+		toSerialize["metadata"] = o.Metadata
+	}
+	if true {
+		toSerialize["digitalSignatures"] = o.DigitalSignatures
+	}
 	if true {
 		toSerialize["id"] = o.Id
 	}
@@ -286,38 +381,38 @@ func (o IssuedDocument) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableIssuedDocument struct {
-	value *IssuedDocument
+type NullableIssuedDocumentDetails struct {
+	value *IssuedDocumentDetails
 	isSet bool
 }
 
-func (v NullableIssuedDocument) Get() *IssuedDocument {
+func (v NullableIssuedDocumentDetails) Get() *IssuedDocumentDetails {
 	return v.value
 }
 
-func (v *NullableIssuedDocument) Set(val *IssuedDocument) {
+func (v *NullableIssuedDocumentDetails) Set(val *IssuedDocumentDetails) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableIssuedDocument) IsSet() bool {
+func (v NullableIssuedDocumentDetails) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableIssuedDocument) Unset() {
+func (v *NullableIssuedDocumentDetails) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableIssuedDocument(val *IssuedDocument) *NullableIssuedDocument {
-	return &NullableIssuedDocument{value: val, isSet: true}
+func NewNullableIssuedDocumentDetails(val *IssuedDocumentDetails) *NullableIssuedDocumentDetails {
+	return &NullableIssuedDocumentDetails{value: val, isSet: true}
 }
 
-func (v NullableIssuedDocument) MarshalJSON() ([]byte, error) {
+func (v NullableIssuedDocumentDetails) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableIssuedDocument) UnmarshalJSON(src []byte) error {
+func (v *NullableIssuedDocumentDetails) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

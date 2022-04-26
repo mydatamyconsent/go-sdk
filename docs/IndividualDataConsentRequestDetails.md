@@ -7,18 +7,20 @@ Name | Type | Description | Notes
 **Receiver** | **string** | Name of request receiver individual. | 
 **Id** | **string** | Consent request id | 
 **TemplateId** | Pointer to **NullableString** | Consent request template id | [optional] 
+**ConsentId** | Pointer to **NullableString** | Data Consent id | [optional] 
 **Title** | **string** | Consent request title. | 
 **Description** | **string** | Consent request description. | 
 **Purpose** | Pointer to **NullableString** | Consent request purpose. | [optional] 
 **Status** | [**DataConsentStatus**](DataConsentStatus.md) |  | 
 **TransactionId** | Pointer to **NullableString** | Transaction id | [optional] 
 **CreatedAtUtc** | **time.Time** | Request creation datetime in UTC timezone | 
+**ExpiresAtUtc** | **time.Time** | Request expiration datetime in UTC timezone | 
 
 ## Methods
 
 ### NewIndividualDataConsentRequestDetails
 
-`func NewIndividualDataConsentRequestDetails(receiver string, id string, title string, description string, status DataConsentStatus, createdAtUtc time.Time, ) *IndividualDataConsentRequestDetails`
+`func NewIndividualDataConsentRequestDetails(receiver string, id string, title string, description string, status DataConsentStatus, createdAtUtc time.Time, expiresAtUtc time.Time, ) *IndividualDataConsentRequestDetails`
 
 NewIndividualDataConsentRequestDetails instantiates a new IndividualDataConsentRequestDetails object
 This constructor will assign default values to properties that have it defined,
@@ -108,6 +110,41 @@ HasTemplateId returns a boolean if a field has been set.
 `func (o *IndividualDataConsentRequestDetails) UnsetTemplateId()`
 
 UnsetTemplateId ensures that no value is present for TemplateId, not even an explicit nil
+### GetConsentId
+
+`func (o *IndividualDataConsentRequestDetails) GetConsentId() string`
+
+GetConsentId returns the ConsentId field if non-nil, zero value otherwise.
+
+### GetConsentIdOk
+
+`func (o *IndividualDataConsentRequestDetails) GetConsentIdOk() (*string, bool)`
+
+GetConsentIdOk returns a tuple with the ConsentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConsentId
+
+`func (o *IndividualDataConsentRequestDetails) SetConsentId(v string)`
+
+SetConsentId sets ConsentId field to given value.
+
+### HasConsentId
+
+`func (o *IndividualDataConsentRequestDetails) HasConsentId() bool`
+
+HasConsentId returns a boolean if a field has been set.
+
+### SetConsentIdNil
+
+`func (o *IndividualDataConsentRequestDetails) SetConsentIdNil(b bool)`
+
+ SetConsentIdNil sets the value for ConsentId to be an explicit nil
+
+### UnsetConsentId
+`func (o *IndividualDataConsentRequestDetails) UnsetConsentId()`
+
+UnsetConsentId ensures that no value is present for ConsentId, not even an explicit nil
 ### GetTitle
 
 `func (o *IndividualDataConsentRequestDetails) GetTitle() string`
@@ -256,6 +293,26 @@ and a boolean to check if the value has been set.
 `func (o *IndividualDataConsentRequestDetails) SetCreatedAtUtc(v time.Time)`
 
 SetCreatedAtUtc sets CreatedAtUtc field to given value.
+
+
+### GetExpiresAtUtc
+
+`func (o *IndividualDataConsentRequestDetails) GetExpiresAtUtc() time.Time`
+
+GetExpiresAtUtc returns the ExpiresAtUtc field if non-nil, zero value otherwise.
+
+### GetExpiresAtUtcOk
+
+`func (o *IndividualDataConsentRequestDetails) GetExpiresAtUtcOk() (*time.Time, bool)`
+
+GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExpiresAtUtc
+
+`func (o *IndividualDataConsentRequestDetails) SetExpiresAtUtc(v time.Time)`
+
+SetExpiresAtUtc sets ExpiresAtUtc field to given value.
 
 
 

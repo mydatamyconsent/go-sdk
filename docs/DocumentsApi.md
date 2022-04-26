@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## GetIssuedDocumentById
 
-> IssuedDocument GetIssuedDocumentById(ctx, documentId).Execute()
+> OneOfIssuedDocumentIssuedDocumentDetails GetIssuedDocumentById(ctx, documentId).Execute()
 
 Get issued document.
 
@@ -42,7 +42,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.GetIssuedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetIssuedDocumentById`: IssuedDocument
+    // response from `GetIssuedDocumentById`: OneOfIssuedDocumentIssuedDocumentDetails
     fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.GetIssuedDocumentById`: %v\n", resp)
 }
 ```
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IssuedDocument**](IssuedDocument.md)
+[**OneOfIssuedDocumentIssuedDocumentDetails**](oneOf&lt;IssuedDocument,IssuedDocumentDetails&gt;.md)
 
 ### Authorization
 

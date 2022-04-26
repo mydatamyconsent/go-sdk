@@ -7,18 +7,20 @@ Name | Type | Description | Notes
 **Receiver** | **string** | Name of request receiver organization. | 
 **Id** | **string** | Consent request id | 
 **TemplateId** | Pointer to **NullableString** | Consent request template id | [optional] 
+**ConsentId** | Pointer to **NullableString** | Data Consent id | [optional] 
 **Title** | **string** | Consent request title. | 
 **Description** | **string** | Consent request description. | 
 **Purpose** | Pointer to **NullableString** | Consent request purpose. | [optional] 
 **Status** | [**DataConsentStatus**](DataConsentStatus.md) |  | 
 **TransactionId** | Pointer to **NullableString** | Transaction id | [optional] 
 **CreatedAtUtc** | **time.Time** | Request creation datetime in UTC timezone | 
+**ExpiresAtUtc** | **time.Time** | Request expiration datetime in UTC timezone | 
 
 ## Methods
 
 ### NewOrganizationDataConsentRequestDetails
 
-`func NewOrganizationDataConsentRequestDetails(receiver string, id string, title string, description string, status DataConsentStatus, createdAtUtc time.Time, ) *OrganizationDataConsentRequestDetails`
+`func NewOrganizationDataConsentRequestDetails(receiver string, id string, title string, description string, status DataConsentStatus, createdAtUtc time.Time, expiresAtUtc time.Time, ) *OrganizationDataConsentRequestDetails`
 
 NewOrganizationDataConsentRequestDetails instantiates a new OrganizationDataConsentRequestDetails object
 This constructor will assign default values to properties that have it defined,
@@ -108,6 +110,41 @@ HasTemplateId returns a boolean if a field has been set.
 `func (o *OrganizationDataConsentRequestDetails) UnsetTemplateId()`
 
 UnsetTemplateId ensures that no value is present for TemplateId, not even an explicit nil
+### GetConsentId
+
+`func (o *OrganizationDataConsentRequestDetails) GetConsentId() string`
+
+GetConsentId returns the ConsentId field if non-nil, zero value otherwise.
+
+### GetConsentIdOk
+
+`func (o *OrganizationDataConsentRequestDetails) GetConsentIdOk() (*string, bool)`
+
+GetConsentIdOk returns a tuple with the ConsentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConsentId
+
+`func (o *OrganizationDataConsentRequestDetails) SetConsentId(v string)`
+
+SetConsentId sets ConsentId field to given value.
+
+### HasConsentId
+
+`func (o *OrganizationDataConsentRequestDetails) HasConsentId() bool`
+
+HasConsentId returns a boolean if a field has been set.
+
+### SetConsentIdNil
+
+`func (o *OrganizationDataConsentRequestDetails) SetConsentIdNil(b bool)`
+
+ SetConsentIdNil sets the value for ConsentId to be an explicit nil
+
+### UnsetConsentId
+`func (o *OrganizationDataConsentRequestDetails) UnsetConsentId()`
+
+UnsetConsentId ensures that no value is present for ConsentId, not even an explicit nil
 ### GetTitle
 
 `func (o *OrganizationDataConsentRequestDetails) GetTitle() string`
@@ -256,6 +293,26 @@ and a boolean to check if the value has been set.
 `func (o *OrganizationDataConsentRequestDetails) SetCreatedAtUtc(v time.Time)`
 
 SetCreatedAtUtc sets CreatedAtUtc field to given value.
+
+
+### GetExpiresAtUtc
+
+`func (o *OrganizationDataConsentRequestDetails) GetExpiresAtUtc() time.Time`
+
+GetExpiresAtUtc returns the ExpiresAtUtc field if non-nil, zero value otherwise.
+
+### GetExpiresAtUtcOk
+
+`func (o *OrganizationDataConsentRequestDetails) GetExpiresAtUtcOk() (*time.Time, bool)`
+
+GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExpiresAtUtc
+
+`func (o *OrganizationDataConsentRequestDetails) SetExpiresAtUtc(v time.Time)`
+
+SetExpiresAtUtc sets ExpiresAtUtc field to given value.
 
 
 

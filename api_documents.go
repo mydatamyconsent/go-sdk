@@ -37,7 +37,7 @@ type ApiGetIssuedDocumentByIdRequest struct {
 }
 
 
-func (r ApiGetIssuedDocumentByIdRequest) Execute() (*IssuedDocument, *http.Response, error) {
+func (r ApiGetIssuedDocumentByIdRequest) Execute() (*OneOfIssuedDocumentIssuedDocumentDetails, *http.Response, error) {
 	return r.ApiService.GetIssuedDocumentByIdExecute(r)
 }
 
@@ -57,13 +57,13 @@ func (a *DocumentsApiService) GetIssuedDocumentById(ctx context.Context, documen
 }
 
 // Execute executes the request
-//  @return IssuedDocument
-func (a *DocumentsApiService) GetIssuedDocumentByIdExecute(r ApiGetIssuedDocumentByIdRequest) (*IssuedDocument, *http.Response, error) {
+//  @return OneOfIssuedDocumentIssuedDocumentDetails
+func (a *DocumentsApiService) GetIssuedDocumentByIdExecute(r ApiGetIssuedDocumentByIdRequest) (*OneOfIssuedDocumentIssuedDocumentDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *IssuedDocument
+		localVarReturnValue  *OneOfIssuedDocumentIssuedDocumentDetails
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.GetIssuedDocumentById")

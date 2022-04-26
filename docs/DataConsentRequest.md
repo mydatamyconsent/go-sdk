@@ -6,11 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Data consent request id. | 
 **TemplateId** | Pointer to **NullableString** | Data consent template id. | [optional] 
+**ConsentId** | Pointer to **NullableString** | Data consent id. | [optional] 
 **Title** | **string** | Data consent title. | 
 **Description** | **string** | Data consent description. | 
 **Purpose** | Pointer to **NullableString** | Data consent purpose. | [optional] 
 **DataLife** | Pointer to [**Life**](Life.md) |  | [optional] 
 **Collectables** | [**[]CollectibleTypes**](CollectibleTypes.md) | List of supported collectables. | 
+**Receiver** | [**ConsentRequestReceiver**](ConsentRequestReceiver.md) |  | 
 **Status** | [**DataConsentStatus**](DataConsentStatus.md) |  | 
 **CreatedAtUtc** | **time.Time** | Request creation datetime in UTC timezone. | 
 **ExpiresAtUtc** | **time.Time** | Request expiration datetime in UTC timezone. | 
@@ -23,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewDataConsentRequest
 
-`func NewDataConsentRequest(id string, title string, description string, collectables []CollectibleTypes, status DataConsentStatus, createdAtUtc time.Time, expiresAtUtc time.Time, ) *DataConsentRequest`
+`func NewDataConsentRequest(id string, title string, description string, collectables []CollectibleTypes, receiver ConsentRequestReceiver, status DataConsentStatus, createdAtUtc time.Time, expiresAtUtc time.Time, ) *DataConsentRequest`
 
 NewDataConsentRequest instantiates a new DataConsentRequest object
 This constructor will assign default values to properties that have it defined,
@@ -93,6 +95,41 @@ HasTemplateId returns a boolean if a field has been set.
 `func (o *DataConsentRequest) UnsetTemplateId()`
 
 UnsetTemplateId ensures that no value is present for TemplateId, not even an explicit nil
+### GetConsentId
+
+`func (o *DataConsentRequest) GetConsentId() string`
+
+GetConsentId returns the ConsentId field if non-nil, zero value otherwise.
+
+### GetConsentIdOk
+
+`func (o *DataConsentRequest) GetConsentIdOk() (*string, bool)`
+
+GetConsentIdOk returns a tuple with the ConsentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConsentId
+
+`func (o *DataConsentRequest) SetConsentId(v string)`
+
+SetConsentId sets ConsentId field to given value.
+
+### HasConsentId
+
+`func (o *DataConsentRequest) HasConsentId() bool`
+
+HasConsentId returns a boolean if a field has been set.
+
+### SetConsentIdNil
+
+`func (o *DataConsentRequest) SetConsentIdNil(b bool)`
+
+ SetConsentIdNil sets the value for ConsentId to be an explicit nil
+
+### UnsetConsentId
+`func (o *DataConsentRequest) UnsetConsentId()`
+
+UnsetConsentId ensures that no value is present for ConsentId, not even an explicit nil
 ### GetTitle
 
 `func (o *DataConsentRequest) GetTitle() string`
@@ -211,6 +248,26 @@ and a boolean to check if the value has been set.
 `func (o *DataConsentRequest) SetCollectables(v []CollectibleTypes)`
 
 SetCollectables sets Collectables field to given value.
+
+
+### GetReceiver
+
+`func (o *DataConsentRequest) GetReceiver() ConsentRequestReceiver`
+
+GetReceiver returns the Receiver field if non-nil, zero value otherwise.
+
+### GetReceiverOk
+
+`func (o *DataConsentRequest) GetReceiverOk() (*ConsentRequestReceiver, bool)`
+
+GetReceiverOk returns a tuple with the Receiver field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReceiver
+
+`func (o *DataConsentRequest) SetReceiver(v ConsentRequestReceiver)`
+
+SetReceiver sets Receiver field to given value.
 
 
 ### GetStatus

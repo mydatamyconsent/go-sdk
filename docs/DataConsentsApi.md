@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 ## DownloadConsentedDocumentAnalysis
 
-> map[string]interface{} DownloadConsentedDocumentAnalysis(ctx, consentId, documentId).Execute()
+> DownloadConsentedDocumentAnalysis(ctx, consentId, documentId).Execute()
 
 Get analysis of a consented document.
 
@@ -54,8 +54,6 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.DownloadConsentedDocumentAnalysis``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DownloadConsentedDocumentAnalysis`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.DownloadConsentedDocumentAnalysis`: %v\n", resp)
 }
 ```
 
@@ -80,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+ (empty response body)
 
 ### Authorization
 
@@ -98,7 +96,7 @@ No authorization required
 
 ## DownloadIndividualConsentedDocumentById
 
-> map[string]interface{} DownloadIndividualConsentedDocumentById(ctx, consentId, documentId).Execute()
+> DownloadIndividualConsentedDocumentById(ctx, consentId, documentId).Execute()
 
 Download individual consented document by document id.
 
@@ -125,8 +123,6 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.DownloadIndividualConsentedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DownloadIndividualConsentedDocumentById`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.DownloadIndividualConsentedDocumentById`: %v\n", resp)
 }
 ```
 
@@ -151,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+ (empty response body)
 
 ### Authorization
 
@@ -169,7 +165,7 @@ No authorization required
 
 ## DownloadOrganizationConsentedDocumentById
 
-> map[string]interface{} DownloadOrganizationConsentedDocumentById(ctx, consentId, documentId).Execute()
+> DownloadOrganizationConsentedDocumentById(ctx, consentId, documentId).Execute()
 
 Download organization consent document based on document id.
 
@@ -196,8 +192,6 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.DownloadOrganizationConsentedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DownloadOrganizationConsentedDocumentById`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.DownloadOrganizationConsentedDocumentById`: %v\n", resp)
 }
 ```
 
@@ -222,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+ (empty response body)
 
 ### Authorization
 
@@ -447,7 +441,7 @@ No authorization required
 
 ## GetConsentedDocumentById
 
-> map[string]interface{} GetConsentedDocumentById(ctx, consentId, documentId).Execute()
+> DataConsentDocument GetConsentedDocumentById(ctx, consentId, documentId).Execute()
 
 Get individual consented document by document id.
 
@@ -474,7 +468,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetConsentedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetConsentedDocumentById`: map[string]interface{}
+    // response from `GetConsentedDocumentById`: DataConsentDocument
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetConsentedDocumentById`: %v\n", resp)
 }
 ```
@@ -500,7 +494,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**DataConsentDocument**](DataConsentDocument.md)
 
 ### Authorization
 
@@ -740,7 +734,7 @@ No authorization required
 
 ## GetConsents
 
-> map[string]interface{} GetConsents(ctx).Status(status).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
+> DataConsentDetailsPaginatedList GetConsents(ctx).Status(status).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
 
 Get the paginated list of individual data consents.
 
@@ -760,7 +754,7 @@ import (
 )
 
 func main() {
-    status := openapiclient.DataConsentStatus("Pending") // DataConsentStatus | Data consent status MyDataMyConsent.Domain.Entities.ConsentAggregate.Enums.DataConsentStatus. (optional)
+    status := openapiclient.DataConsentStatus("Pending") // DataConsentStatus | Data consent status. (optional)
     fromDateTime := time.Now() // time.Time | From datetime in UTC timezone. (optional)
     toDateTime := time.Now() // time.Time | To datetime in UTC timezone. (optional)
     pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
@@ -773,7 +767,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetConsents``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetConsents`: map[string]interface{}
+    // response from `GetConsents`: DataConsentDetailsPaginatedList
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetConsents`: %v\n", resp)
 }
 ```
@@ -789,7 +783,7 @@ Other parameters are passed through a pointer to a apiGetConsentsRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | [**DataConsentStatus**](DataConsentStatus.md) | Data consent status MyDataMyConsent.Domain.Entities.ConsentAggregate.Enums.DataConsentStatus. | 
+ **status** | [**DataConsentStatus**](DataConsentStatus.md) | Data consent status. | 
  **fromDateTime** | **time.Time** | From datetime in UTC timezone. | 
  **toDateTime** | **time.Time** | To datetime in UTC timezone. | 
  **pageNo** | **int32** | Page number. | [default to 1]
@@ -797,7 +791,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**DataConsentDetailsPaginatedList**](DataConsentDetailsPaginatedList.md)
 
 ### Authorization
 
@@ -815,7 +809,7 @@ No authorization required
 
 ## GetIndividualConsentedDocuments
 
-> map[string]interface{} GetIndividualConsentedDocuments(ctx, consentId).Execute()
+> []DataConsentDocument GetIndividualConsentedDocuments(ctx, consentId).Execute()
 
 Get individual consented documents by consent id.
 
@@ -841,7 +835,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetIndividualConsentedDocuments``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetIndividualConsentedDocuments`: map[string]interface{}
+    // response from `GetIndividualConsentedDocuments`: []DataConsentDocument
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetIndividualConsentedDocuments`: %v\n", resp)
 }
 ```
@@ -865,7 +859,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**[]DataConsentDocument**](DataConsentDocument.md)
 
 ### Authorization
 
@@ -883,7 +877,7 @@ No authorization required
 
 ## GetIndividualDataConsentById
 
-> map[string]interface{} GetIndividualDataConsentById(ctx, consentId).Execute()
+> DataConsent GetIndividualDataConsentById(ctx, consentId).Execute()
 
 Get individuals data consent details by consent id.
 
@@ -909,7 +903,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetIndividualDataConsentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetIndividualDataConsentById`: map[string]interface{}
+    // response from `GetIndividualDataConsentById`: DataConsent
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetIndividualDataConsentById`: %v\n", resp)
 }
 ```
@@ -933,7 +927,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**DataConsent**](DataConsent.md)
 
 ### Authorization
 
@@ -1033,7 +1027,7 @@ No authorization required
 
 ## GetOrganizationConsentedDocumentById
 
-> map[string]interface{} GetOrganizationConsentedDocumentById(ctx, consentId, documentId).Execute()
+> DataConsentDocument GetOrganizationConsentedDocumentById(ctx, consentId, documentId).Execute()
 
 Get organization consent document based on document id.
 
@@ -1060,7 +1054,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetOrganizationConsentedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetOrganizationConsentedDocumentById`: map[string]interface{}
+    // response from `GetOrganizationConsentedDocumentById`: DataConsentDocument
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetOrganizationConsentedDocumentById`: %v\n", resp)
 }
 ```
@@ -1086,7 +1080,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**DataConsentDocument**](DataConsentDocument.md)
 
 ### Authorization
 
@@ -1104,7 +1098,7 @@ No authorization required
 
 ## GetOrganizationConsentedDocuments
 
-> map[string]interface{} GetOrganizationConsentedDocuments(ctx, consentId).Execute()
+> []DataConsentDocument GetOrganizationConsentedDocuments(ctx, consentId).Execute()
 
 Get organization consented documents by consent id.
 
@@ -1130,7 +1124,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetOrganizationConsentedDocuments``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetOrganizationConsentedDocuments`: map[string]interface{}
+    // response from `GetOrganizationConsentedDocuments`: []DataConsentDocument
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetOrganizationConsentedDocuments`: %v\n", resp)
 }
 ```
@@ -1154,7 +1148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**[]DataConsentDocument**](DataConsentDocument.md)
 
 ### Authorization
 
@@ -1172,7 +1166,7 @@ No authorization required
 
 ## GetOrganizationDataConsentById
 
-> map[string]interface{} GetOrganizationDataConsentById(ctx, consentId).Execute()
+> DataConsent GetOrganizationDataConsentById(ctx, consentId).Execute()
 
 Get organizations data consent details by consent id.
 
@@ -1198,7 +1192,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetOrganizationDataConsentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetOrganizationDataConsentById`: map[string]interface{}
+    // response from `GetOrganizationDataConsentById`: DataConsent
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetOrganizationDataConsentById`: %v\n", resp)
 }
 ```
@@ -1222,7 +1216,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**DataConsent**](DataConsent.md)
 
 ### Authorization
 
@@ -1240,7 +1234,7 @@ No authorization required
 
 ## GetOrganizationDataConsents
 
-> map[string]interface{} GetOrganizationDataConsents(ctx).Status(status).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
+> DataConsentDetailsPaginatedList GetOrganizationDataConsents(ctx).Status(status).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
 
 Get the paginated list of organization data consents.
 
@@ -1258,7 +1252,7 @@ import (
 )
 
 func main() {
-    status := openapiclient.DataConsentStatus("Pending") // DataConsentStatus | Data consent status MyDataMyConsent.Domain.Entities.ConsentAggregate.Enums.DataConsentStatus. (optional)
+    status := openapiclient.DataConsentStatus("Pending") // DataConsentStatus | Data consent status. (optional)
     fromDateTime := time.Now() // time.Time | From datetime in UTC timezone. (optional)
     toDateTime := time.Now() // time.Time | To datetime in UTC timezone. (optional)
     pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
@@ -1271,7 +1265,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DataConsentsApi.GetOrganizationDataConsents``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetOrganizationDataConsents`: map[string]interface{}
+    // response from `GetOrganizationDataConsents`: DataConsentDetailsPaginatedList
     fmt.Fprintf(os.Stdout, "Response from `DataConsentsApi.GetOrganizationDataConsents`: %v\n", resp)
 }
 ```
@@ -1287,7 +1281,7 @@ Other parameters are passed through a pointer to a apiGetOrganizationDataConsent
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | [**DataConsentStatus**](DataConsentStatus.md) | Data consent status MyDataMyConsent.Domain.Entities.ConsentAggregate.Enums.DataConsentStatus. | 
+ **status** | [**DataConsentStatus**](DataConsentStatus.md) | Data consent status. | 
  **fromDateTime** | **time.Time** | From datetime in UTC timezone. | 
  **toDateTime** | **time.Time** | To datetime in UTC timezone. | 
  **pageNo** | **int32** | Page number. | [default to 1]
@@ -1295,7 +1289,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**DataConsentDetailsPaginatedList**](DataConsentDetailsPaginatedList.md)
 
 ### Authorization
 
