@@ -37,7 +37,7 @@ type ApiGetIssuedDocumentByIdRequest struct {
 }
 
 
-func (r ApiGetIssuedDocumentByIdRequest) Execute() (*OneOfIssuedDocumentIssuedDocumentDetails, *http.Response, error) {
+func (r ApiGetIssuedDocumentByIdRequest) Execute() (*IssuedDocumentDetails, *http.Response, error) {
 	return r.ApiService.GetIssuedDocumentByIdExecute(r)
 }
 
@@ -57,13 +57,13 @@ func (a *DocumentsApiService) GetIssuedDocumentById(ctx context.Context, documen
 }
 
 // Execute executes the request
-//  @return OneOfIssuedDocumentIssuedDocumentDetails
-func (a *DocumentsApiService) GetIssuedDocumentByIdExecute(r ApiGetIssuedDocumentByIdRequest) (*OneOfIssuedDocumentIssuedDocumentDetails, *http.Response, error) {
+//  @return IssuedDocumentDetails
+func (a *DocumentsApiService) GetIssuedDocumentByIdExecute(r ApiGetIssuedDocumentByIdRequest) (*IssuedDocumentDetails, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *OneOfIssuedDocumentIssuedDocumentDetails
+		localVarReturnValue  *IssuedDocumentDetails
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsApiService.GetIssuedDocumentById")
@@ -164,13 +164,18 @@ func (a *DocumentsApiService) GetIssuedDocumentByIdExecute(r ApiGetIssuedDocumen
 type ApiGetIssuedDocumentsRequest struct {
 	ctx context.Context
 	ApiService *DocumentsApiService
-	documentTypeId string
+	documentTypeId *string
 	fromDateTime *time.Time
 	toDateTime *time.Time
 	pageNo *int32
 	pageSize *int32
 }
 
+// Document type id.
+func (r ApiGetIssuedDocumentsRequest) DocumentTypeId(documentTypeId string) ApiGetIssuedDocumentsRequest {
+	r.documentTypeId = &documentTypeId
+	return r
+}
 // From DateTime in UTC timezone.
 func (r ApiGetIssuedDocumentsRequest) FromDateTime(fromDateTime time.Time) ApiGetIssuedDocumentsRequest {
 	r.fromDateTime = &fromDateTime
@@ -200,14 +205,12 @@ func (r ApiGetIssuedDocumentsRequest) Execute() (*IssuedDocumentPaginatedList, *
 GetIssuedDocuments Get paginated list of issued documents of given document type.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param documentTypeId Document type id.
  @return ApiGetIssuedDocumentsRequest
 */
-func (a *DocumentsApiService) GetIssuedDocuments(ctx context.Context, documentTypeId string) ApiGetIssuedDocumentsRequest {
+func (a *DocumentsApiService) GetIssuedDocuments(ctx context.Context) ApiGetIssuedDocumentsRequest {
 	return ApiGetIssuedDocumentsRequest{
 		ApiService: a,
 		ctx: ctx,
-		documentTypeId: documentTypeId,
 	}
 }
 
@@ -226,13 +229,15 @@ func (a *DocumentsApiService) GetIssuedDocumentsExecute(r ApiGetIssuedDocumentsR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/documents/issued/{documentTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"documentTypeId"+"}", url.PathEscape(parameterToString(r.documentTypeId, "")), -1)
+	localVarPath := localBasePath + "/v1/documents/issued"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.documentTypeId != nil {
+		localVarQueryParams.Add("documentTypeId", parameterToString(*r.documentTypeId, ""))
+	}
 	if r.fromDateTime != nil {
 		localVarQueryParams.Add("fromDateTime", parameterToString(*r.fromDateTime, ""))
 	}
@@ -321,10 +326,16 @@ func (a *DocumentsApiService) GetIssuedDocumentsExecute(r ApiGetIssuedDocumentsR
 type ApiGetRegisteredDocumentTypesRequest struct {
 	ctx context.Context
 	ApiService *DocumentsApiService
+	supportedEntityType *SupportedEntityType
 	pageNo *int32
 	pageSize *int32
 }
 
+// Supported entity type.
+func (r ApiGetRegisteredDocumentTypesRequest) SupportedEntityType(supportedEntityType SupportedEntityType) ApiGetRegisteredDocumentTypesRequest {
+	r.supportedEntityType = &supportedEntityType
+	return r
+}
 // Page number.
 func (r ApiGetRegisteredDocumentTypesRequest) PageNo(pageNo int32) ApiGetRegisteredDocumentTypesRequest {
 	r.pageNo = &pageNo
@@ -374,6 +385,9 @@ func (a *DocumentsApiService) GetRegisteredDocumentTypesExecute(r ApiGetRegister
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.supportedEntityType != nil {
+		localVarQueryParams.Add("supportedEntityType", parameterToString(*r.supportedEntityType, ""))
+	}
 	if r.pageNo != nil {
 		localVarQueryParams.Add("pageNo", parameterToString(*r.pageNo, ""))
 	}

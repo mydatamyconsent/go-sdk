@@ -21,7 +21,7 @@ type IssuedDocumentPaginatedList struct {
 	PageSize *int32 `json:"pageSize,omitempty"`
 	TotalPages *int32 `json:"totalPages,omitempty"`
 	TotalItems *int64 `json:"totalItems,omitempty"`
-	Items []OneOfIssuedDocumentIssuedDocumentDetails `json:"items,omitempty"`
+	Items []IssuedDocument `json:"items,omitempty"`
 }
 
 // NewIssuedDocumentPaginatedList instantiates a new IssuedDocumentPaginatedList object
@@ -170,9 +170,9 @@ func (o *IssuedDocumentPaginatedList) SetTotalItems(v int64) {
 }
 
 // GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IssuedDocumentPaginatedList) GetItems() []OneOfIssuedDocumentIssuedDocumentDetails {
+func (o *IssuedDocumentPaginatedList) GetItems() []IssuedDocument {
 	if o == nil  {
-		var ret []OneOfIssuedDocumentIssuedDocumentDetails
+		var ret []IssuedDocument
 		return ret
 	}
 	return o.Items
@@ -181,7 +181,7 @@ func (o *IssuedDocumentPaginatedList) GetItems() []OneOfIssuedDocumentIssuedDocu
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IssuedDocumentPaginatedList) GetItemsOk() ([]OneOfIssuedDocumentIssuedDocumentDetails, bool) {
+func (o *IssuedDocumentPaginatedList) GetItemsOk() ([]IssuedDocument, bool) {
 	if o == nil || o.Items == nil {
 		return nil, false
 	}
@@ -197,8 +197,8 @@ func (o *IssuedDocumentPaginatedList) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []OneOfIssuedDocumentIssuedDocumentDetails and assigns it to the Items field.
-func (o *IssuedDocumentPaginatedList) SetItems(v []OneOfIssuedDocumentIssuedDocumentDetails) {
+// SetItems gets a reference to the given []IssuedDocument and assigns it to the Items field.
+func (o *IssuedDocumentPaginatedList) SetItems(v []IssuedDocument) {
 	o.Items = v
 }
 

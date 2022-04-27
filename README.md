@@ -115,7 +115,7 @@ Class | Method | HTTP request | Description
 *DataProviderDiscoveryApi* | [**GetDataProviders**](docs/DataProviderDiscoveryApi.md#getdataproviders) | **Get** /v1/data-providers | Discover all data providers in My Data My Consent by country and filters.
 *DigiLockerCompatIssuerApi* | [**DigilockerCompatIssueDocument**](docs/DigiLockerCompatIssuerApi.md#digilockercompatissuedocument) | **Post** /issuer/issuedoc/1/xml | Digilocker Compatible endpoint to issue document.
 *DocumentsApi* | [**GetIssuedDocumentById**](docs/DocumentsApi.md#getissueddocumentbyid) | **Get** /v1/documents/issued/{documentId} | Get issued document.
-*DocumentsApi* | [**GetIssuedDocuments**](docs/DocumentsApi.md#getissueddocuments) | **Get** /v1/documents/issued/{documentTypeId} | Get paginated list of issued documents of given document type.
+*DocumentsApi* | [**GetIssuedDocuments**](docs/DocumentsApi.md#getissueddocuments) | **Get** /v1/documents/issued | Get paginated list of issued documents of given document type.
 *DocumentsApi* | [**GetRegisteredDocumentTypes**](docs/DocumentsApi.md#getregistereddocumenttypes) | **Get** /v1/documents/types | Get paginated list of registered document types.
 *DocumentsApi* | [**IssueDocumentToIndividual**](docs/DocumentsApi.md#issuedocumenttoindividual) | **Post** /v1/documents/issue/individual | Issue a new document to an individual user.
 *DocumentsApi* | [**IssueDocumentToOrganization**](docs/DocumentsApi.md#issuedocumenttoorganization) | **Post** /v1/documents/issue/organization | Issue a new document to an organization.

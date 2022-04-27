@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **PageSize** | Pointer to **int32** |  | [optional] 
 **TotalPages** | Pointer to **int32** |  | [optional] [readonly] 
 **TotalItems** | Pointer to **int64** |  | [optional] 
-**Items** | Pointer to [**[]OneOfIssuedDocumentIssuedDocumentDetails**](OneOfIssuedDocumentIssuedDocumentDetails.md) |  | [optional] 
+**Items** | Pointer to [**[]IssuedDocument**](IssuedDocument.md) |  | [optional] 
 
 ## Methods
 
@@ -131,20 +131,20 @@ HasTotalItems returns a boolean if a field has been set.
 
 ### GetItems
 
-`func (o *IssuedDocumentPaginatedList) GetItems() []OneOfIssuedDocumentIssuedDocumentDetails`
+`func (o *IssuedDocumentPaginatedList) GetItems() []IssuedDocument`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *IssuedDocumentPaginatedList) GetItemsOk() (*[]OneOfIssuedDocumentIssuedDocumentDetails, bool)`
+`func (o *IssuedDocumentPaginatedList) GetItemsOk() (*[]IssuedDocument, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *IssuedDocumentPaginatedList) SetItems(v []OneOfIssuedDocumentIssuedDocumentDetails)`
+`func (o *IssuedDocumentPaginatedList) SetItems(v []IssuedDocument)`
 
 SetItems sets Items field to given value.
 

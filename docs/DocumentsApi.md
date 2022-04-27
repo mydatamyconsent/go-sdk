@@ -5,7 +5,7 @@ All URIs are relative to *https://api.mydatamyconsent.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetIssuedDocumentById**](DocumentsApi.md#GetIssuedDocumentById) | **Get** /v1/documents/issued/{documentId} | Get issued document.
-[**GetIssuedDocuments**](DocumentsApi.md#GetIssuedDocuments) | **Get** /v1/documents/issued/{documentTypeId} | Get paginated list of issued documents of given document type.
+[**GetIssuedDocuments**](DocumentsApi.md#GetIssuedDocuments) | **Get** /v1/documents/issued | Get paginated list of issued documents of given document type.
 [**GetRegisteredDocumentTypes**](DocumentsApi.md#GetRegisteredDocumentTypes) | **Get** /v1/documents/types | Get paginated list of registered document types.
 [**IssueDocumentToIndividual**](DocumentsApi.md#IssueDocumentToIndividual) | **Post** /v1/documents/issue/individual | Issue a new document to an individual user.
 [**IssueDocumentToOrganization**](DocumentsApi.md#IssueDocumentToOrganization) | **Post** /v1/documents/issue/organization | Issue a new document to an organization.
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## GetIssuedDocumentById
 
-> OneOfIssuedDocumentIssuedDocumentDetails GetIssuedDocumentById(ctx, documentId).Execute()
+> IssuedDocumentDetails GetIssuedDocumentById(ctx, documentId).Execute()
 
 Get issued document.
 
@@ -42,7 +42,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.GetIssuedDocumentById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetIssuedDocumentById`: OneOfIssuedDocumentIssuedDocumentDetails
+    // response from `GetIssuedDocumentById`: IssuedDocumentDetails
     fmt.Fprintf(os.Stdout, "Response from `DocumentsApi.GetIssuedDocumentById`: %v\n", resp)
 }
 ```
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OneOfIssuedDocumentIssuedDocumentDetails**](oneOf&lt;IssuedDocument,IssuedDocumentDetails&gt;.md)
+[**IssuedDocumentDetails**](IssuedDocumentDetails.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ No authorization required
 
 ## GetIssuedDocuments
 
-> IssuedDocumentPaginatedList GetIssuedDocuments(ctx, documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
+> IssuedDocumentPaginatedList GetIssuedDocuments(ctx).DocumentTypeId(documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
 
 Get paginated list of issued documents of given document type.
 
@@ -102,7 +102,7 @@ import (
 )
 
 func main() {
-    documentTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Document type id.
+    documentTypeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Document type id. (optional)
     fromDateTime := time.Now() // time.Time | From DateTime in UTC timezone. (optional)
     toDateTime := time.Now() // time.Time | To DateTime in UTC timezone. (optional)
     pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
@@ -110,7 +110,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DocumentsApi.GetIssuedDocuments(context.Background(), documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
+    resp, r, err := apiClient.DocumentsApi.GetIssuedDocuments(context.Background()).DocumentTypeId(documentTypeId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.GetIssuedDocuments``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -123,10 +123,6 @@ func main() {
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**documentTypeId** | **string** | Document type id. | 
 
 ### Other Parameters
 
@@ -135,7 +131,7 @@ Other parameters are passed through a pointer to a apiGetIssuedDocumentsRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
+ **documentTypeId** | **string** | Document type id. | 
  **fromDateTime** | **time.Time** | From DateTime in UTC timezone. | 
  **toDateTime** | **time.Time** | To DateTime in UTC timezone. | 
  **pageNo** | **int32** | Page number. | [default to 1]
@@ -161,7 +157,7 @@ No authorization required
 
 ## GetRegisteredDocumentTypes
 
-> DocumentTypePaginatedList GetRegisteredDocumentTypes(ctx).PageNo(pageNo).PageSize(pageSize).Execute()
+> DocumentTypePaginatedList GetRegisteredDocumentTypes(ctx).SupportedEntityType(supportedEntityType).PageNo(pageNo).PageSize(pageSize).Execute()
 
 Get paginated list of registered document types.
 
@@ -178,12 +174,13 @@ import (
 )
 
 func main() {
+    supportedEntityType := openapiclient.SupportedEntityType("Individual") // SupportedEntityType | Supported entity type. (optional)
     pageNo := int32(56) // int32 | Page number. (optional) (default to 1)
     pageSize := int32(56) // int32 | Number of items to return. (optional) (default to 25)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DocumentsApi.GetRegisteredDocumentTypes(context.Background()).PageNo(pageNo).PageSize(pageSize).Execute()
+    resp, r, err := apiClient.DocumentsApi.GetRegisteredDocumentTypes(context.Background()).SupportedEntityType(supportedEntityType).PageNo(pageNo).PageSize(pageSize).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DocumentsApi.GetRegisteredDocumentTypes``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -204,6 +201,7 @@ Other parameters are passed through a pointer to a apiGetRegisteredDocumentTypes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **supportedEntityType** | [**SupportedEntityType**](SupportedEntityType.md) | Supported entity type. | 
  **pageNo** | **int32** | Page number. | [default to 1]
  **pageSize** | **int32** | Number of items to return. | [default to 25]
 

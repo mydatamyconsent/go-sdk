@@ -18,11 +18,6 @@ import (
 
 // IssuedDocumentDetails struct for IssuedDocumentDetails
 type IssuedDocumentDetails struct {
-	Receiver DocumentReceiver `json:"receiver"`
-	// Metadata.
-	Metadata map[string]string `json:"metadata,omitempty"`
-	// Digital signatures.
-	DigitalSignatures []DocumentDigitalSignature `json:"digitalSignatures"`
 	// Document Id.
 	Id string `json:"id"`
 	// Document Identifier.
@@ -37,19 +32,26 @@ type IssuedDocumentDetails struct {
 	ExpiresAtUtc NullableTime `json:"expiresAtUtc,omitempty"`
 	// Accepted datetime in UTC timezone.
 	AcceptedAtUtc NullableTime `json:"acceptedAtUtc,omitempty"`
+	Receiver DocumentReceiver `json:"receiver"`
+	// Metadata.
+	Metadata map[string]string `json:"metadata,omitempty"`
+	// Digital signatures.
+	DigitalSignatures []DocumentDigitalSignature `json:"digitalSignatures"`
 }
 
 // NewIssuedDocumentDetails instantiates a new IssuedDocumentDetails object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIssuedDocumentDetails(receiver DocumentReceiver, digitalSignatures []DocumentDigitalSignature, id string, identifier string, documentType string, issuedTo string, issuedAtUtc time.Time) *IssuedDocumentDetails {
+func NewIssuedDocumentDetails(id string, identifier string, documentType string, issuedTo string, issuedAtUtc time.Time, receiver DocumentReceiver, digitalSignatures []DocumentDigitalSignature) *IssuedDocumentDetails {
 	this := IssuedDocumentDetails{}
 	this.Id = id
 	this.Identifier = identifier
 	this.DocumentType = documentType
 	this.IssuedTo = issuedTo
 	this.IssuedAtUtc = issuedAtUtc
+	this.Receiver = receiver
+	this.DigitalSignatures = digitalSignatures
 	return &this
 }
 
@@ -59,87 +61,6 @@ func NewIssuedDocumentDetails(receiver DocumentReceiver, digitalSignatures []Doc
 func NewIssuedDocumentDetailsWithDefaults() *IssuedDocumentDetails {
 	this := IssuedDocumentDetails{}
 	return &this
-}
-
-// GetReceiver returns the Receiver field value
-func (o *IssuedDocumentDetails) GetReceiver() DocumentReceiver {
-	if o == nil {
-		var ret DocumentReceiver
-		return ret
-	}
-
-	return o.Receiver
-}
-
-// GetReceiverOk returns a tuple with the Receiver field value
-// and a boolean to check if the value has been set.
-func (o *IssuedDocumentDetails) GetReceiverOk() (*DocumentReceiver, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Receiver, true
-}
-
-// SetReceiver sets field value
-func (o *IssuedDocumentDetails) SetReceiver(v DocumentReceiver) {
-	o.Receiver = v
-}
-
-// GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IssuedDocumentDetails) GetMetadata() map[string]string {
-	if o == nil  {
-		var ret map[string]string
-		return ret
-	}
-	return o.Metadata
-}
-
-// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IssuedDocumentDetails) GetMetadataOk() (*map[string]string, bool) {
-	if o == nil || o.Metadata == nil {
-		return nil, false
-	}
-	return &o.Metadata, true
-}
-
-// HasMetadata returns a boolean if a field has been set.
-func (o *IssuedDocumentDetails) HasMetadata() bool {
-	if o != nil && o.Metadata != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetMetadata gets a reference to the given map[string]string and assigns it to the Metadata field.
-func (o *IssuedDocumentDetails) SetMetadata(v map[string]string) {
-	o.Metadata = v
-}
-
-// GetDigitalSignatures returns the DigitalSignatures field value
-func (o *IssuedDocumentDetails) GetDigitalSignatures() []DocumentDigitalSignature {
-	if o == nil {
-		var ret []DocumentDigitalSignature
-		return ret
-	}
-
-	return o.DigitalSignatures
-}
-
-// GetDigitalSignaturesOk returns a tuple with the DigitalSignatures field value
-// and a boolean to check if the value has been set.
-func (o *IssuedDocumentDetails) GetDigitalSignaturesOk() ([]DocumentDigitalSignature, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.DigitalSignatures, true
-}
-
-// SetDigitalSignatures sets field value
-func (o *IssuedDocumentDetails) SetDigitalSignatures(v []DocumentDigitalSignature) {
-	o.DigitalSignatures = v
 }
 
 // GetId returns the Id field value
@@ -346,17 +267,89 @@ func (o *IssuedDocumentDetails) UnsetAcceptedAtUtc() {
 	o.AcceptedAtUtc.Unset()
 }
 
+// GetReceiver returns the Receiver field value
+func (o *IssuedDocumentDetails) GetReceiver() DocumentReceiver {
+	if o == nil {
+		var ret DocumentReceiver
+		return ret
+	}
+
+	return o.Receiver
+}
+
+// GetReceiverOk returns a tuple with the Receiver field value
+// and a boolean to check if the value has been set.
+func (o *IssuedDocumentDetails) GetReceiverOk() (*DocumentReceiver, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Receiver, true
+}
+
+// SetReceiver sets field value
+func (o *IssuedDocumentDetails) SetReceiver(v DocumentReceiver) {
+	o.Receiver = v
+}
+
+// GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IssuedDocumentDetails) GetMetadata() map[string]string {
+	if o == nil  {
+		var ret map[string]string
+		return ret
+	}
+	return o.Metadata
+}
+
+// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IssuedDocumentDetails) GetMetadataOk() (*map[string]string, bool) {
+	if o == nil || o.Metadata == nil {
+		return nil, false
+	}
+	return &o.Metadata, true
+}
+
+// HasMetadata returns a boolean if a field has been set.
+func (o *IssuedDocumentDetails) HasMetadata() bool {
+	if o != nil && o.Metadata != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMetadata gets a reference to the given map[string]string and assigns it to the Metadata field.
+func (o *IssuedDocumentDetails) SetMetadata(v map[string]string) {
+	o.Metadata = v
+}
+
+// GetDigitalSignatures returns the DigitalSignatures field value
+func (o *IssuedDocumentDetails) GetDigitalSignatures() []DocumentDigitalSignature {
+	if o == nil {
+		var ret []DocumentDigitalSignature
+		return ret
+	}
+
+	return o.DigitalSignatures
+}
+
+// GetDigitalSignaturesOk returns a tuple with the DigitalSignatures field value
+// and a boolean to check if the value has been set.
+func (o *IssuedDocumentDetails) GetDigitalSignaturesOk() ([]DocumentDigitalSignature, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.DigitalSignatures, true
+}
+
+// SetDigitalSignatures sets field value
+func (o *IssuedDocumentDetails) SetDigitalSignatures(v []DocumentDigitalSignature) {
+	o.DigitalSignatures = v
+}
+
 func (o IssuedDocumentDetails) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["receiver"] = o.Receiver
-	}
-	if o.Metadata != nil {
-		toSerialize["metadata"] = o.Metadata
-	}
-	if true {
-		toSerialize["digitalSignatures"] = o.DigitalSignatures
-	}
 	if true {
 		toSerialize["id"] = o.Id
 	}
@@ -377,6 +370,15 @@ func (o IssuedDocumentDetails) MarshalJSON() ([]byte, error) {
 	}
 	if o.AcceptedAtUtc.IsSet() {
 		toSerialize["acceptedAtUtc"] = o.AcceptedAtUtc.Get()
+	}
+	if true {
+		toSerialize["receiver"] = o.Receiver
+	}
+	if o.Metadata != nil {
+		toSerialize["metadata"] = o.Metadata
+	}
+	if true {
+		toSerialize["digitalSignatures"] = o.DigitalSignatures
 	}
 	return json.Marshal(toSerialize)
 }

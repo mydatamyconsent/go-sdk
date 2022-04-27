@@ -4,9 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Receiver** | [**DocumentReceiver**](DocumentReceiver.md) |  | 
-**Metadata** | Pointer to **map[string]string** | Metadata. | [optional] 
-**DigitalSignatures** | [**[]DocumentDigitalSignature**](DocumentDigitalSignature.md) | Digital signatures. | 
 **Id** | **string** | Document Id. | 
 **Identifier** | **string** | Document Identifier. | 
 **DocumentType** | **string** | Document type name. | 
@@ -14,12 +11,15 @@ Name | Type | Description | Notes
 **IssuedAtUtc** | **time.Time** | Issued datetime in UTC timezone. | 
 **ExpiresAtUtc** | Pointer to **NullableTime** | Expires datetime in UTC timezone. | [optional] 
 **AcceptedAtUtc** | Pointer to **NullableTime** | Accepted datetime in UTC timezone. | [optional] 
+**Receiver** | [**DocumentReceiver**](DocumentReceiver.md) |  | 
+**Metadata** | Pointer to **map[string]string** | Metadata. | [optional] 
+**DigitalSignatures** | [**[]DocumentDigitalSignature**](DocumentDigitalSignature.md) | Digital signatures. | 
 
 ## Methods
 
 ### NewIssuedDocumentDetails
 
-`func NewIssuedDocumentDetails(receiver DocumentReceiver, digitalSignatures []DocumentDigitalSignature, id string, identifier string, documentType string, issuedTo string, issuedAtUtc time.Time, ) *IssuedDocumentDetails`
+`func NewIssuedDocumentDetails(id string, identifier string, documentType string, issuedTo string, issuedAtUtc time.Time, receiver DocumentReceiver, digitalSignatures []DocumentDigitalSignature, ) *IssuedDocumentDetails`
 
 NewIssuedDocumentDetails instantiates a new IssuedDocumentDetails object
 This constructor will assign default values to properties that have it defined,
@@ -33,81 +33,6 @@ will change when the set of required properties is changed
 NewIssuedDocumentDetailsWithDefaults instantiates a new IssuedDocumentDetails object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetReceiver
-
-`func (o *IssuedDocumentDetails) GetReceiver() DocumentReceiver`
-
-GetReceiver returns the Receiver field if non-nil, zero value otherwise.
-
-### GetReceiverOk
-
-`func (o *IssuedDocumentDetails) GetReceiverOk() (*DocumentReceiver, bool)`
-
-GetReceiverOk returns a tuple with the Receiver field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetReceiver
-
-`func (o *IssuedDocumentDetails) SetReceiver(v DocumentReceiver)`
-
-SetReceiver sets Receiver field to given value.
-
-
-### GetMetadata
-
-`func (o *IssuedDocumentDetails) GetMetadata() map[string]string`
-
-GetMetadata returns the Metadata field if non-nil, zero value otherwise.
-
-### GetMetadataOk
-
-`func (o *IssuedDocumentDetails) GetMetadataOk() (*map[string]string, bool)`
-
-GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMetadata
-
-`func (o *IssuedDocumentDetails) SetMetadata(v map[string]string)`
-
-SetMetadata sets Metadata field to given value.
-
-### HasMetadata
-
-`func (o *IssuedDocumentDetails) HasMetadata() bool`
-
-HasMetadata returns a boolean if a field has been set.
-
-### SetMetadataNil
-
-`func (o *IssuedDocumentDetails) SetMetadataNil(b bool)`
-
- SetMetadataNil sets the value for Metadata to be an explicit nil
-
-### UnsetMetadata
-`func (o *IssuedDocumentDetails) UnsetMetadata()`
-
-UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
-### GetDigitalSignatures
-
-`func (o *IssuedDocumentDetails) GetDigitalSignatures() []DocumentDigitalSignature`
-
-GetDigitalSignatures returns the DigitalSignatures field if non-nil, zero value otherwise.
-
-### GetDigitalSignaturesOk
-
-`func (o *IssuedDocumentDetails) GetDigitalSignaturesOk() (*[]DocumentDigitalSignature, bool)`
-
-GetDigitalSignaturesOk returns a tuple with the DigitalSignatures field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDigitalSignatures
-
-`func (o *IssuedDocumentDetails) SetDigitalSignatures(v []DocumentDigitalSignature)`
-
-SetDigitalSignatures sets DigitalSignatures field to given value.
-
 
 ### GetId
 
@@ -279,6 +204,81 @@ HasAcceptedAtUtc returns a boolean if a field has been set.
 `func (o *IssuedDocumentDetails) UnsetAcceptedAtUtc()`
 
 UnsetAcceptedAtUtc ensures that no value is present for AcceptedAtUtc, not even an explicit nil
+### GetReceiver
+
+`func (o *IssuedDocumentDetails) GetReceiver() DocumentReceiver`
+
+GetReceiver returns the Receiver field if non-nil, zero value otherwise.
+
+### GetReceiverOk
+
+`func (o *IssuedDocumentDetails) GetReceiverOk() (*DocumentReceiver, bool)`
+
+GetReceiverOk returns a tuple with the Receiver field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReceiver
+
+`func (o *IssuedDocumentDetails) SetReceiver(v DocumentReceiver)`
+
+SetReceiver sets Receiver field to given value.
+
+
+### GetMetadata
+
+`func (o *IssuedDocumentDetails) GetMetadata() map[string]string`
+
+GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+
+### GetMetadataOk
+
+`func (o *IssuedDocumentDetails) GetMetadataOk() (*map[string]string, bool)`
+
+GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetadata
+
+`func (o *IssuedDocumentDetails) SetMetadata(v map[string]string)`
+
+SetMetadata sets Metadata field to given value.
+
+### HasMetadata
+
+`func (o *IssuedDocumentDetails) HasMetadata() bool`
+
+HasMetadata returns a boolean if a field has been set.
+
+### SetMetadataNil
+
+`func (o *IssuedDocumentDetails) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *IssuedDocumentDetails) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
+### GetDigitalSignatures
+
+`func (o *IssuedDocumentDetails) GetDigitalSignatures() []DocumentDigitalSignature`
+
+GetDigitalSignatures returns the DigitalSignatures field if non-nil, zero value otherwise.
+
+### GetDigitalSignaturesOk
+
+`func (o *IssuedDocumentDetails) GetDigitalSignaturesOk() (*[]DocumentDigitalSignature, bool)`
+
+GetDigitalSignaturesOk returns a tuple with the DigitalSignatures field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDigitalSignatures
+
+`func (o *IssuedDocumentDetails) SetDigitalSignatures(v []DocumentDigitalSignature)`
+
+SetDigitalSignatures sets DigitalSignatures field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
