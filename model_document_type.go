@@ -39,7 +39,7 @@ type DocumentType struct {
 	// Name of the document type creator.
 	AddedBy string `json:"addedBy"`
 	// Payable amount if document is chargeable. eg: 10.25.
-	PayableAmount NullableFloat64 `json:"payableAmount,omitempty"`
+	PayableAmount float64 `json:"payableAmount"`
 	// Payable amount currency. eg: INR, USD etc.,.
 	PayableAmountCurrency NullableString `json:"payableAmountCurrency,omitempty"`
 	// DateTime of approval in UTC timezone.
@@ -50,7 +50,7 @@ type DocumentType struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryType DocumentSubCategoryType, name string, slug string, logoUrl string, supportedEntityTypes []SupportedEntityType, addedBy string) *DocumentType {
+func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryType DocumentSubCategoryType, name string, slug string, logoUrl string, supportedEntityTypes []SupportedEntityType, addedBy string, payableAmount float64) *DocumentType {
 	this := DocumentType{}
 	this.Id = id
 	this.CategoryType = categoryType
@@ -60,6 +60,7 @@ func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryTy
 	this.LogoUrl = logoUrl
 	this.SupportedEntityTypes = supportedEntityTypes
 	this.AddedBy = addedBy
+	this.PayableAmount = payableAmount
 	return &this
 }
 
@@ -389,46 +390,28 @@ func (o *DocumentType) SetAddedBy(v string) {
 	o.AddedBy = v
 }
 
-// GetPayableAmount returns the PayableAmount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPayableAmount returns the PayableAmount field value
 func (o *DocumentType) GetPayableAmount() float64 {
-	if o == nil || o.PayableAmount.Get() == nil {
+	if o == nil {
 		var ret float64
 		return ret
 	}
-	return *o.PayableAmount.Get()
+
+	return o.PayableAmount
 }
 
-// GetPayableAmountOk returns a tuple with the PayableAmount field value if set, nil otherwise
+// GetPayableAmountOk returns a tuple with the PayableAmount field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DocumentType) GetPayableAmountOk() (*float64, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.PayableAmount.Get(), o.PayableAmount.IsSet()
+	return &o.PayableAmount, true
 }
 
-// HasPayableAmount returns a boolean if a field has been set.
-func (o *DocumentType) HasPayableAmount() bool {
-	if o != nil && o.PayableAmount.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPayableAmount gets a reference to the given NullableFloat64 and assigns it to the PayableAmount field.
+// SetPayableAmount sets field value
 func (o *DocumentType) SetPayableAmount(v float64) {
-	o.PayableAmount.Set(&v)
-}
-// SetPayableAmountNil sets the value for PayableAmount to be an explicit nil
-func (o *DocumentType) SetPayableAmountNil() {
-	o.PayableAmount.Set(nil)
-}
-
-// UnsetPayableAmount ensures that no value is present for PayableAmount, not even an explicit nil
-func (o *DocumentType) UnsetPayableAmount() {
-	o.PayableAmount.Unset()
+	o.PayableAmount = v
 }
 
 // GetPayableAmountCurrency returns the PayableAmountCurrency field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -550,8 +533,8 @@ func (o DocumentType) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["addedBy"] = o.AddedBy
 	}
-	if o.PayableAmount.IsSet() {
-		toSerialize["payableAmount"] = o.PayableAmount.Get()
+	if true {
+		toSerialize["payableAmount"] = o.PayableAmount
 	}
 	if o.PayableAmountCurrency.IsSet() {
 		toSerialize["payableAmountCurrency"] = o.PayableAmountCurrency.Get()

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **IssuedAtUtc** | **time.Time** | Datetime of issue in UTC timezone. | 
 **ValidFromUtc** | **time.Time** | Valid from datetime in UTC timezone. | 
 **ExpiresAtUtc** | Pointer to **NullableTime** | Datetime of expiry in UTC timezone. | [optional] 
+**PaymentRequest** | Pointer to [**PaymentRequest**](PaymentRequest.md) |  | [optional] 
 **Metadata** | Pointer to **map[string]string** | Metadata. | [optional] 
 
 ## Methods
@@ -187,6 +188,31 @@ HasExpiresAtUtc returns a boolean if a field has been set.
 `func (o *DocumentIssueRequest) UnsetExpiresAtUtc()`
 
 UnsetExpiresAtUtc ensures that no value is present for ExpiresAtUtc, not even an explicit nil
+### GetPaymentRequest
+
+`func (o *DocumentIssueRequest) GetPaymentRequest() PaymentRequest`
+
+GetPaymentRequest returns the PaymentRequest field if non-nil, zero value otherwise.
+
+### GetPaymentRequestOk
+
+`func (o *DocumentIssueRequest) GetPaymentRequestOk() (*PaymentRequest, bool)`
+
+GetPaymentRequestOk returns a tuple with the PaymentRequest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentRequest
+
+`func (o *DocumentIssueRequest) SetPaymentRequest(v PaymentRequest)`
+
+SetPaymentRequest sets PaymentRequest field to given value.
+
+### HasPaymentRequest
+
+`func (o *DocumentIssueRequest) HasPaymentRequest() bool`
+
+HasPaymentRequest returns a boolean if a field has been set.
+
 ### GetMetadata
 
 `func (o *DocumentIssueRequest) GetMetadata() map[string]string`

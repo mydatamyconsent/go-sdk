@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **RepositoryServiceName** | Pointer to **NullableString** | Document repository service name. | [optional] 
 **SupportedEntityTypes** | [**[]SupportedEntityType**](SupportedEntityType.md) | Supported entity types. eg: Individual, Organization. | 
 **AddedBy** | **string** | Name of the document type creator. | 
-**PayableAmount** | Pointer to **NullableFloat64** | Payable amount if document is chargeable. eg: 10.25. | [optional] 
+**PayableAmount** | **float64** | Payable amount if document is chargeable. eg: 10.25. | 
 **PayableAmountCurrency** | Pointer to **NullableString** | Payable amount currency. eg: INR, USD etc.,. | [optional] 
 **ApprovedAtUtc** | Pointer to **NullableTime** | DateTime of approval in UTC timezone. | [optional] 
 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewDocumentType
 
-`func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryType DocumentSubCategoryType, name string, slug string, logoUrl string, supportedEntityTypes []SupportedEntityType, addedBy string, ) *DocumentType`
+`func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryType DocumentSubCategoryType, name string, slug string, logoUrl string, supportedEntityTypes []SupportedEntityType, addedBy string, payableAmount float64, ) *DocumentType`
 
 NewDocumentType instantiates a new DocumentType object
 This constructor will assign default values to properties that have it defined,
@@ -322,22 +322,7 @@ and a boolean to check if the value has been set.
 
 SetPayableAmount sets PayableAmount field to given value.
 
-### HasPayableAmount
 
-`func (o *DocumentType) HasPayableAmount() bool`
-
-HasPayableAmount returns a boolean if a field has been set.
-
-### SetPayableAmountNil
-
-`func (o *DocumentType) SetPayableAmountNil(b bool)`
-
- SetPayableAmountNil sets the value for PayableAmount to be an explicit nil
-
-### UnsetPayableAmount
-`func (o *DocumentType) UnsetPayableAmount()`
-
-UnsetPayableAmount ensures that no value is present for PayableAmount, not even an explicit nil
 ### GetPayableAmountCurrency
 
 `func (o *DocumentType) GetPayableAmountCurrency() string`

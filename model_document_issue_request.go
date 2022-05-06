@@ -31,6 +31,7 @@ type DocumentIssueRequest struct {
 	ValidFromUtc time.Time `json:"validFromUtc"`
 	// Datetime of expiry in UTC timezone.
 	ExpiresAtUtc NullableTime `json:"expiresAtUtc,omitempty"`
+	PaymentRequest *PaymentRequest `json:"paymentRequest,omitempty"`
 	// Metadata.
 	Metadata map[string]string `json:"metadata,omitempty"`
 }
@@ -244,6 +245,38 @@ func (o *DocumentIssueRequest) UnsetExpiresAtUtc() {
 	o.ExpiresAtUtc.Unset()
 }
 
+// GetPaymentRequest returns the PaymentRequest field value if set, zero value otherwise.
+func (o *DocumentIssueRequest) GetPaymentRequest() PaymentRequest {
+	if o == nil || o.PaymentRequest == nil {
+		var ret PaymentRequest
+		return ret
+	}
+	return *o.PaymentRequest
+}
+
+// GetPaymentRequestOk returns a tuple with the PaymentRequest field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DocumentIssueRequest) GetPaymentRequestOk() (*PaymentRequest, bool) {
+	if o == nil || o.PaymentRequest == nil {
+		return nil, false
+	}
+	return o.PaymentRequest, true
+}
+
+// HasPaymentRequest returns a boolean if a field has been set.
+func (o *DocumentIssueRequest) HasPaymentRequest() bool {
+	if o != nil && o.PaymentRequest != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPaymentRequest gets a reference to the given PaymentRequest and assigns it to the PaymentRequest field.
+func (o *DocumentIssueRequest) SetPaymentRequest(v PaymentRequest) {
+	o.PaymentRequest = &v
+}
+
 // GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DocumentIssueRequest) GetMetadata() map[string]string {
 	if o == nil  {
@@ -299,6 +332,9 @@ func (o DocumentIssueRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.ExpiresAtUtc.IsSet() {
 		toSerialize["expiresAtUtc"] = o.ExpiresAtUtc.Get()
+	}
+	if o.PaymentRequest != nil {
+		toSerialize["paymentRequest"] = o.PaymentRequest
 	}
 	if o.Metadata != nil {
 		toSerialize["metadata"] = o.Metadata
