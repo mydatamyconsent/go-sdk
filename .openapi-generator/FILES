@@ -12,6 +12,7 @@ configuration.go
 docs/Activity.md
 docs/ApprovedConsentRequest.md
 docs/BankAccountType.md
+docs/BillPaymentOrderItem.md
 docs/CollectibleTypes.md
 docs/ConsentRequestReceiver.md
 docs/CreateDataConsentRequest.md
@@ -84,6 +85,7 @@ go.sum
 model_activity.go
 model_approved_consent_request.go
 model_bank_account_type.go
+model_bill_payment_order_item.go
 model_collectible_types.go
 model_consent_request_receiver.go
 model_create_data_consent_request.go

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Identifier** | Pointer to **NullableString** |  | [optional] 
-**Amount** | Pointer to **NullableString** |  | [optional] 
+**Items** | Pointer to [**[]BillPaymentOrderItem**](BillPaymentOrderItem.md) |  | [optional] 
 **CurrencyCode** | Pointer to **NullableString** |  | [optional] 
 **PaymentUrl** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
@@ -65,41 +65,41 @@ HasIdentifier returns a boolean if a field has been set.
 `func (o *PaymentRequest) UnsetIdentifier()`
 
 UnsetIdentifier ensures that no value is present for Identifier, not even an explicit nil
-### GetAmount
+### GetItems
 
-`func (o *PaymentRequest) GetAmount() string`
+`func (o *PaymentRequest) GetItems() []BillPaymentOrderItem`
 
-GetAmount returns the Amount field if non-nil, zero value otherwise.
+GetItems returns the Items field if non-nil, zero value otherwise.
 
-### GetAmountOk
+### GetItemsOk
 
-`func (o *PaymentRequest) GetAmountOk() (*string, bool)`
+`func (o *PaymentRequest) GetItemsOk() (*[]BillPaymentOrderItem, bool)`
 
-GetAmountOk returns a tuple with the Amount field if it's non-nil, zero value otherwise
+GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAmount
+### SetItems
 
-`func (o *PaymentRequest) SetAmount(v string)`
+`func (o *PaymentRequest) SetItems(v []BillPaymentOrderItem)`
 
-SetAmount sets Amount field to given value.
+SetItems sets Items field to given value.
 
-### HasAmount
+### HasItems
 
-`func (o *PaymentRequest) HasAmount() bool`
+`func (o *PaymentRequest) HasItems() bool`
 
-HasAmount returns a boolean if a field has been set.
+HasItems returns a boolean if a field has been set.
 
-### SetAmountNil
+### SetItemsNil
 
-`func (o *PaymentRequest) SetAmountNil(b bool)`
+`func (o *PaymentRequest) SetItemsNil(b bool)`
 
- SetAmountNil sets the value for Amount to be an explicit nil
+ SetItemsNil sets the value for Items to be an explicit nil
 
-### UnsetAmount
-`func (o *PaymentRequest) UnsetAmount()`
+### UnsetItems
+`func (o *PaymentRequest) UnsetItems()`
 
-UnsetAmount ensures that no value is present for Amount, not even an explicit nil
+UnsetItems ensures that no value is present for Items, not even an explicit nil
 ### GetCurrencyCode
 
 `func (o *PaymentRequest) GetCurrencyCode() string`

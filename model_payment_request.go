@@ -19,7 +19,7 @@ import (
 // PaymentRequest struct for PaymentRequest
 type PaymentRequest struct {
 	Identifier NullableString `json:"identifier,omitempty"`
-	Amount NullableString `json:"amount,omitempty"`
+	Items []BillPaymentOrderItem `json:"items,omitempty"`
 	CurrencyCode NullableString `json:"currencyCode,omitempty"`
 	PaymentUrl NullableString `json:"paymentUrl,omitempty"`
 	Description NullableString `json:"description,omitempty"`
@@ -85,46 +85,37 @@ func (o *PaymentRequest) UnsetIdentifier() {
 	o.Identifier.Unset()
 }
 
-// GetAmount returns the Amount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PaymentRequest) GetAmount() string {
-	if o == nil || o.Amount.Get() == nil {
-		var ret string
+// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PaymentRequest) GetItems() []BillPaymentOrderItem {
+	if o == nil  {
+		var ret []BillPaymentOrderItem
 		return ret
 	}
-	return *o.Amount.Get()
+	return o.Items
 }
 
-// GetAmountOk returns a tuple with the Amount field value if set, nil otherwise
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PaymentRequest) GetAmountOk() (*string, bool) {
-	if o == nil  {
+func (o *PaymentRequest) GetItemsOk() ([]BillPaymentOrderItem, bool) {
+	if o == nil || o.Items == nil {
 		return nil, false
 	}
-	return o.Amount.Get(), o.Amount.IsSet()
+	return o.Items, true
 }
 
-// HasAmount returns a boolean if a field has been set.
-func (o *PaymentRequest) HasAmount() bool {
-	if o != nil && o.Amount.IsSet() {
+// HasItems returns a boolean if a field has been set.
+func (o *PaymentRequest) HasItems() bool {
+	if o != nil && o.Items != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetAmount gets a reference to the given NullableString and assigns it to the Amount field.
-func (o *PaymentRequest) SetAmount(v string) {
-	o.Amount.Set(&v)
-}
-// SetAmountNil sets the value for Amount to be an explicit nil
-func (o *PaymentRequest) SetAmountNil() {
-	o.Amount.Set(nil)
-}
-
-// UnsetAmount ensures that no value is present for Amount, not even an explicit nil
-func (o *PaymentRequest) UnsetAmount() {
-	o.Amount.Unset()
+// SetItems gets a reference to the given []BillPaymentOrderItem and assigns it to the Items field.
+func (o *PaymentRequest) SetItems(v []BillPaymentOrderItem) {
+	o.Items = v
 }
 
 // GetCurrencyCode returns the CurrencyCode field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -290,8 +281,8 @@ func (o PaymentRequest) MarshalJSON() ([]byte, error) {
 	if o.Identifier.IsSet() {
 		toSerialize["identifier"] = o.Identifier.Get()
 	}
-	if o.Amount.IsSet() {
-		toSerialize["amount"] = o.Amount.Get()
+	if o.Items != nil {
+		toSerialize["items"] = o.Items
 	}
 	if o.CurrencyCode.IsSet() {
 		toSerialize["currencyCode"] = o.CurrencyCode.Get()
