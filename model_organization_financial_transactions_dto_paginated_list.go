@@ -171,7 +171,7 @@ func (o *OrganizationFinancialTransactionsDtoPaginatedList) SetTotalItems(v int6
 
 // GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *OrganizationFinancialTransactionsDtoPaginatedList) GetItems() []OrganizationFinancialTransactionsDto {
-	if o == nil  {
+	if o == nil {
 		var ret []OrganizationFinancialTransactionsDto
 		return ret
 	}

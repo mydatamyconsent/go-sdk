@@ -85,7 +85,7 @@ func (o *DocumentType) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *DocumentType) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -109,7 +109,7 @@ func (o *DocumentType) GetCategoryType() DocumentCategoryType {
 // GetCategoryTypeOk returns a tuple with the CategoryType field value
 // and a boolean to check if the value has been set.
 func (o *DocumentType) GetCategoryTypeOk() (*DocumentCategoryType, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CategoryType, true
@@ -133,7 +133,7 @@ func (o *DocumentType) GetSubCategoryType() DocumentSubCategoryType {
 // GetSubCategoryTypeOk returns a tuple with the SubCategoryType field value
 // and a boolean to check if the value has been set.
 func (o *DocumentType) GetSubCategoryTypeOk() (*DocumentSubCategoryType, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SubCategoryType, true
@@ -157,7 +157,7 @@ func (o *DocumentType) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *DocumentType) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -181,7 +181,7 @@ func (o *DocumentType) GetSlug() string {
 // GetSlugOk returns a tuple with the Slug field value
 // and a boolean to check if the value has been set.
 func (o *DocumentType) GetSlugOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Slug, true
@@ -205,7 +205,7 @@ func (o *DocumentType) GetDescription() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DocumentType) GetDescriptionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Description.Get(), o.Description.IsSet()
@@ -247,7 +247,7 @@ func (o *DocumentType) GetLogoUrl() string {
 // GetLogoUrlOk returns a tuple with the LogoUrl field value
 // and a boolean to check if the value has been set.
 func (o *DocumentType) GetLogoUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.LogoUrl, true
@@ -271,7 +271,7 @@ func (o *DocumentType) GetSearchServiceName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DocumentType) GetSearchServiceNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.SearchServiceName.Get(), o.SearchServiceName.IsSet()
@@ -313,7 +313,7 @@ func (o *DocumentType) GetRepositoryServiceName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DocumentType) GetRepositoryServiceNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.RepositoryServiceName.Get(), o.RepositoryServiceName.IsSet()
@@ -355,7 +355,7 @@ func (o *DocumentType) GetSupportedEntityTypes() []SupportedEntityType {
 // GetSupportedEntityTypesOk returns a tuple with the SupportedEntityTypes field value
 // and a boolean to check if the value has been set.
 func (o *DocumentType) GetSupportedEntityTypesOk() ([]SupportedEntityType, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.SupportedEntityTypes, true
@@ -379,7 +379,7 @@ func (o *DocumentType) GetAddedBy() string {
 // GetAddedByOk returns a tuple with the AddedBy field value
 // and a boolean to check if the value has been set.
 func (o *DocumentType) GetAddedByOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AddedBy, true
@@ -403,7 +403,7 @@ func (o *DocumentType) GetPayableAmount() float64 {
 // GetPayableAmountOk returns a tuple with the PayableAmount field value
 // and a boolean to check if the value has been set.
 func (o *DocumentType) GetPayableAmountOk() (*float64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PayableAmount, true
@@ -427,7 +427,7 @@ func (o *DocumentType) GetPayableAmountCurrency() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DocumentType) GetPayableAmountCurrencyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.PayableAmountCurrency.Get(), o.PayableAmountCurrency.IsSet()
@@ -469,7 +469,7 @@ func (o *DocumentType) GetApprovedAtUtc() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DocumentType) GetApprovedAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ApprovedAtUtc.Get(), o.ApprovedAtUtc.IsSet()

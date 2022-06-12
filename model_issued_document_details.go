@@ -76,7 +76,7 @@ func (o *IssuedDocumentDetails) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *IssuedDocumentDetails) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -100,7 +100,7 @@ func (o *IssuedDocumentDetails) GetIdentifier() string {
 // GetIdentifierOk returns a tuple with the Identifier field value
 // and a boolean to check if the value has been set.
 func (o *IssuedDocumentDetails) GetIdentifierOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Identifier, true
@@ -124,7 +124,7 @@ func (o *IssuedDocumentDetails) GetDocumentType() string {
 // GetDocumentTypeOk returns a tuple with the DocumentType field value
 // and a boolean to check if the value has been set.
 func (o *IssuedDocumentDetails) GetDocumentTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DocumentType, true
@@ -148,7 +148,7 @@ func (o *IssuedDocumentDetails) GetIssuedTo() string {
 // GetIssuedToOk returns a tuple with the IssuedTo field value
 // and a boolean to check if the value has been set.
 func (o *IssuedDocumentDetails) GetIssuedToOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IssuedTo, true
@@ -172,7 +172,7 @@ func (o *IssuedDocumentDetails) GetIssuedAtUtc() time.Time {
 // GetIssuedAtUtcOk returns a tuple with the IssuedAtUtc field value
 // and a boolean to check if the value has been set.
 func (o *IssuedDocumentDetails) GetIssuedAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IssuedAtUtc, true
@@ -196,7 +196,7 @@ func (o *IssuedDocumentDetails) GetExpiresAtUtc() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IssuedDocumentDetails) GetExpiresAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ExpiresAtUtc.Get(), o.ExpiresAtUtc.IsSet()
@@ -238,7 +238,7 @@ func (o *IssuedDocumentDetails) GetAcceptedAtUtc() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IssuedDocumentDetails) GetAcceptedAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AcceptedAtUtc.Get(), o.AcceptedAtUtc.IsSet()
@@ -280,7 +280,7 @@ func (o *IssuedDocumentDetails) GetReceiver() DocumentReceiver {
 // GetReceiverOk returns a tuple with the Receiver field value
 // and a boolean to check if the value has been set.
 func (o *IssuedDocumentDetails) GetReceiverOk() (*DocumentReceiver, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Receiver, true
@@ -293,7 +293,7 @@ func (o *IssuedDocumentDetails) SetReceiver(v DocumentReceiver) {
 
 // GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IssuedDocumentDetails) GetMetadata() map[string]string {
-	if o == nil  {
+	if o == nil {
 		var ret map[string]string
 		return ret
 	}
@@ -337,7 +337,7 @@ func (o *IssuedDocumentDetails) GetDigitalSignatures() []DocumentDigitalSignatur
 // GetDigitalSignaturesOk returns a tuple with the DigitalSignatures field value
 // and a boolean to check if the value has been set.
 func (o *IssuedDocumentDetails) GetDigitalSignaturesOk() ([]DocumentDigitalSignature, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.DigitalSignatures, true

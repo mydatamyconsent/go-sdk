@@ -53,7 +53,7 @@ func (o *Financial) GetFieldName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Financial) GetFieldNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.FieldName.Get(), o.FieldName.IsSet()
@@ -95,7 +95,7 @@ func (o *Financial) GetCustomKey() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Financial) GetCustomKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.CustomKey.Get(), o.CustomKey.IsSet()
@@ -126,7 +126,7 @@ func (o *Financial) UnsetCustomKey() {
 
 // GetAccounts returns the Accounts field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Financial) GetAccounts() []FinancialAccounts {
-	if o == nil  {
+	if o == nil {
 		var ret []FinancialAccounts
 		return ret
 	}

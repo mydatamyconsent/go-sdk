@@ -53,7 +53,7 @@ func (o *DataConsentRequestedFinancialAccount) GetCustomKey() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataConsentRequestedFinancialAccount) GetCustomKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.CustomKey.Get(), o.CustomKey.IsSet()
@@ -95,7 +95,7 @@ func (o *DataConsentRequestedFinancialAccount) GetDrn() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataConsentRequestedFinancialAccount) GetDrnOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Drn.Get(), o.Drn.IsSet()
@@ -137,7 +137,7 @@ func (o *DataConsentRequestedFinancialAccount) GetAccountTypeId() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataConsentRequestedFinancialAccount) GetAccountTypeIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AccountTypeId.Get(), o.AccountTypeId.IsSet()
@@ -179,7 +179,7 @@ func (o *DataConsentRequestedFinancialAccount) GetAccountIdentifier() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataConsentRequestedFinancialAccount) GetAccountIdentifierOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AccountIdentifier.Get(), o.AccountIdentifier.IsSet()

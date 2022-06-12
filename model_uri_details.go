@@ -66,7 +66,7 @@ func (o *UriDetails) GetAadhaar() string {
 // GetAadhaarOk returns a tuple with the Aadhaar field value
 // and a boolean to check if the value has been set.
 func (o *UriDetails) GetAadhaarOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Aadhaar, true
@@ -90,7 +90,7 @@ func (o *UriDetails) GetUri() string {
 // GetUriOk returns a tuple with the Uri field value
 // and a boolean to check if the value has been set.
 func (o *UriDetails) GetUriOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Uri, true
@@ -114,7 +114,7 @@ func (o *UriDetails) GetDocType() string {
 // GetDocTypeOk returns a tuple with the DocType field value
 // and a boolean to check if the value has been set.
 func (o *UriDetails) GetDocTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DocType, true
@@ -138,7 +138,7 @@ func (o *UriDetails) GetDocName() string {
 // GetDocNameOk returns a tuple with the DocName field value
 // and a boolean to check if the value has been set.
 func (o *UriDetails) GetDocNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DocName, true
@@ -162,7 +162,7 @@ func (o *UriDetails) GetDocId() string {
 // GetDocIdOk returns a tuple with the DocId field value
 // and a boolean to check if the value has been set.
 func (o *UriDetails) GetDocIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DocId, true
@@ -186,7 +186,7 @@ func (o *UriDetails) GetIssuedOn() string {
 // GetIssuedOnOk returns a tuple with the IssuedOn field value
 // and a boolean to check if the value has been set.
 func (o *UriDetails) GetIssuedOnOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IssuedOn, true
@@ -210,7 +210,7 @@ func (o *UriDetails) GetValidFrom() string {
 // GetValidFromOk returns a tuple with the ValidFrom field value
 // and a boolean to check if the value has been set.
 func (o *UriDetails) GetValidFromOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ValidFrom, true
@@ -234,7 +234,7 @@ func (o *UriDetails) GetValidTo() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UriDetails) GetValidToOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ValidTo.Get(), o.ValidTo.IsSet()
@@ -276,7 +276,7 @@ func (o *UriDetails) GetTimestamp() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UriDetails) GetTimestampOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Timestamp.Get(), o.Timestamp.IsSet()
@@ -318,7 +318,7 @@ func (o *UriDetails) GetAction() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UriDetails) GetActionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Action.Get(), o.Action.IsSet()

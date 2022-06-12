@@ -77,7 +77,7 @@ func (o *OrganizationDataConsentRequestDetails) GetReceiver() string {
 // GetReceiverOk returns a tuple with the Receiver field value
 // and a boolean to check if the value has been set.
 func (o *OrganizationDataConsentRequestDetails) GetReceiverOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Receiver, true
@@ -101,7 +101,7 @@ func (o *OrganizationDataConsentRequestDetails) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *OrganizationDataConsentRequestDetails) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -125,7 +125,7 @@ func (o *OrganizationDataConsentRequestDetails) GetTemplateId() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrganizationDataConsentRequestDetails) GetTemplateIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.TemplateId.Get(), o.TemplateId.IsSet()
@@ -167,7 +167,7 @@ func (o *OrganizationDataConsentRequestDetails) GetConsentId() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrganizationDataConsentRequestDetails) GetConsentIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ConsentId.Get(), o.ConsentId.IsSet()
@@ -209,7 +209,7 @@ func (o *OrganizationDataConsentRequestDetails) GetTitle() string {
 // GetTitleOk returns a tuple with the Title field value
 // and a boolean to check if the value has been set.
 func (o *OrganizationDataConsentRequestDetails) GetTitleOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Title, true
@@ -233,7 +233,7 @@ func (o *OrganizationDataConsentRequestDetails) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value
 // and a boolean to check if the value has been set.
 func (o *OrganizationDataConsentRequestDetails) GetDescriptionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Description, true
@@ -257,7 +257,7 @@ func (o *OrganizationDataConsentRequestDetails) GetPurpose() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrganizationDataConsentRequestDetails) GetPurposeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Purpose.Get(), o.Purpose.IsSet()
@@ -299,7 +299,7 @@ func (o *OrganizationDataConsentRequestDetails) GetStatus() DataConsentStatus {
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *OrganizationDataConsentRequestDetails) GetStatusOk() (*DataConsentStatus, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Status, true
@@ -323,7 +323,7 @@ func (o *OrganizationDataConsentRequestDetails) GetTransactionId() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrganizationDataConsentRequestDetails) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.TransactionId.Get(), o.TransactionId.IsSet()
@@ -365,7 +365,7 @@ func (o *OrganizationDataConsentRequestDetails) GetCreatedAtUtc() time.Time {
 // GetCreatedAtUtcOk returns a tuple with the CreatedAtUtc field value
 // and a boolean to check if the value has been set.
 func (o *OrganizationDataConsentRequestDetails) GetCreatedAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CreatedAtUtc, true
@@ -389,7 +389,7 @@ func (o *OrganizationDataConsentRequestDetails) GetExpiresAtUtc() time.Time {
 // GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field value
 // and a boolean to check if the value has been set.
 func (o *OrganizationDataConsentRequestDetails) GetExpiresAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExpiresAtUtc, true

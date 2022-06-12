@@ -65,7 +65,7 @@ func (o *DataProvider) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *DataProvider) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -89,7 +89,7 @@ func (o *DataProvider) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *DataProvider) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -113,7 +113,7 @@ func (o *DataProvider) GetCategory() string {
 // GetCategoryOk returns a tuple with the Category field value
 // and a boolean to check if the value has been set.
 func (o *DataProvider) GetCategoryOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Category, true
@@ -137,7 +137,7 @@ func (o *DataProvider) GetLogoUrl() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProvider) GetLogoUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.LogoUrl.Get(), o.LogoUrl.IsSet()
@@ -179,7 +179,7 @@ func (o *DataProvider) GetWebsite() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProvider) GetWebsiteOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Website.Get(), o.Website.IsSet()
@@ -221,7 +221,7 @@ func (o *DataProvider) GetSupportEmail() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProvider) GetSupportEmailOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.SupportEmail.Get(), o.SupportEmail.IsSet()
@@ -263,7 +263,7 @@ func (o *DataProvider) GetHelpLineNumber() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProvider) GetHelpLineNumberOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.HelpLineNumber.Get(), o.HelpLineNumber.IsSet()
@@ -305,7 +305,7 @@ func (o *DataProvider) GetPrivacyPolicy() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProvider) GetPrivacyPolicyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.PrivacyPolicy.Get(), o.PrivacyPolicy.IsSet()
@@ -347,7 +347,7 @@ func (o *DataProvider) GetTermOfService() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProvider) GetTermOfServiceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.TermOfService.Get(), o.TermOfService.IsSet()
@@ -421,7 +421,7 @@ func (o *DataProvider) GetSupportedDocumentTypes() []string {
 // GetSupportedDocumentTypesOk returns a tuple with the SupportedDocumentTypes field value
 // and a boolean to check if the value has been set.
 func (o *DataProvider) GetSupportedDocumentTypesOk() ([]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.SupportedDocumentTypes, true
@@ -434,7 +434,7 @@ func (o *DataProvider) SetSupportedDocumentTypes(v []string) {
 
 // GetSupportedAccountTypes returns the SupportedAccountTypes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataProvider) GetSupportedAccountTypes() []string {
-	if o == nil  {
+	if o == nil {
 		var ret []string
 		return ret
 	}

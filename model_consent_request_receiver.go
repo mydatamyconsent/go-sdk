@@ -55,7 +55,7 @@ func (o *ConsentRequestReceiver) GetCountryIso2Code() string {
 // GetCountryIso2CodeOk returns a tuple with the CountryIso2Code field value
 // and a boolean to check if the value has been set.
 func (o *ConsentRequestReceiver) GetCountryIso2CodeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CountryIso2Code, true
@@ -79,7 +79,7 @@ func (o *ConsentRequestReceiver) GetIdentifiers() []StringStringKeyValuePair {
 // GetIdentifiersOk returns a tuple with the Identifiers field value
 // and a boolean to check if the value has been set.
 func (o *ConsentRequestReceiver) GetIdentifiersOk() ([]StringStringKeyValuePair, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Identifiers, true
@@ -103,7 +103,7 @@ func (o *ConsentRequestReceiver) GetIdentificationStrategy() IdentificationStrat
 // GetIdentificationStrategyOk returns a tuple with the IdentificationStrategy field value
 // and a boolean to check if the value has been set.
 func (o *ConsentRequestReceiver) GetIdentificationStrategyOk() (*IdentificationStrategy, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IdentificationStrategy, true

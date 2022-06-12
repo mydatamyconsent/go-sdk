@@ -65,7 +65,7 @@ func (o *DocumentDigitalSignature) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *DocumentDigitalSignature) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -89,7 +89,7 @@ func (o *DocumentDigitalSignature) GetIssuedBy() string {
 // GetIssuedByOk returns a tuple with the IssuedBy field value
 // and a boolean to check if the value has been set.
 func (o *DocumentDigitalSignature) GetIssuedByOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IssuedBy, true
@@ -113,7 +113,7 @@ func (o *DocumentDigitalSignature) GetIssuerName() string {
 // GetIssuerNameOk returns a tuple with the IssuerName field value
 // and a boolean to check if the value has been set.
 func (o *DocumentDigitalSignature) GetIssuerNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IssuerName, true
@@ -137,7 +137,7 @@ func (o *DocumentDigitalSignature) GetValidFromUtc() time.Time {
 // GetValidFromUtcOk returns a tuple with the ValidFromUtc field value
 // and a boolean to check if the value has been set.
 func (o *DocumentDigitalSignature) GetValidFromUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ValidFromUtc, true
@@ -161,7 +161,7 @@ func (o *DocumentDigitalSignature) GetValidToUtc() time.Time {
 // GetValidToUtcOk returns a tuple with the ValidToUtc field value
 // and a boolean to check if the value has been set.
 func (o *DocumentDigitalSignature) GetValidToUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ValidToUtc, true

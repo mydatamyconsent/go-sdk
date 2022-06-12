@@ -58,7 +58,7 @@ func (o *DataProcessingAgreementBase) GetVersion() string {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *DataProcessingAgreementBase) GetVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true
@@ -82,7 +82,7 @@ func (o *DataProcessingAgreementBase) GetBody() string {
 // GetBodyOk returns a tuple with the Body field value
 // and a boolean to check if the value has been set.
 func (o *DataProcessingAgreementBase) GetBodyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Body, true
@@ -106,7 +106,7 @@ func (o *DataProcessingAgreementBase) GetAttachmentUrl() string {
 // GetAttachmentUrlOk returns a tuple with the AttachmentUrl field value
 // and a boolean to check if the value has been set.
 func (o *DataProcessingAgreementBase) GetAttachmentUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AttachmentUrl, true

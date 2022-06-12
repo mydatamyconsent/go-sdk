@@ -97,7 +97,7 @@ func (o *FinancialAccount) GetIssuer() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FinancialAccount) GetIssuerOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Issuer.Get(), o.Issuer.IsSet()
@@ -139,7 +139,7 @@ func (o *FinancialAccount) GetLogoUrl() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FinancialAccount) GetLogoUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.LogoUrl.Get(), o.LogoUrl.IsSet()
@@ -181,7 +181,7 @@ func (o *FinancialAccount) GetCategoryId() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FinancialAccount) GetCategoryIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.CategoryId.Get(), o.CategoryId.IsSet()
@@ -223,7 +223,7 @@ func (o *FinancialAccount) GetCategoryName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FinancialAccount) GetCategoryNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.CategoryName.Get(), o.CategoryName.IsSet()
@@ -265,7 +265,7 @@ func (o *FinancialAccount) GetAccountName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FinancialAccount) GetAccountNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AccountName.Get(), o.AccountName.IsSet()
@@ -307,7 +307,7 @@ func (o *FinancialAccount) GetAccountLogoUrl() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FinancialAccount) GetAccountLogoUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AccountLogoUrl.Get(), o.AccountLogoUrl.IsSet()
@@ -349,7 +349,7 @@ func (o *FinancialAccount) GetBalance() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FinancialAccount) GetBalanceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Balance.Get(), o.Balance.IsSet()
@@ -391,7 +391,7 @@ func (o *FinancialAccount) GetBalanceType() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FinancialAccount) GetBalanceTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.BalanceType.Get(), o.BalanceType.IsSet()
@@ -454,7 +454,7 @@ func (o *FinancialAccount) SetIsShared(v bool) {
 
 // GetSharedWith returns the SharedWith field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FinancialAccount) GetSharedWith() []SharedWith {
-	if o == nil  {
+	if o == nil {
 		var ret []SharedWith
 		return ret
 	}
@@ -551,7 +551,7 @@ func (o *FinancialAccount) SetExpiresAtUtc(v time.Time) {
 
 // GetActivities returns the Activities field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FinancialAccount) GetActivities() []Activity {
-	if o == nil  {
+	if o == nil {
 		var ret []Activity
 		return ret
 	}
@@ -584,7 +584,7 @@ func (o *FinancialAccount) SetActivities(v []Activity) {
 
 // GetApprovedConsentRequests returns the ApprovedConsentRequests field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FinancialAccount) GetApprovedConsentRequests() []ApprovedConsentRequest {
-	if o == nil  {
+	if o == nil {
 		var ret []ApprovedConsentRequest
 		return ret
 	}

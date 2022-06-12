@@ -56,7 +56,7 @@ func (o *PushUriResponse) GetResponseStatus() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriResponse) GetResponseStatusOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ResponseStatus.Get(), o.ResponseStatus.IsSet()
@@ -98,7 +98,7 @@ func (o *PushUriResponse) GetResponseMessage() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriResponse) GetResponseMessageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ResponseMessage.Get(), o.ResponseMessage.IsSet()
@@ -140,7 +140,7 @@ func (o *PushUriResponse) GetNs2() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriResponse) GetNs2Ok() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Ns2.Get(), o.Ns2.IsSet()
@@ -182,7 +182,7 @@ func (o *PushUriResponse) GetVer() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriResponse) GetVerOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Ver.Get(), o.Ver.IsSet()
@@ -224,7 +224,7 @@ func (o *PushUriResponse) GetTs() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriResponse) GetTsOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Ts.Get(), o.Ts.IsSet()
@@ -266,7 +266,7 @@ func (o *PushUriResponse) GetTxn() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriResponse) GetTxnOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Txn.Get(), o.Txn.IsSet()
@@ -308,7 +308,7 @@ func (o *PushUriResponse) GetOrgId() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriResponse) GetOrgIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.OrgId.Get(), o.OrgId.IsSet()

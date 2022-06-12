@@ -120,7 +120,7 @@ func (o *SharedWith) GetName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SharedWith) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Name.Get(), o.Name.IsSet()
@@ -162,7 +162,7 @@ func (o *SharedWith) GetContactNumber() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SharedWith) GetContactNumberOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ContactNumber.Get(), o.ContactNumber.IsSet()
@@ -204,7 +204,7 @@ func (o *SharedWith) GetProfileUrl() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SharedWith) GetProfileUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ProfileUrl.Get(), o.ProfileUrl.IsSet()
@@ -246,7 +246,7 @@ func (o *SharedWith) GetExpiresAtUtc() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SharedWith) GetExpiresAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ExpiresAtUtc.Get(), o.ExpiresAtUtc.IsSet()

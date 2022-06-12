@@ -171,7 +171,7 @@ func (o *OrganizationDataConsentRequestDetailsPaginatedList) SetTotalItems(v int
 
 // GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *OrganizationDataConsentRequestDetailsPaginatedList) GetItems() []OrganizationDataConsentRequestDetails {
-	if o == nil  {
+	if o == nil {
 		var ret []OrganizationDataConsentRequestDetails
 		return ret
 	}

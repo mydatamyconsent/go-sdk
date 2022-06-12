@@ -121,7 +121,7 @@ func (o *UserAccountFinancialTransactionsDto) GetName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserAccountFinancialTransactionsDto) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Name.Get(), o.Name.IsSet()
@@ -195,7 +195,7 @@ func (o *UserAccountFinancialTransactionsDto) GetTransactionType() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserAccountFinancialTransactionsDto) GetTransactionTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.TransactionType.Get(), o.TransactionType.IsSet()
@@ -301,7 +301,7 @@ func (o *UserAccountFinancialTransactionsDto) GetCurrency() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserAccountFinancialTransactionsDto) GetCurrencyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Currency.Get(), o.Currency.IsSet()

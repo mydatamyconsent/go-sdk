@@ -20,10 +20,6 @@ import (
 	"strings"
 )
 
-// Linger please
-var (
-	_ context.Context
-)
 
 // SupportedIdentifiersApiService SupportedIdentifiersApi service
 type SupportedIdentifiersApiService service
@@ -33,7 +29,6 @@ type ApiGetAllSupportedIdentifiersRequest struct {
 	ApiService *SupportedIdentifiersApiService
 	countryIso2Code string
 }
-
 
 func (r ApiGetAllSupportedIdentifiersRequest) Execute() (*SupportedIdentifier, *http.Response, error) {
 	return r.ApiService.GetAllSupportedIdentifiersExecute(r)

@@ -78,7 +78,7 @@ func (o *DataConsentDocument) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentDocument) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -102,7 +102,7 @@ func (o *DataConsentDocument) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentDocument) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -126,7 +126,7 @@ func (o *DataConsentDocument) GetCategory() string {
 // GetCategoryOk returns a tuple with the Category field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentDocument) GetCategoryOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Category, true
@@ -150,7 +150,7 @@ func (o *DataConsentDocument) GetIdentifier() string {
 // GetIdentifierOk returns a tuple with the Identifier field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentDocument) GetIdentifierOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Identifier, true
@@ -174,7 +174,7 @@ func (o *DataConsentDocument) GetFieldTitle() string {
 // GetFieldTitleOk returns a tuple with the FieldTitle field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentDocument) GetFieldTitleOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FieldTitle, true
@@ -198,7 +198,7 @@ func (o *DataConsentDocument) GetFieldSlug() string {
 // GetFieldSlugOk returns a tuple with the FieldSlug field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentDocument) GetFieldSlugOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FieldSlug, true
@@ -222,7 +222,7 @@ func (o *DataConsentDocument) GetIssuedAtUtc() time.Time {
 // GetIssuedAtUtcOk returns a tuple with the IssuedAtUtc field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentDocument) GetIssuedAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IssuedAtUtc, true
@@ -246,7 +246,7 @@ func (o *DataConsentDocument) GetExpiresAtUtc() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataConsentDocument) GetExpiresAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ExpiresAtUtc.Get(), o.ExpiresAtUtc.IsSet()
@@ -288,7 +288,7 @@ func (o *DataConsentDocument) GetIssuer() DataConsentDocumentIssuer {
 // GetIssuerOk returns a tuple with the Issuer field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentDocument) GetIssuerOk() (*DataConsentDocumentIssuer, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Issuer, true
@@ -312,7 +312,7 @@ func (o *DataConsentDocument) GetDigitalSignatures() []DocumentDigitalSignature 
 // GetDigitalSignaturesOk returns a tuple with the DigitalSignatures field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentDocument) GetDigitalSignaturesOk() ([]DocumentDigitalSignature, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.DigitalSignatures, true

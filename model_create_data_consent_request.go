@@ -54,7 +54,7 @@ func (o *CreateDataConsentRequest) GetConsentTemplateId() string {
 // GetConsentTemplateIdOk returns a tuple with the ConsentTemplateId field value
 // and a boolean to check if the value has been set.
 func (o *CreateDataConsentRequest) GetConsentTemplateIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConsentTemplateId, true
@@ -78,7 +78,7 @@ func (o *CreateDataConsentRequest) GetReceiver() ConsentRequestReceiver {
 // GetReceiverOk returns a tuple with the Receiver field value
 // and a boolean to check if the value has been set.
 func (o *CreateDataConsentRequest) GetReceiverOk() (*ConsentRequestReceiver, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Receiver, true

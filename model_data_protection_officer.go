@@ -54,7 +54,7 @@ func (o *DataProtectionOfficer) GetName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProtectionOfficer) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Name.Get(), o.Name.IsSet()
@@ -96,7 +96,7 @@ func (o *DataProtectionOfficer) GetEmail() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProtectionOfficer) GetEmailOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Email.Get(), o.Email.IsSet()
@@ -138,7 +138,7 @@ func (o *DataProtectionOfficer) GetPhoneNumber() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProtectionOfficer) GetPhoneNumberOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.PhoneNumber.Get(), o.PhoneNumber.IsSet()
@@ -180,7 +180,7 @@ func (o *DataProtectionOfficer) GetWebsite() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProtectionOfficer) GetWebsiteOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Website.Get(), o.Website.IsSet()
@@ -222,7 +222,7 @@ func (o *DataProtectionOfficer) GetPostalAddress() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProtectionOfficer) GetPostalAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.PostalAddress.Get(), o.PostalAddress.IsSet()

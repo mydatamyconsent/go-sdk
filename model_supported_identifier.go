@@ -53,7 +53,7 @@ func (o *SupportedIdentifier) GetIso2() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SupportedIdentifier) GetIso2Ok() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Iso2.Get(), o.Iso2.IsSet()
@@ -95,7 +95,7 @@ func (o *SupportedIdentifier) GetName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SupportedIdentifier) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Name.Get(), o.Name.IsSet()
@@ -126,7 +126,7 @@ func (o *SupportedIdentifier) UnsetName() {
 
 // GetIndividualIdentifiers returns the IndividualIdentifiers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SupportedIdentifier) GetIndividualIdentifiers() []Identifier {
-	if o == nil  {
+	if o == nil {
 		var ret []Identifier
 		return ret
 	}
@@ -159,7 +159,7 @@ func (o *SupportedIdentifier) SetIndividualIdentifiers(v []Identifier) {
 
 // GetOrganizationIdentifiers returns the OrganizationIdentifiers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SupportedIdentifier) GetOrganizationIdentifiers() []Identifier {
-	if o == nil  {
+	if o == nil {
 		var ret []Identifier
 		return ret
 	}

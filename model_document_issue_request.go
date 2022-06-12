@@ -72,7 +72,7 @@ func (o *DocumentIssueRequest) GetDocumentTypeId() string {
 // GetDocumentTypeIdOk returns a tuple with the DocumentTypeId field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequest) GetDocumentTypeIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DocumentTypeId, true
@@ -96,7 +96,7 @@ func (o *DocumentIssueRequest) GetIdentifier() string {
 // GetIdentifierOk returns a tuple with the Identifier field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequest) GetIdentifierOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Identifier, true
@@ -120,7 +120,7 @@ func (o *DocumentIssueRequest) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequest) GetDescriptionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Description, true
@@ -144,7 +144,7 @@ func (o *DocumentIssueRequest) GetReceiver() DocumentReceiver {
 // GetReceiverOk returns a tuple with the Receiver field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequest) GetReceiverOk() (*DocumentReceiver, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Receiver, true
@@ -168,7 +168,7 @@ func (o *DocumentIssueRequest) GetIssuedAtUtc() time.Time {
 // GetIssuedAtUtcOk returns a tuple with the IssuedAtUtc field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequest) GetIssuedAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IssuedAtUtc, true
@@ -192,7 +192,7 @@ func (o *DocumentIssueRequest) GetValidFromUtc() time.Time {
 // GetValidFromUtcOk returns a tuple with the ValidFromUtc field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequest) GetValidFromUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ValidFromUtc, true
@@ -216,7 +216,7 @@ func (o *DocumentIssueRequest) GetExpiresAtUtc() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DocumentIssueRequest) GetExpiresAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ExpiresAtUtc.Get(), o.ExpiresAtUtc.IsSet()
@@ -279,7 +279,7 @@ func (o *DocumentIssueRequest) SetPaymentRequest(v PaymentRequest) {
 
 // GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DocumentIssueRequest) GetMetadata() map[string]string {
-	if o == nil  {
+	if o == nil {
 		var ret map[string]string
 		return ret
 	}

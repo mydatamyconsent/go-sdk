@@ -171,7 +171,7 @@ func (o *IssuedDocumentPaginatedList) SetTotalItems(v int64) {
 
 // GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IssuedDocumentPaginatedList) GetItems() []IssuedDocument {
-	if o == nil  {
+	if o == nil {
 		var ret []IssuedDocument
 		return ret
 	}

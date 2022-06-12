@@ -21,10 +21,6 @@ import (
 	"time"
 )
 
-// Linger please
-var (
-	_ context.Context
-)
 
 // DataConsentRequestsApiService DataConsentRequestsApi service
 type DataConsentRequestsApiService service
@@ -34,7 +30,6 @@ type ApiCancelIndividualDataConsentRequestRequest struct {
 	ApiService *DataConsentRequestsApiService
 	requestId string
 }
-
 
 func (r ApiCancelIndividualDataConsentRequestRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CancelIndividualDataConsentRequestExecute(r)
@@ -152,7 +147,6 @@ type ApiCancelOrganizationDataConsentRequestRequest struct {
 	ApiService *DataConsentRequestsApiService
 	requestId string
 }
-
 
 func (r ApiCancelOrganizationDataConsentRequestRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CancelOrganizationDataConsentRequestExecute(r)
@@ -540,21 +534,25 @@ func (r ApiGetAllConsentRequestsToIndividualsRequest) Status(status DataConsentS
 	r.status = &status
 	return r
 }
+
 // Start datetime in UTC timezone.
 func (r ApiGetAllConsentRequestsToIndividualsRequest) StartDateTime(startDateTime time.Time) ApiGetAllConsentRequestsToIndividualsRequest {
 	r.startDateTime = &startDateTime
 	return r
 }
+
 // End datetime in UTC timezone.
 func (r ApiGetAllConsentRequestsToIndividualsRequest) EndDateTime(endDateTime time.Time) ApiGetAllConsentRequestsToIndividualsRequest {
 	r.endDateTime = &endDateTime
 	return r
 }
+
 // Page number.
 func (r ApiGetAllConsentRequestsToIndividualsRequest) PageNo(pageNo int32) ApiGetAllConsentRequestsToIndividualsRequest {
 	r.pageNo = &pageNo
 	return r
 }
+
 // Number of items to return.
 func (r ApiGetAllConsentRequestsToIndividualsRequest) PageSize(pageSize int32) ApiGetAllConsentRequestsToIndividualsRequest {
 	r.pageSize = &pageSize
@@ -700,21 +698,25 @@ func (r ApiGetAllConsentRequestsToOrganizationsRequest) Status(status DataConsen
 	r.status = &status
 	return r
 }
+
 // Start datetime in UTC timezone.
 func (r ApiGetAllConsentRequestsToOrganizationsRequest) StartDateTime(startDateTime time.Time) ApiGetAllConsentRequestsToOrganizationsRequest {
 	r.startDateTime = &startDateTime
 	return r
 }
+
 // End datetime in UTC timezone.
 func (r ApiGetAllConsentRequestsToOrganizationsRequest) EndDateTime(endDateTime time.Time) ApiGetAllConsentRequestsToOrganizationsRequest {
 	r.endDateTime = &endDateTime
 	return r
 }
+
 // Page number.
 func (r ApiGetAllConsentRequestsToOrganizationsRequest) PageNo(pageNo int32) ApiGetAllConsentRequestsToOrganizationsRequest {
 	r.pageNo = &pageNo
 	return r
 }
+
 // Number of items to return.
 func (r ApiGetAllConsentRequestsToOrganizationsRequest) PageSize(pageSize int32) ApiGetAllConsentRequestsToOrganizationsRequest {
 	r.pageSize = &pageSize
@@ -851,7 +853,6 @@ type ApiGetIndividualConsentRequestByIdRequest struct {
 	requestId string
 }
 
-
 func (r ApiGetIndividualConsentRequestByIdRequest) Execute() (*DataConsentRequest, *http.Response, error) {
 	return r.ApiService.GetIndividualConsentRequestByIdExecute(r)
 }
@@ -979,7 +980,6 @@ type ApiGetOrganizationConsentRequestByIdRequest struct {
 	ApiService *DataConsentRequestsApiService
 	requestId string
 }
-
 
 func (r ApiGetOrganizationConsentRequestByIdRequest) Execute() (*DataConsentRequest, *http.Response, error) {
 	return r.ApiService.GetOrganizationConsentRequestByIdExecute(r)

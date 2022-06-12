@@ -50,7 +50,7 @@ func (o *ApprovedConsentRequest) GetLogoUrl() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApprovedConsentRequest) GetLogoUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.LogoUrl.Get(), o.LogoUrl.IsSet()

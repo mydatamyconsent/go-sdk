@@ -126,7 +126,7 @@ func (o *OrganizationFinancialAccountDto) GetOrganizationName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrganizationFinancialAccountDto) GetOrganizationNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.OrganizationName.Get(), o.OrganizationName.IsSet()
@@ -168,7 +168,7 @@ func (o *OrganizationFinancialAccountDto) GetBeneficiaryName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrganizationFinancialAccountDto) GetBeneficiaryNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.BeneficiaryName.Get(), o.BeneficiaryName.IsSet()
@@ -210,7 +210,7 @@ func (o *OrganizationFinancialAccountDto) GetAccountNumber() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrganizationFinancialAccountDto) GetAccountNumberOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AccountNumber.Get(), o.AccountNumber.IsSet()
@@ -252,7 +252,7 @@ func (o *OrganizationFinancialAccountDto) GetRoutingNumber() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrganizationFinancialAccountDto) GetRoutingNumberOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.RoutingNumber.Get(), o.RoutingNumber.IsSet()
@@ -358,7 +358,7 @@ func (o *OrganizationFinancialAccountDto) GetLogoUrl() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrganizationFinancialAccountDto) GetLogoUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.LogoUrl.Get(), o.LogoUrl.IsSet()
@@ -400,7 +400,7 @@ func (o *OrganizationFinancialAccountDto) GetBankName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrganizationFinancialAccountDto) GetBankNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.BankName.Get(), o.BankName.IsSet()
@@ -474,7 +474,7 @@ func (o *OrganizationFinancialAccountDto) GetBankAccountProofUrl() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *OrganizationFinancialAccountDto) GetBankAccountProofUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.BankAccountProofUrl.Get(), o.BankAccountProofUrl.IsSet()

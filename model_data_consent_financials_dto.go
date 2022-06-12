@@ -73,7 +73,7 @@ func (o *DataConsentFinancialsDto) SetId(v string) {
 
 // GetFinancials returns the Financials field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataConsentFinancialsDto) GetFinancials() []Financial {
-	if o == nil  {
+	if o == nil {
 		var ret []Financial
 		return ret
 	}
@@ -106,7 +106,7 @@ func (o *DataConsentFinancialsDto) SetFinancials(v []Financial) {
 
 // GetApprovedFinancials returns the ApprovedFinancials field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataConsentFinancialsDto) GetApprovedFinancials() []DataConsentRequestedFinancialAccount {
-	if o == nil  {
+	if o == nil {
 		var ret []DataConsentRequestedFinancialAccount
 		return ret
 	}

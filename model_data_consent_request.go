@@ -87,7 +87,7 @@ func (o *DataConsentRequest) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentRequest) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -111,7 +111,7 @@ func (o *DataConsentRequest) GetTemplateId() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataConsentRequest) GetTemplateIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.TemplateId.Get(), o.TemplateId.IsSet()
@@ -153,7 +153,7 @@ func (o *DataConsentRequest) GetConsentId() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataConsentRequest) GetConsentIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ConsentId.Get(), o.ConsentId.IsSet()
@@ -195,7 +195,7 @@ func (o *DataConsentRequest) GetTitle() string {
 // GetTitleOk returns a tuple with the Title field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentRequest) GetTitleOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Title, true
@@ -219,7 +219,7 @@ func (o *DataConsentRequest) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentRequest) GetDescriptionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Description, true
@@ -243,7 +243,7 @@ func (o *DataConsentRequest) GetPurpose() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataConsentRequest) GetPurposeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Purpose.Get(), o.Purpose.IsSet()
@@ -317,7 +317,7 @@ func (o *DataConsentRequest) GetCollectables() []CollectibleTypes {
 // GetCollectablesOk returns a tuple with the Collectables field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentRequest) GetCollectablesOk() ([]CollectibleTypes, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Collectables, true
@@ -341,7 +341,7 @@ func (o *DataConsentRequest) GetReceiver() ConsentRequestReceiver {
 // GetReceiverOk returns a tuple with the Receiver field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentRequest) GetReceiverOk() (*ConsentRequestReceiver, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Receiver, true
@@ -365,7 +365,7 @@ func (o *DataConsentRequest) GetStatus() DataConsentStatus {
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentRequest) GetStatusOk() (*DataConsentStatus, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Status, true
@@ -389,7 +389,7 @@ func (o *DataConsentRequest) GetCreatedAtUtc() time.Time {
 // GetCreatedAtUtcOk returns a tuple with the CreatedAtUtc field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentRequest) GetCreatedAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CreatedAtUtc, true
@@ -413,7 +413,7 @@ func (o *DataConsentRequest) GetExpiresAtUtc() time.Time {
 // GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field value
 // and a boolean to check if the value has been set.
 func (o *DataConsentRequest) GetExpiresAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExpiresAtUtc, true
@@ -437,7 +437,7 @@ func (o *DataConsentRequest) GetApprovedAtUtc() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataConsentRequest) GetApprovedAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ApprovedAtUtc.Get(), o.ApprovedAtUtc.IsSet()
@@ -479,7 +479,7 @@ func (o *DataConsentRequest) GetDataAccessExpiresAtUtc() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataConsentRequest) GetDataAccessExpiresAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.DataAccessExpiresAtUtc.Get(), o.DataAccessExpiresAtUtc.IsSet()
@@ -521,7 +521,7 @@ func (o *DataConsentRequest) GetRejectedAtUtc() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataConsentRequest) GetRejectedAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.RejectedAtUtc.Get(), o.RejectedAtUtc.IsSet()
@@ -563,7 +563,7 @@ func (o *DataConsentRequest) GetRevokedAtUtc() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataConsentRequest) GetRevokedAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.RevokedAtUtc.Get(), o.RevokedAtUtc.IsSet()

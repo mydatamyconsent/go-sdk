@@ -83,7 +83,7 @@ func (o *DocumentIssueRequestDetails) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequestDetails) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -107,7 +107,7 @@ func (o *DocumentIssueRequestDetails) GetDocumentTypeId() string {
 // GetDocumentTypeIdOk returns a tuple with the DocumentTypeId field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequestDetails) GetDocumentTypeIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DocumentTypeId, true
@@ -131,7 +131,7 @@ func (o *DocumentIssueRequestDetails) GetTypeName() string {
 // GetTypeNameOk returns a tuple with the TypeName field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequestDetails) GetTypeNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TypeName, true
@@ -155,7 +155,7 @@ func (o *DocumentIssueRequestDetails) GetIdentifier() string {
 // GetIdentifierOk returns a tuple with the Identifier field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequestDetails) GetIdentifierOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Identifier, true
@@ -179,7 +179,7 @@ func (o *DocumentIssueRequestDetails) GetStatus() DocumentIssueRequestStatus {
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequestDetails) GetStatusOk() (*DocumentIssueRequestStatus, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Status, true
@@ -203,7 +203,7 @@ func (o *DocumentIssueRequestDetails) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequestDetails) GetDescriptionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Description, true
@@ -253,7 +253,7 @@ func (o *DocumentIssueRequestDetails) GetIssuedAtUtc() time.Time {
 // GetIssuedAtUtcOk returns a tuple with the IssuedAtUtc field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequestDetails) GetIssuedAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IssuedAtUtc, true
@@ -277,7 +277,7 @@ func (o *DocumentIssueRequestDetails) GetValidFromUtc() time.Time {
 // GetValidFromUtcOk returns a tuple with the ValidFromUtc field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequestDetails) GetValidFromUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ValidFromUtc, true
@@ -301,7 +301,7 @@ func (o *DocumentIssueRequestDetails) GetExpiresAtUtc() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DocumentIssueRequestDetails) GetExpiresAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ExpiresAtUtc.Get(), o.ExpiresAtUtc.IsSet()
@@ -332,7 +332,7 @@ func (o *DocumentIssueRequestDetails) UnsetExpiresAtUtc() {
 
 // GetMetaData returns the MetaData field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DocumentIssueRequestDetails) GetMetaData() interface{} {
-	if o == nil  {
+	if o == nil {
 		var ret interface{}
 		return ret
 	}
@@ -376,7 +376,7 @@ func (o *DocumentIssueRequestDetails) GetCreatedAtUtc() time.Time {
 // GetCreatedAtUtcOk returns a tuple with the CreatedAtUtc field value
 // and a boolean to check if the value has been set.
 func (o *DocumentIssueRequestDetails) GetCreatedAtUtcOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CreatedAtUtc, true

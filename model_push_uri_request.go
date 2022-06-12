@@ -57,7 +57,7 @@ func (o *PushUriRequest) GetUriDetails() UriDetails {
 // GetUriDetailsOk returns a tuple with the UriDetails field value
 // and a boolean to check if the value has been set.
 func (o *PushUriRequest) GetUriDetailsOk() (*UriDetails, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.UriDetails, true
@@ -81,7 +81,7 @@ func (o *PushUriRequest) GetNs2() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriRequest) GetNs2Ok() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Ns2.Get(), o.Ns2.IsSet()
@@ -123,7 +123,7 @@ func (o *PushUriRequest) GetVer() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriRequest) GetVerOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Ver.Get(), o.Ver.IsSet()
@@ -165,7 +165,7 @@ func (o *PushUriRequest) GetTs() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriRequest) GetTsOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Ts.Get(), o.Ts.IsSet()
@@ -207,7 +207,7 @@ func (o *PushUriRequest) GetTxn() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriRequest) GetTxnOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Txn.Get(), o.Txn.IsSet()
@@ -249,7 +249,7 @@ func (o *PushUriRequest) GetOrgId() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriRequest) GetOrgIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.OrgId.Get(), o.OrgId.IsSet()
@@ -291,7 +291,7 @@ func (o *PushUriRequest) GetKeyhash() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriRequest) GetKeyhashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Keyhash.Get(), o.Keyhash.IsSet()

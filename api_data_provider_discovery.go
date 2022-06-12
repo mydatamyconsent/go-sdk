@@ -20,10 +20,6 @@ import (
 	"strings"
 )
 
-// Linger please
-var (
-	_ context.Context
-)
 
 // DataProviderDiscoveryApiService DataProviderDiscoveryApi service
 type DataProviderDiscoveryApiService service
@@ -33,7 +29,6 @@ type ApiGetDataProviderByIdRequest struct {
 	ApiService *DataProviderDiscoveryApiService
 	providerId string
 }
-
 
 func (r ApiGetDataProviderByIdRequest) Execute() (*DataProvider, *http.Response, error) {
 	return r.ApiService.GetDataProviderByIdExecute(r)
@@ -175,26 +170,31 @@ func (r ApiGetDataProvidersRequest) AccountType(accountType string) ApiGetDataPr
 	r.accountType = &accountType
 	return r
 }
+
 // Document type.
 func (r ApiGetDataProvidersRequest) DocumentType(documentType string) ApiGetDataProvidersRequest {
 	r.documentType = &documentType
 	return r
 }
+
 // Organization category.
 func (r ApiGetDataProvidersRequest) OrganizationCategory(organizationCategory string) ApiGetDataProvidersRequest {
 	r.organizationCategory = &organizationCategory
 	return r
 }
+
 // Page number.
 func (r ApiGetDataProvidersRequest) PageNo(pageNo int32) ApiGetDataProvidersRequest {
 	r.pageNo = &pageNo
 	return r
 }
+
 // Number of items to return.
 func (r ApiGetDataProvidersRequest) PageSize(pageSize int32) ApiGetDataProvidersRequest {
 	r.pageSize = &pageSize
 	return r
 }
+
 // ISO2 Country code.
 func (r ApiGetDataProvidersRequest) CountryIso2Code(countryIso2Code string) ApiGetDataProvidersRequest {
 	r.countryIso2Code = &countryIso2Code

@@ -56,7 +56,7 @@ func (o *PaymentRequest) GetIdentifier() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PaymentRequest) GetIdentifierOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Identifier.Get(), o.Identifier.IsSet()
@@ -87,7 +87,7 @@ func (o *PaymentRequest) UnsetIdentifier() {
 
 // GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PaymentRequest) GetItems() []BillPaymentOrderItem {
-	if o == nil  {
+	if o == nil {
 		var ret []BillPaymentOrderItem
 		return ret
 	}
@@ -131,7 +131,7 @@ func (o *PaymentRequest) GetCurrencyCode() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PaymentRequest) GetCurrencyCodeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.CurrencyCode.Get(), o.CurrencyCode.IsSet()
@@ -173,7 +173,7 @@ func (o *PaymentRequest) GetPaymentUrl() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PaymentRequest) GetPaymentUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.PaymentUrl.Get(), o.PaymentUrl.IsSet()
@@ -215,7 +215,7 @@ func (o *PaymentRequest) GetDescription() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PaymentRequest) GetDescriptionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Description.Get(), o.Description.IsSet()

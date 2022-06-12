@@ -54,7 +54,7 @@ func (o *FinancialAccounts) GetDrn() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FinancialAccounts) GetDrnOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Drn.Get(), o.Drn.IsSet()
@@ -85,7 +85,7 @@ func (o *FinancialAccounts) UnsetDrn() {
 
 // GetRequiredDetails returns the RequiredDetails field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FinancialAccounts) GetRequiredDetails() []FinancialAccountDetailsRequired {
-	if o == nil  {
+	if o == nil {
 		var ret []FinancialAccountDetailsRequired
 		return ret
 	}
@@ -129,7 +129,7 @@ func (o *FinancialAccounts) GetStartDate() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FinancialAccounts) GetStartDateOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.StartDate.Get(), o.StartDate.IsSet()
@@ -171,7 +171,7 @@ func (o *FinancialAccounts) GetEndDate() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FinancialAccounts) GetEndDateOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.EndDate.Get(), o.EndDate.IsSet()

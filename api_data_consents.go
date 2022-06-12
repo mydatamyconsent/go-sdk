@@ -21,10 +21,6 @@ import (
 	"time"
 )
 
-// Linger please
-var (
-	_ context.Context
-)
 
 // DataConsentsApiService DataConsentsApi service
 type DataConsentsApiService service
@@ -35,7 +31,6 @@ type ApiDownloadConsentedDocumentAnalysisRequest struct {
 	consentId string
 	documentId string
 }
-
 
 func (r ApiDownloadConsentedDocumentAnalysisRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DownloadConsentedDocumentAnalysisExecute(r)
@@ -151,7 +146,6 @@ type ApiDownloadIndividualConsentedDocumentByIdRequest struct {
 	documentId string
 }
 
-
 func (r ApiDownloadIndividualConsentedDocumentByIdRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DownloadIndividualConsentedDocumentByIdExecute(r)
 }
@@ -266,7 +260,6 @@ type ApiDownloadOrganizationConsentedDocumentByIdRequest struct {
 	documentId string
 }
 
-
 func (r ApiDownloadOrganizationConsentedDocumentByIdRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DownloadOrganizationConsentedDocumentByIdExecute(r)
 }
@@ -380,7 +373,6 @@ type ApiGetAllConsentedFinancialAccountsRequest struct {
 	consentId string
 }
 
-
 func (r ApiGetAllConsentedFinancialAccountsRequest) Execute() (*DataConsentFinancialsDto, *http.Response, error) {
 	return r.ApiService.GetAllConsentedFinancialAccountsExecute(r)
 }
@@ -490,7 +482,6 @@ type ApiGetConsentFinancialAccountsRequest struct {
 	ApiService *DataConsentsApiService
 	consentId string
 }
-
 
 func (r ApiGetConsentFinancialAccountsRequest) Execute() (*DataConsentFinancialsDto, *http.Response, error) {
 	return r.ApiService.GetConsentFinancialAccountsExecute(r)
@@ -602,7 +593,6 @@ type ApiGetConsentedAccountByIdRequest struct {
 	consentId string
 	accountId string
 }
-
 
 func (r ApiGetConsentedAccountByIdRequest) Execute() (*FinancialAccount, *http.Response, error) {
 	return r.ApiService.GetConsentedAccountByIdExecute(r)
@@ -717,7 +707,6 @@ type ApiGetConsentedDocumentByIdRequest struct {
 	consentId string
 	documentId string
 }
-
 
 func (r ApiGetConsentedDocumentByIdRequest) Execute() (*DataConsentDocument, *http.Response, error) {
 	return r.ApiService.GetConsentedDocumentByIdExecute(r)
@@ -844,7 +833,6 @@ type ApiGetConsentedFinancialAccountRequest struct {
 	accountId string
 }
 
-
 func (r ApiGetConsentedFinancialAccountRequest) Execute() (*OrganizationFinancialAccountDto, *http.Response, error) {
 	return r.ApiService.GetConsentedFinancialAccountExecute(r)
 }
@@ -959,7 +947,6 @@ type ApiGetConsentedFinancialAccountInsightsRequest struct {
 	accountId string
 }
 
-
 func (r ApiGetConsentedFinancialAccountInsightsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.GetConsentedFinancialAccountInsightsExecute(r)
 }
@@ -968,8 +955,8 @@ func (r ApiGetConsentedFinancialAccountInsightsRequest) Execute() (*http.Respons
 GetConsentedFinancialAccountInsights Get consented financial account insights.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param consentId
- @param accountId
+ @param consentId 
+ @param accountId 
  @return ApiGetConsentedFinancialAccountInsightsRequest
 */
 func (a *DataConsentsApiService) GetConsentedFinancialAccountInsights(ctx context.Context, consentId string, accountId string) ApiGetConsentedFinancialAccountInsightsRequest {
@@ -1073,21 +1060,25 @@ func (r ApiGetConsentedFinancialAccountTransactionsRequest) Filters(filters stri
 	r.filters = &filters
 	return r
 }
+
 // From date time in utc timezone.
 func (r ApiGetConsentedFinancialAccountTransactionsRequest) FromDateTimeUtc(fromDateTimeUtc time.Time) ApiGetConsentedFinancialAccountTransactionsRequest {
 	r.fromDateTimeUtc = &fromDateTimeUtc
 	return r
 }
+
 // Til date time in utc timezone.
 func (r ApiGetConsentedFinancialAccountTransactionsRequest) ToDateTimeUtc(toDateTimeUtc time.Time) ApiGetConsentedFinancialAccountTransactionsRequest {
 	r.toDateTimeUtc = &toDateTimeUtc
 	return r
 }
+
 // Page number.
 func (r ApiGetConsentedFinancialAccountTransactionsRequest) PageNo(pageNo int32) ApiGetConsentedFinancialAccountTransactionsRequest {
 	r.pageNo = &pageNo
 	return r
 }
+
 // Number of items to return.
 func (r ApiGetConsentedFinancialAccountTransactionsRequest) PageSize(pageSize int32) ApiGetConsentedFinancialAccountTransactionsRequest {
 	r.pageSize = &pageSize
@@ -1231,21 +1222,25 @@ func (r ApiGetConsentsRequest) Status(status DataConsentStatus) ApiGetConsentsRe
 	r.status = &status
 	return r
 }
+
 // From datetime in UTC timezone.
 func (r ApiGetConsentsRequest) FromDateTime(fromDateTime time.Time) ApiGetConsentsRequest {
 	r.fromDateTime = &fromDateTime
 	return r
 }
+
 // To datetime in UTC timezone.
 func (r ApiGetConsentsRequest) ToDateTime(toDateTime time.Time) ApiGetConsentsRequest {
 	r.toDateTime = &toDateTime
 	return r
 }
+
 // Page number.
 func (r ApiGetConsentsRequest) PageNo(pageNo int32) ApiGetConsentsRequest {
 	r.pageNo = &pageNo
 	return r
 }
+
 // Number of items to return.
 func (r ApiGetConsentsRequest) PageSize(pageSize int32) ApiGetConsentsRequest {
 	r.pageSize = &pageSize
@@ -1377,7 +1372,6 @@ type ApiGetIndividualConsentedDocumentsRequest struct {
 	consentId string
 }
 
-
 func (r ApiGetIndividualConsentedDocumentsRequest) Execute() ([]DataConsentDocument, *http.Response, error) {
 	return r.ApiService.GetIndividualConsentedDocumentsExecute(r)
 }
@@ -1498,7 +1492,6 @@ type ApiGetIndividualDataConsentByIdRequest struct {
 	ApiService *DataConsentsApiService
 	consentId string
 }
-
 
 func (r ApiGetIndividualDataConsentByIdRequest) Execute() (*DataConsent, *http.Response, error) {
 	return r.ApiService.GetIndividualDataConsentByIdExecute(r)
@@ -1632,21 +1625,25 @@ func (r ApiGetOrgConsentedAccountTransactionsRequest) Filters(filters string) Ap
 	r.filters = &filters
 	return r
 }
+
 // From date time in utc timezone.
 func (r ApiGetOrgConsentedAccountTransactionsRequest) FromDateTimeUtc(fromDateTimeUtc time.Time) ApiGetOrgConsentedAccountTransactionsRequest {
 	r.fromDateTimeUtc = &fromDateTimeUtc
 	return r
 }
+
 // Til date time in utc timezone.
 func (r ApiGetOrgConsentedAccountTransactionsRequest) ToDateTimeUtc(toDateTimeUtc time.Time) ApiGetOrgConsentedAccountTransactionsRequest {
 	r.toDateTimeUtc = &toDateTimeUtc
 	return r
 }
+
 // Page number.
 func (r ApiGetOrgConsentedAccountTransactionsRequest) PageNo(pageNo int32) ApiGetOrgConsentedAccountTransactionsRequest {
 	r.pageNo = &pageNo
 	return r
 }
+
 // Number of items to return.
 func (r ApiGetOrgConsentedAccountTransactionsRequest) PageSize(pageSize int32) ApiGetOrgConsentedAccountTransactionsRequest {
 	r.pageSize = &pageSize
@@ -1782,7 +1779,6 @@ type ApiGetOrganizationConsentedDocumentByIdRequest struct {
 	documentId string
 }
 
-
 func (r ApiGetOrganizationConsentedDocumentByIdRequest) Execute() (*DataConsentDocument, *http.Response, error) {
 	return r.ApiService.GetOrganizationConsentedDocumentByIdExecute(r)
 }
@@ -1907,7 +1903,6 @@ type ApiGetOrganizationConsentedDocumentsRequest struct {
 	consentId string
 }
 
-
 func (r ApiGetOrganizationConsentedDocumentsRequest) Execute() ([]DataConsentDocument, *http.Response, error) {
 	return r.ApiService.GetOrganizationConsentedDocumentsExecute(r)
 }
@@ -2028,7 +2023,6 @@ type ApiGetOrganizationDataConsentByIdRequest struct {
 	ApiService *DataConsentsApiService
 	consentId string
 }
-
 
 func (r ApiGetOrganizationDataConsentByIdRequest) Execute() (*DataConsent, *http.Response, error) {
 	return r.ApiService.GetOrganizationDataConsentByIdExecute(r)
@@ -2160,21 +2154,25 @@ func (r ApiGetOrganizationDataConsentsRequest) Status(status DataConsentStatus) 
 	r.status = &status
 	return r
 }
+
 // From datetime in UTC timezone.
 func (r ApiGetOrganizationDataConsentsRequest) FromDateTime(fromDateTime time.Time) ApiGetOrganizationDataConsentsRequest {
 	r.fromDateTime = &fromDateTime
 	return r
 }
+
 // To datetime in UTC timezone.
 func (r ApiGetOrganizationDataConsentsRequest) ToDateTime(toDateTime time.Time) ApiGetOrganizationDataConsentsRequest {
 	r.toDateTime = &toDateTime
 	return r
 }
+
 // Page number.
 func (r ApiGetOrganizationDataConsentsRequest) PageNo(pageNo int32) ApiGetOrganizationDataConsentsRequest {
 	r.pageNo = &pageNo
 	return r
 }
+
 // Number of items to return.
 func (r ApiGetOrganizationDataConsentsRequest) PageSize(pageSize int32) ApiGetOrganizationDataConsentsRequest {
 	r.pageSize = &pageSize

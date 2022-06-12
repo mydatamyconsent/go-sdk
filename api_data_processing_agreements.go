@@ -20,10 +20,6 @@ import (
 	"strings"
 )
 
-// Linger please
-var (
-	_ context.Context
-)
 
 // DataProcessingAgreementsApiService DataProcessingAgreementsApi service
 type DataProcessingAgreementsApiService service
@@ -162,7 +158,6 @@ type ApiDeleteDataProcessingAgreementByIdRequest struct {
 	id string
 }
 
-
 func (r ApiDeleteDataProcessingAgreementByIdRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteDataProcessingAgreementByIdExecute(r)
 }
@@ -281,7 +276,6 @@ type ApiGetDataProcessingAgreementByIdRequest struct {
 	ApiService *DataProcessingAgreementsApiService
 	id string
 }
-
 
 func (r ApiGetDataProcessingAgreementByIdRequest) Execute() (*DataProcessingAgreement, *http.Response, error) {
 	return r.ApiService.GetDataProcessingAgreementByIdExecute(r)
@@ -419,6 +413,7 @@ func (r ApiGetDataProcessingAgreementsRequest) PageNo(pageNo int32) ApiGetDataPr
 	r.pageNo = &pageNo
 	return r
 }
+
 // Number of items to return.
 func (r ApiGetDataProcessingAgreementsRequest) PageSize(pageSize int32) ApiGetDataProcessingAgreementsRequest {
 	r.pageSize = &pageSize
@@ -547,7 +542,6 @@ type ApiTerminateDataProcessingAgreementByIdRequest struct {
 	ApiService *DataProcessingAgreementsApiService
 	id string
 }
-
 
 func (r ApiTerminateDataProcessingAgreementByIdRequest) Execute() (*http.Response, error) {
 	return r.ApiService.TerminateDataProcessingAgreementByIdExecute(r)

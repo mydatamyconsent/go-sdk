@@ -171,7 +171,7 @@ func (o *DataProcessingAgreementPaginatedList) SetTotalItems(v int64) {
 
 // GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DataProcessingAgreementPaginatedList) GetItems() []DataProcessingAgreement {
-	if o == nil  {
+	if o == nil {
 		var ret []DataProcessingAgreement
 		return ret
 	}

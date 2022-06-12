@@ -22,10 +22,6 @@ import (
 	"os"
 )
 
-// Linger please
-var (
-	_ context.Context
-)
 
 // DocumentsApiService DocumentsApi service
 type DocumentsApiService service
@@ -35,7 +31,6 @@ type ApiGetIssuedDocumentByIdRequest struct {
 	ApiService *DocumentsApiService
 	documentId string
 }
-
 
 func (r ApiGetIssuedDocumentByIdRequest) Execute() (*IssuedDocumentDetails, *http.Response, error) {
 	return r.ApiService.GetIssuedDocumentByIdExecute(r)
@@ -176,21 +171,25 @@ func (r ApiGetIssuedDocumentsRequest) DocumentTypeId(documentTypeId string) ApiG
 	r.documentTypeId = &documentTypeId
 	return r
 }
+
 // From DateTime in UTC timezone.
 func (r ApiGetIssuedDocumentsRequest) FromDateTime(fromDateTime time.Time) ApiGetIssuedDocumentsRequest {
 	r.fromDateTime = &fromDateTime
 	return r
 }
+
 // To DateTime in UTC timezone.
 func (r ApiGetIssuedDocumentsRequest) ToDateTime(toDateTime time.Time) ApiGetIssuedDocumentsRequest {
 	r.toDateTime = &toDateTime
 	return r
 }
+
 // Page number.
 func (r ApiGetIssuedDocumentsRequest) PageNo(pageNo int32) ApiGetIssuedDocumentsRequest {
 	r.pageNo = &pageNo
 	return r
 }
+
 // Number of items to return.
 func (r ApiGetIssuedDocumentsRequest) PageSize(pageSize int32) ApiGetIssuedDocumentsRequest {
 	r.pageSize = &pageSize
@@ -336,11 +335,13 @@ func (r ApiGetRegisteredDocumentTypesRequest) SupportedEntityType(supportedEntit
 	r.supportedEntityType = &supportedEntityType
 	return r
 }
+
 // Page number.
 func (r ApiGetRegisteredDocumentTypesRequest) PageNo(pageNo int32) ApiGetRegisteredDocumentTypesRequest {
 	r.pageNo = &pageNo
 	return r
 }
+
 // Number of items to return.
 func (r ApiGetRegisteredDocumentTypesRequest) PageSize(pageSize int32) ApiGetRegisteredDocumentTypesRequest {
 	r.pageSize = &pageSize
