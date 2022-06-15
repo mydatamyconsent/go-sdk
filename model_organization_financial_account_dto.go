@@ -29,7 +29,6 @@ type OrganizationFinancialAccountDto struct {
 	BankName NullableString `json:"bankName,omitempty"`
 	BankAccountType *BankAccountType `json:"bankAccountType,omitempty"`
 	BankAccountProofUrl NullableString `json:"bankAccountProofUrl,omitempty"`
-	FileType *FileType `json:"fileType,omitempty"`
 }
 
 // NewOrganizationFinancialAccountDto instantiates a new OrganizationFinancialAccountDto object
@@ -503,38 +502,6 @@ func (o *OrganizationFinancialAccountDto) UnsetBankAccountProofUrl() {
 	o.BankAccountProofUrl.Unset()
 }
 
-// GetFileType returns the FileType field value if set, zero value otherwise.
-func (o *OrganizationFinancialAccountDto) GetFileType() FileType {
-	if o == nil || o.FileType == nil {
-		var ret FileType
-		return ret
-	}
-	return *o.FileType
-}
-
-// GetFileTypeOk returns a tuple with the FileType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *OrganizationFinancialAccountDto) GetFileTypeOk() (*FileType, bool) {
-	if o == nil || o.FileType == nil {
-		return nil, false
-	}
-	return o.FileType, true
-}
-
-// HasFileType returns a boolean if a field has been set.
-func (o *OrganizationFinancialAccountDto) HasFileType() bool {
-	if o != nil && o.FileType != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetFileType gets a reference to the given FileType and assigns it to the FileType field.
-func (o *OrganizationFinancialAccountDto) SetFileType(v FileType) {
-	o.FileType = &v
-}
-
 func (o OrganizationFinancialAccountDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
@@ -572,9 +539,6 @@ func (o OrganizationFinancialAccountDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.BankAccountProofUrl.IsSet() {
 		toSerialize["bankAccountProofUrl"] = o.BankAccountProofUrl.Get()
-	}
-	if o.FileType != nil {
-		toSerialize["fileType"] = o.FileType
 	}
 	return json.Marshal(toSerialize)
 }

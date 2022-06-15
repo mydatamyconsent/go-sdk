@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **BankName** | Pointer to **NullableString** |  | [optional] 
 **BankAccountType** | Pointer to [**BankAccountType**](BankAccountType.md) |  | [optional] 
 **BankAccountProofUrl** | Pointer to **NullableString** |  | [optional] 
-**FileType** | Pointer to [**FileType**](FileType.md) |  | [optional] 
 
 ## Methods
 
@@ -407,31 +406,6 @@ HasBankAccountProofUrl returns a boolean if a field has been set.
 `func (o *OrganizationFinancialAccountDto) UnsetBankAccountProofUrl()`
 
 UnsetBankAccountProofUrl ensures that no value is present for BankAccountProofUrl, not even an explicit nil
-### GetFileType
-
-`func (o *OrganizationFinancialAccountDto) GetFileType() FileType`
-
-GetFileType returns the FileType field if non-nil, zero value otherwise.
-
-### GetFileTypeOk
-
-`func (o *OrganizationFinancialAccountDto) GetFileTypeOk() (*FileType, bool)`
-
-GetFileTypeOk returns a tuple with the FileType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFileType
-
-`func (o *OrganizationFinancialAccountDto) SetFileType(v FileType)`
-
-SetFileType sets FileType field to given value.
-
-### HasFileType
-
-`func (o *OrganizationFinancialAccountDto) HasFileType() bool`
-
-HasFileType returns a boolean if a field has been set.
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
