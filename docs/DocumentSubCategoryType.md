@@ -33,8 +33,6 @@
 
 * `TAXES` (value: `"Taxes"`)
 
-* `LICENCES_AND_CERTIFICATES` (value: `"LicencesAndCertificates"`)
-
 * `CORPORATES` (value: `"Corporates"`)
 
 * `COMPETITIONS` (value: `"Competitions"`)
@@ -48,6 +46,10 @@
 * `LICENSES` (value: `"Licenses"`)
 
 * `ORGANIZATION_IDS` (value: `"OrganizationIds"`)
+
+* `PERMITS` (value: `"Permits"`)
+
+* `LEGAL` (value: `"Legal"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

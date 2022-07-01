@@ -36,7 +36,6 @@ const (
 	INSURANCE DocumentSubCategoryType = "Insurance"
 	RECEIPTS_AND_SUBSCRIPTIONS DocumentSubCategoryType = "ReceiptsAndSubscriptions"
 	TAXES DocumentSubCategoryType = "Taxes"
-	LICENCES_AND_CERTIFICATES DocumentSubCategoryType = "LicencesAndCertificates"
 	CORPORATES DocumentSubCategoryType = "Corporates"
 	COMPETITIONS DocumentSubCategoryType = "Competitions"
 	INTELLECTUAL_PROPERTIES DocumentSubCategoryType = "IntellectualProperties"
@@ -44,6 +43,8 @@ const (
 	APPLICATIONS_AND_CERTIFICATES DocumentSubCategoryType = "ApplicationsAndCertificates"
 	LICENSES DocumentSubCategoryType = "Licenses"
 	ORGANIZATION_IDS DocumentSubCategoryType = "OrganizationIds"
+	PERMITS DocumentSubCategoryType = "Permits"
+	LEGAL DocumentSubCategoryType = "Legal"
 )
 
 // All allowed values of DocumentSubCategoryType enum
@@ -63,7 +64,6 @@ var AllowedDocumentSubCategoryTypeEnumValues = []DocumentSubCategoryType{
 	"Insurance",
 	"ReceiptsAndSubscriptions",
 	"Taxes",
-	"LicencesAndCertificates",
 	"Corporates",
 	"Competitions",
 	"IntellectualProperties",
@@ -71,6 +71,8 @@ var AllowedDocumentSubCategoryTypeEnumValues = []DocumentSubCategoryType{
 	"ApplicationsAndCertificates",
 	"Licenses",
 	"OrganizationIds",
+	"Permits",
+	"Legal",
 }
 
 func (v *DocumentSubCategoryType) UnmarshalJSON(src []byte) error {

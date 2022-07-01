@@ -26,7 +26,10 @@ const (
 	HEALTH DocumentCategoryType = "Health"
 	FINANCE DocumentCategoryType = "Finance"
 	PROFESSIONAL DocumentCategoryType = "Professional"
-	LICENCES_AND_CERTIFICATES DocumentCategoryType = "LicencesAndCertificates"
+	LICENSES DocumentCategoryType = "Licenses"
+	PERMITS DocumentCategoryType = "Permits"
+	CERTIFICATES DocumentCategoryType = "Certificates"
+	LEGAL DocumentCategoryType = "Legal"
 	OTHERS DocumentCategoryType = "Others"
 )
 
@@ -37,7 +40,10 @@ var AllowedDocumentCategoryTypeEnumValues = []DocumentCategoryType{
 	"Health",
 	"Finance",
 	"Professional",
-	"LicencesAndCertificates",
+	"Licenses",
+	"Permits",
+	"Certificates",
+	"Legal",
 	"Others",
 }
 
