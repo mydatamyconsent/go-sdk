@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Name** | **string** | Name. | 
 **IssuedBy** | **string** | Signature issued by. | 
 **IssuerName** | **string** | Signature issuer name. | 
-**ValidFromUtc** | **time.Time** | Signature valid from datatime in UTC timezone. | 
-**ValidToUtc** | **time.Time** | Signature valid to datatime in UTC timezone. | 
+**ValidFromUtc** | **string** | Signature valid from datatime in UTC timezone. | 
+**ValidToUtc** | **string** | Signature valid to datatime in UTC timezone. | 
 
 ## Methods
 
 ### NewDocumentDigitalSignature
 
-`func NewDocumentDigitalSignature(name string, issuedBy string, issuerName string, validFromUtc time.Time, validToUtc time.Time, ) *DocumentDigitalSignature`
+`func NewDocumentDigitalSignature(name string, issuedBy string, issuerName string, validFromUtc string, validToUtc string, ) *DocumentDigitalSignature`
 
 NewDocumentDigitalSignature instantiates a new DocumentDigitalSignature object
 This constructor will assign default values to properties that have it defined,
@@ -91,40 +91,40 @@ SetIssuerName sets IssuerName field to given value.
 
 ### GetValidFromUtc
 
-`func (o *DocumentDigitalSignature) GetValidFromUtc() time.Time`
+`func (o *DocumentDigitalSignature) GetValidFromUtc() string`
 
 GetValidFromUtc returns the ValidFromUtc field if non-nil, zero value otherwise.
 
 ### GetValidFromUtcOk
 
-`func (o *DocumentDigitalSignature) GetValidFromUtcOk() (*time.Time, bool)`
+`func (o *DocumentDigitalSignature) GetValidFromUtcOk() (*string, bool)`
 
 GetValidFromUtcOk returns a tuple with the ValidFromUtc field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValidFromUtc
 
-`func (o *DocumentDigitalSignature) SetValidFromUtc(v time.Time)`
+`func (o *DocumentDigitalSignature) SetValidFromUtc(v string)`
 
 SetValidFromUtc sets ValidFromUtc field to given value.
 
 
 ### GetValidToUtc
 
-`func (o *DocumentDigitalSignature) GetValidToUtc() time.Time`
+`func (o *DocumentDigitalSignature) GetValidToUtc() string`
 
 GetValidToUtc returns the ValidToUtc field if non-nil, zero value otherwise.
 
 ### GetValidToUtcOk
 
-`func (o *DocumentDigitalSignature) GetValidToUtcOk() (*time.Time, bool)`
+`func (o *DocumentDigitalSignature) GetValidToUtcOk() (*string, bool)`
 
 GetValidToUtcOk returns a tuple with the ValidToUtc field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValidToUtc
 
-`func (o *DocumentDigitalSignature) SetValidToUtc(v time.Time)`
+`func (o *DocumentDigitalSignature) SetValidToUtc(v string)`
 
 SetValidToUtc sets ValidToUtc field to given value.
 

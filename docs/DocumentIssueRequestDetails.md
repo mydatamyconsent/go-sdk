@@ -10,10 +10,11 @@ Name | Type | Description | Notes
 **Identifier** | **string** | Document identifier. | 
 **Status** | [**DocumentIssueRequestStatus**](DocumentIssueRequestStatus.md) |  | 
 **Description** | **string** | Document description. | 
-**Receiver** | **interface{}** | Document receiver details. | 
+**Receiver** | [**DocumentIssueRequestDetailsReceiver**](DocumentIssueRequestDetailsReceiver.md) |  | 
+**PaymentRequest** | Pointer to [**PaymentRequest**](PaymentRequest.md) |  | [optional] 
 **IssuedAtUtc** | **time.Time** | Datetime of issue in UTC timezone. | 
 **ValidFromUtc** | **time.Time** | Valid from datetime in UTC timezone. | 
-**ExpiresAtUtc** | Pointer to **NullableTime** | Datetime of expiry in UTC timezone. | [optional] 
+**ExpiresAtUtc** | Pointer to **time.Time** | Datetime of expiry in UTC timezone. | [optional] 
 **MetaData** | Pointer to **interface{}** | Metadata. | [optional] 
 **CreatedAtUtc** | **time.Time** | Creation datetime of issue request in UTC timezone. | 
 
@@ -21,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewDocumentIssueRequestDetails
 
-`func NewDocumentIssueRequestDetails(id string, documentTypeId string, typeName string, identifier string, status DocumentIssueRequestStatus, description string, receiver interface{}, issuedAtUtc time.Time, validFromUtc time.Time, createdAtUtc time.Time, ) *DocumentIssueRequestDetails`
+`func NewDocumentIssueRequestDetails(id string, documentTypeId string, typeName string, identifier string, status DocumentIssueRequestStatus, description string, receiver DocumentIssueRequestDetailsReceiver, issuedAtUtc time.Time, validFromUtc time.Time, createdAtUtc time.Time, ) *DocumentIssueRequestDetails`
 
 NewDocumentIssueRequestDetails instantiates a new DocumentIssueRequestDetails object
 This constructor will assign default values to properties that have it defined,
@@ -158,34 +159,49 @@ SetDescription sets Description field to given value.
 
 ### GetReceiver
 
-`func (o *DocumentIssueRequestDetails) GetReceiver() interface{}`
+`func (o *DocumentIssueRequestDetails) GetReceiver() DocumentIssueRequestDetailsReceiver`
 
 GetReceiver returns the Receiver field if non-nil, zero value otherwise.
 
 ### GetReceiverOk
 
-`func (o *DocumentIssueRequestDetails) GetReceiverOk() (*interface{}, bool)`
+`func (o *DocumentIssueRequestDetails) GetReceiverOk() (*DocumentIssueRequestDetailsReceiver, bool)`
 
 GetReceiverOk returns a tuple with the Receiver field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReceiver
 
-`func (o *DocumentIssueRequestDetails) SetReceiver(v interface{})`
+`func (o *DocumentIssueRequestDetails) SetReceiver(v DocumentIssueRequestDetailsReceiver)`
 
 SetReceiver sets Receiver field to given value.
 
 
-### SetReceiverNil
+### GetPaymentRequest
 
-`func (o *DocumentIssueRequestDetails) SetReceiverNil(b bool)`
+`func (o *DocumentIssueRequestDetails) GetPaymentRequest() PaymentRequest`
 
- SetReceiverNil sets the value for Receiver to be an explicit nil
+GetPaymentRequest returns the PaymentRequest field if non-nil, zero value otherwise.
 
-### UnsetReceiver
-`func (o *DocumentIssueRequestDetails) UnsetReceiver()`
+### GetPaymentRequestOk
 
-UnsetReceiver ensures that no value is present for Receiver, not even an explicit nil
+`func (o *DocumentIssueRequestDetails) GetPaymentRequestOk() (*PaymentRequest, bool)`
+
+GetPaymentRequestOk returns a tuple with the PaymentRequest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentRequest
+
+`func (o *DocumentIssueRequestDetails) SetPaymentRequest(v PaymentRequest)`
+
+SetPaymentRequest sets PaymentRequest field to given value.
+
+### HasPaymentRequest
+
+`func (o *DocumentIssueRequestDetails) HasPaymentRequest() bool`
+
+HasPaymentRequest returns a boolean if a field has been set.
+
 ### GetIssuedAtUtc
 
 `func (o *DocumentIssueRequestDetails) GetIssuedAtUtc() time.Time`
@@ -251,16 +267,6 @@ SetExpiresAtUtc sets ExpiresAtUtc field to given value.
 
 HasExpiresAtUtc returns a boolean if a field has been set.
 
-### SetExpiresAtUtcNil
-
-`func (o *DocumentIssueRequestDetails) SetExpiresAtUtcNil(b bool)`
-
- SetExpiresAtUtcNil sets the value for ExpiresAtUtc to be an explicit nil
-
-### UnsetExpiresAtUtc
-`func (o *DocumentIssueRequestDetails) UnsetExpiresAtUtc()`
-
-UnsetExpiresAtUtc ensures that no value is present for ExpiresAtUtc, not even an explicit nil
 ### GetMetaData
 
 `func (o *DocumentIssueRequestDetails) GetMetaData() interface{}`

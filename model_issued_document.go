@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -16,7 +16,7 @@ import (
 	"time"
 )
 
-// IssuedDocument Issued Document Identifier.
+// IssuedDocument IssuedDocument : Issued Document Identifier.
 type IssuedDocument struct {
 	// Document Id.
 	Id string `json:"id"`
@@ -29,22 +29,23 @@ type IssuedDocument struct {
 	// Issued datetime in UTC timezone.
 	IssuedAtUtc time.Time `json:"issuedAtUtc"`
 	// Expires datetime in UTC timezone.
-	ExpiresAtUtc NullableTime `json:"expiresAtUtc,omitempty"`
+	ExpiresAtUtc *time.Time `json:"expiresAtUtc,omitempty"`
 	// Accepted datetime in UTC timezone.
-	AcceptedAtUtc NullableTime `json:"acceptedAtUtc,omitempty"`
+	AcceptedAtUtc time.Time `json:"acceptedAtUtc"`
 }
 
 // NewIssuedDocument instantiates a new IssuedDocument object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIssuedDocument(id string, identifier string, documentType string, issuedTo string, issuedAtUtc time.Time) *IssuedDocument {
+func NewIssuedDocument(id string, identifier string, documentType string, issuedTo string, issuedAtUtc time.Time, acceptedAtUtc time.Time) *IssuedDocument {
 	this := IssuedDocument{}
 	this.Id = id
 	this.Identifier = identifier
 	this.DocumentType = documentType
 	this.IssuedTo = issuedTo
 	this.IssuedAtUtc = issuedAtUtc
+	this.AcceptedAtUtc = acceptedAtUtc
 	return &this
 }
 
@@ -176,88 +177,60 @@ func (o *IssuedDocument) SetIssuedAtUtc(v time.Time) {
 	o.IssuedAtUtc = v
 }
 
-// GetExpiresAtUtc returns the ExpiresAtUtc field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExpiresAtUtc returns the ExpiresAtUtc field value if set, zero value otherwise.
 func (o *IssuedDocument) GetExpiresAtUtc() time.Time {
-	if o == nil || o.ExpiresAtUtc.Get() == nil {
+	if o == nil || o.ExpiresAtUtc == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.ExpiresAtUtc.Get()
+	return *o.ExpiresAtUtc
 }
 
 // GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IssuedDocument) GetExpiresAtUtcOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || o.ExpiresAtUtc == nil {
 		return nil, false
 	}
-	return o.ExpiresAtUtc.Get(), o.ExpiresAtUtc.IsSet()
+	return o.ExpiresAtUtc, true
 }
 
 // HasExpiresAtUtc returns a boolean if a field has been set.
 func (o *IssuedDocument) HasExpiresAtUtc() bool {
-	if o != nil && o.ExpiresAtUtc.IsSet() {
+	if o != nil && o.ExpiresAtUtc != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetExpiresAtUtc gets a reference to the given NullableTime and assigns it to the ExpiresAtUtc field.
+// SetExpiresAtUtc gets a reference to the given time.Time and assigns it to the ExpiresAtUtc field.
 func (o *IssuedDocument) SetExpiresAtUtc(v time.Time) {
-	o.ExpiresAtUtc.Set(&v)
-}
-// SetExpiresAtUtcNil sets the value for ExpiresAtUtc to be an explicit nil
-func (o *IssuedDocument) SetExpiresAtUtcNil() {
-	o.ExpiresAtUtc.Set(nil)
+	o.ExpiresAtUtc = &v
 }
 
-// UnsetExpiresAtUtc ensures that no value is present for ExpiresAtUtc, not even an explicit nil
-func (o *IssuedDocument) UnsetExpiresAtUtc() {
-	o.ExpiresAtUtc.Unset()
-}
-
-// GetAcceptedAtUtc returns the AcceptedAtUtc field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAcceptedAtUtc returns the AcceptedAtUtc field value
 func (o *IssuedDocument) GetAcceptedAtUtc() time.Time {
-	if o == nil || o.AcceptedAtUtc.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.AcceptedAtUtc.Get()
+
+	return o.AcceptedAtUtc
 }
 
-// GetAcceptedAtUtcOk returns a tuple with the AcceptedAtUtc field value if set, nil otherwise
+// GetAcceptedAtUtcOk returns a tuple with the AcceptedAtUtc field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IssuedDocument) GetAcceptedAtUtcOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.AcceptedAtUtc.Get(), o.AcceptedAtUtc.IsSet()
+	return &o.AcceptedAtUtc, true
 }
 
-// HasAcceptedAtUtc returns a boolean if a field has been set.
-func (o *IssuedDocument) HasAcceptedAtUtc() bool {
-	if o != nil && o.AcceptedAtUtc.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAcceptedAtUtc gets a reference to the given NullableTime and assigns it to the AcceptedAtUtc field.
+// SetAcceptedAtUtc sets field value
 func (o *IssuedDocument) SetAcceptedAtUtc(v time.Time) {
-	o.AcceptedAtUtc.Set(&v)
-}
-// SetAcceptedAtUtcNil sets the value for AcceptedAtUtc to be an explicit nil
-func (o *IssuedDocument) SetAcceptedAtUtcNil() {
-	o.AcceptedAtUtc.Set(nil)
-}
-
-// UnsetAcceptedAtUtc ensures that no value is present for AcceptedAtUtc, not even an explicit nil
-func (o *IssuedDocument) UnsetAcceptedAtUtc() {
-	o.AcceptedAtUtc.Unset()
+	o.AcceptedAtUtc = v
 }
 
 func (o IssuedDocument) MarshalJSON() ([]byte, error) {
@@ -277,11 +250,11 @@ func (o IssuedDocument) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["issuedAtUtc"] = o.IssuedAtUtc
 	}
-	if o.ExpiresAtUtc.IsSet() {
-		toSerialize["expiresAtUtc"] = o.ExpiresAtUtc.Get()
+	if o.ExpiresAtUtc != nil {
+		toSerialize["expiresAtUtc"] = o.ExpiresAtUtc
 	}
-	if o.AcceptedAtUtc.IsSet() {
-		toSerialize["acceptedAtUtc"] = o.AcceptedAtUtc.Get()
+	if true {
+		toSerialize["acceptedAtUtc"] = o.AcceptedAtUtc
 	}
 	return json.Marshal(toSerialize)
 }

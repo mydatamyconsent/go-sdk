@@ -8,22 +8,22 @@ Name | Type | Description | Notes
 **CategoryType** | [**DocumentCategoryType**](DocumentCategoryType.md) |  | 
 **SubCategoryType** | [**DocumentSubCategoryType**](DocumentSubCategoryType.md) |  | 
 **Name** | **string** | Document Type Name. eg: Driving License. | 
-**Slug** | **string** | Document Type Unique Slug. eg: \&quot;in.gov.gj.transport.dl\&quot;. | 
-**Description** | Pointer to **NullableString** | Document Type description. eg: Gujarat State Driving License. | [optional] 
+**Slug** | **string** | Document Type Unique Slug. eg: \\\&quot;in.gov.gj.transport.dl\\\&quot;. | 
+**Description** | Pointer to **string** | Document Type description. eg: Gujarat State Driving License. | [optional] 
 **LogoUrl** | **string** | Logo URL of document type. | 
-**SearchServiceName** | Pointer to **NullableString** | Document search repository service name. | [optional] 
-**RepositoryServiceName** | Pointer to **NullableString** | Document repository service name. | [optional] 
-**SupportedEntityTypes** | [**[]SupportedEntityType**](SupportedEntityType.md) | Supported entity types. eg: Individual, Organization. | 
+**SearchServiceName** | Pointer to **string** | Document search repository service name. | [optional] 
+**RepositoryServiceName** | Pointer to **string** | Document repository service name. | [optional] 
+**SupportedEntityType** | [**SupportedEntityType**](SupportedEntityType.md) |  | 
 **AddedBy** | **string** | Name of the document type creator. | 
 **PayableAmount** | **float64** | Payable amount if document is chargeable. eg: 10.25. | 
-**PayableAmountCurrency** | Pointer to **NullableString** | Payable amount currency. eg: INR, USD etc.,. | [optional] 
-**ApprovedAtUtc** | Pointer to **NullableTime** | DateTime of approval in UTC timezone. | [optional] 
+**PayableAmountCurrency** | **string** | Payable amount currency. eg: INR, USD etc.,. | 
+**ApprovedAtUtc** | Pointer to **time.Time** | DateTime of approval in UTC timezone. | [optional] 
 
 ## Methods
 
 ### NewDocumentType
 
-`func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryType DocumentSubCategoryType, name string, slug string, logoUrl string, supportedEntityTypes []SupportedEntityType, addedBy string, payableAmount float64, ) *DocumentType`
+`func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryType DocumentSubCategoryType, name string, slug string, logoUrl string, supportedEntityType SupportedEntityType, addedBy string, payableAmount float64, payableAmountCurrency string, ) *DocumentType`
 
 NewDocumentType instantiates a new DocumentType object
 This constructor will assign default values to properties that have it defined,
@@ -163,16 +163,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *DocumentType) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *DocumentType) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetLogoUrl
 
 `func (o *DocumentType) GetLogoUrl() string`
@@ -218,16 +208,6 @@ SetSearchServiceName sets SearchServiceName field to given value.
 
 HasSearchServiceName returns a boolean if a field has been set.
 
-### SetSearchServiceNameNil
-
-`func (o *DocumentType) SetSearchServiceNameNil(b bool)`
-
- SetSearchServiceNameNil sets the value for SearchServiceName to be an explicit nil
-
-### UnsetSearchServiceName
-`func (o *DocumentType) UnsetSearchServiceName()`
-
-UnsetSearchServiceName ensures that no value is present for SearchServiceName, not even an explicit nil
 ### GetRepositoryServiceName
 
 `func (o *DocumentType) GetRepositoryServiceName() string`
@@ -253,34 +233,24 @@ SetRepositoryServiceName sets RepositoryServiceName field to given value.
 
 HasRepositoryServiceName returns a boolean if a field has been set.
 
-### SetRepositoryServiceNameNil
+### GetSupportedEntityType
 
-`func (o *DocumentType) SetRepositoryServiceNameNil(b bool)`
+`func (o *DocumentType) GetSupportedEntityType() SupportedEntityType`
 
- SetRepositoryServiceNameNil sets the value for RepositoryServiceName to be an explicit nil
+GetSupportedEntityType returns the SupportedEntityType field if non-nil, zero value otherwise.
 
-### UnsetRepositoryServiceName
-`func (o *DocumentType) UnsetRepositoryServiceName()`
+### GetSupportedEntityTypeOk
 
-UnsetRepositoryServiceName ensures that no value is present for RepositoryServiceName, not even an explicit nil
-### GetSupportedEntityTypes
+`func (o *DocumentType) GetSupportedEntityTypeOk() (*SupportedEntityType, bool)`
 
-`func (o *DocumentType) GetSupportedEntityTypes() []SupportedEntityType`
-
-GetSupportedEntityTypes returns the SupportedEntityTypes field if non-nil, zero value otherwise.
-
-### GetSupportedEntityTypesOk
-
-`func (o *DocumentType) GetSupportedEntityTypesOk() (*[]SupportedEntityType, bool)`
-
-GetSupportedEntityTypesOk returns a tuple with the SupportedEntityTypes field if it's non-nil, zero value otherwise
+GetSupportedEntityTypeOk returns a tuple with the SupportedEntityType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSupportedEntityTypes
+### SetSupportedEntityType
 
-`func (o *DocumentType) SetSupportedEntityTypes(v []SupportedEntityType)`
+`func (o *DocumentType) SetSupportedEntityType(v SupportedEntityType)`
 
-SetSupportedEntityTypes sets SupportedEntityTypes field to given value.
+SetSupportedEntityType sets SupportedEntityType field to given value.
 
 
 ### GetAddedBy
@@ -342,22 +312,7 @@ and a boolean to check if the value has been set.
 
 SetPayableAmountCurrency sets PayableAmountCurrency field to given value.
 
-### HasPayableAmountCurrency
 
-`func (o *DocumentType) HasPayableAmountCurrency() bool`
-
-HasPayableAmountCurrency returns a boolean if a field has been set.
-
-### SetPayableAmountCurrencyNil
-
-`func (o *DocumentType) SetPayableAmountCurrencyNil(b bool)`
-
- SetPayableAmountCurrencyNil sets the value for PayableAmountCurrency to be an explicit nil
-
-### UnsetPayableAmountCurrency
-`func (o *DocumentType) UnsetPayableAmountCurrency()`
-
-UnsetPayableAmountCurrency ensures that no value is present for PayableAmountCurrency, not even an explicit nil
 ### GetApprovedAtUtc
 
 `func (o *DocumentType) GetApprovedAtUtc() time.Time`
@@ -383,16 +338,6 @@ SetApprovedAtUtc sets ApprovedAtUtc field to given value.
 
 HasApprovedAtUtc returns a boolean if a field has been set.
 
-### SetApprovedAtUtcNil
-
-`func (o *DocumentType) SetApprovedAtUtcNil(b bool)`
-
- SetApprovedAtUtcNil sets the value for ApprovedAtUtc to be an explicit nil
-
-### UnsetApprovedAtUtc
-`func (o *DocumentType) UnsetApprovedAtUtc()`
-
-UnsetApprovedAtUtc ensures that no value is present for ApprovedAtUtc, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

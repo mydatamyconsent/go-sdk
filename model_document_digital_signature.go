@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -13,28 +13,27 @@ package github.com/mydatamyconsent/sdk
 
 import (
 	"encoding/json"
-	"time"
 )
 
-// DocumentDigitalSignature Document digital signature.
+// DocumentDigitalSignature DocumentDigitalSignature : Document digital signature.
 type DocumentDigitalSignature struct {
 	// Name.
 	Name string `json:"name"`
 	// Signature issued by.
-	IssuedBy string `json:"issuedBy"`
+	IssuedBy string `json:"issued_by"`
 	// Signature issuer name.
-	IssuerName string `json:"issuerName"`
+	IssuerName string `json:"issuer_name"`
 	// Signature valid from datatime in UTC timezone.
-	ValidFromUtc time.Time `json:"validFromUtc"`
+	ValidFromUtc string `json:"valid_from_utc"`
 	// Signature valid to datatime in UTC timezone.
-	ValidToUtc time.Time `json:"validToUtc"`
+	ValidToUtc string `json:"valid_to_utc"`
 }
 
 // NewDocumentDigitalSignature instantiates a new DocumentDigitalSignature object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumentDigitalSignature(name string, issuedBy string, issuerName string, validFromUtc time.Time, validToUtc time.Time) *DocumentDigitalSignature {
+func NewDocumentDigitalSignature(name string, issuedBy string, issuerName string, validFromUtc string, validToUtc string) *DocumentDigitalSignature {
 	this := DocumentDigitalSignature{}
 	this.Name = name
 	this.IssuedBy = issuedBy
@@ -125,9 +124,9 @@ func (o *DocumentDigitalSignature) SetIssuerName(v string) {
 }
 
 // GetValidFromUtc returns the ValidFromUtc field value
-func (o *DocumentDigitalSignature) GetValidFromUtc() time.Time {
+func (o *DocumentDigitalSignature) GetValidFromUtc() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -136,7 +135,7 @@ func (o *DocumentDigitalSignature) GetValidFromUtc() time.Time {
 
 // GetValidFromUtcOk returns a tuple with the ValidFromUtc field value
 // and a boolean to check if the value has been set.
-func (o *DocumentDigitalSignature) GetValidFromUtcOk() (*time.Time, bool) {
+func (o *DocumentDigitalSignature) GetValidFromUtcOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -144,14 +143,14 @@ func (o *DocumentDigitalSignature) GetValidFromUtcOk() (*time.Time, bool) {
 }
 
 // SetValidFromUtc sets field value
-func (o *DocumentDigitalSignature) SetValidFromUtc(v time.Time) {
+func (o *DocumentDigitalSignature) SetValidFromUtc(v string) {
 	o.ValidFromUtc = v
 }
 
 // GetValidToUtc returns the ValidToUtc field value
-func (o *DocumentDigitalSignature) GetValidToUtc() time.Time {
+func (o *DocumentDigitalSignature) GetValidToUtc() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -160,7 +159,7 @@ func (o *DocumentDigitalSignature) GetValidToUtc() time.Time {
 
 // GetValidToUtcOk returns a tuple with the ValidToUtc field value
 // and a boolean to check if the value has been set.
-func (o *DocumentDigitalSignature) GetValidToUtcOk() (*time.Time, bool) {
+func (o *DocumentDigitalSignature) GetValidToUtcOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -168,7 +167,7 @@ func (o *DocumentDigitalSignature) GetValidToUtcOk() (*time.Time, bool) {
 }
 
 // SetValidToUtc sets field value
-func (o *DocumentDigitalSignature) SetValidToUtc(v time.Time) {
+func (o *DocumentDigitalSignature) SetValidToUtc(v string) {
 	o.ValidToUtc = v
 }
 
@@ -178,16 +177,16 @@ func (o DocumentDigitalSignature) MarshalJSON() ([]byte, error) {
 		toSerialize["name"] = o.Name
 	}
 	if true {
-		toSerialize["issuedBy"] = o.IssuedBy
+		toSerialize["issued_by"] = o.IssuedBy
 	}
 	if true {
-		toSerialize["issuerName"] = o.IssuerName
+		toSerialize["issuer_name"] = o.IssuerName
 	}
 	if true {
-		toSerialize["validFromUtc"] = o.ValidFromUtc
+		toSerialize["valid_from_utc"] = o.ValidFromUtc
 	}
 	if true {
-		toSerialize["validToUtc"] = o.ValidToUtc
+		toSerialize["valid_to_utc"] = o.ValidToUtc
 	}
 	return json.Marshal(toSerialize)
 }

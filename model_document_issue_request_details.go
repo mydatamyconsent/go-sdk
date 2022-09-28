@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -16,7 +16,7 @@ import (
 	"time"
 )
 
-// DocumentIssueRequestDetails Document issue request details.
+// DocumentIssueRequestDetails DocumentIssueRequestDetails : Document issue request details.
 type DocumentIssueRequestDetails struct {
 	// Document issue request Id.
 	Id string `json:"id"`
@@ -29,14 +29,14 @@ type DocumentIssueRequestDetails struct {
 	Status DocumentIssueRequestStatus `json:"status"`
 	// Document description.
 	Description string `json:"description"`
-	// Document receiver details.
-	Receiver interface{} `json:"receiver"`
+	Receiver DocumentIssueRequestDetailsReceiver `json:"receiver"`
+	PaymentRequest *PaymentRequest `json:"paymentRequest,omitempty"`
 	// Datetime of issue in UTC timezone.
 	IssuedAtUtc time.Time `json:"issuedAtUtc"`
 	// Valid from datetime in UTC timezone.
 	ValidFromUtc time.Time `json:"validFromUtc"`
 	// Datetime of expiry in UTC timezone.
-	ExpiresAtUtc NullableTime `json:"expiresAtUtc,omitempty"`
+	ExpiresAtUtc *time.Time `json:"expiresAtUtc,omitempty"`
 	// Metadata.
 	MetaData interface{} `json:"metaData,omitempty"`
 	// Creation datetime of issue request in UTC timezone.
@@ -47,7 +47,7 @@ type DocumentIssueRequestDetails struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumentIssueRequestDetails(id string, documentTypeId string, typeName string, identifier string, status DocumentIssueRequestStatus, description string, receiver interface{}, issuedAtUtc time.Time, validFromUtc time.Time, createdAtUtc time.Time) *DocumentIssueRequestDetails {
+func NewDocumentIssueRequestDetails(id string, documentTypeId string, typeName string, identifier string, status DocumentIssueRequestStatus, description string, receiver DocumentIssueRequestDetailsReceiver, issuedAtUtc time.Time, validFromUtc time.Time, createdAtUtc time.Time) *DocumentIssueRequestDetails {
 	this := DocumentIssueRequestDetails{}
 	this.Id = id
 	this.DocumentTypeId = documentTypeId
@@ -215,10 +215,9 @@ func (o *DocumentIssueRequestDetails) SetDescription(v string) {
 }
 
 // GetReceiver returns the Receiver field value
-// If the value is explicit nil, the zero value for interface{} will be returned
-func (o *DocumentIssueRequestDetails) GetReceiver() interface{} {
+func (o *DocumentIssueRequestDetails) GetReceiver() DocumentIssueRequestDetailsReceiver {
 	if o == nil {
-		var ret interface{}
+		var ret DocumentIssueRequestDetailsReceiver
 		return ret
 	}
 
@@ -227,17 +226,48 @@ func (o *DocumentIssueRequestDetails) GetReceiver() interface{} {
 
 // GetReceiverOk returns a tuple with the Receiver field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DocumentIssueRequestDetails) GetReceiverOk() (*interface{}, bool) {
-	if o == nil || o.Receiver == nil {
+func (o *DocumentIssueRequestDetails) GetReceiverOk() (*DocumentIssueRequestDetailsReceiver, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Receiver, true
 }
 
 // SetReceiver sets field value
-func (o *DocumentIssueRequestDetails) SetReceiver(v interface{}) {
+func (o *DocumentIssueRequestDetails) SetReceiver(v DocumentIssueRequestDetailsReceiver) {
 	o.Receiver = v
+}
+
+// GetPaymentRequest returns the PaymentRequest field value if set, zero value otherwise.
+func (o *DocumentIssueRequestDetails) GetPaymentRequest() PaymentRequest {
+	if o == nil || o.PaymentRequest == nil {
+		var ret PaymentRequest
+		return ret
+	}
+	return *o.PaymentRequest
+}
+
+// GetPaymentRequestOk returns a tuple with the PaymentRequest field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DocumentIssueRequestDetails) GetPaymentRequestOk() (*PaymentRequest, bool) {
+	if o == nil || o.PaymentRequest == nil {
+		return nil, false
+	}
+	return o.PaymentRequest, true
+}
+
+// HasPaymentRequest returns a boolean if a field has been set.
+func (o *DocumentIssueRequestDetails) HasPaymentRequest() bool {
+	if o != nil && o.PaymentRequest != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPaymentRequest gets a reference to the given PaymentRequest and assigns it to the PaymentRequest field.
+func (o *DocumentIssueRequestDetails) SetPaymentRequest(v PaymentRequest) {
+	o.PaymentRequest = &v
 }
 
 // GetIssuedAtUtc returns the IssuedAtUtc field value
@@ -288,46 +318,36 @@ func (o *DocumentIssueRequestDetails) SetValidFromUtc(v time.Time) {
 	o.ValidFromUtc = v
 }
 
-// GetExpiresAtUtc returns the ExpiresAtUtc field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExpiresAtUtc returns the ExpiresAtUtc field value if set, zero value otherwise.
 func (o *DocumentIssueRequestDetails) GetExpiresAtUtc() time.Time {
-	if o == nil || o.ExpiresAtUtc.Get() == nil {
+	if o == nil || o.ExpiresAtUtc == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.ExpiresAtUtc.Get()
+	return *o.ExpiresAtUtc
 }
 
 // GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DocumentIssueRequestDetails) GetExpiresAtUtcOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || o.ExpiresAtUtc == nil {
 		return nil, false
 	}
-	return o.ExpiresAtUtc.Get(), o.ExpiresAtUtc.IsSet()
+	return o.ExpiresAtUtc, true
 }
 
 // HasExpiresAtUtc returns a boolean if a field has been set.
 func (o *DocumentIssueRequestDetails) HasExpiresAtUtc() bool {
-	if o != nil && o.ExpiresAtUtc.IsSet() {
+	if o != nil && o.ExpiresAtUtc != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetExpiresAtUtc gets a reference to the given NullableTime and assigns it to the ExpiresAtUtc field.
+// SetExpiresAtUtc gets a reference to the given time.Time and assigns it to the ExpiresAtUtc field.
 func (o *DocumentIssueRequestDetails) SetExpiresAtUtc(v time.Time) {
-	o.ExpiresAtUtc.Set(&v)
-}
-// SetExpiresAtUtcNil sets the value for ExpiresAtUtc to be an explicit nil
-func (o *DocumentIssueRequestDetails) SetExpiresAtUtcNil() {
-	o.ExpiresAtUtc.Set(nil)
-}
-
-// UnsetExpiresAtUtc ensures that no value is present for ExpiresAtUtc, not even an explicit nil
-func (o *DocumentIssueRequestDetails) UnsetExpiresAtUtc() {
-	o.ExpiresAtUtc.Unset()
+	o.ExpiresAtUtc = &v
 }
 
 // GetMetaData returns the MetaData field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -407,8 +427,11 @@ func (o DocumentIssueRequestDetails) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["description"] = o.Description
 	}
-	if o.Receiver != nil {
+	if true {
 		toSerialize["receiver"] = o.Receiver
+	}
+	if o.PaymentRequest != nil {
+		toSerialize["paymentRequest"] = o.PaymentRequest
 	}
 	if true {
 		toSerialize["issuedAtUtc"] = o.IssuedAtUtc
@@ -416,8 +439,8 @@ func (o DocumentIssueRequestDetails) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["validFromUtc"] = o.ValidFromUtc
 	}
-	if o.ExpiresAtUtc.IsSet() {
-		toSerialize["expiresAtUtc"] = o.ExpiresAtUtc.Get()
+	if o.ExpiresAtUtc != nil {
+		toSerialize["expiresAtUtc"] = o.ExpiresAtUtc
 	}
 	if o.MetaData != nil {
 		toSerialize["metaData"] = o.MetaData

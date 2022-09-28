@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -21,7 +21,7 @@ type CollectibleTypes string
 
 // List of CollectibleTypes
 const (
-	PERSONAL_DETAILS CollectibleTypes = "PersonalDetails"
+	IDENTITY CollectibleTypes = "Identity"
 	DOCUMENTS CollectibleTypes = "Documents"
 	FINANCIALS CollectibleTypes = "Financials"
 	HEALTH CollectibleTypes = "Health"
@@ -29,7 +29,7 @@ const (
 
 // All allowed values of CollectibleTypes enum
 var AllowedCollectibleTypesEnumValues = []CollectibleTypes{
-	"PersonalDetails",
+	"Identity",
 	"Documents",
 	"Financials",
 	"Health",

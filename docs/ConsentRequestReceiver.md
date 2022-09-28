@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CountryIso2Code** | **string** |  | 
-**Identifiers** | [**[]StringStringKeyValuePair**](StringStringKeyValuePair.md) |  | 
+**Identifiers** | [**[]KeyValuePair**](KeyValuePair.md) |  | 
 **IdentificationStrategy** | [**IdentificationStrategy**](IdentificationStrategy.md) |  | 
 
 ## Methods
 
 ### NewConsentRequestReceiver
 
-`func NewConsentRequestReceiver(countryIso2Code string, identifiers []StringStringKeyValuePair, identificationStrategy IdentificationStrategy, ) *ConsentRequestReceiver`
+`func NewConsentRequestReceiver(countryIso2Code string, identifiers []KeyValuePair, identificationStrategy IdentificationStrategy, ) *ConsentRequestReceiver`
 
 NewConsentRequestReceiver instantiates a new ConsentRequestReceiver object
 This constructor will assign default values to properties that have it defined,
@@ -49,20 +49,20 @@ SetCountryIso2Code sets CountryIso2Code field to given value.
 
 ### GetIdentifiers
 
-`func (o *ConsentRequestReceiver) GetIdentifiers() []StringStringKeyValuePair`
+`func (o *ConsentRequestReceiver) GetIdentifiers() []KeyValuePair`
 
 GetIdentifiers returns the Identifiers field if non-nil, zero value otherwise.
 
 ### GetIdentifiersOk
 
-`func (o *ConsentRequestReceiver) GetIdentifiersOk() (*[]StringStringKeyValuePair, bool)`
+`func (o *ConsentRequestReceiver) GetIdentifiersOk() (*[]KeyValuePair, bool)`
 
 GetIdentifiersOk returns a tuple with the Identifiers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIdentifiers
 
-`func (o *ConsentRequestReceiver) SetIdentifiers(v []StringStringKeyValuePair)`
+`func (o *ConsentRequestReceiver) SetIdentifiers(v []KeyValuePair)`
 
 SetIdentifiers sets Identifiers field to given value.
 

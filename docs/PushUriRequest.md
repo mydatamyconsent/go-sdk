@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **UriDetails** | [**UriDetails**](UriDetails.md) |  | 
-**Ns2** | Pointer to **NullableString** |  | [optional] 
-**Ver** | Pointer to **NullableString** |  | [optional] 
-**Ts** | Pointer to **NullableString** |  | [optional] 
-**Txn** | Pointer to **NullableString** |  | [optional] 
-**OrgId** | Pointer to **NullableString** |  | [optional] 
-**Keyhash** | Pointer to **NullableString** |  | [optional] 
+**Ns2** | Pointer to **string** |  | [optional] 
+**Ver** | Pointer to **string** |  | [optional] 
+**Ts** | Pointer to **string** |  | [optional] 
+**Txn** | Pointer to **string** |  | [optional] 
+**OrgId** | Pointer to **string** |  | [optional] 
+**KeyHash** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -76,16 +76,6 @@ SetNs2 sets Ns2 field to given value.
 
 HasNs2 returns a boolean if a field has been set.
 
-### SetNs2Nil
-
-`func (o *PushUriRequest) SetNs2Nil(b bool)`
-
- SetNs2Nil sets the value for Ns2 to be an explicit nil
-
-### UnsetNs2
-`func (o *PushUriRequest) UnsetNs2()`
-
-UnsetNs2 ensures that no value is present for Ns2, not even an explicit nil
 ### GetVer
 
 `func (o *PushUriRequest) GetVer() string`
@@ -111,16 +101,6 @@ SetVer sets Ver field to given value.
 
 HasVer returns a boolean if a field has been set.
 
-### SetVerNil
-
-`func (o *PushUriRequest) SetVerNil(b bool)`
-
- SetVerNil sets the value for Ver to be an explicit nil
-
-### UnsetVer
-`func (o *PushUriRequest) UnsetVer()`
-
-UnsetVer ensures that no value is present for Ver, not even an explicit nil
 ### GetTs
 
 `func (o *PushUriRequest) GetTs() string`
@@ -146,16 +126,6 @@ SetTs sets Ts field to given value.
 
 HasTs returns a boolean if a field has been set.
 
-### SetTsNil
-
-`func (o *PushUriRequest) SetTsNil(b bool)`
-
- SetTsNil sets the value for Ts to be an explicit nil
-
-### UnsetTs
-`func (o *PushUriRequest) UnsetTs()`
-
-UnsetTs ensures that no value is present for Ts, not even an explicit nil
 ### GetTxn
 
 `func (o *PushUriRequest) GetTxn() string`
@@ -181,16 +151,6 @@ SetTxn sets Txn field to given value.
 
 HasTxn returns a boolean if a field has been set.
 
-### SetTxnNil
-
-`func (o *PushUriRequest) SetTxnNil(b bool)`
-
- SetTxnNil sets the value for Txn to be an explicit nil
-
-### UnsetTxn
-`func (o *PushUriRequest) UnsetTxn()`
-
-UnsetTxn ensures that no value is present for Txn, not even an explicit nil
 ### GetOrgId
 
 `func (o *PushUriRequest) GetOrgId() string`
@@ -216,51 +176,31 @@ SetOrgId sets OrgId field to given value.
 
 HasOrgId returns a boolean if a field has been set.
 
-### SetOrgIdNil
+### GetKeyHash
 
-`func (o *PushUriRequest) SetOrgIdNil(b bool)`
+`func (o *PushUriRequest) GetKeyHash() string`
 
- SetOrgIdNil sets the value for OrgId to be an explicit nil
+GetKeyHash returns the KeyHash field if non-nil, zero value otherwise.
 
-### UnsetOrgId
-`func (o *PushUriRequest) UnsetOrgId()`
+### GetKeyHashOk
 
-UnsetOrgId ensures that no value is present for OrgId, not even an explicit nil
-### GetKeyhash
+`func (o *PushUriRequest) GetKeyHashOk() (*string, bool)`
 
-`func (o *PushUriRequest) GetKeyhash() string`
-
-GetKeyhash returns the Keyhash field if non-nil, zero value otherwise.
-
-### GetKeyhashOk
-
-`func (o *PushUriRequest) GetKeyhashOk() (*string, bool)`
-
-GetKeyhashOk returns a tuple with the Keyhash field if it's non-nil, zero value otherwise
+GetKeyHashOk returns a tuple with the KeyHash field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetKeyhash
+### SetKeyHash
 
-`func (o *PushUriRequest) SetKeyhash(v string)`
+`func (o *PushUriRequest) SetKeyHash(v string)`
 
-SetKeyhash sets Keyhash field to given value.
+SetKeyHash sets KeyHash field to given value.
 
-### HasKeyhash
+### HasKeyHash
 
-`func (o *PushUriRequest) HasKeyhash() bool`
+`func (o *PushUriRequest) HasKeyHash() bool`
 
-HasKeyhash returns a boolean if a field has been set.
+HasKeyHash returns a boolean if a field has been set.
 
-### SetKeyhashNil
-
-`func (o *PushUriRequest) SetKeyhashNil(b bool)`
-
- SetKeyhashNil sets the value for Keyhash to be an explicit nil
-
-### UnsetKeyhash
-`func (o *PushUriRequest) UnsetKeyhash()`
-
-UnsetKeyhash ensures that no value is present for Keyhash, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

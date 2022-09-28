@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **DocId** | **string** |  | 
 **IssuedOn** | **string** |  | 
 **ValidFrom** | **string** |  | 
-**ValidTo** | Pointer to **NullableString** |  | [optional] 
-**Timestamp** | Pointer to **NullableString** |  | [optional] 
-**Action** | Pointer to **NullableString** |  | [optional] 
+**ValidTo** | Pointer to **string** |  | [optional] 
+**Timestamp** | Pointer to **string** |  | [optional] 
+**Action** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -199,16 +199,6 @@ SetValidTo sets ValidTo field to given value.
 
 HasValidTo returns a boolean if a field has been set.
 
-### SetValidToNil
-
-`func (o *UriDetails) SetValidToNil(b bool)`
-
- SetValidToNil sets the value for ValidTo to be an explicit nil
-
-### UnsetValidTo
-`func (o *UriDetails) UnsetValidTo()`
-
-UnsetValidTo ensures that no value is present for ValidTo, not even an explicit nil
 ### GetTimestamp
 
 `func (o *UriDetails) GetTimestamp() string`
@@ -234,16 +224,6 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### SetTimestampNil
-
-`func (o *UriDetails) SetTimestampNil(b bool)`
-
- SetTimestampNil sets the value for Timestamp to be an explicit nil
-
-### UnsetTimestamp
-`func (o *UriDetails) UnsetTimestamp()`
-
-UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
 ### GetAction
 
 `func (o *UriDetails) GetAction() string`
@@ -269,16 +249,6 @@ SetAction sets Action field to given value.
 
 HasAction returns a boolean if a field has been set.
 
-### SetActionNil
-
-`func (o *UriDetails) SetActionNil(b bool)`
-
- SetActionNil sets the value for Action to be an explicit nil
-
-### UnsetAction
-`func (o *UriDetails) UnsetAction()`
-
-UnsetAction ensures that no value is present for Action, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

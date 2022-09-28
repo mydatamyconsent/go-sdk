@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identifier** | Pointer to **NullableString** |  | [optional] 
-**Items** | Pointer to [**[]BillPaymentOrderItem**](BillPaymentOrderItem.md) |  | [optional] 
-**CurrencyCode** | Pointer to **NullableString** |  | [optional] 
-**PaymentUrl** | Pointer to **NullableString** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**DueByUtc** | Pointer to **time.Time** |  | [optional] 
+**Identifier** | **string** |  | 
+**Items** | [**[]PaymentOrderItem**](PaymentOrderItem.md) |  | 
+**CurrencyCode** | **string** |  | 
+**PaymentUrl** | Pointer to **string** |  | [optional] 
+**Description** | **string** |  | 
+**DueByUtc** | **time.Time** |  | 
 
 ## Methods
 
 ### NewPaymentRequest
 
-`func NewPaymentRequest() *PaymentRequest`
+`func NewPaymentRequest(identifier string, items []PaymentOrderItem, currencyCode string, description string, dueByUtc time.Time, ) *PaymentRequest`
 
 NewPaymentRequest instantiates a new PaymentRequest object
 This constructor will assign default values to properties that have it defined,
@@ -49,57 +49,27 @@ and a boolean to check if the value has been set.
 
 SetIdentifier sets Identifier field to given value.
 
-### HasIdentifier
 
-`func (o *PaymentRequest) HasIdentifier() bool`
-
-HasIdentifier returns a boolean if a field has been set.
-
-### SetIdentifierNil
-
-`func (o *PaymentRequest) SetIdentifierNil(b bool)`
-
- SetIdentifierNil sets the value for Identifier to be an explicit nil
-
-### UnsetIdentifier
-`func (o *PaymentRequest) UnsetIdentifier()`
-
-UnsetIdentifier ensures that no value is present for Identifier, not even an explicit nil
 ### GetItems
 
-`func (o *PaymentRequest) GetItems() []BillPaymentOrderItem`
+`func (o *PaymentRequest) GetItems() []PaymentOrderItem`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *PaymentRequest) GetItemsOk() (*[]BillPaymentOrderItem, bool)`
+`func (o *PaymentRequest) GetItemsOk() (*[]PaymentOrderItem, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *PaymentRequest) SetItems(v []BillPaymentOrderItem)`
+`func (o *PaymentRequest) SetItems(v []PaymentOrderItem)`
 
 SetItems sets Items field to given value.
 
-### HasItems
 
-`func (o *PaymentRequest) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
-
-### SetItemsNil
-
-`func (o *PaymentRequest) SetItemsNil(b bool)`
-
- SetItemsNil sets the value for Items to be an explicit nil
-
-### UnsetItems
-`func (o *PaymentRequest) UnsetItems()`
-
-UnsetItems ensures that no value is present for Items, not even an explicit nil
 ### GetCurrencyCode
 
 `func (o *PaymentRequest) GetCurrencyCode() string`
@@ -119,22 +89,7 @@ and a boolean to check if the value has been set.
 
 SetCurrencyCode sets CurrencyCode field to given value.
 
-### HasCurrencyCode
 
-`func (o *PaymentRequest) HasCurrencyCode() bool`
-
-HasCurrencyCode returns a boolean if a field has been set.
-
-### SetCurrencyCodeNil
-
-`func (o *PaymentRequest) SetCurrencyCodeNil(b bool)`
-
- SetCurrencyCodeNil sets the value for CurrencyCode to be an explicit nil
-
-### UnsetCurrencyCode
-`func (o *PaymentRequest) UnsetCurrencyCode()`
-
-UnsetCurrencyCode ensures that no value is present for CurrencyCode, not even an explicit nil
 ### GetPaymentUrl
 
 `func (o *PaymentRequest) GetPaymentUrl() string`
@@ -160,16 +115,6 @@ SetPaymentUrl sets PaymentUrl field to given value.
 
 HasPaymentUrl returns a boolean if a field has been set.
 
-### SetPaymentUrlNil
-
-`func (o *PaymentRequest) SetPaymentUrlNil(b bool)`
-
- SetPaymentUrlNil sets the value for PaymentUrl to be an explicit nil
-
-### UnsetPaymentUrl
-`func (o *PaymentRequest) UnsetPaymentUrl()`
-
-UnsetPaymentUrl ensures that no value is present for PaymentUrl, not even an explicit nil
 ### GetDescription
 
 `func (o *PaymentRequest) GetDescription() string`
@@ -189,22 +134,7 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
-### HasDescription
 
-`func (o *PaymentRequest) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
-
-### SetDescriptionNil
-
-`func (o *PaymentRequest) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *PaymentRequest) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetDueByUtc
 
 `func (o *PaymentRequest) GetDueByUtc() time.Time`
@@ -224,11 +154,6 @@ and a boolean to check if the value has been set.
 
 SetDueByUtc sets DueByUtc field to given value.
 
-### HasDueByUtc
-
-`func (o *PaymentRequest) HasDueByUtc() bool`
-
-HasDueByUtc returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

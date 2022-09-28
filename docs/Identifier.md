@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | Pointer to **NullableString** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**ExampleValue** | Pointer to **NullableString** |  | [optional] 
+**Key** | **string** | Identifier key. EMAIL, MOBILE_NUMBER, etc. | 
+**Name** | **string** | Identifier name. Email, Mobile Number, etc. | 
+**Description** | **string** | Identifier description. User&#39;s email, User&#39;s mobile number, etc. | 
+**ExampleValue** | **string** | Example value. example@email.com, +919090909090, etc. | 
 
 ## Methods
 
 ### NewIdentifier
 
-`func NewIdentifier() *Identifier`
+`func NewIdentifier(key string, name string, description string, exampleValue string, ) *Identifier`
 
 NewIdentifier instantiates a new Identifier object
 This constructor will assign default values to properties that have it defined,
@@ -47,22 +47,7 @@ and a boolean to check if the value has been set.
 
 SetKey sets Key field to given value.
 
-### HasKey
 
-`func (o *Identifier) HasKey() bool`
-
-HasKey returns a boolean if a field has been set.
-
-### SetKeyNil
-
-`func (o *Identifier) SetKeyNil(b bool)`
-
- SetKeyNil sets the value for Key to be an explicit nil
-
-### UnsetKey
-`func (o *Identifier) UnsetKey()`
-
-UnsetKey ensures that no value is present for Key, not even an explicit nil
 ### GetName
 
 `func (o *Identifier) GetName() string`
@@ -82,22 +67,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *Identifier) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *Identifier) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *Identifier) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *Identifier) GetDescription() string`
@@ -117,22 +87,7 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
-### HasDescription
 
-`func (o *Identifier) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
-
-### SetDescriptionNil
-
-`func (o *Identifier) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *Identifier) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetExampleValue
 
 `func (o *Identifier) GetExampleValue() string`
@@ -152,22 +107,7 @@ and a boolean to check if the value has been set.
 
 SetExampleValue sets ExampleValue field to given value.
 
-### HasExampleValue
 
-`func (o *Identifier) HasExampleValue() bool`
-
-HasExampleValue returns a boolean if a field has been set.
-
-### SetExampleValueNil
-
-`func (o *Identifier) SetExampleValueNil(b bool)`
-
- SetExampleValueNil sets the value for ExampleValue to be an explicit nil
-
-### UnsetExampleValue
-`func (o *Identifier) UnsetExampleValue()`
-
-UnsetExampleValue ensures that no value is present for ExampleValue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

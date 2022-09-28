@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -15,20 +15,28 @@ import (
 	"encoding/json"
 )
 
-// Identifier struct for Identifier
+// Identifier Identifier details.
 type Identifier struct {
-	Key NullableString `json:"key,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	Description NullableString `json:"description,omitempty"`
-	ExampleValue NullableString `json:"exampleValue,omitempty"`
+	// Identifier key. EMAIL, MOBILE_NUMBER, etc.
+	Key string `json:"key"`
+	// Identifier name. Email, Mobile Number, etc.
+	Name string `json:"name"`
+	// Identifier description. User's email, User's mobile number, etc.
+	Description string `json:"description"`
+	// Example value. example@email.com, +919090909090, etc.
+	ExampleValue string `json:"example_value"`
 }
 
 // NewIdentifier instantiates a new Identifier object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIdentifier() *Identifier {
+func NewIdentifier(key string, name string, description string, exampleValue string) *Identifier {
 	this := Identifier{}
+	this.Key = key
+	this.Name = name
+	this.Description = description
+	this.ExampleValue = exampleValue
 	return &this
 }
 
@@ -40,187 +48,115 @@ func NewIdentifierWithDefaults() *Identifier {
 	return &this
 }
 
-// GetKey returns the Key field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetKey returns the Key field value
 func (o *Identifier) GetKey() string {
-	if o == nil || o.Key.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Key.Get()
+
+	return o.Key
 }
 
-// GetKeyOk returns a tuple with the Key field value if set, nil otherwise
+// GetKeyOk returns a tuple with the Key field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Identifier) GetKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Key.Get(), o.Key.IsSet()
+	return &o.Key, true
 }
 
-// HasKey returns a boolean if a field has been set.
-func (o *Identifier) HasKey() bool {
-	if o != nil && o.Key.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetKey gets a reference to the given NullableString and assigns it to the Key field.
+// SetKey sets field value
 func (o *Identifier) SetKey(v string) {
-	o.Key.Set(&v)
-}
-// SetKeyNil sets the value for Key to be an explicit nil
-func (o *Identifier) SetKeyNil() {
-	o.Key.Set(nil)
+	o.Key = v
 }
 
-// UnsetKey ensures that no value is present for Key, not even an explicit nil
-func (o *Identifier) UnsetKey() {
-	o.Key.Unset()
-}
-
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *Identifier) GetName() string {
-	if o == nil || o.Name.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Identifier) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *Identifier) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *Identifier) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *Identifier) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *Identifier) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value
 func (o *Identifier) GetDescription() string {
-	if o == nil || o.Description.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+
+	return o.Description
 }
 
-// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// GetDescriptionOk returns a tuple with the Description field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Identifier) GetDescriptionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return &o.Description, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *Identifier) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription sets field value
 func (o *Identifier) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *Identifier) SetDescriptionNil() {
-	o.Description.Set(nil)
+	o.Description = v
 }
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *Identifier) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetExampleValue returns the ExampleValue field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExampleValue returns the ExampleValue field value
 func (o *Identifier) GetExampleValue() string {
-	if o == nil || o.ExampleValue.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ExampleValue.Get()
+
+	return o.ExampleValue
 }
 
-// GetExampleValueOk returns a tuple with the ExampleValue field value if set, nil otherwise
+// GetExampleValueOk returns a tuple with the ExampleValue field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Identifier) GetExampleValueOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ExampleValue.Get(), o.ExampleValue.IsSet()
+	return &o.ExampleValue, true
 }
 
-// HasExampleValue returns a boolean if a field has been set.
-func (o *Identifier) HasExampleValue() bool {
-	if o != nil && o.ExampleValue.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetExampleValue gets a reference to the given NullableString and assigns it to the ExampleValue field.
+// SetExampleValue sets field value
 func (o *Identifier) SetExampleValue(v string) {
-	o.ExampleValue.Set(&v)
-}
-// SetExampleValueNil sets the value for ExampleValue to be an explicit nil
-func (o *Identifier) SetExampleValueNil() {
-	o.ExampleValue.Set(nil)
-}
-
-// UnsetExampleValue ensures that no value is present for ExampleValue, not even an explicit nil
-func (o *Identifier) UnsetExampleValue() {
-	o.ExampleValue.Unset()
+	o.ExampleValue = v
 }
 
 func (o Identifier) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Key.IsSet() {
-		toSerialize["key"] = o.Key.Get()
+	if true {
+		toSerialize["key"] = o.Key
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if true {
+		toSerialize["name"] = o.Name
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if true {
+		toSerialize["description"] = o.Description
 	}
-	if o.ExampleValue.IsSet() {
-		toSerialize["exampleValue"] = o.ExampleValue.Get()
+	if true {
+		toSerialize["example_value"] = o.ExampleValue
 	}
 	return json.Marshal(toSerialize)
 }

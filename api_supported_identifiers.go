@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -24,27 +24,25 @@ import (
 // SupportedIdentifiersApiService SupportedIdentifiersApi service
 type SupportedIdentifiersApiService service
 
-type ApiGetAllSupportedIdentifiersRequest struct {
+type ApiV1SupportedIdentifiersCountryIso2CodeGetRequest struct {
 	ctx context.Context
 	ApiService *SupportedIdentifiersApiService
 	countryIso2Code string
 }
 
-func (r ApiGetAllSupportedIdentifiersRequest) Execute() (*SupportedIdentifier, *http.Response, error) {
-	return r.ApiService.GetAllSupportedIdentifiersExecute(r)
+func (r ApiV1SupportedIdentifiersCountryIso2CodeGetRequest) Execute() (*SupportedIdentifier, *http.Response, error) {
+	return r.ApiService.V1SupportedIdentifiersCountryIso2CodeGetExecute(r)
 }
 
 /*
-GetAllSupportedIdentifiers Get all supported identifiers by country.
-
-Get all supported identifiers by country.
+V1SupportedIdentifiersCountryIso2CodeGet Get all supported identifiers by country.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param countryIso2Code Country ISO 2 code.
- @return ApiGetAllSupportedIdentifiersRequest
+ @param countryIso2Code
+ @return ApiV1SupportedIdentifiersCountryIso2CodeGetRequest
 */
-func (a *SupportedIdentifiersApiService) GetAllSupportedIdentifiers(ctx context.Context, countryIso2Code string) ApiGetAllSupportedIdentifiersRequest {
-	return ApiGetAllSupportedIdentifiersRequest{
+func (a *SupportedIdentifiersApiService) V1SupportedIdentifiersCountryIso2CodeGet(ctx context.Context, countryIso2Code string) ApiV1SupportedIdentifiersCountryIso2CodeGetRequest {
+	return ApiV1SupportedIdentifiersCountryIso2CodeGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		countryIso2Code: countryIso2Code,
@@ -53,7 +51,7 @@ func (a *SupportedIdentifiersApiService) GetAllSupportedIdentifiers(ctx context.
 
 // Execute executes the request
 //  @return SupportedIdentifier
-func (a *SupportedIdentifiersApiService) GetAllSupportedIdentifiersExecute(r ApiGetAllSupportedIdentifiersRequest) (*SupportedIdentifier, *http.Response, error) {
+func (a *SupportedIdentifiersApiService) V1SupportedIdentifiersCountryIso2CodeGetExecute(r ApiV1SupportedIdentifiersCountryIso2CodeGetRequest) (*SupportedIdentifier, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -61,13 +59,13 @@ func (a *SupportedIdentifiersApiService) GetAllSupportedIdentifiersExecute(r Api
 		localVarReturnValue  *SupportedIdentifier
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SupportedIdentifiersApiService.GetAllSupportedIdentifiers")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SupportedIdentifiersApiService.V1SupportedIdentifiersCountryIso2CodeGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/supported-identifiers/{countryIso2Code}"
-	localVarPath = strings.Replace(localVarPath, "{"+"countryIso2Code"+"}", url.PathEscape(parameterToString(r.countryIso2Code, "")), -1)
+	localVarPath := localBasePath + "/v1/supported-identifiers/{country_iso2_code}"
+	localVarPath = strings.Replace(localVarPath, "{"+"country_iso2_code"+"}", url.PathEscape(parameterToString(r.countryIso2Code, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -111,6 +109,26 @@ func (a *SupportedIdentifiersApiService) GetAllSupportedIdentifiersExecute(r Api
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error

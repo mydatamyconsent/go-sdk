@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -18,7 +18,7 @@ import (
 // ConsentRequestReceiver struct for ConsentRequestReceiver
 type ConsentRequestReceiver struct {
 	CountryIso2Code string `json:"countryIso2Code"`
-	Identifiers []StringStringKeyValuePair `json:"identifiers"`
+	Identifiers []KeyValuePair `json:"identifiers"`
 	IdentificationStrategy IdentificationStrategy `json:"identificationStrategy"`
 }
 
@@ -26,7 +26,7 @@ type ConsentRequestReceiver struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConsentRequestReceiver(countryIso2Code string, identifiers []StringStringKeyValuePair, identificationStrategy IdentificationStrategy) *ConsentRequestReceiver {
+func NewConsentRequestReceiver(countryIso2Code string, identifiers []KeyValuePair, identificationStrategy IdentificationStrategy) *ConsentRequestReceiver {
 	this := ConsentRequestReceiver{}
 	this.CountryIso2Code = countryIso2Code
 	this.Identifiers = identifiers
@@ -67,9 +67,9 @@ func (o *ConsentRequestReceiver) SetCountryIso2Code(v string) {
 }
 
 // GetIdentifiers returns the Identifiers field value
-func (o *ConsentRequestReceiver) GetIdentifiers() []StringStringKeyValuePair {
+func (o *ConsentRequestReceiver) GetIdentifiers() []KeyValuePair {
 	if o == nil {
-		var ret []StringStringKeyValuePair
+		var ret []KeyValuePair
 		return ret
 	}
 
@@ -78,7 +78,7 @@ func (o *ConsentRequestReceiver) GetIdentifiers() []StringStringKeyValuePair {
 
 // GetIdentifiersOk returns a tuple with the Identifiers field value
 // and a boolean to check if the value has been set.
-func (o *ConsentRequestReceiver) GetIdentifiersOk() ([]StringStringKeyValuePair, bool) {
+func (o *ConsentRequestReceiver) GetIdentifiersOk() ([]KeyValuePair, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -86,7 +86,7 @@ func (o *ConsentRequestReceiver) GetIdentifiersOk() ([]StringStringKeyValuePair,
 }
 
 // SetIdentifiers sets field value
-func (o *ConsentRequestReceiver) SetIdentifiers(v []StringStringKeyValuePair) {
+func (o *ConsentRequestReceiver) SetIdentifiers(v []KeyValuePair) {
 	o.Identifiers = v
 }
 

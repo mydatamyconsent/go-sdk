@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -18,20 +18,25 @@ import (
 
 // PaymentRequest struct for PaymentRequest
 type PaymentRequest struct {
-	Identifier NullableString `json:"identifier,omitempty"`
-	Items []BillPaymentOrderItem `json:"items,omitempty"`
-	CurrencyCode NullableString `json:"currencyCode,omitempty"`
-	PaymentUrl NullableString `json:"paymentUrl,omitempty"`
-	Description NullableString `json:"description,omitempty"`
-	DueByUtc *time.Time `json:"dueByUtc,omitempty"`
+	Identifier string `json:"identifier"`
+	Items []PaymentOrderItem `json:"items"`
+	CurrencyCode string `json:"currencyCode"`
+	PaymentUrl *string `json:"paymentUrl,omitempty"`
+	Description string `json:"description"`
+	DueByUtc time.Time `json:"dueByUtc"`
 }
 
 // NewPaymentRequest instantiates a new PaymentRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPaymentRequest() *PaymentRequest {
+func NewPaymentRequest(identifier string, items []PaymentOrderItem, currencyCode string, description string, dueByUtc time.Time) *PaymentRequest {
 	this := PaymentRequest{}
+	this.Identifier = identifier
+	this.Items = items
+	this.CurrencyCode = currencyCode
+	this.Description = description
+	this.DueByUtc = dueByUtc
 	return &this
 }
 
@@ -43,257 +48,176 @@ func NewPaymentRequestWithDefaults() *PaymentRequest {
 	return &this
 }
 
-// GetIdentifier returns the Identifier field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIdentifier returns the Identifier field value
 func (o *PaymentRequest) GetIdentifier() string {
-	if o == nil || o.Identifier.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Identifier.Get()
+
+	return o.Identifier
 }
 
-// GetIdentifierOk returns a tuple with the Identifier field value if set, nil otherwise
+// GetIdentifierOk returns a tuple with the Identifier field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PaymentRequest) GetIdentifierOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Identifier.Get(), o.Identifier.IsSet()
+	return &o.Identifier, true
 }
 
-// HasIdentifier returns a boolean if a field has been set.
-func (o *PaymentRequest) HasIdentifier() bool {
-	if o != nil && o.Identifier.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIdentifier gets a reference to the given NullableString and assigns it to the Identifier field.
+// SetIdentifier sets field value
 func (o *PaymentRequest) SetIdentifier(v string) {
-	o.Identifier.Set(&v)
-}
-// SetIdentifierNil sets the value for Identifier to be an explicit nil
-func (o *PaymentRequest) SetIdentifierNil() {
-	o.Identifier.Set(nil)
+	o.Identifier = v
 }
 
-// UnsetIdentifier ensures that no value is present for Identifier, not even an explicit nil
-func (o *PaymentRequest) UnsetIdentifier() {
-	o.Identifier.Unset()
-}
-
-// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PaymentRequest) GetItems() []BillPaymentOrderItem {
+// GetItems returns the Items field value
+func (o *PaymentRequest) GetItems() []PaymentOrderItem {
 	if o == nil {
-		var ret []BillPaymentOrderItem
+		var ret []PaymentOrderItem
 		return ret
 	}
+
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
+// GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PaymentRequest) GetItemsOk() ([]BillPaymentOrderItem, bool) {
-	if o == nil || o.Items == nil {
+func (o *PaymentRequest) GetItemsOk() ([]PaymentOrderItem, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// HasItems returns a boolean if a field has been set.
-func (o *PaymentRequest) HasItems() bool {
-	if o != nil && o.Items != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetItems gets a reference to the given []BillPaymentOrderItem and assigns it to the Items field.
-func (o *PaymentRequest) SetItems(v []BillPaymentOrderItem) {
+// SetItems sets field value
+func (o *PaymentRequest) SetItems(v []PaymentOrderItem) {
 	o.Items = v
 }
 
-// GetCurrencyCode returns the CurrencyCode field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCurrencyCode returns the CurrencyCode field value
 func (o *PaymentRequest) GetCurrencyCode() string {
-	if o == nil || o.CurrencyCode.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CurrencyCode.Get()
+
+	return o.CurrencyCode
 }
 
-// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value if set, nil otherwise
+// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PaymentRequest) GetCurrencyCodeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.CurrencyCode.Get(), o.CurrencyCode.IsSet()
+	return &o.CurrencyCode, true
 }
 
-// HasCurrencyCode returns a boolean if a field has been set.
-func (o *PaymentRequest) HasCurrencyCode() bool {
-	if o != nil && o.CurrencyCode.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCurrencyCode gets a reference to the given NullableString and assigns it to the CurrencyCode field.
+// SetCurrencyCode sets field value
 func (o *PaymentRequest) SetCurrencyCode(v string) {
-	o.CurrencyCode.Set(&v)
-}
-// SetCurrencyCodeNil sets the value for CurrencyCode to be an explicit nil
-func (o *PaymentRequest) SetCurrencyCodeNil() {
-	o.CurrencyCode.Set(nil)
+	o.CurrencyCode = v
 }
 
-// UnsetCurrencyCode ensures that no value is present for CurrencyCode, not even an explicit nil
-func (o *PaymentRequest) UnsetCurrencyCode() {
-	o.CurrencyCode.Unset()
-}
-
-// GetPaymentUrl returns the PaymentUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPaymentUrl returns the PaymentUrl field value if set, zero value otherwise.
 func (o *PaymentRequest) GetPaymentUrl() string {
-	if o == nil || o.PaymentUrl.Get() == nil {
+	if o == nil || o.PaymentUrl == nil {
 		var ret string
 		return ret
 	}
-	return *o.PaymentUrl.Get()
+	return *o.PaymentUrl
 }
 
 // GetPaymentUrlOk returns a tuple with the PaymentUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PaymentRequest) GetPaymentUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.PaymentUrl == nil {
 		return nil, false
 	}
-	return o.PaymentUrl.Get(), o.PaymentUrl.IsSet()
+	return o.PaymentUrl, true
 }
 
 // HasPaymentUrl returns a boolean if a field has been set.
 func (o *PaymentRequest) HasPaymentUrl() bool {
-	if o != nil && o.PaymentUrl.IsSet() {
+	if o != nil && o.PaymentUrl != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetPaymentUrl gets a reference to the given NullableString and assigns it to the PaymentUrl field.
+// SetPaymentUrl gets a reference to the given string and assigns it to the PaymentUrl field.
 func (o *PaymentRequest) SetPaymentUrl(v string) {
-	o.PaymentUrl.Set(&v)
-}
-// SetPaymentUrlNil sets the value for PaymentUrl to be an explicit nil
-func (o *PaymentRequest) SetPaymentUrlNil() {
-	o.PaymentUrl.Set(nil)
+	o.PaymentUrl = &v
 }
 
-// UnsetPaymentUrl ensures that no value is present for PaymentUrl, not even an explicit nil
-func (o *PaymentRequest) UnsetPaymentUrl() {
-	o.PaymentUrl.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value
 func (o *PaymentRequest) GetDescription() string {
-	if o == nil || o.Description.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+
+	return o.Description
 }
 
-// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// GetDescriptionOk returns a tuple with the Description field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PaymentRequest) GetDescriptionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return &o.Description, true
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *PaymentRequest) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription sets field value
 func (o *PaymentRequest) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *PaymentRequest) SetDescriptionNil() {
-	o.Description.Set(nil)
+	o.Description = v
 }
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *PaymentRequest) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetDueByUtc returns the DueByUtc field value if set, zero value otherwise.
+// GetDueByUtc returns the DueByUtc field value
 func (o *PaymentRequest) GetDueByUtc() time.Time {
-	if o == nil || o.DueByUtc == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.DueByUtc
+
+	return o.DueByUtc
 }
 
-// GetDueByUtcOk returns a tuple with the DueByUtc field value if set, nil otherwise
+// GetDueByUtcOk returns a tuple with the DueByUtc field value
 // and a boolean to check if the value has been set.
 func (o *PaymentRequest) GetDueByUtcOk() (*time.Time, bool) {
-	if o == nil || o.DueByUtc == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.DueByUtc, true
+	return &o.DueByUtc, true
 }
 
-// HasDueByUtc returns a boolean if a field has been set.
-func (o *PaymentRequest) HasDueByUtc() bool {
-	if o != nil && o.DueByUtc != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetDueByUtc gets a reference to the given time.Time and assigns it to the DueByUtc field.
+// SetDueByUtc sets field value
 func (o *PaymentRequest) SetDueByUtc(v time.Time) {
-	o.DueByUtc = &v
+	o.DueByUtc = v
 }
 
 func (o PaymentRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Identifier.IsSet() {
-		toSerialize["identifier"] = o.Identifier.Get()
+	if true {
+		toSerialize["identifier"] = o.Identifier
 	}
-	if o.Items != nil {
+	if true {
 		toSerialize["items"] = o.Items
 	}
-	if o.CurrencyCode.IsSet() {
-		toSerialize["currencyCode"] = o.CurrencyCode.Get()
+	if true {
+		toSerialize["currencyCode"] = o.CurrencyCode
 	}
-	if o.PaymentUrl.IsSet() {
-		toSerialize["paymentUrl"] = o.PaymentUrl.Get()
+	if o.PaymentUrl != nil {
+		toSerialize["paymentUrl"] = o.PaymentUrl
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if true {
+		toSerialize["description"] = o.Description
 	}
-	if o.DueByUtc != nil {
+	if true {
 		toSerialize["dueByUtc"] = o.DueByUtc
 	}
 	return json.Marshal(toSerialize)

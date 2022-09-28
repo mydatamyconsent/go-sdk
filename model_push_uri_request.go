@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -18,12 +18,12 @@ import (
 // PushUriRequest struct for PushUriRequest
 type PushUriRequest struct {
 	UriDetails UriDetails `json:"uriDetails"`
-	Ns2 NullableString `json:"ns2,omitempty"`
-	Ver NullableString `json:"ver,omitempty"`
-	Ts NullableString `json:"ts,omitempty"`
-	Txn NullableString `json:"txn,omitempty"`
-	OrgId NullableString `json:"orgId,omitempty"`
-	Keyhash NullableString `json:"keyhash,omitempty"`
+	Ns2 *string `json:"ns2,omitempty"`
+	Ver *string `json:"ver,omitempty"`
+	Ts *string `json:"ts,omitempty"`
+	Txn *string `json:"txn,omitempty"`
+	OrgId *string `json:"orgId,omitempty"`
+	KeyHash *string `json:"keyHash,omitempty"`
 }
 
 // NewPushUriRequest instantiates a new PushUriRequest object
@@ -68,256 +68,196 @@ func (o *PushUriRequest) SetUriDetails(v UriDetails) {
 	o.UriDetails = v
 }
 
-// GetNs2 returns the Ns2 field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNs2 returns the Ns2 field value if set, zero value otherwise.
 func (o *PushUriRequest) GetNs2() string {
-	if o == nil || o.Ns2.Get() == nil {
+	if o == nil || o.Ns2 == nil {
 		var ret string
 		return ret
 	}
-	return *o.Ns2.Get()
+	return *o.Ns2
 }
 
 // GetNs2Ok returns a tuple with the Ns2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriRequest) GetNs2Ok() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Ns2 == nil {
 		return nil, false
 	}
-	return o.Ns2.Get(), o.Ns2.IsSet()
+	return o.Ns2, true
 }
 
 // HasNs2 returns a boolean if a field has been set.
 func (o *PushUriRequest) HasNs2() bool {
-	if o != nil && o.Ns2.IsSet() {
+	if o != nil && o.Ns2 != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetNs2 gets a reference to the given NullableString and assigns it to the Ns2 field.
+// SetNs2 gets a reference to the given string and assigns it to the Ns2 field.
 func (o *PushUriRequest) SetNs2(v string) {
-	o.Ns2.Set(&v)
-}
-// SetNs2Nil sets the value for Ns2 to be an explicit nil
-func (o *PushUriRequest) SetNs2Nil() {
-	o.Ns2.Set(nil)
+	o.Ns2 = &v
 }
 
-// UnsetNs2 ensures that no value is present for Ns2, not even an explicit nil
-func (o *PushUriRequest) UnsetNs2() {
-	o.Ns2.Unset()
-}
-
-// GetVer returns the Ver field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetVer returns the Ver field value if set, zero value otherwise.
 func (o *PushUriRequest) GetVer() string {
-	if o == nil || o.Ver.Get() == nil {
+	if o == nil || o.Ver == nil {
 		var ret string
 		return ret
 	}
-	return *o.Ver.Get()
+	return *o.Ver
 }
 
 // GetVerOk returns a tuple with the Ver field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriRequest) GetVerOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Ver == nil {
 		return nil, false
 	}
-	return o.Ver.Get(), o.Ver.IsSet()
+	return o.Ver, true
 }
 
 // HasVer returns a boolean if a field has been set.
 func (o *PushUriRequest) HasVer() bool {
-	if o != nil && o.Ver.IsSet() {
+	if o != nil && o.Ver != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetVer gets a reference to the given NullableString and assigns it to the Ver field.
+// SetVer gets a reference to the given string and assigns it to the Ver field.
 func (o *PushUriRequest) SetVer(v string) {
-	o.Ver.Set(&v)
-}
-// SetVerNil sets the value for Ver to be an explicit nil
-func (o *PushUriRequest) SetVerNil() {
-	o.Ver.Set(nil)
+	o.Ver = &v
 }
 
-// UnsetVer ensures that no value is present for Ver, not even an explicit nil
-func (o *PushUriRequest) UnsetVer() {
-	o.Ver.Unset()
-}
-
-// GetTs returns the Ts field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTs returns the Ts field value if set, zero value otherwise.
 func (o *PushUriRequest) GetTs() string {
-	if o == nil || o.Ts.Get() == nil {
+	if o == nil || o.Ts == nil {
 		var ret string
 		return ret
 	}
-	return *o.Ts.Get()
+	return *o.Ts
 }
 
 // GetTsOk returns a tuple with the Ts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriRequest) GetTsOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Ts == nil {
 		return nil, false
 	}
-	return o.Ts.Get(), o.Ts.IsSet()
+	return o.Ts, true
 }
 
 // HasTs returns a boolean if a field has been set.
 func (o *PushUriRequest) HasTs() bool {
-	if o != nil && o.Ts.IsSet() {
+	if o != nil && o.Ts != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetTs gets a reference to the given NullableString and assigns it to the Ts field.
+// SetTs gets a reference to the given string and assigns it to the Ts field.
 func (o *PushUriRequest) SetTs(v string) {
-	o.Ts.Set(&v)
-}
-// SetTsNil sets the value for Ts to be an explicit nil
-func (o *PushUriRequest) SetTsNil() {
-	o.Ts.Set(nil)
+	o.Ts = &v
 }
 
-// UnsetTs ensures that no value is present for Ts, not even an explicit nil
-func (o *PushUriRequest) UnsetTs() {
-	o.Ts.Unset()
-}
-
-// GetTxn returns the Txn field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTxn returns the Txn field value if set, zero value otherwise.
 func (o *PushUriRequest) GetTxn() string {
-	if o == nil || o.Txn.Get() == nil {
+	if o == nil || o.Txn == nil {
 		var ret string
 		return ret
 	}
-	return *o.Txn.Get()
+	return *o.Txn
 }
 
 // GetTxnOk returns a tuple with the Txn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriRequest) GetTxnOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Txn == nil {
 		return nil, false
 	}
-	return o.Txn.Get(), o.Txn.IsSet()
+	return o.Txn, true
 }
 
 // HasTxn returns a boolean if a field has been set.
 func (o *PushUriRequest) HasTxn() bool {
-	if o != nil && o.Txn.IsSet() {
+	if o != nil && o.Txn != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetTxn gets a reference to the given NullableString and assigns it to the Txn field.
+// SetTxn gets a reference to the given string and assigns it to the Txn field.
 func (o *PushUriRequest) SetTxn(v string) {
-	o.Txn.Set(&v)
-}
-// SetTxnNil sets the value for Txn to be an explicit nil
-func (o *PushUriRequest) SetTxnNil() {
-	o.Txn.Set(nil)
+	o.Txn = &v
 }
 
-// UnsetTxn ensures that no value is present for Txn, not even an explicit nil
-func (o *PushUriRequest) UnsetTxn() {
-	o.Txn.Unset()
-}
-
-// GetOrgId returns the OrgId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
 func (o *PushUriRequest) GetOrgId() string {
-	if o == nil || o.OrgId.Get() == nil {
+	if o == nil || o.OrgId == nil {
 		var ret string
 		return ret
 	}
-	return *o.OrgId.Get()
+	return *o.OrgId
 }
 
 // GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PushUriRequest) GetOrgIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.OrgId == nil {
 		return nil, false
 	}
-	return o.OrgId.Get(), o.OrgId.IsSet()
+	return o.OrgId, true
 }
 
 // HasOrgId returns a boolean if a field has been set.
 func (o *PushUriRequest) HasOrgId() bool {
-	if o != nil && o.OrgId.IsSet() {
+	if o != nil && o.OrgId != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetOrgId gets a reference to the given NullableString and assigns it to the OrgId field.
+// SetOrgId gets a reference to the given string and assigns it to the OrgId field.
 func (o *PushUriRequest) SetOrgId(v string) {
-	o.OrgId.Set(&v)
-}
-// SetOrgIdNil sets the value for OrgId to be an explicit nil
-func (o *PushUriRequest) SetOrgIdNil() {
-	o.OrgId.Set(nil)
+	o.OrgId = &v
 }
 
-// UnsetOrgId ensures that no value is present for OrgId, not even an explicit nil
-func (o *PushUriRequest) UnsetOrgId() {
-	o.OrgId.Unset()
-}
-
-// GetKeyhash returns the Keyhash field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PushUriRequest) GetKeyhash() string {
-	if o == nil || o.Keyhash.Get() == nil {
+// GetKeyHash returns the KeyHash field value if set, zero value otherwise.
+func (o *PushUriRequest) GetKeyHash() string {
+	if o == nil || o.KeyHash == nil {
 		var ret string
 		return ret
 	}
-	return *o.Keyhash.Get()
+	return *o.KeyHash
 }
 
-// GetKeyhashOk returns a tuple with the Keyhash field value if set, nil otherwise
+// GetKeyHashOk returns a tuple with the KeyHash field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PushUriRequest) GetKeyhashOk() (*string, bool) {
-	if o == nil {
+func (o *PushUriRequest) GetKeyHashOk() (*string, bool) {
+	if o == nil || o.KeyHash == nil {
 		return nil, false
 	}
-	return o.Keyhash.Get(), o.Keyhash.IsSet()
+	return o.KeyHash, true
 }
 
-// HasKeyhash returns a boolean if a field has been set.
-func (o *PushUriRequest) HasKeyhash() bool {
-	if o != nil && o.Keyhash.IsSet() {
+// HasKeyHash returns a boolean if a field has been set.
+func (o *PushUriRequest) HasKeyHash() bool {
+	if o != nil && o.KeyHash != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetKeyhash gets a reference to the given NullableString and assigns it to the Keyhash field.
-func (o *PushUriRequest) SetKeyhash(v string) {
-	o.Keyhash.Set(&v)
-}
-// SetKeyhashNil sets the value for Keyhash to be an explicit nil
-func (o *PushUriRequest) SetKeyhashNil() {
-	o.Keyhash.Set(nil)
-}
-
-// UnsetKeyhash ensures that no value is present for Keyhash, not even an explicit nil
-func (o *PushUriRequest) UnsetKeyhash() {
-	o.Keyhash.Unset()
+// SetKeyHash gets a reference to the given string and assigns it to the KeyHash field.
+func (o *PushUriRequest) SetKeyHash(v string) {
+	o.KeyHash = &v
 }
 
 func (o PushUriRequest) MarshalJSON() ([]byte, error) {
@@ -325,23 +265,23 @@ func (o PushUriRequest) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["uriDetails"] = o.UriDetails
 	}
-	if o.Ns2.IsSet() {
-		toSerialize["ns2"] = o.Ns2.Get()
+	if o.Ns2 != nil {
+		toSerialize["ns2"] = o.Ns2
 	}
-	if o.Ver.IsSet() {
-		toSerialize["ver"] = o.Ver.Get()
+	if o.Ver != nil {
+		toSerialize["ver"] = o.Ver
 	}
-	if o.Ts.IsSet() {
-		toSerialize["ts"] = o.Ts.Get()
+	if o.Ts != nil {
+		toSerialize["ts"] = o.Ts
 	}
-	if o.Txn.IsSet() {
-		toSerialize["txn"] = o.Txn.Get()
+	if o.Txn != nil {
+		toSerialize["txn"] = o.Txn
 	}
-	if o.OrgId.IsSet() {
-		toSerialize["orgId"] = o.OrgId.Get()
+	if o.OrgId != nil {
+		toSerialize["orgId"] = o.OrgId
 	}
-	if o.Keyhash.IsSet() {
-		toSerialize["keyhash"] = o.Keyhash.Get()
+	if o.KeyHash != nil {
+		toSerialize["keyHash"] = o.KeyHash
 	}
 	return json.Marshal(toSerialize)
 }

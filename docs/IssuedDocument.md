@@ -9,14 +9,14 @@ Name | Type | Description | Notes
 **DocumentType** | **string** | Document type name. | 
 **IssuedTo** | **string** | User name. | 
 **IssuedAtUtc** | **time.Time** | Issued datetime in UTC timezone. | 
-**ExpiresAtUtc** | Pointer to **NullableTime** | Expires datetime in UTC timezone. | [optional] 
-**AcceptedAtUtc** | Pointer to **NullableTime** | Accepted datetime in UTC timezone. | [optional] 
+**ExpiresAtUtc** | Pointer to **time.Time** | Expires datetime in UTC timezone. | [optional] 
+**AcceptedAtUtc** | **time.Time** | Accepted datetime in UTC timezone. | 
 
 ## Methods
 
 ### NewIssuedDocument
 
-`func NewIssuedDocument(id string, identifier string, documentType string, issuedTo string, issuedAtUtc time.Time, ) *IssuedDocument`
+`func NewIssuedDocument(id string, identifier string, documentType string, issuedTo string, issuedAtUtc time.Time, acceptedAtUtc time.Time, ) *IssuedDocument`
 
 NewIssuedDocument instantiates a new IssuedDocument object
 This constructor will assign default values to properties that have it defined,
@@ -156,16 +156,6 @@ SetExpiresAtUtc sets ExpiresAtUtc field to given value.
 
 HasExpiresAtUtc returns a boolean if a field has been set.
 
-### SetExpiresAtUtcNil
-
-`func (o *IssuedDocument) SetExpiresAtUtcNil(b bool)`
-
- SetExpiresAtUtcNil sets the value for ExpiresAtUtc to be an explicit nil
-
-### UnsetExpiresAtUtc
-`func (o *IssuedDocument) UnsetExpiresAtUtc()`
-
-UnsetExpiresAtUtc ensures that no value is present for ExpiresAtUtc, not even an explicit nil
 ### GetAcceptedAtUtc
 
 `func (o *IssuedDocument) GetAcceptedAtUtc() time.Time`
@@ -185,22 +175,7 @@ and a boolean to check if the value has been set.
 
 SetAcceptedAtUtc sets AcceptedAtUtc field to given value.
 
-### HasAcceptedAtUtc
 
-`func (o *IssuedDocument) HasAcceptedAtUtc() bool`
-
-HasAcceptedAtUtc returns a boolean if a field has been set.
-
-### SetAcceptedAtUtcNil
-
-`func (o *IssuedDocument) SetAcceptedAtUtcNil(b bool)`
-
- SetAcceptedAtUtcNil sets the value for AcceptedAtUtc to be an explicit nil
-
-### UnsetAcceptedAtUtc
-`func (o *IssuedDocument) UnsetAcceptedAtUtc()`
-
-UnsetAcceptedAtUtc ensures that no value is present for AcceptedAtUtc, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

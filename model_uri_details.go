@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -24,9 +24,9 @@ type UriDetails struct {
 	DocId string `json:"docId"`
 	IssuedOn string `json:"issuedOn"`
 	ValidFrom string `json:"validFrom"`
-	ValidTo NullableString `json:"validTo,omitempty"`
-	Timestamp NullableString `json:"timestamp,omitempty"`
-	Action NullableString `json:"action,omitempty"`
+	ValidTo *string `json:"validTo,omitempty"`
+	Timestamp *string `json:"timestamp,omitempty"`
+	Action *string `json:"action,omitempty"`
 }
 
 // NewUriDetails instantiates a new UriDetails object
@@ -221,130 +221,100 @@ func (o *UriDetails) SetValidFrom(v string) {
 	o.ValidFrom = v
 }
 
-// GetValidTo returns the ValidTo field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetValidTo returns the ValidTo field value if set, zero value otherwise.
 func (o *UriDetails) GetValidTo() string {
-	if o == nil || o.ValidTo.Get() == nil {
+	if o == nil || o.ValidTo == nil {
 		var ret string
 		return ret
 	}
-	return *o.ValidTo.Get()
+	return *o.ValidTo
 }
 
 // GetValidToOk returns a tuple with the ValidTo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UriDetails) GetValidToOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.ValidTo == nil {
 		return nil, false
 	}
-	return o.ValidTo.Get(), o.ValidTo.IsSet()
+	return o.ValidTo, true
 }
 
 // HasValidTo returns a boolean if a field has been set.
 func (o *UriDetails) HasValidTo() bool {
-	if o != nil && o.ValidTo.IsSet() {
+	if o != nil && o.ValidTo != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetValidTo gets a reference to the given NullableString and assigns it to the ValidTo field.
+// SetValidTo gets a reference to the given string and assigns it to the ValidTo field.
 func (o *UriDetails) SetValidTo(v string) {
-	o.ValidTo.Set(&v)
-}
-// SetValidToNil sets the value for ValidTo to be an explicit nil
-func (o *UriDetails) SetValidToNil() {
-	o.ValidTo.Set(nil)
+	o.ValidTo = &v
 }
 
-// UnsetValidTo ensures that no value is present for ValidTo, not even an explicit nil
-func (o *UriDetails) UnsetValidTo() {
-	o.ValidTo.Unset()
-}
-
-// GetTimestamp returns the Timestamp field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
 func (o *UriDetails) GetTimestamp() string {
-	if o == nil || o.Timestamp.Get() == nil {
+	if o == nil || o.Timestamp == nil {
 		var ret string
 		return ret
 	}
-	return *o.Timestamp.Get()
+	return *o.Timestamp
 }
 
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UriDetails) GetTimestampOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Timestamp == nil {
 		return nil, false
 	}
-	return o.Timestamp.Get(), o.Timestamp.IsSet()
+	return o.Timestamp, true
 }
 
 // HasTimestamp returns a boolean if a field has been set.
 func (o *UriDetails) HasTimestamp() bool {
-	if o != nil && o.Timestamp.IsSet() {
+	if o != nil && o.Timestamp != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetTimestamp gets a reference to the given NullableString and assigns it to the Timestamp field.
+// SetTimestamp gets a reference to the given string and assigns it to the Timestamp field.
 func (o *UriDetails) SetTimestamp(v string) {
-	o.Timestamp.Set(&v)
-}
-// SetTimestampNil sets the value for Timestamp to be an explicit nil
-func (o *UriDetails) SetTimestampNil() {
-	o.Timestamp.Set(nil)
+	o.Timestamp = &v
 }
 
-// UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
-func (o *UriDetails) UnsetTimestamp() {
-	o.Timestamp.Unset()
-}
-
-// GetAction returns the Action field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAction returns the Action field value if set, zero value otherwise.
 func (o *UriDetails) GetAction() string {
-	if o == nil || o.Action.Get() == nil {
+	if o == nil || o.Action == nil {
 		var ret string
 		return ret
 	}
-	return *o.Action.Get()
+	return *o.Action
 }
 
 // GetActionOk returns a tuple with the Action field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UriDetails) GetActionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Action == nil {
 		return nil, false
 	}
-	return o.Action.Get(), o.Action.IsSet()
+	return o.Action, true
 }
 
 // HasAction returns a boolean if a field has been set.
 func (o *UriDetails) HasAction() bool {
-	if o != nil && o.Action.IsSet() {
+	if o != nil && o.Action != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetAction gets a reference to the given NullableString and assigns it to the Action field.
+// SetAction gets a reference to the given string and assigns it to the Action field.
 func (o *UriDetails) SetAction(v string) {
-	o.Action.Set(&v)
-}
-// SetActionNil sets the value for Action to be an explicit nil
-func (o *UriDetails) SetActionNil() {
-	o.Action.Set(nil)
-}
-
-// UnsetAction ensures that no value is present for Action, not even an explicit nil
-func (o *UriDetails) UnsetAction() {
-	o.Action.Unset()
+	o.Action = &v
 }
 
 func (o UriDetails) MarshalJSON() ([]byte, error) {
@@ -370,14 +340,14 @@ func (o UriDetails) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["validFrom"] = o.ValidFrom
 	}
-	if o.ValidTo.IsSet() {
-		toSerialize["validTo"] = o.ValidTo.Get()
+	if o.ValidTo != nil {
+		toSerialize["validTo"] = o.ValidTo
 	}
-	if o.Timestamp.IsSet() {
-		toSerialize["timestamp"] = o.Timestamp.Get()
+	if o.Timestamp != nil {
+		toSerialize["timestamp"] = o.Timestamp
 	}
-	if o.Action.IsSet() {
-		toSerialize["action"] = o.Action.Get()
+	if o.Action != nil {
+		toSerialize["action"] = o.Action
 	}
 	return json.Marshal(toSerialize)
 }

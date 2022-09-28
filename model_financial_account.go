@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -13,656 +13,1279 @@ package github.com/mydatamyconsent/sdk
 
 import (
 	"encoding/json"
-	"time"
+	"fmt"
 )
 
 // FinancialAccount struct for FinancialAccount
 type FinancialAccount struct {
-	Id *string `json:"id,omitempty"`
-	Issuer NullableString `json:"issuer,omitempty"`
-	LogoUrl NullableString `json:"logoUrl,omitempty"`
-	CategoryId NullableString `json:"categoryId,omitempty"`
-	CategoryName NullableString `json:"categoryName,omitempty"`
-	AccountName NullableString `json:"accountName,omitempty"`
-	AccountLogoUrl NullableString `json:"accountLogoUrl,omitempty"`
-	Balance NullableString `json:"balance,omitempty"`
-	BalanceType NullableString `json:"balanceType,omitempty"`
-	IsShared *bool `json:"isShared,omitempty"`
-	SharedWith []SharedWith `json:"sharedWith,omitempty"`
-	IsReceived *bool `json:"isReceived,omitempty"`
-	ExpiresAtUtc *time.Time `json:"expiresAtUtc,omitempty"`
-	Activities []Activity `json:"activities,omitempty"`
-	ApprovedConsentRequests []ApprovedConsentRequest `json:"approvedConsentRequests,omitempty"`
+	FinancialAccountAif *FinancialAccountAif
+	FinancialAccountBillPayment *FinancialAccountBillPayment
+	FinancialAccountBond *FinancialAccountBond
+	FinancialAccountCIS *FinancialAccountCIS
+	FinancialAccountCertificateOfDeposit *FinancialAccountCertificateOfDeposit
+	FinancialAccountCommercialPaper *FinancialAccountCommercialPaper
+	FinancialAccountCreditCard *FinancialAccountCreditCard
+	FinancialAccountDebenture *FinancialAccountDebenture
+	FinancialAccountDeposit *FinancialAccountDeposit
+	FinancialAccountEpf *FinancialAccountEpf
+	FinancialAccountEquity *FinancialAccountEquity
+	FinancialAccountEtf *FinancialAccountEtf
+	FinancialAccountGovtSecurity *FinancialAccountGovtSecurity
+	FinancialAccountIdr *FinancialAccountIdr
+	FinancialAccountInsurancePolicy *FinancialAccountInsurancePolicy
+	FinancialAccountInvit *FinancialAccountInvit
+	FinancialAccountLoan *FinancialAccountLoan
+	FinancialAccountMutualFund *FinancialAccountMutualFund
+	FinancialAccountNps *FinancialAccountNps
+	FinancialAccountPpf *FinancialAccountPpf
+	FinancialAccountRecurringDeposit *FinancialAccountRecurringDeposit
+	FinancialAccountReit *FinancialAccountReit
+	FinancialAccountSip *FinancialAccountSip
+	FinancialAccountTermDeposit *FinancialAccountTermDeposit
+	FinancialAccountUlip *FinancialAccountUlip
 }
 
-// NewFinancialAccount instantiates a new FinancialAccount object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewFinancialAccount() *FinancialAccount {
-	this := FinancialAccount{}
-	return &this
-}
-
-// NewFinancialAccountWithDefaults instantiates a new FinancialAccount object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewFinancialAccountWithDefaults() *FinancialAccount {
-	this := FinancialAccount{}
-	return &this
-}
-
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *FinancialAccount) GetId() string {
-	if o == nil || o.Id == nil {
-		var ret string
-		return ret
-	}
-	return *o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FinancialAccount) GetIdOk() (*string, bool) {
-	if o == nil || o.Id == nil {
-		return nil, false
-	}
-	return o.Id, true
-}
-
-// HasId returns a boolean if a field has been set.
-func (o *FinancialAccount) HasId() bool {
-	if o != nil && o.Id != nil {
-		return true
+// Unmarshal JSON data into any of the pointers in the struct
+func (dst *FinancialAccount) UnmarshalJSON(data []byte) error {
+	var err error
+	// use discriminator value to speed up the lookup
+	var jsonDict map[string]interface{}
+	err = json.Unmarshal(data, &jsonDict)
+	if err != nil {
+		return fmt.Errorf("Failed to unmarshal JSON into map for the discriminator lookup.")
 	}
 
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *FinancialAccount) SetId(v string) {
-	o.Id = &v
-}
-
-// GetIssuer returns the Issuer field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FinancialAccount) GetIssuer() string {
-	if o == nil || o.Issuer.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.Issuer.Get()
-}
-
-// GetIssuerOk returns a tuple with the Issuer field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FinancialAccount) GetIssuerOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Issuer.Get(), o.Issuer.IsSet()
-}
-
-// HasIssuer returns a boolean if a field has been set.
-func (o *FinancialAccount) HasIssuer() bool {
-	if o != nil && o.Issuer.IsSet() {
-		return true
+	// check if the discriminator value is 'Aif'
+	if jsonDict["type"] == "Aif" {
+		// try to unmarshal JSON data into FinancialAccountAif
+		err = json.Unmarshal(data, &dst.FinancialAccountAif);
+		if err == nil {
+			jsonFinancialAccountAif, _ := json.Marshal(dst.FinancialAccountAif)
+			if string(jsonFinancialAccountAif) == "{}" { // empty struct
+				dst.FinancialAccountAif = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountAif, return on the first match
+			}
+		} else {
+			dst.FinancialAccountAif = nil
+		}
 	}
 
-	return false
-}
-
-// SetIssuer gets a reference to the given NullableString and assigns it to the Issuer field.
-func (o *FinancialAccount) SetIssuer(v string) {
-	o.Issuer.Set(&v)
-}
-// SetIssuerNil sets the value for Issuer to be an explicit nil
-func (o *FinancialAccount) SetIssuerNil() {
-	o.Issuer.Set(nil)
-}
-
-// UnsetIssuer ensures that no value is present for Issuer, not even an explicit nil
-func (o *FinancialAccount) UnsetIssuer() {
-	o.Issuer.Unset()
-}
-
-// GetLogoUrl returns the LogoUrl field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FinancialAccount) GetLogoUrl() string {
-	if o == nil || o.LogoUrl.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.LogoUrl.Get()
-}
-
-// GetLogoUrlOk returns a tuple with the LogoUrl field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FinancialAccount) GetLogoUrlOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.LogoUrl.Get(), o.LogoUrl.IsSet()
-}
-
-// HasLogoUrl returns a boolean if a field has been set.
-func (o *FinancialAccount) HasLogoUrl() bool {
-	if o != nil && o.LogoUrl.IsSet() {
-		return true
+	// check if the discriminator value is 'BillPayment'
+	if jsonDict["type"] == "BillPayment" {
+		// try to unmarshal JSON data into FinancialAccountBillPayment
+		err = json.Unmarshal(data, &dst.FinancialAccountBillPayment);
+		if err == nil {
+			jsonFinancialAccountBillPayment, _ := json.Marshal(dst.FinancialAccountBillPayment)
+			if string(jsonFinancialAccountBillPayment) == "{}" { // empty struct
+				dst.FinancialAccountBillPayment = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountBillPayment, return on the first match
+			}
+		} else {
+			dst.FinancialAccountBillPayment = nil
+		}
 	}
 
-	return false
-}
-
-// SetLogoUrl gets a reference to the given NullableString and assigns it to the LogoUrl field.
-func (o *FinancialAccount) SetLogoUrl(v string) {
-	o.LogoUrl.Set(&v)
-}
-// SetLogoUrlNil sets the value for LogoUrl to be an explicit nil
-func (o *FinancialAccount) SetLogoUrlNil() {
-	o.LogoUrl.Set(nil)
-}
-
-// UnsetLogoUrl ensures that no value is present for LogoUrl, not even an explicit nil
-func (o *FinancialAccount) UnsetLogoUrl() {
-	o.LogoUrl.Unset()
-}
-
-// GetCategoryId returns the CategoryId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FinancialAccount) GetCategoryId() string {
-	if o == nil || o.CategoryId.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.CategoryId.Get()
-}
-
-// GetCategoryIdOk returns a tuple with the CategoryId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FinancialAccount) GetCategoryIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CategoryId.Get(), o.CategoryId.IsSet()
-}
-
-// HasCategoryId returns a boolean if a field has been set.
-func (o *FinancialAccount) HasCategoryId() bool {
-	if o != nil && o.CategoryId.IsSet() {
-		return true
+	// check if the discriminator value is 'Bond'
+	if jsonDict["type"] == "Bond" {
+		// try to unmarshal JSON data into FinancialAccountBond
+		err = json.Unmarshal(data, &dst.FinancialAccountBond);
+		if err == nil {
+			jsonFinancialAccountBond, _ := json.Marshal(dst.FinancialAccountBond)
+			if string(jsonFinancialAccountBond) == "{}" { // empty struct
+				dst.FinancialAccountBond = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountBond, return on the first match
+			}
+		} else {
+			dst.FinancialAccountBond = nil
+		}
 	}
 
-	return false
-}
-
-// SetCategoryId gets a reference to the given NullableString and assigns it to the CategoryId field.
-func (o *FinancialAccount) SetCategoryId(v string) {
-	o.CategoryId.Set(&v)
-}
-// SetCategoryIdNil sets the value for CategoryId to be an explicit nil
-func (o *FinancialAccount) SetCategoryIdNil() {
-	o.CategoryId.Set(nil)
-}
-
-// UnsetCategoryId ensures that no value is present for CategoryId, not even an explicit nil
-func (o *FinancialAccount) UnsetCategoryId() {
-	o.CategoryId.Unset()
-}
-
-// GetCategoryName returns the CategoryName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FinancialAccount) GetCategoryName() string {
-	if o == nil || o.CategoryName.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.CategoryName.Get()
-}
-
-// GetCategoryNameOk returns a tuple with the CategoryName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FinancialAccount) GetCategoryNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CategoryName.Get(), o.CategoryName.IsSet()
-}
-
-// HasCategoryName returns a boolean if a field has been set.
-func (o *FinancialAccount) HasCategoryName() bool {
-	if o != nil && o.CategoryName.IsSet() {
-		return true
+	// check if the discriminator value is 'CIS'
+	if jsonDict["type"] == "CIS" {
+		// try to unmarshal JSON data into FinancialAccountCIS
+		err = json.Unmarshal(data, &dst.FinancialAccountCIS);
+		if err == nil {
+			jsonFinancialAccountCIS, _ := json.Marshal(dst.FinancialAccountCIS)
+			if string(jsonFinancialAccountCIS) == "{}" { // empty struct
+				dst.FinancialAccountCIS = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountCIS, return on the first match
+			}
+		} else {
+			dst.FinancialAccountCIS = nil
+		}
 	}
 
-	return false
-}
-
-// SetCategoryName gets a reference to the given NullableString and assigns it to the CategoryName field.
-func (o *FinancialAccount) SetCategoryName(v string) {
-	o.CategoryName.Set(&v)
-}
-// SetCategoryNameNil sets the value for CategoryName to be an explicit nil
-func (o *FinancialAccount) SetCategoryNameNil() {
-	o.CategoryName.Set(nil)
-}
-
-// UnsetCategoryName ensures that no value is present for CategoryName, not even an explicit nil
-func (o *FinancialAccount) UnsetCategoryName() {
-	o.CategoryName.Unset()
-}
-
-// GetAccountName returns the AccountName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FinancialAccount) GetAccountName() string {
-	if o == nil || o.AccountName.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.AccountName.Get()
-}
-
-// GetAccountNameOk returns a tuple with the AccountName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FinancialAccount) GetAccountNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AccountName.Get(), o.AccountName.IsSet()
-}
-
-// HasAccountName returns a boolean if a field has been set.
-func (o *FinancialAccount) HasAccountName() bool {
-	if o != nil && o.AccountName.IsSet() {
-		return true
+	// check if the discriminator value is 'CertificateOfDeposit'
+	if jsonDict["type"] == "CertificateOfDeposit" {
+		// try to unmarshal JSON data into FinancialAccountCertificateOfDeposit
+		err = json.Unmarshal(data, &dst.FinancialAccountCertificateOfDeposit);
+		if err == nil {
+			jsonFinancialAccountCertificateOfDeposit, _ := json.Marshal(dst.FinancialAccountCertificateOfDeposit)
+			if string(jsonFinancialAccountCertificateOfDeposit) == "{}" { // empty struct
+				dst.FinancialAccountCertificateOfDeposit = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountCertificateOfDeposit, return on the first match
+			}
+		} else {
+			dst.FinancialAccountCertificateOfDeposit = nil
+		}
 	}
 
-	return false
-}
-
-// SetAccountName gets a reference to the given NullableString and assigns it to the AccountName field.
-func (o *FinancialAccount) SetAccountName(v string) {
-	o.AccountName.Set(&v)
-}
-// SetAccountNameNil sets the value for AccountName to be an explicit nil
-func (o *FinancialAccount) SetAccountNameNil() {
-	o.AccountName.Set(nil)
-}
-
-// UnsetAccountName ensures that no value is present for AccountName, not even an explicit nil
-func (o *FinancialAccount) UnsetAccountName() {
-	o.AccountName.Unset()
-}
-
-// GetAccountLogoUrl returns the AccountLogoUrl field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FinancialAccount) GetAccountLogoUrl() string {
-	if o == nil || o.AccountLogoUrl.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.AccountLogoUrl.Get()
-}
-
-// GetAccountLogoUrlOk returns a tuple with the AccountLogoUrl field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FinancialAccount) GetAccountLogoUrlOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AccountLogoUrl.Get(), o.AccountLogoUrl.IsSet()
-}
-
-// HasAccountLogoUrl returns a boolean if a field has been set.
-func (o *FinancialAccount) HasAccountLogoUrl() bool {
-	if o != nil && o.AccountLogoUrl.IsSet() {
-		return true
+	// check if the discriminator value is 'CommercialPaper'
+	if jsonDict["type"] == "CommercialPaper" {
+		// try to unmarshal JSON data into FinancialAccountCommercialPaper
+		err = json.Unmarshal(data, &dst.FinancialAccountCommercialPaper);
+		if err == nil {
+			jsonFinancialAccountCommercialPaper, _ := json.Marshal(dst.FinancialAccountCommercialPaper)
+			if string(jsonFinancialAccountCommercialPaper) == "{}" { // empty struct
+				dst.FinancialAccountCommercialPaper = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountCommercialPaper, return on the first match
+			}
+		} else {
+			dst.FinancialAccountCommercialPaper = nil
+		}
 	}
 
-	return false
-}
-
-// SetAccountLogoUrl gets a reference to the given NullableString and assigns it to the AccountLogoUrl field.
-func (o *FinancialAccount) SetAccountLogoUrl(v string) {
-	o.AccountLogoUrl.Set(&v)
-}
-// SetAccountLogoUrlNil sets the value for AccountLogoUrl to be an explicit nil
-func (o *FinancialAccount) SetAccountLogoUrlNil() {
-	o.AccountLogoUrl.Set(nil)
-}
-
-// UnsetAccountLogoUrl ensures that no value is present for AccountLogoUrl, not even an explicit nil
-func (o *FinancialAccount) UnsetAccountLogoUrl() {
-	o.AccountLogoUrl.Unset()
-}
-
-// GetBalance returns the Balance field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FinancialAccount) GetBalance() string {
-	if o == nil || o.Balance.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.Balance.Get()
-}
-
-// GetBalanceOk returns a tuple with the Balance field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FinancialAccount) GetBalanceOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Balance.Get(), o.Balance.IsSet()
-}
-
-// HasBalance returns a boolean if a field has been set.
-func (o *FinancialAccount) HasBalance() bool {
-	if o != nil && o.Balance.IsSet() {
-		return true
+	// check if the discriminator value is 'CreditCard'
+	if jsonDict["type"] == "CreditCard" {
+		// try to unmarshal JSON data into FinancialAccountCreditCard
+		err = json.Unmarshal(data, &dst.FinancialAccountCreditCard);
+		if err == nil {
+			jsonFinancialAccountCreditCard, _ := json.Marshal(dst.FinancialAccountCreditCard)
+			if string(jsonFinancialAccountCreditCard) == "{}" { // empty struct
+				dst.FinancialAccountCreditCard = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountCreditCard, return on the first match
+			}
+		} else {
+			dst.FinancialAccountCreditCard = nil
+		}
 	}
 
-	return false
+	// check if the discriminator value is 'Debenture'
+	if jsonDict["type"] == "Debenture" {
+		// try to unmarshal JSON data into FinancialAccountDebenture
+		err = json.Unmarshal(data, &dst.FinancialAccountDebenture);
+		if err == nil {
+			jsonFinancialAccountDebenture, _ := json.Marshal(dst.FinancialAccountDebenture)
+			if string(jsonFinancialAccountDebenture) == "{}" { // empty struct
+				dst.FinancialAccountDebenture = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountDebenture, return on the first match
+			}
+		} else {
+			dst.FinancialAccountDebenture = nil
+		}
+	}
+
+	// check if the discriminator value is 'Deposit'
+	if jsonDict["type"] == "Deposit" {
+		// try to unmarshal JSON data into FinancialAccountDeposit
+		err = json.Unmarshal(data, &dst.FinancialAccountDeposit);
+		if err == nil {
+			jsonFinancialAccountDeposit, _ := json.Marshal(dst.FinancialAccountDeposit)
+			if string(jsonFinancialAccountDeposit) == "{}" { // empty struct
+				dst.FinancialAccountDeposit = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountDeposit, return on the first match
+			}
+		} else {
+			dst.FinancialAccountDeposit = nil
+		}
+	}
+
+	// check if the discriminator value is 'Epf'
+	if jsonDict["type"] == "Epf" {
+		// try to unmarshal JSON data into FinancialAccountEpf
+		err = json.Unmarshal(data, &dst.FinancialAccountEpf);
+		if err == nil {
+			jsonFinancialAccountEpf, _ := json.Marshal(dst.FinancialAccountEpf)
+			if string(jsonFinancialAccountEpf) == "{}" { // empty struct
+				dst.FinancialAccountEpf = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountEpf, return on the first match
+			}
+		} else {
+			dst.FinancialAccountEpf = nil
+		}
+	}
+
+	// check if the discriminator value is 'Equity'
+	if jsonDict["type"] == "Equity" {
+		// try to unmarshal JSON data into FinancialAccountEquity
+		err = json.Unmarshal(data, &dst.FinancialAccountEquity);
+		if err == nil {
+			jsonFinancialAccountEquity, _ := json.Marshal(dst.FinancialAccountEquity)
+			if string(jsonFinancialAccountEquity) == "{}" { // empty struct
+				dst.FinancialAccountEquity = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountEquity, return on the first match
+			}
+		} else {
+			dst.FinancialAccountEquity = nil
+		}
+	}
+
+	// check if the discriminator value is 'Etf'
+	if jsonDict["type"] == "Etf" {
+		// try to unmarshal JSON data into FinancialAccountEtf
+		err = json.Unmarshal(data, &dst.FinancialAccountEtf);
+		if err == nil {
+			jsonFinancialAccountEtf, _ := json.Marshal(dst.FinancialAccountEtf)
+			if string(jsonFinancialAccountEtf) == "{}" { // empty struct
+				dst.FinancialAccountEtf = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountEtf, return on the first match
+			}
+		} else {
+			dst.FinancialAccountEtf = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountAif'
+	if jsonDict["type"] == "FinancialAccountAif" {
+		// try to unmarshal JSON data into FinancialAccountAif
+		err = json.Unmarshal(data, &dst.FinancialAccountAif);
+		if err == nil {
+			jsonFinancialAccountAif, _ := json.Marshal(dst.FinancialAccountAif)
+			if string(jsonFinancialAccountAif) == "{}" { // empty struct
+				dst.FinancialAccountAif = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountAif, return on the first match
+			}
+		} else {
+			dst.FinancialAccountAif = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountBillPayment'
+	if jsonDict["type"] == "FinancialAccountBillPayment" {
+		// try to unmarshal JSON data into FinancialAccountBillPayment
+		err = json.Unmarshal(data, &dst.FinancialAccountBillPayment);
+		if err == nil {
+			jsonFinancialAccountBillPayment, _ := json.Marshal(dst.FinancialAccountBillPayment)
+			if string(jsonFinancialAccountBillPayment) == "{}" { // empty struct
+				dst.FinancialAccountBillPayment = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountBillPayment, return on the first match
+			}
+		} else {
+			dst.FinancialAccountBillPayment = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountBond'
+	if jsonDict["type"] == "FinancialAccountBond" {
+		// try to unmarshal JSON data into FinancialAccountBond
+		err = json.Unmarshal(data, &dst.FinancialAccountBond);
+		if err == nil {
+			jsonFinancialAccountBond, _ := json.Marshal(dst.FinancialAccountBond)
+			if string(jsonFinancialAccountBond) == "{}" { // empty struct
+				dst.FinancialAccountBond = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountBond, return on the first match
+			}
+		} else {
+			dst.FinancialAccountBond = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountCIS'
+	if jsonDict["type"] == "FinancialAccountCIS" {
+		// try to unmarshal JSON data into FinancialAccountCIS
+		err = json.Unmarshal(data, &dst.FinancialAccountCIS);
+		if err == nil {
+			jsonFinancialAccountCIS, _ := json.Marshal(dst.FinancialAccountCIS)
+			if string(jsonFinancialAccountCIS) == "{}" { // empty struct
+				dst.FinancialAccountCIS = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountCIS, return on the first match
+			}
+		} else {
+			dst.FinancialAccountCIS = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountCertificateOfDeposit'
+	if jsonDict["type"] == "FinancialAccountCertificateOfDeposit" {
+		// try to unmarshal JSON data into FinancialAccountCertificateOfDeposit
+		err = json.Unmarshal(data, &dst.FinancialAccountCertificateOfDeposit);
+		if err == nil {
+			jsonFinancialAccountCertificateOfDeposit, _ := json.Marshal(dst.FinancialAccountCertificateOfDeposit)
+			if string(jsonFinancialAccountCertificateOfDeposit) == "{}" { // empty struct
+				dst.FinancialAccountCertificateOfDeposit = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountCertificateOfDeposit, return on the first match
+			}
+		} else {
+			dst.FinancialAccountCertificateOfDeposit = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountCommercialPaper'
+	if jsonDict["type"] == "FinancialAccountCommercialPaper" {
+		// try to unmarshal JSON data into FinancialAccountCommercialPaper
+		err = json.Unmarshal(data, &dst.FinancialAccountCommercialPaper);
+		if err == nil {
+			jsonFinancialAccountCommercialPaper, _ := json.Marshal(dst.FinancialAccountCommercialPaper)
+			if string(jsonFinancialAccountCommercialPaper) == "{}" { // empty struct
+				dst.FinancialAccountCommercialPaper = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountCommercialPaper, return on the first match
+			}
+		} else {
+			dst.FinancialAccountCommercialPaper = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountCreditCard'
+	if jsonDict["type"] == "FinancialAccountCreditCard" {
+		// try to unmarshal JSON data into FinancialAccountCreditCard
+		err = json.Unmarshal(data, &dst.FinancialAccountCreditCard);
+		if err == nil {
+			jsonFinancialAccountCreditCard, _ := json.Marshal(dst.FinancialAccountCreditCard)
+			if string(jsonFinancialAccountCreditCard) == "{}" { // empty struct
+				dst.FinancialAccountCreditCard = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountCreditCard, return on the first match
+			}
+		} else {
+			dst.FinancialAccountCreditCard = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountDebenture'
+	if jsonDict["type"] == "FinancialAccountDebenture" {
+		// try to unmarshal JSON data into FinancialAccountDebenture
+		err = json.Unmarshal(data, &dst.FinancialAccountDebenture);
+		if err == nil {
+			jsonFinancialAccountDebenture, _ := json.Marshal(dst.FinancialAccountDebenture)
+			if string(jsonFinancialAccountDebenture) == "{}" { // empty struct
+				dst.FinancialAccountDebenture = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountDebenture, return on the first match
+			}
+		} else {
+			dst.FinancialAccountDebenture = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountDeposit'
+	if jsonDict["type"] == "FinancialAccountDeposit" {
+		// try to unmarshal JSON data into FinancialAccountDeposit
+		err = json.Unmarshal(data, &dst.FinancialAccountDeposit);
+		if err == nil {
+			jsonFinancialAccountDeposit, _ := json.Marshal(dst.FinancialAccountDeposit)
+			if string(jsonFinancialAccountDeposit) == "{}" { // empty struct
+				dst.FinancialAccountDeposit = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountDeposit, return on the first match
+			}
+		} else {
+			dst.FinancialAccountDeposit = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountEpf'
+	if jsonDict["type"] == "FinancialAccountEpf" {
+		// try to unmarshal JSON data into FinancialAccountEpf
+		err = json.Unmarshal(data, &dst.FinancialAccountEpf);
+		if err == nil {
+			jsonFinancialAccountEpf, _ := json.Marshal(dst.FinancialAccountEpf)
+			if string(jsonFinancialAccountEpf) == "{}" { // empty struct
+				dst.FinancialAccountEpf = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountEpf, return on the first match
+			}
+		} else {
+			dst.FinancialAccountEpf = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountEquity'
+	if jsonDict["type"] == "FinancialAccountEquity" {
+		// try to unmarshal JSON data into FinancialAccountEquity
+		err = json.Unmarshal(data, &dst.FinancialAccountEquity);
+		if err == nil {
+			jsonFinancialAccountEquity, _ := json.Marshal(dst.FinancialAccountEquity)
+			if string(jsonFinancialAccountEquity) == "{}" { // empty struct
+				dst.FinancialAccountEquity = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountEquity, return on the first match
+			}
+		} else {
+			dst.FinancialAccountEquity = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountEtf'
+	if jsonDict["type"] == "FinancialAccountEtf" {
+		// try to unmarshal JSON data into FinancialAccountEtf
+		err = json.Unmarshal(data, &dst.FinancialAccountEtf);
+		if err == nil {
+			jsonFinancialAccountEtf, _ := json.Marshal(dst.FinancialAccountEtf)
+			if string(jsonFinancialAccountEtf) == "{}" { // empty struct
+				dst.FinancialAccountEtf = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountEtf, return on the first match
+			}
+		} else {
+			dst.FinancialAccountEtf = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountGovtSecurity'
+	if jsonDict["type"] == "FinancialAccountGovtSecurity" {
+		// try to unmarshal JSON data into FinancialAccountGovtSecurity
+		err = json.Unmarshal(data, &dst.FinancialAccountGovtSecurity);
+		if err == nil {
+			jsonFinancialAccountGovtSecurity, _ := json.Marshal(dst.FinancialAccountGovtSecurity)
+			if string(jsonFinancialAccountGovtSecurity) == "{}" { // empty struct
+				dst.FinancialAccountGovtSecurity = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountGovtSecurity, return on the first match
+			}
+		} else {
+			dst.FinancialAccountGovtSecurity = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountIdr'
+	if jsonDict["type"] == "FinancialAccountIdr" {
+		// try to unmarshal JSON data into FinancialAccountIdr
+		err = json.Unmarshal(data, &dst.FinancialAccountIdr);
+		if err == nil {
+			jsonFinancialAccountIdr, _ := json.Marshal(dst.FinancialAccountIdr)
+			if string(jsonFinancialAccountIdr) == "{}" { // empty struct
+				dst.FinancialAccountIdr = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountIdr, return on the first match
+			}
+		} else {
+			dst.FinancialAccountIdr = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountInsurancePolicy'
+	if jsonDict["type"] == "FinancialAccountInsurancePolicy" {
+		// try to unmarshal JSON data into FinancialAccountInsurancePolicy
+		err = json.Unmarshal(data, &dst.FinancialAccountInsurancePolicy);
+		if err == nil {
+			jsonFinancialAccountInsurancePolicy, _ := json.Marshal(dst.FinancialAccountInsurancePolicy)
+			if string(jsonFinancialAccountInsurancePolicy) == "{}" { // empty struct
+				dst.FinancialAccountInsurancePolicy = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountInsurancePolicy, return on the first match
+			}
+		} else {
+			dst.FinancialAccountInsurancePolicy = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountInvit'
+	if jsonDict["type"] == "FinancialAccountInvit" {
+		// try to unmarshal JSON data into FinancialAccountInvit
+		err = json.Unmarshal(data, &dst.FinancialAccountInvit);
+		if err == nil {
+			jsonFinancialAccountInvit, _ := json.Marshal(dst.FinancialAccountInvit)
+			if string(jsonFinancialAccountInvit) == "{}" { // empty struct
+				dst.FinancialAccountInvit = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountInvit, return on the first match
+			}
+		} else {
+			dst.FinancialAccountInvit = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountLoan'
+	if jsonDict["type"] == "FinancialAccountLoan" {
+		// try to unmarshal JSON data into FinancialAccountLoan
+		err = json.Unmarshal(data, &dst.FinancialAccountLoan);
+		if err == nil {
+			jsonFinancialAccountLoan, _ := json.Marshal(dst.FinancialAccountLoan)
+			if string(jsonFinancialAccountLoan) == "{}" { // empty struct
+				dst.FinancialAccountLoan = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountLoan, return on the first match
+			}
+		} else {
+			dst.FinancialAccountLoan = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountMutualFund'
+	if jsonDict["type"] == "FinancialAccountMutualFund" {
+		// try to unmarshal JSON data into FinancialAccountMutualFund
+		err = json.Unmarshal(data, &dst.FinancialAccountMutualFund);
+		if err == nil {
+			jsonFinancialAccountMutualFund, _ := json.Marshal(dst.FinancialAccountMutualFund)
+			if string(jsonFinancialAccountMutualFund) == "{}" { // empty struct
+				dst.FinancialAccountMutualFund = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountMutualFund, return on the first match
+			}
+		} else {
+			dst.FinancialAccountMutualFund = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountNps'
+	if jsonDict["type"] == "FinancialAccountNps" {
+		// try to unmarshal JSON data into FinancialAccountNps
+		err = json.Unmarshal(data, &dst.FinancialAccountNps);
+		if err == nil {
+			jsonFinancialAccountNps, _ := json.Marshal(dst.FinancialAccountNps)
+			if string(jsonFinancialAccountNps) == "{}" { // empty struct
+				dst.FinancialAccountNps = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountNps, return on the first match
+			}
+		} else {
+			dst.FinancialAccountNps = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountPpf'
+	if jsonDict["type"] == "FinancialAccountPpf" {
+		// try to unmarshal JSON data into FinancialAccountPpf
+		err = json.Unmarshal(data, &dst.FinancialAccountPpf);
+		if err == nil {
+			jsonFinancialAccountPpf, _ := json.Marshal(dst.FinancialAccountPpf)
+			if string(jsonFinancialAccountPpf) == "{}" { // empty struct
+				dst.FinancialAccountPpf = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountPpf, return on the first match
+			}
+		} else {
+			dst.FinancialAccountPpf = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountRecurringDeposit'
+	if jsonDict["type"] == "FinancialAccountRecurringDeposit" {
+		// try to unmarshal JSON data into FinancialAccountRecurringDeposit
+		err = json.Unmarshal(data, &dst.FinancialAccountRecurringDeposit);
+		if err == nil {
+			jsonFinancialAccountRecurringDeposit, _ := json.Marshal(dst.FinancialAccountRecurringDeposit)
+			if string(jsonFinancialAccountRecurringDeposit) == "{}" { // empty struct
+				dst.FinancialAccountRecurringDeposit = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountRecurringDeposit, return on the first match
+			}
+		} else {
+			dst.FinancialAccountRecurringDeposit = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountReit'
+	if jsonDict["type"] == "FinancialAccountReit" {
+		// try to unmarshal JSON data into FinancialAccountReit
+		err = json.Unmarshal(data, &dst.FinancialAccountReit);
+		if err == nil {
+			jsonFinancialAccountReit, _ := json.Marshal(dst.FinancialAccountReit)
+			if string(jsonFinancialAccountReit) == "{}" { // empty struct
+				dst.FinancialAccountReit = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountReit, return on the first match
+			}
+		} else {
+			dst.FinancialAccountReit = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountSip'
+	if jsonDict["type"] == "FinancialAccountSip" {
+		// try to unmarshal JSON data into FinancialAccountSip
+		err = json.Unmarshal(data, &dst.FinancialAccountSip);
+		if err == nil {
+			jsonFinancialAccountSip, _ := json.Marshal(dst.FinancialAccountSip)
+			if string(jsonFinancialAccountSip) == "{}" { // empty struct
+				dst.FinancialAccountSip = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountSip, return on the first match
+			}
+		} else {
+			dst.FinancialAccountSip = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountTermDeposit'
+	if jsonDict["type"] == "FinancialAccountTermDeposit" {
+		// try to unmarshal JSON data into FinancialAccountTermDeposit
+		err = json.Unmarshal(data, &dst.FinancialAccountTermDeposit);
+		if err == nil {
+			jsonFinancialAccountTermDeposit, _ := json.Marshal(dst.FinancialAccountTermDeposit)
+			if string(jsonFinancialAccountTermDeposit) == "{}" { // empty struct
+				dst.FinancialAccountTermDeposit = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountTermDeposit, return on the first match
+			}
+		} else {
+			dst.FinancialAccountTermDeposit = nil
+		}
+	}
+
+	// check if the discriminator value is 'FinancialAccountUlip'
+	if jsonDict["type"] == "FinancialAccountUlip" {
+		// try to unmarshal JSON data into FinancialAccountUlip
+		err = json.Unmarshal(data, &dst.FinancialAccountUlip);
+		if err == nil {
+			jsonFinancialAccountUlip, _ := json.Marshal(dst.FinancialAccountUlip)
+			if string(jsonFinancialAccountUlip) == "{}" { // empty struct
+				dst.FinancialAccountUlip = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountUlip, return on the first match
+			}
+		} else {
+			dst.FinancialAccountUlip = nil
+		}
+	}
+
+	// check if the discriminator value is 'GovtSecurity'
+	if jsonDict["type"] == "GovtSecurity" {
+		// try to unmarshal JSON data into FinancialAccountGovtSecurity
+		err = json.Unmarshal(data, &dst.FinancialAccountGovtSecurity);
+		if err == nil {
+			jsonFinancialAccountGovtSecurity, _ := json.Marshal(dst.FinancialAccountGovtSecurity)
+			if string(jsonFinancialAccountGovtSecurity) == "{}" { // empty struct
+				dst.FinancialAccountGovtSecurity = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountGovtSecurity, return on the first match
+			}
+		} else {
+			dst.FinancialAccountGovtSecurity = nil
+		}
+	}
+
+	// check if the discriminator value is 'Idr'
+	if jsonDict["type"] == "Idr" {
+		// try to unmarshal JSON data into FinancialAccountIdr
+		err = json.Unmarshal(data, &dst.FinancialAccountIdr);
+		if err == nil {
+			jsonFinancialAccountIdr, _ := json.Marshal(dst.FinancialAccountIdr)
+			if string(jsonFinancialAccountIdr) == "{}" { // empty struct
+				dst.FinancialAccountIdr = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountIdr, return on the first match
+			}
+		} else {
+			dst.FinancialAccountIdr = nil
+		}
+	}
+
+	// check if the discriminator value is 'InsurancePolicy'
+	if jsonDict["type"] == "InsurancePolicy" {
+		// try to unmarshal JSON data into FinancialAccountInsurancePolicy
+		err = json.Unmarshal(data, &dst.FinancialAccountInsurancePolicy);
+		if err == nil {
+			jsonFinancialAccountInsurancePolicy, _ := json.Marshal(dst.FinancialAccountInsurancePolicy)
+			if string(jsonFinancialAccountInsurancePolicy) == "{}" { // empty struct
+				dst.FinancialAccountInsurancePolicy = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountInsurancePolicy, return on the first match
+			}
+		} else {
+			dst.FinancialAccountInsurancePolicy = nil
+		}
+	}
+
+	// check if the discriminator value is 'Invit'
+	if jsonDict["type"] == "Invit" {
+		// try to unmarshal JSON data into FinancialAccountInvit
+		err = json.Unmarshal(data, &dst.FinancialAccountInvit);
+		if err == nil {
+			jsonFinancialAccountInvit, _ := json.Marshal(dst.FinancialAccountInvit)
+			if string(jsonFinancialAccountInvit) == "{}" { // empty struct
+				dst.FinancialAccountInvit = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountInvit, return on the first match
+			}
+		} else {
+			dst.FinancialAccountInvit = nil
+		}
+	}
+
+	// check if the discriminator value is 'Loan'
+	if jsonDict["type"] == "Loan" {
+		// try to unmarshal JSON data into FinancialAccountLoan
+		err = json.Unmarshal(data, &dst.FinancialAccountLoan);
+		if err == nil {
+			jsonFinancialAccountLoan, _ := json.Marshal(dst.FinancialAccountLoan)
+			if string(jsonFinancialAccountLoan) == "{}" { // empty struct
+				dst.FinancialAccountLoan = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountLoan, return on the first match
+			}
+		} else {
+			dst.FinancialAccountLoan = nil
+		}
+	}
+
+	// check if the discriminator value is 'MutualFund'
+	if jsonDict["type"] == "MutualFund" {
+		// try to unmarshal JSON data into FinancialAccountMutualFund
+		err = json.Unmarshal(data, &dst.FinancialAccountMutualFund);
+		if err == nil {
+			jsonFinancialAccountMutualFund, _ := json.Marshal(dst.FinancialAccountMutualFund)
+			if string(jsonFinancialAccountMutualFund) == "{}" { // empty struct
+				dst.FinancialAccountMutualFund = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountMutualFund, return on the first match
+			}
+		} else {
+			dst.FinancialAccountMutualFund = nil
+		}
+	}
+
+	// check if the discriminator value is 'Nps'
+	if jsonDict["type"] == "Nps" {
+		// try to unmarshal JSON data into FinancialAccountNps
+		err = json.Unmarshal(data, &dst.FinancialAccountNps);
+		if err == nil {
+			jsonFinancialAccountNps, _ := json.Marshal(dst.FinancialAccountNps)
+			if string(jsonFinancialAccountNps) == "{}" { // empty struct
+				dst.FinancialAccountNps = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountNps, return on the first match
+			}
+		} else {
+			dst.FinancialAccountNps = nil
+		}
+	}
+
+	// check if the discriminator value is 'Ppf'
+	if jsonDict["type"] == "Ppf" {
+		// try to unmarshal JSON data into FinancialAccountPpf
+		err = json.Unmarshal(data, &dst.FinancialAccountPpf);
+		if err == nil {
+			jsonFinancialAccountPpf, _ := json.Marshal(dst.FinancialAccountPpf)
+			if string(jsonFinancialAccountPpf) == "{}" { // empty struct
+				dst.FinancialAccountPpf = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountPpf, return on the first match
+			}
+		} else {
+			dst.FinancialAccountPpf = nil
+		}
+	}
+
+	// check if the discriminator value is 'RecurringDeposit'
+	if jsonDict["type"] == "RecurringDeposit" {
+		// try to unmarshal JSON data into FinancialAccountRecurringDeposit
+		err = json.Unmarshal(data, &dst.FinancialAccountRecurringDeposit);
+		if err == nil {
+			jsonFinancialAccountRecurringDeposit, _ := json.Marshal(dst.FinancialAccountRecurringDeposit)
+			if string(jsonFinancialAccountRecurringDeposit) == "{}" { // empty struct
+				dst.FinancialAccountRecurringDeposit = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountRecurringDeposit, return on the first match
+			}
+		} else {
+			dst.FinancialAccountRecurringDeposit = nil
+		}
+	}
+
+	// check if the discriminator value is 'Reit'
+	if jsonDict["type"] == "Reit" {
+		// try to unmarshal JSON data into FinancialAccountReit
+		err = json.Unmarshal(data, &dst.FinancialAccountReit);
+		if err == nil {
+			jsonFinancialAccountReit, _ := json.Marshal(dst.FinancialAccountReit)
+			if string(jsonFinancialAccountReit) == "{}" { // empty struct
+				dst.FinancialAccountReit = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountReit, return on the first match
+			}
+		} else {
+			dst.FinancialAccountReit = nil
+		}
+	}
+
+	// check if the discriminator value is 'Sip'
+	if jsonDict["type"] == "Sip" {
+		// try to unmarshal JSON data into FinancialAccountSip
+		err = json.Unmarshal(data, &dst.FinancialAccountSip);
+		if err == nil {
+			jsonFinancialAccountSip, _ := json.Marshal(dst.FinancialAccountSip)
+			if string(jsonFinancialAccountSip) == "{}" { // empty struct
+				dst.FinancialAccountSip = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountSip, return on the first match
+			}
+		} else {
+			dst.FinancialAccountSip = nil
+		}
+	}
+
+	// check if the discriminator value is 'TermDeposit'
+	if jsonDict["type"] == "TermDeposit" {
+		// try to unmarshal JSON data into FinancialAccountTermDeposit
+		err = json.Unmarshal(data, &dst.FinancialAccountTermDeposit);
+		if err == nil {
+			jsonFinancialAccountTermDeposit, _ := json.Marshal(dst.FinancialAccountTermDeposit)
+			if string(jsonFinancialAccountTermDeposit) == "{}" { // empty struct
+				dst.FinancialAccountTermDeposit = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountTermDeposit, return on the first match
+			}
+		} else {
+			dst.FinancialAccountTermDeposit = nil
+		}
+	}
+
+	// check if the discriminator value is 'Ulip'
+	if jsonDict["type"] == "Ulip" {
+		// try to unmarshal JSON data into FinancialAccountUlip
+		err = json.Unmarshal(data, &dst.FinancialAccountUlip);
+		if err == nil {
+			jsonFinancialAccountUlip, _ := json.Marshal(dst.FinancialAccountUlip)
+			if string(jsonFinancialAccountUlip) == "{}" { // empty struct
+				dst.FinancialAccountUlip = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountUlip, return on the first match
+			}
+		} else {
+			dst.FinancialAccountUlip = nil
+		}
+	}
+
+	// try to unmarshal JSON data into FinancialAccountAif
+	err = json.Unmarshal(data, &dst.FinancialAccountAif);
+	if err == nil {
+		jsonFinancialAccountAif, _ := json.Marshal(dst.FinancialAccountAif)
+		if string(jsonFinancialAccountAif) == "{}" { // empty struct
+			dst.FinancialAccountAif = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountAif, return on the first match
+		}
+	} else {
+		dst.FinancialAccountAif = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountBillPayment
+	err = json.Unmarshal(data, &dst.FinancialAccountBillPayment);
+	if err == nil {
+		jsonFinancialAccountBillPayment, _ := json.Marshal(dst.FinancialAccountBillPayment)
+		if string(jsonFinancialAccountBillPayment) == "{}" { // empty struct
+			dst.FinancialAccountBillPayment = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountBillPayment, return on the first match
+		}
+	} else {
+		dst.FinancialAccountBillPayment = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountBond
+	err = json.Unmarshal(data, &dst.FinancialAccountBond);
+	if err == nil {
+		jsonFinancialAccountBond, _ := json.Marshal(dst.FinancialAccountBond)
+		if string(jsonFinancialAccountBond) == "{}" { // empty struct
+			dst.FinancialAccountBond = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountBond, return on the first match
+		}
+	} else {
+		dst.FinancialAccountBond = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountCIS
+	err = json.Unmarshal(data, &dst.FinancialAccountCIS);
+	if err == nil {
+		jsonFinancialAccountCIS, _ := json.Marshal(dst.FinancialAccountCIS)
+		if string(jsonFinancialAccountCIS) == "{}" { // empty struct
+			dst.FinancialAccountCIS = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountCIS, return on the first match
+		}
+	} else {
+		dst.FinancialAccountCIS = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountCertificateOfDeposit
+	err = json.Unmarshal(data, &dst.FinancialAccountCertificateOfDeposit);
+	if err == nil {
+		jsonFinancialAccountCertificateOfDeposit, _ := json.Marshal(dst.FinancialAccountCertificateOfDeposit)
+		if string(jsonFinancialAccountCertificateOfDeposit) == "{}" { // empty struct
+			dst.FinancialAccountCertificateOfDeposit = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountCertificateOfDeposit, return on the first match
+		}
+	} else {
+		dst.FinancialAccountCertificateOfDeposit = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountCommercialPaper
+	err = json.Unmarshal(data, &dst.FinancialAccountCommercialPaper);
+	if err == nil {
+		jsonFinancialAccountCommercialPaper, _ := json.Marshal(dst.FinancialAccountCommercialPaper)
+		if string(jsonFinancialAccountCommercialPaper) == "{}" { // empty struct
+			dst.FinancialAccountCommercialPaper = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountCommercialPaper, return on the first match
+		}
+	} else {
+		dst.FinancialAccountCommercialPaper = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountCreditCard
+	err = json.Unmarshal(data, &dst.FinancialAccountCreditCard);
+	if err == nil {
+		jsonFinancialAccountCreditCard, _ := json.Marshal(dst.FinancialAccountCreditCard)
+		if string(jsonFinancialAccountCreditCard) == "{}" { // empty struct
+			dst.FinancialAccountCreditCard = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountCreditCard, return on the first match
+		}
+	} else {
+		dst.FinancialAccountCreditCard = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountDebenture
+	err = json.Unmarshal(data, &dst.FinancialAccountDebenture);
+	if err == nil {
+		jsonFinancialAccountDebenture, _ := json.Marshal(dst.FinancialAccountDebenture)
+		if string(jsonFinancialAccountDebenture) == "{}" { // empty struct
+			dst.FinancialAccountDebenture = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountDebenture, return on the first match
+		}
+	} else {
+		dst.FinancialAccountDebenture = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountDeposit
+	err = json.Unmarshal(data, &dst.FinancialAccountDeposit);
+	if err == nil {
+		jsonFinancialAccountDeposit, _ := json.Marshal(dst.FinancialAccountDeposit)
+		if string(jsonFinancialAccountDeposit) == "{}" { // empty struct
+			dst.FinancialAccountDeposit = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountDeposit, return on the first match
+		}
+	} else {
+		dst.FinancialAccountDeposit = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountEpf
+	err = json.Unmarshal(data, &dst.FinancialAccountEpf);
+	if err == nil {
+		jsonFinancialAccountEpf, _ := json.Marshal(dst.FinancialAccountEpf)
+		if string(jsonFinancialAccountEpf) == "{}" { // empty struct
+			dst.FinancialAccountEpf = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountEpf, return on the first match
+		}
+	} else {
+		dst.FinancialAccountEpf = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountEquity
+	err = json.Unmarshal(data, &dst.FinancialAccountEquity);
+	if err == nil {
+		jsonFinancialAccountEquity, _ := json.Marshal(dst.FinancialAccountEquity)
+		if string(jsonFinancialAccountEquity) == "{}" { // empty struct
+			dst.FinancialAccountEquity = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountEquity, return on the first match
+		}
+	} else {
+		dst.FinancialAccountEquity = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountEtf
+	err = json.Unmarshal(data, &dst.FinancialAccountEtf);
+	if err == nil {
+		jsonFinancialAccountEtf, _ := json.Marshal(dst.FinancialAccountEtf)
+		if string(jsonFinancialAccountEtf) == "{}" { // empty struct
+			dst.FinancialAccountEtf = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountEtf, return on the first match
+		}
+	} else {
+		dst.FinancialAccountEtf = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountGovtSecurity
+	err = json.Unmarshal(data, &dst.FinancialAccountGovtSecurity);
+	if err == nil {
+		jsonFinancialAccountGovtSecurity, _ := json.Marshal(dst.FinancialAccountGovtSecurity)
+		if string(jsonFinancialAccountGovtSecurity) == "{}" { // empty struct
+			dst.FinancialAccountGovtSecurity = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountGovtSecurity, return on the first match
+		}
+	} else {
+		dst.FinancialAccountGovtSecurity = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountIdr
+	err = json.Unmarshal(data, &dst.FinancialAccountIdr);
+	if err == nil {
+		jsonFinancialAccountIdr, _ := json.Marshal(dst.FinancialAccountIdr)
+		if string(jsonFinancialAccountIdr) == "{}" { // empty struct
+			dst.FinancialAccountIdr = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountIdr, return on the first match
+		}
+	} else {
+		dst.FinancialAccountIdr = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountInsurancePolicy
+	err = json.Unmarshal(data, &dst.FinancialAccountInsurancePolicy);
+	if err == nil {
+		jsonFinancialAccountInsurancePolicy, _ := json.Marshal(dst.FinancialAccountInsurancePolicy)
+		if string(jsonFinancialAccountInsurancePolicy) == "{}" { // empty struct
+			dst.FinancialAccountInsurancePolicy = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountInsurancePolicy, return on the first match
+		}
+	} else {
+		dst.FinancialAccountInsurancePolicy = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountInvit
+	err = json.Unmarshal(data, &dst.FinancialAccountInvit);
+	if err == nil {
+		jsonFinancialAccountInvit, _ := json.Marshal(dst.FinancialAccountInvit)
+		if string(jsonFinancialAccountInvit) == "{}" { // empty struct
+			dst.FinancialAccountInvit = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountInvit, return on the first match
+		}
+	} else {
+		dst.FinancialAccountInvit = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountLoan
+	err = json.Unmarshal(data, &dst.FinancialAccountLoan);
+	if err == nil {
+		jsonFinancialAccountLoan, _ := json.Marshal(dst.FinancialAccountLoan)
+		if string(jsonFinancialAccountLoan) == "{}" { // empty struct
+			dst.FinancialAccountLoan = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountLoan, return on the first match
+		}
+	} else {
+		dst.FinancialAccountLoan = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountMutualFund
+	err = json.Unmarshal(data, &dst.FinancialAccountMutualFund);
+	if err == nil {
+		jsonFinancialAccountMutualFund, _ := json.Marshal(dst.FinancialAccountMutualFund)
+		if string(jsonFinancialAccountMutualFund) == "{}" { // empty struct
+			dst.FinancialAccountMutualFund = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountMutualFund, return on the first match
+		}
+	} else {
+		dst.FinancialAccountMutualFund = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountNps
+	err = json.Unmarshal(data, &dst.FinancialAccountNps);
+	if err == nil {
+		jsonFinancialAccountNps, _ := json.Marshal(dst.FinancialAccountNps)
+		if string(jsonFinancialAccountNps) == "{}" { // empty struct
+			dst.FinancialAccountNps = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountNps, return on the first match
+		}
+	} else {
+		dst.FinancialAccountNps = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountPpf
+	err = json.Unmarshal(data, &dst.FinancialAccountPpf);
+	if err == nil {
+		jsonFinancialAccountPpf, _ := json.Marshal(dst.FinancialAccountPpf)
+		if string(jsonFinancialAccountPpf) == "{}" { // empty struct
+			dst.FinancialAccountPpf = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountPpf, return on the first match
+		}
+	} else {
+		dst.FinancialAccountPpf = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountRecurringDeposit
+	err = json.Unmarshal(data, &dst.FinancialAccountRecurringDeposit);
+	if err == nil {
+		jsonFinancialAccountRecurringDeposit, _ := json.Marshal(dst.FinancialAccountRecurringDeposit)
+		if string(jsonFinancialAccountRecurringDeposit) == "{}" { // empty struct
+			dst.FinancialAccountRecurringDeposit = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountRecurringDeposit, return on the first match
+		}
+	} else {
+		dst.FinancialAccountRecurringDeposit = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountReit
+	err = json.Unmarshal(data, &dst.FinancialAccountReit);
+	if err == nil {
+		jsonFinancialAccountReit, _ := json.Marshal(dst.FinancialAccountReit)
+		if string(jsonFinancialAccountReit) == "{}" { // empty struct
+			dst.FinancialAccountReit = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountReit, return on the first match
+		}
+	} else {
+		dst.FinancialAccountReit = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountSip
+	err = json.Unmarshal(data, &dst.FinancialAccountSip);
+	if err == nil {
+		jsonFinancialAccountSip, _ := json.Marshal(dst.FinancialAccountSip)
+		if string(jsonFinancialAccountSip) == "{}" { // empty struct
+			dst.FinancialAccountSip = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountSip, return on the first match
+		}
+	} else {
+		dst.FinancialAccountSip = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountTermDeposit
+	err = json.Unmarshal(data, &dst.FinancialAccountTermDeposit);
+	if err == nil {
+		jsonFinancialAccountTermDeposit, _ := json.Marshal(dst.FinancialAccountTermDeposit)
+		if string(jsonFinancialAccountTermDeposit) == "{}" { // empty struct
+			dst.FinancialAccountTermDeposit = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountTermDeposit, return on the first match
+		}
+	} else {
+		dst.FinancialAccountTermDeposit = nil
+	}
+
+	// try to unmarshal JSON data into FinancialAccountUlip
+	err = json.Unmarshal(data, &dst.FinancialAccountUlip);
+	if err == nil {
+		jsonFinancialAccountUlip, _ := json.Marshal(dst.FinancialAccountUlip)
+		if string(jsonFinancialAccountUlip) == "{}" { // empty struct
+			dst.FinancialAccountUlip = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountUlip, return on the first match
+		}
+	} else {
+		dst.FinancialAccountUlip = nil
+	}
+
+	return fmt.Errorf("Data failed to match schemas in anyOf(FinancialAccount)")
 }
 
-// SetBalance gets a reference to the given NullableString and assigns it to the Balance field.
-func (o *FinancialAccount) SetBalance(v string) {
-	o.Balance.Set(&v)
-}
-// SetBalanceNil sets the value for Balance to be an explicit nil
-func (o *FinancialAccount) SetBalanceNil() {
-	o.Balance.Set(nil)
-}
-
-// UnsetBalance ensures that no value is present for Balance, not even an explicit nil
-func (o *FinancialAccount) UnsetBalance() {
-	o.Balance.Unset()
-}
-
-// GetBalanceType returns the BalanceType field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FinancialAccount) GetBalanceType() string {
-	if o == nil || o.BalanceType.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.BalanceType.Get()
-}
-
-// GetBalanceTypeOk returns a tuple with the BalanceType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FinancialAccount) GetBalanceTypeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BalanceType.Get(), o.BalanceType.IsSet()
-}
-
-// HasBalanceType returns a boolean if a field has been set.
-func (o *FinancialAccount) HasBalanceType() bool {
-	if o != nil && o.BalanceType.IsSet() {
-		return true
+// Marshal data from the first non-nil pointers in the struct to JSON
+func (src *FinancialAccount) MarshalJSON() ([]byte, error) {
+	if src.FinancialAccountAif != nil {
+		return json.Marshal(&src.FinancialAccountAif)
 	}
 
-	return false
-}
-
-// SetBalanceType gets a reference to the given NullableString and assigns it to the BalanceType field.
-func (o *FinancialAccount) SetBalanceType(v string) {
-	o.BalanceType.Set(&v)
-}
-// SetBalanceTypeNil sets the value for BalanceType to be an explicit nil
-func (o *FinancialAccount) SetBalanceTypeNil() {
-	o.BalanceType.Set(nil)
-}
-
-// UnsetBalanceType ensures that no value is present for BalanceType, not even an explicit nil
-func (o *FinancialAccount) UnsetBalanceType() {
-	o.BalanceType.Unset()
-}
-
-// GetIsShared returns the IsShared field value if set, zero value otherwise.
-func (o *FinancialAccount) GetIsShared() bool {
-	if o == nil || o.IsShared == nil {
-		var ret bool
-		return ret
-	}
-	return *o.IsShared
-}
-
-// GetIsSharedOk returns a tuple with the IsShared field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FinancialAccount) GetIsSharedOk() (*bool, bool) {
-	if o == nil || o.IsShared == nil {
-		return nil, false
-	}
-	return o.IsShared, true
-}
-
-// HasIsShared returns a boolean if a field has been set.
-func (o *FinancialAccount) HasIsShared() bool {
-	if o != nil && o.IsShared != nil {
-		return true
+	if src.FinancialAccountBillPayment != nil {
+		return json.Marshal(&src.FinancialAccountBillPayment)
 	}
 
-	return false
-}
-
-// SetIsShared gets a reference to the given bool and assigns it to the IsShared field.
-func (o *FinancialAccount) SetIsShared(v bool) {
-	o.IsShared = &v
-}
-
-// GetSharedWith returns the SharedWith field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FinancialAccount) GetSharedWith() []SharedWith {
-	if o == nil {
-		var ret []SharedWith
-		return ret
-	}
-	return o.SharedWith
-}
-
-// GetSharedWithOk returns a tuple with the SharedWith field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FinancialAccount) GetSharedWithOk() ([]SharedWith, bool) {
-	if o == nil || o.SharedWith == nil {
-		return nil, false
-	}
-	return o.SharedWith, true
-}
-
-// HasSharedWith returns a boolean if a field has been set.
-func (o *FinancialAccount) HasSharedWith() bool {
-	if o != nil && o.SharedWith != nil {
-		return true
+	if src.FinancialAccountBond != nil {
+		return json.Marshal(&src.FinancialAccountBond)
 	}
 
-	return false
-}
-
-// SetSharedWith gets a reference to the given []SharedWith and assigns it to the SharedWith field.
-func (o *FinancialAccount) SetSharedWith(v []SharedWith) {
-	o.SharedWith = v
-}
-
-// GetIsReceived returns the IsReceived field value if set, zero value otherwise.
-func (o *FinancialAccount) GetIsReceived() bool {
-	if o == nil || o.IsReceived == nil {
-		var ret bool
-		return ret
-	}
-	return *o.IsReceived
-}
-
-// GetIsReceivedOk returns a tuple with the IsReceived field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FinancialAccount) GetIsReceivedOk() (*bool, bool) {
-	if o == nil || o.IsReceived == nil {
-		return nil, false
-	}
-	return o.IsReceived, true
-}
-
-// HasIsReceived returns a boolean if a field has been set.
-func (o *FinancialAccount) HasIsReceived() bool {
-	if o != nil && o.IsReceived != nil {
-		return true
+	if src.FinancialAccountCIS != nil {
+		return json.Marshal(&src.FinancialAccountCIS)
 	}
 
-	return false
-}
-
-// SetIsReceived gets a reference to the given bool and assigns it to the IsReceived field.
-func (o *FinancialAccount) SetIsReceived(v bool) {
-	o.IsReceived = &v
-}
-
-// GetExpiresAtUtc returns the ExpiresAtUtc field value if set, zero value otherwise.
-func (o *FinancialAccount) GetExpiresAtUtc() time.Time {
-	if o == nil || o.ExpiresAtUtc == nil {
-		var ret time.Time
-		return ret
-	}
-	return *o.ExpiresAtUtc
-}
-
-// GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FinancialAccount) GetExpiresAtUtcOk() (*time.Time, bool) {
-	if o == nil || o.ExpiresAtUtc == nil {
-		return nil, false
-	}
-	return o.ExpiresAtUtc, true
-}
-
-// HasExpiresAtUtc returns a boolean if a field has been set.
-func (o *FinancialAccount) HasExpiresAtUtc() bool {
-	if o != nil && o.ExpiresAtUtc != nil {
-		return true
+	if src.FinancialAccountCertificateOfDeposit != nil {
+		return json.Marshal(&src.FinancialAccountCertificateOfDeposit)
 	}
 
-	return false
-}
-
-// SetExpiresAtUtc gets a reference to the given time.Time and assigns it to the ExpiresAtUtc field.
-func (o *FinancialAccount) SetExpiresAtUtc(v time.Time) {
-	o.ExpiresAtUtc = &v
-}
-
-// GetActivities returns the Activities field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FinancialAccount) GetActivities() []Activity {
-	if o == nil {
-		var ret []Activity
-		return ret
-	}
-	return o.Activities
-}
-
-// GetActivitiesOk returns a tuple with the Activities field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FinancialAccount) GetActivitiesOk() ([]Activity, bool) {
-	if o == nil || o.Activities == nil {
-		return nil, false
-	}
-	return o.Activities, true
-}
-
-// HasActivities returns a boolean if a field has been set.
-func (o *FinancialAccount) HasActivities() bool {
-	if o != nil && o.Activities != nil {
-		return true
+	if src.FinancialAccountCommercialPaper != nil {
+		return json.Marshal(&src.FinancialAccountCommercialPaper)
 	}
 
-	return false
-}
-
-// SetActivities gets a reference to the given []Activity and assigns it to the Activities field.
-func (o *FinancialAccount) SetActivities(v []Activity) {
-	o.Activities = v
-}
-
-// GetApprovedConsentRequests returns the ApprovedConsentRequests field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FinancialAccount) GetApprovedConsentRequests() []ApprovedConsentRequest {
-	if o == nil {
-		var ret []ApprovedConsentRequest
-		return ret
-	}
-	return o.ApprovedConsentRequests
-}
-
-// GetApprovedConsentRequestsOk returns a tuple with the ApprovedConsentRequests field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FinancialAccount) GetApprovedConsentRequestsOk() ([]ApprovedConsentRequest, bool) {
-	if o == nil || o.ApprovedConsentRequests == nil {
-		return nil, false
-	}
-	return o.ApprovedConsentRequests, true
-}
-
-// HasApprovedConsentRequests returns a boolean if a field has been set.
-func (o *FinancialAccount) HasApprovedConsentRequests() bool {
-	if o != nil && o.ApprovedConsentRequests != nil {
-		return true
+	if src.FinancialAccountCreditCard != nil {
+		return json.Marshal(&src.FinancialAccountCreditCard)
 	}
 
-	return false
-}
+	if src.FinancialAccountDebenture != nil {
+		return json.Marshal(&src.FinancialAccountDebenture)
+	}
 
-// SetApprovedConsentRequests gets a reference to the given []ApprovedConsentRequest and assigns it to the ApprovedConsentRequests field.
-func (o *FinancialAccount) SetApprovedConsentRequests(v []ApprovedConsentRequest) {
-	o.ApprovedConsentRequests = v
-}
+	if src.FinancialAccountDeposit != nil {
+		return json.Marshal(&src.FinancialAccountDeposit)
+	}
 
-func (o FinancialAccount) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.Id != nil {
-		toSerialize["id"] = o.Id
+	if src.FinancialAccountEpf != nil {
+		return json.Marshal(&src.FinancialAccountEpf)
 	}
-	if o.Issuer.IsSet() {
-		toSerialize["issuer"] = o.Issuer.Get()
+
+	if src.FinancialAccountEquity != nil {
+		return json.Marshal(&src.FinancialAccountEquity)
 	}
-	if o.LogoUrl.IsSet() {
-		toSerialize["logoUrl"] = o.LogoUrl.Get()
+
+	if src.FinancialAccountEtf != nil {
+		return json.Marshal(&src.FinancialAccountEtf)
 	}
-	if o.CategoryId.IsSet() {
-		toSerialize["categoryId"] = o.CategoryId.Get()
+
+	if src.FinancialAccountGovtSecurity != nil {
+		return json.Marshal(&src.FinancialAccountGovtSecurity)
 	}
-	if o.CategoryName.IsSet() {
-		toSerialize["categoryName"] = o.CategoryName.Get()
+
+	if src.FinancialAccountIdr != nil {
+		return json.Marshal(&src.FinancialAccountIdr)
 	}
-	if o.AccountName.IsSet() {
-		toSerialize["accountName"] = o.AccountName.Get()
+
+	if src.FinancialAccountInsurancePolicy != nil {
+		return json.Marshal(&src.FinancialAccountInsurancePolicy)
 	}
-	if o.AccountLogoUrl.IsSet() {
-		toSerialize["accountLogoUrl"] = o.AccountLogoUrl.Get()
+
+	if src.FinancialAccountInvit != nil {
+		return json.Marshal(&src.FinancialAccountInvit)
 	}
-	if o.Balance.IsSet() {
-		toSerialize["balance"] = o.Balance.Get()
+
+	if src.FinancialAccountLoan != nil {
+		return json.Marshal(&src.FinancialAccountLoan)
 	}
-	if o.BalanceType.IsSet() {
-		toSerialize["balanceType"] = o.BalanceType.Get()
+
+	if src.FinancialAccountMutualFund != nil {
+		return json.Marshal(&src.FinancialAccountMutualFund)
 	}
-	if o.IsShared != nil {
-		toSerialize["isShared"] = o.IsShared
+
+	if src.FinancialAccountNps != nil {
+		return json.Marshal(&src.FinancialAccountNps)
 	}
-	if o.SharedWith != nil {
-		toSerialize["sharedWith"] = o.SharedWith
+
+	if src.FinancialAccountPpf != nil {
+		return json.Marshal(&src.FinancialAccountPpf)
 	}
-	if o.IsReceived != nil {
-		toSerialize["isReceived"] = o.IsReceived
+
+	if src.FinancialAccountRecurringDeposit != nil {
+		return json.Marshal(&src.FinancialAccountRecurringDeposit)
 	}
-	if o.ExpiresAtUtc != nil {
-		toSerialize["expiresAtUtc"] = o.ExpiresAtUtc
+
+	if src.FinancialAccountReit != nil {
+		return json.Marshal(&src.FinancialAccountReit)
 	}
-	if o.Activities != nil {
-		toSerialize["activities"] = o.Activities
+
+	if src.FinancialAccountSip != nil {
+		return json.Marshal(&src.FinancialAccountSip)
 	}
-	if o.ApprovedConsentRequests != nil {
-		toSerialize["approvedConsentRequests"] = o.ApprovedConsentRequests
+
+	if src.FinancialAccountTermDeposit != nil {
+		return json.Marshal(&src.FinancialAccountTermDeposit)
 	}
-	return json.Marshal(toSerialize)
+
+	if src.FinancialAccountUlip != nil {
+		return json.Marshal(&src.FinancialAccountUlip)
+	}
+
+	return nil, nil // no data in anyOf schemas
 }
 
 type NullableFinancialAccount struct {

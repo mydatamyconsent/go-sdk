@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -15,18 +15,22 @@ import (
 	"encoding/json"
 )
 
-// Life struct for Life
+// Life Life : Life with unit and value.
 type Life struct {
-	Unit NullableString `json:"unit,omitempty"`
-	Value NullableString `json:"value,omitempty"`
+	// Life unit. Example: days, hours, minutes.
+	Unit string `json:"unit"`
+	// Life value in number.
+	Value string `json:"value"`
 }
 
 // NewLife instantiates a new Life object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLife() *Life {
+func NewLife(unit string, value string) *Life {
 	this := Life{}
+	this.Unit = unit
+	this.Value = value
 	return &this
 }
 
@@ -38,97 +42,61 @@ func NewLifeWithDefaults() *Life {
 	return &this
 }
 
-// GetUnit returns the Unit field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUnit returns the Unit field value
 func (o *Life) GetUnit() string {
-	if o == nil || o.Unit.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Unit.Get()
+
+	return o.Unit
 }
 
-// GetUnitOk returns a tuple with the Unit field value if set, nil otherwise
+// GetUnitOk returns a tuple with the Unit field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Life) GetUnitOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Unit.Get(), o.Unit.IsSet()
+	return &o.Unit, true
 }
 
-// HasUnit returns a boolean if a field has been set.
-func (o *Life) HasUnit() bool {
-	if o != nil && o.Unit.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUnit gets a reference to the given NullableString and assigns it to the Unit field.
+// SetUnit sets field value
 func (o *Life) SetUnit(v string) {
-	o.Unit.Set(&v)
-}
-// SetUnitNil sets the value for Unit to be an explicit nil
-func (o *Life) SetUnitNil() {
-	o.Unit.Set(nil)
+	o.Unit = v
 }
 
-// UnsetUnit ensures that no value is present for Unit, not even an explicit nil
-func (o *Life) UnsetUnit() {
-	o.Unit.Unset()
-}
-
-// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetValue returns the Value field value
 func (o *Life) GetValue() string {
-	if o == nil || o.Value.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Value.Get()
+
+	return o.Value
 }
 
-// GetValueOk returns a tuple with the Value field value if set, nil otherwise
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Life) GetValueOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Value.Get(), o.Value.IsSet()
+	return &o.Value, true
 }
 
-// HasValue returns a boolean if a field has been set.
-func (o *Life) HasValue() bool {
-	if o != nil && o.Value.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetValue gets a reference to the given NullableString and assigns it to the Value field.
+// SetValue sets field value
 func (o *Life) SetValue(v string) {
-	o.Value.Set(&v)
-}
-// SetValueNil sets the value for Value to be an explicit nil
-func (o *Life) SetValueNil() {
-	o.Value.Set(nil)
-}
-
-// UnsetValue ensures that no value is present for Value, not even an explicit nil
-func (o *Life) UnsetValue() {
-	o.Value.Unset()
+	o.Value = v
 }
 
 func (o Life) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Unit.IsSet() {
-		toSerialize["unit"] = o.Unit.Get()
+	if true {
+		toSerialize["unit"] = o.Unit
 	}
-	if o.Value.IsSet() {
-		toSerialize["value"] = o.Value.Get()
+	if true {
+		toSerialize["value"] = o.Value
 	}
 	return json.Marshal(toSerialize)
 }

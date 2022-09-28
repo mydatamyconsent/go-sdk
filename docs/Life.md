@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Unit** | Pointer to **NullableString** |  | [optional] 
-**Value** | Pointer to **NullableString** |  | [optional] 
+**Unit** | **string** | Life unit. Example: days, hours, minutes. | 
+**Value** | **string** | Life value in number. | 
 
 ## Methods
 
 ### NewLife
 
-`func NewLife() *Life`
+`func NewLife(unit string, value string, ) *Life`
 
 NewLife instantiates a new Life object
 This constructor will assign default values to properties that have it defined,
@@ -45,22 +45,7 @@ and a boolean to check if the value has been set.
 
 SetUnit sets Unit field to given value.
 
-### HasUnit
 
-`func (o *Life) HasUnit() bool`
-
-HasUnit returns a boolean if a field has been set.
-
-### SetUnitNil
-
-`func (o *Life) SetUnitNil(b bool)`
-
- SetUnitNil sets the value for Unit to be an explicit nil
-
-### UnsetUnit
-`func (o *Life) UnsetUnit()`
-
-UnsetUnit ensures that no value is present for Unit, not even an explicit nil
 ### GetValue
 
 `func (o *Life) GetValue() string`
@@ -80,22 +65,7 @@ and a boolean to check if the value has been set.
 
 SetValue sets Value field to given value.
 
-### HasValue
 
-`func (o *Life) HasValue() bool`
-
-HasValue returns a boolean if a field has been set.
-
-### SetValueNil
-
-`func (o *Life) SetValueNil(b bool)`
-
- SetValueNil sets the value for Value to be an explicit nil
-
-### UnsetValue
-`func (o *Life) UnsetValue()`
-
-UnsetValue ensures that no value is present for Value, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

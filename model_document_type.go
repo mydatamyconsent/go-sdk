@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -16,7 +16,7 @@ import (
 	"time"
 )
 
-// DocumentType Issuable Document Type details.
+// DocumentType DocumentType : Issuable Document Type details.
 type DocumentType struct {
 	// Document Type Identifier.
 	Id string `json:"id"`
@@ -24,33 +24,32 @@ type DocumentType struct {
 	SubCategoryType DocumentSubCategoryType `json:"subCategoryType"`
 	// Document Type Name. eg: Driving License.
 	Name string `json:"name"`
-	// Document Type Unique Slug. eg: \"in.gov.gj.transport.dl\".
+	// Document Type Unique Slug. eg: \\\"in.gov.gj.transport.dl\\\".
 	Slug string `json:"slug"`
 	// Document Type description. eg: Gujarat State Driving License.
-	Description NullableString `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 	// Logo URL of document type.
 	LogoUrl string `json:"logoUrl"`
 	// Document search repository service name.
-	SearchServiceName NullableString `json:"searchServiceName,omitempty"`
+	SearchServiceName *string `json:"searchServiceName,omitempty"`
 	// Document repository service name.
-	RepositoryServiceName NullableString `json:"repositoryServiceName,omitempty"`
-	// Supported entity types. eg: Individual, Organization.
-	SupportedEntityTypes []SupportedEntityType `json:"supportedEntityTypes"`
+	RepositoryServiceName *string `json:"repositoryServiceName,omitempty"`
+	SupportedEntityType SupportedEntityType `json:"supportedEntityType"`
 	// Name of the document type creator.
 	AddedBy string `json:"addedBy"`
 	// Payable amount if document is chargeable. eg: 10.25.
 	PayableAmount float64 `json:"payableAmount"`
 	// Payable amount currency. eg: INR, USD etc.,.
-	PayableAmountCurrency NullableString `json:"payableAmountCurrency,omitempty"`
+	PayableAmountCurrency string `json:"payableAmountCurrency"`
 	// DateTime of approval in UTC timezone.
-	ApprovedAtUtc NullableTime `json:"approvedAtUtc,omitempty"`
+	ApprovedAtUtc *time.Time `json:"approvedAtUtc,omitempty"`
 }
 
 // NewDocumentType instantiates a new DocumentType object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryType DocumentSubCategoryType, name string, slug string, logoUrl string, supportedEntityTypes []SupportedEntityType, addedBy string, payableAmount float64) *DocumentType {
+func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryType DocumentSubCategoryType, name string, slug string, logoUrl string, supportedEntityType SupportedEntityType, addedBy string, payableAmount float64, payableAmountCurrency string) *DocumentType {
 	this := DocumentType{}
 	this.Id = id
 	this.CategoryType = categoryType
@@ -58,9 +57,10 @@ func NewDocumentType(id string, categoryType DocumentCategoryType, subCategoryTy
 	this.Name = name
 	this.Slug = slug
 	this.LogoUrl = logoUrl
-	this.SupportedEntityTypes = supportedEntityTypes
+	this.SupportedEntityType = supportedEntityType
 	this.AddedBy = addedBy
 	this.PayableAmount = payableAmount
+	this.PayableAmountCurrency = payableAmountCurrency
 	return &this
 }
 
@@ -192,46 +192,36 @@ func (o *DocumentType) SetSlug(v string) {
 	o.Slug = v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *DocumentType) GetDescription() string {
-	if o == nil || o.Description.Get() == nil {
+	if o == nil || o.Description == nil {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DocumentType) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Description == nil {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *DocumentType) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && o.Description != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *DocumentType) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *DocumentType) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *DocumentType) UnsetDescription() {
-	o.Description.Unset()
+	o.Description = &v
 }
 
 // GetLogoUrl returns the LogoUrl field value
@@ -258,112 +248,92 @@ func (o *DocumentType) SetLogoUrl(v string) {
 	o.LogoUrl = v
 }
 
-// GetSearchServiceName returns the SearchServiceName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSearchServiceName returns the SearchServiceName field value if set, zero value otherwise.
 func (o *DocumentType) GetSearchServiceName() string {
-	if o == nil || o.SearchServiceName.Get() == nil {
+	if o == nil || o.SearchServiceName == nil {
 		var ret string
 		return ret
 	}
-	return *o.SearchServiceName.Get()
+	return *o.SearchServiceName
 }
 
 // GetSearchServiceNameOk returns a tuple with the SearchServiceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DocumentType) GetSearchServiceNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.SearchServiceName == nil {
 		return nil, false
 	}
-	return o.SearchServiceName.Get(), o.SearchServiceName.IsSet()
+	return o.SearchServiceName, true
 }
 
 // HasSearchServiceName returns a boolean if a field has been set.
 func (o *DocumentType) HasSearchServiceName() bool {
-	if o != nil && o.SearchServiceName.IsSet() {
+	if o != nil && o.SearchServiceName != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetSearchServiceName gets a reference to the given NullableString and assigns it to the SearchServiceName field.
+// SetSearchServiceName gets a reference to the given string and assigns it to the SearchServiceName field.
 func (o *DocumentType) SetSearchServiceName(v string) {
-	o.SearchServiceName.Set(&v)
-}
-// SetSearchServiceNameNil sets the value for SearchServiceName to be an explicit nil
-func (o *DocumentType) SetSearchServiceNameNil() {
-	o.SearchServiceName.Set(nil)
+	o.SearchServiceName = &v
 }
 
-// UnsetSearchServiceName ensures that no value is present for SearchServiceName, not even an explicit nil
-func (o *DocumentType) UnsetSearchServiceName() {
-	o.SearchServiceName.Unset()
-}
-
-// GetRepositoryServiceName returns the RepositoryServiceName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRepositoryServiceName returns the RepositoryServiceName field value if set, zero value otherwise.
 func (o *DocumentType) GetRepositoryServiceName() string {
-	if o == nil || o.RepositoryServiceName.Get() == nil {
+	if o == nil || o.RepositoryServiceName == nil {
 		var ret string
 		return ret
 	}
-	return *o.RepositoryServiceName.Get()
+	return *o.RepositoryServiceName
 }
 
 // GetRepositoryServiceNameOk returns a tuple with the RepositoryServiceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DocumentType) GetRepositoryServiceNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.RepositoryServiceName == nil {
 		return nil, false
 	}
-	return o.RepositoryServiceName.Get(), o.RepositoryServiceName.IsSet()
+	return o.RepositoryServiceName, true
 }
 
 // HasRepositoryServiceName returns a boolean if a field has been set.
 func (o *DocumentType) HasRepositoryServiceName() bool {
-	if o != nil && o.RepositoryServiceName.IsSet() {
+	if o != nil && o.RepositoryServiceName != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetRepositoryServiceName gets a reference to the given NullableString and assigns it to the RepositoryServiceName field.
+// SetRepositoryServiceName gets a reference to the given string and assigns it to the RepositoryServiceName field.
 func (o *DocumentType) SetRepositoryServiceName(v string) {
-	o.RepositoryServiceName.Set(&v)
-}
-// SetRepositoryServiceNameNil sets the value for RepositoryServiceName to be an explicit nil
-func (o *DocumentType) SetRepositoryServiceNameNil() {
-	o.RepositoryServiceName.Set(nil)
+	o.RepositoryServiceName = &v
 }
 
-// UnsetRepositoryServiceName ensures that no value is present for RepositoryServiceName, not even an explicit nil
-func (o *DocumentType) UnsetRepositoryServiceName() {
-	o.RepositoryServiceName.Unset()
-}
-
-// GetSupportedEntityTypes returns the SupportedEntityTypes field value
-func (o *DocumentType) GetSupportedEntityTypes() []SupportedEntityType {
+// GetSupportedEntityType returns the SupportedEntityType field value
+func (o *DocumentType) GetSupportedEntityType() SupportedEntityType {
 	if o == nil {
-		var ret []SupportedEntityType
+		var ret SupportedEntityType
 		return ret
 	}
 
-	return o.SupportedEntityTypes
+	return o.SupportedEntityType
 }
 
-// GetSupportedEntityTypesOk returns a tuple with the SupportedEntityTypes field value
+// GetSupportedEntityTypeOk returns a tuple with the SupportedEntityType field value
 // and a boolean to check if the value has been set.
-func (o *DocumentType) GetSupportedEntityTypesOk() ([]SupportedEntityType, bool) {
+func (o *DocumentType) GetSupportedEntityTypeOk() (*SupportedEntityType, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.SupportedEntityTypes, true
+	return &o.SupportedEntityType, true
 }
 
-// SetSupportedEntityTypes sets field value
-func (o *DocumentType) SetSupportedEntityTypes(v []SupportedEntityType) {
-	o.SupportedEntityTypes = v
+// SetSupportedEntityType sets field value
+func (o *DocumentType) SetSupportedEntityType(v SupportedEntityType) {
+	o.SupportedEntityType = v
 }
 
 // GetAddedBy returns the AddedBy field value
@@ -414,88 +384,60 @@ func (o *DocumentType) SetPayableAmount(v float64) {
 	o.PayableAmount = v
 }
 
-// GetPayableAmountCurrency returns the PayableAmountCurrency field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPayableAmountCurrency returns the PayableAmountCurrency field value
 func (o *DocumentType) GetPayableAmountCurrency() string {
-	if o == nil || o.PayableAmountCurrency.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.PayableAmountCurrency.Get()
+
+	return o.PayableAmountCurrency
 }
 
-// GetPayableAmountCurrencyOk returns a tuple with the PayableAmountCurrency field value if set, nil otherwise
+// GetPayableAmountCurrencyOk returns a tuple with the PayableAmountCurrency field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DocumentType) GetPayableAmountCurrencyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.PayableAmountCurrency.Get(), o.PayableAmountCurrency.IsSet()
+	return &o.PayableAmountCurrency, true
 }
 
-// HasPayableAmountCurrency returns a boolean if a field has been set.
-func (o *DocumentType) HasPayableAmountCurrency() bool {
-	if o != nil && o.PayableAmountCurrency.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPayableAmountCurrency gets a reference to the given NullableString and assigns it to the PayableAmountCurrency field.
+// SetPayableAmountCurrency sets field value
 func (o *DocumentType) SetPayableAmountCurrency(v string) {
-	o.PayableAmountCurrency.Set(&v)
-}
-// SetPayableAmountCurrencyNil sets the value for PayableAmountCurrency to be an explicit nil
-func (o *DocumentType) SetPayableAmountCurrencyNil() {
-	o.PayableAmountCurrency.Set(nil)
+	o.PayableAmountCurrency = v
 }
 
-// UnsetPayableAmountCurrency ensures that no value is present for PayableAmountCurrency, not even an explicit nil
-func (o *DocumentType) UnsetPayableAmountCurrency() {
-	o.PayableAmountCurrency.Unset()
-}
-
-// GetApprovedAtUtc returns the ApprovedAtUtc field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetApprovedAtUtc returns the ApprovedAtUtc field value if set, zero value otherwise.
 func (o *DocumentType) GetApprovedAtUtc() time.Time {
-	if o == nil || o.ApprovedAtUtc.Get() == nil {
+	if o == nil || o.ApprovedAtUtc == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.ApprovedAtUtc.Get()
+	return *o.ApprovedAtUtc
 }
 
 // GetApprovedAtUtcOk returns a tuple with the ApprovedAtUtc field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DocumentType) GetApprovedAtUtcOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || o.ApprovedAtUtc == nil {
 		return nil, false
 	}
-	return o.ApprovedAtUtc.Get(), o.ApprovedAtUtc.IsSet()
+	return o.ApprovedAtUtc, true
 }
 
 // HasApprovedAtUtc returns a boolean if a field has been set.
 func (o *DocumentType) HasApprovedAtUtc() bool {
-	if o != nil && o.ApprovedAtUtc.IsSet() {
+	if o != nil && o.ApprovedAtUtc != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetApprovedAtUtc gets a reference to the given NullableTime and assigns it to the ApprovedAtUtc field.
+// SetApprovedAtUtc gets a reference to the given time.Time and assigns it to the ApprovedAtUtc field.
 func (o *DocumentType) SetApprovedAtUtc(v time.Time) {
-	o.ApprovedAtUtc.Set(&v)
-}
-// SetApprovedAtUtcNil sets the value for ApprovedAtUtc to be an explicit nil
-func (o *DocumentType) SetApprovedAtUtcNil() {
-	o.ApprovedAtUtc.Set(nil)
-}
-
-// UnsetApprovedAtUtc ensures that no value is present for ApprovedAtUtc, not even an explicit nil
-func (o *DocumentType) UnsetApprovedAtUtc() {
-	o.ApprovedAtUtc.Unset()
+	o.ApprovedAtUtc = &v
 }
 
 func (o DocumentType) MarshalJSON() ([]byte, error) {
@@ -515,20 +457,20 @@ func (o DocumentType) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["slug"] = o.Slug
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if o.Description != nil {
+		toSerialize["description"] = o.Description
 	}
 	if true {
 		toSerialize["logoUrl"] = o.LogoUrl
 	}
-	if o.SearchServiceName.IsSet() {
-		toSerialize["searchServiceName"] = o.SearchServiceName.Get()
+	if o.SearchServiceName != nil {
+		toSerialize["searchServiceName"] = o.SearchServiceName
 	}
-	if o.RepositoryServiceName.IsSet() {
-		toSerialize["repositoryServiceName"] = o.RepositoryServiceName.Get()
+	if o.RepositoryServiceName != nil {
+		toSerialize["repositoryServiceName"] = o.RepositoryServiceName
 	}
 	if true {
-		toSerialize["supportedEntityTypes"] = o.SupportedEntityTypes
+		toSerialize["supportedEntityType"] = o.SupportedEntityType
 	}
 	if true {
 		toSerialize["addedBy"] = o.AddedBy
@@ -536,11 +478,11 @@ func (o DocumentType) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["payableAmount"] = o.PayableAmount
 	}
-	if o.PayableAmountCurrency.IsSet() {
-		toSerialize["payableAmountCurrency"] = o.PayableAmountCurrency.Get()
+	if true {
+		toSerialize["payableAmountCurrency"] = o.PayableAmountCurrency
 	}
-	if o.ApprovedAtUtc.IsSet() {
-		toSerialize["approvedAtUtc"] = o.ApprovedAtUtc.Get()
+	if o.ApprovedAtUtc != nil {
+		toSerialize["approvedAtUtc"] = o.ApprovedAtUtc
 	}
 	return json.Marshal(toSerialize)
 }

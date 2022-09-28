@@ -7,18 +7,18 @@ Name | Type | Description | Notes
 **DocumentTypeId** | **string** | Document type id. | 
 **Identifier** | **string** | Document identifier. | 
 **Description** | **string** | Document description. | 
-**Receiver** | [**DocumentReceiver**](DocumentReceiver.md) |  | 
+**Receiver** | [**DocumentIssueRequestReceiver**](DocumentIssueRequestReceiver.md) |  | 
+**PaymentRequest** | Pointer to [**DocumentIssueRequestPaymentRequest**](DocumentIssueRequestPaymentRequest.md) |  | [optional] 
 **IssuedAtUtc** | **time.Time** | Datetime of issue in UTC timezone. | 
 **ValidFromUtc** | **time.Time** | Valid from datetime in UTC timezone. | 
-**ExpiresAtUtc** | Pointer to **NullableTime** | Datetime of expiry in UTC timezone. | [optional] 
-**PaymentRequest** | Pointer to [**PaymentRequest**](PaymentRequest.md) |  | [optional] 
+**ExpiresAtUtc** | Pointer to **time.Time** | Datetime of expiry in UTC timezone. | [optional] 
 **Metadata** | Pointer to **map[string]string** | Metadata. | [optional] 
 
 ## Methods
 
 ### NewDocumentIssueRequest
 
-`func NewDocumentIssueRequest(documentTypeId string, identifier string, description string, receiver DocumentReceiver, issuedAtUtc time.Time, validFromUtc time.Time, ) *DocumentIssueRequest`
+`func NewDocumentIssueRequest(documentTypeId string, identifier string, description string, receiver DocumentIssueRequestReceiver, issuedAtUtc time.Time, validFromUtc time.Time, ) *DocumentIssueRequest`
 
 NewDocumentIssueRequest instantiates a new DocumentIssueRequest object
 This constructor will assign default values to properties that have it defined,
@@ -95,23 +95,48 @@ SetDescription sets Description field to given value.
 
 ### GetReceiver
 
-`func (o *DocumentIssueRequest) GetReceiver() DocumentReceiver`
+`func (o *DocumentIssueRequest) GetReceiver() DocumentIssueRequestReceiver`
 
 GetReceiver returns the Receiver field if non-nil, zero value otherwise.
 
 ### GetReceiverOk
 
-`func (o *DocumentIssueRequest) GetReceiverOk() (*DocumentReceiver, bool)`
+`func (o *DocumentIssueRequest) GetReceiverOk() (*DocumentIssueRequestReceiver, bool)`
 
 GetReceiverOk returns a tuple with the Receiver field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReceiver
 
-`func (o *DocumentIssueRequest) SetReceiver(v DocumentReceiver)`
+`func (o *DocumentIssueRequest) SetReceiver(v DocumentIssueRequestReceiver)`
 
 SetReceiver sets Receiver field to given value.
 
+
+### GetPaymentRequest
+
+`func (o *DocumentIssueRequest) GetPaymentRequest() DocumentIssueRequestPaymentRequest`
+
+GetPaymentRequest returns the PaymentRequest field if non-nil, zero value otherwise.
+
+### GetPaymentRequestOk
+
+`func (o *DocumentIssueRequest) GetPaymentRequestOk() (*DocumentIssueRequestPaymentRequest, bool)`
+
+GetPaymentRequestOk returns a tuple with the PaymentRequest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentRequest
+
+`func (o *DocumentIssueRequest) SetPaymentRequest(v DocumentIssueRequestPaymentRequest)`
+
+SetPaymentRequest sets PaymentRequest field to given value.
+
+### HasPaymentRequest
+
+`func (o *DocumentIssueRequest) HasPaymentRequest() bool`
+
+HasPaymentRequest returns a boolean if a field has been set.
 
 ### GetIssuedAtUtc
 
@@ -178,41 +203,6 @@ SetExpiresAtUtc sets ExpiresAtUtc field to given value.
 
 HasExpiresAtUtc returns a boolean if a field has been set.
 
-### SetExpiresAtUtcNil
-
-`func (o *DocumentIssueRequest) SetExpiresAtUtcNil(b bool)`
-
- SetExpiresAtUtcNil sets the value for ExpiresAtUtc to be an explicit nil
-
-### UnsetExpiresAtUtc
-`func (o *DocumentIssueRequest) UnsetExpiresAtUtc()`
-
-UnsetExpiresAtUtc ensures that no value is present for ExpiresAtUtc, not even an explicit nil
-### GetPaymentRequest
-
-`func (o *DocumentIssueRequest) GetPaymentRequest() PaymentRequest`
-
-GetPaymentRequest returns the PaymentRequest field if non-nil, zero value otherwise.
-
-### GetPaymentRequestOk
-
-`func (o *DocumentIssueRequest) GetPaymentRequestOk() (*PaymentRequest, bool)`
-
-GetPaymentRequestOk returns a tuple with the PaymentRequest field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPaymentRequest
-
-`func (o *DocumentIssueRequest) SetPaymentRequest(v PaymentRequest)`
-
-SetPaymentRequest sets PaymentRequest field to given value.
-
-### HasPaymentRequest
-
-`func (o *DocumentIssueRequest) HasPaymentRequest() bool`
-
-HasPaymentRequest returns a boolean if a field has been set.
-
 ### GetMetadata
 
 `func (o *DocumentIssueRequest) GetMetadata() map[string]string`
@@ -238,16 +228,6 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
-### SetMetadataNil
-
-`func (o *DocumentIssueRequest) SetMetadataNil(b bool)`
-
- SetMetadataNil sets the value for Metadata to be an explicit nil
-
-### UnsetMetadata
-`func (o *DocumentIssueRequest) UnsetMetadata()`
-
-UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

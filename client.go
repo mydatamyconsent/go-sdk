@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -42,7 +42,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the My Data My Consent - Developer API API vv1
+// APIClient manages communication with the My Data My Consent - Developer API API v1.0
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -50,17 +50,13 @@ type APIClient struct {
 
 	// API Services
 
-	DataConsentRequestsApi *DataConsentRequestsApiService
-
-	DataConsentsApi *DataConsentsApiService
-
 	DataProcessingAgreementsApi *DataProcessingAgreementsApiService
 
-	DataProviderDiscoveryApi *DataProviderDiscoveryApiService
+	DataProvidersDiscoveryApi *DataProvidersDiscoveryApiService
 
-	DigiLockerCompatIssuerApi *DigiLockerCompatIssuerApiService
+	IndividualsApi *IndividualsApiService
 
-	DocumentsApi *DocumentsApiService
+	OrganizationsApi *OrganizationsApiService
 
 	SupportedIdentifiersApi *SupportedIdentifiersApiService
 }
@@ -81,12 +77,10 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.DataConsentRequestsApi = (*DataConsentRequestsApiService)(&c.common)
-	c.DataConsentsApi = (*DataConsentsApiService)(&c.common)
 	c.DataProcessingAgreementsApi = (*DataProcessingAgreementsApiService)(&c.common)
-	c.DataProviderDiscoveryApi = (*DataProviderDiscoveryApiService)(&c.common)
-	c.DigiLockerCompatIssuerApi = (*DigiLockerCompatIssuerApiService)(&c.common)
-	c.DocumentsApi = (*DocumentsApiService)(&c.common)
+	c.DataProvidersDiscoveryApi = (*DataProvidersDiscoveryApiService)(&c.common)
+	c.IndividualsApi = (*IndividualsApiService)(&c.common)
+	c.OrganizationsApi = (*OrganizationsApiService)(&c.common)
 	c.SupportedIdentifiersApi = (*SupportedIdentifiersApiService)(&c.common)
 
 	return c
@@ -123,7 +117,7 @@ func selectHeaderAccept(accepts []string) string {
 // contains is a case insensitive match, finding needle in a haystack
 func contains(haystack []string, needle string) bool {
 	for _, a := range haystack {
-		if strings.ToLower(a) == strings.ToLower(needle) {
+		if strings.EqualFold(a, needle) {
 			return true
 		}
 	}
@@ -421,11 +415,14 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 
 // Add a file to the multipart request
 func addFile(w *multipart.Writer, fieldName, path string) error {
-	file, err := os.Open(path)
+	file, err := os.Open(filepath.Clean(path))
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	err = file.Close()
+	if err != nil {
+		return err
+	}
 
 	part, err := w.CreateFormFile(fieldName, filepath.Base(path))
 	if err != nil {

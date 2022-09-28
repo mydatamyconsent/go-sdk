@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResponseStatus** | Pointer to **NullableString** |  | [optional] 
-**ResponseMessage** | Pointer to **NullableString** |  | [optional] 
-**Ns2** | Pointer to **NullableString** |  | [optional] 
-**Ver** | Pointer to **NullableString** |  | [optional] 
-**Ts** | Pointer to **NullableString** |  | [optional] 
-**Txn** | Pointer to **NullableString** |  | [optional] 
-**OrgId** | Pointer to **NullableString** |  | [optional] 
+**ResponseStatus** | Pointer to **string** |  | [optional] 
+**ResponseMessage** | Pointer to **string** |  | [optional] 
+**Ns2** | Pointer to **string** |  | [optional] 
+**Ver** | Pointer to **string** |  | [optional] 
+**Ts** | Pointer to **string** |  | [optional] 
+**Txn** | Pointer to **string** |  | [optional] 
+**OrgId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -56,16 +56,6 @@ SetResponseStatus sets ResponseStatus field to given value.
 
 HasResponseStatus returns a boolean if a field has been set.
 
-### SetResponseStatusNil
-
-`func (o *PushUriResponse) SetResponseStatusNil(b bool)`
-
- SetResponseStatusNil sets the value for ResponseStatus to be an explicit nil
-
-### UnsetResponseStatus
-`func (o *PushUriResponse) UnsetResponseStatus()`
-
-UnsetResponseStatus ensures that no value is present for ResponseStatus, not even an explicit nil
 ### GetResponseMessage
 
 `func (o *PushUriResponse) GetResponseMessage() string`
@@ -91,16 +81,6 @@ SetResponseMessage sets ResponseMessage field to given value.
 
 HasResponseMessage returns a boolean if a field has been set.
 
-### SetResponseMessageNil
-
-`func (o *PushUriResponse) SetResponseMessageNil(b bool)`
-
- SetResponseMessageNil sets the value for ResponseMessage to be an explicit nil
-
-### UnsetResponseMessage
-`func (o *PushUriResponse) UnsetResponseMessage()`
-
-UnsetResponseMessage ensures that no value is present for ResponseMessage, not even an explicit nil
 ### GetNs2
 
 `func (o *PushUriResponse) GetNs2() string`
@@ -126,16 +106,6 @@ SetNs2 sets Ns2 field to given value.
 
 HasNs2 returns a boolean if a field has been set.
 
-### SetNs2Nil
-
-`func (o *PushUriResponse) SetNs2Nil(b bool)`
-
- SetNs2Nil sets the value for Ns2 to be an explicit nil
-
-### UnsetNs2
-`func (o *PushUriResponse) UnsetNs2()`
-
-UnsetNs2 ensures that no value is present for Ns2, not even an explicit nil
 ### GetVer
 
 `func (o *PushUriResponse) GetVer() string`
@@ -161,16 +131,6 @@ SetVer sets Ver field to given value.
 
 HasVer returns a boolean if a field has been set.
 
-### SetVerNil
-
-`func (o *PushUriResponse) SetVerNil(b bool)`
-
- SetVerNil sets the value for Ver to be an explicit nil
-
-### UnsetVer
-`func (o *PushUriResponse) UnsetVer()`
-
-UnsetVer ensures that no value is present for Ver, not even an explicit nil
 ### GetTs
 
 `func (o *PushUriResponse) GetTs() string`
@@ -196,16 +156,6 @@ SetTs sets Ts field to given value.
 
 HasTs returns a boolean if a field has been set.
 
-### SetTsNil
-
-`func (o *PushUriResponse) SetTsNil(b bool)`
-
- SetTsNil sets the value for Ts to be an explicit nil
-
-### UnsetTs
-`func (o *PushUriResponse) UnsetTs()`
-
-UnsetTs ensures that no value is present for Ts, not even an explicit nil
 ### GetTxn
 
 `func (o *PushUriResponse) GetTxn() string`
@@ -231,16 +181,6 @@ SetTxn sets Txn field to given value.
 
 HasTxn returns a boolean if a field has been set.
 
-### SetTxnNil
-
-`func (o *PushUriResponse) SetTxnNil(b bool)`
-
- SetTxnNil sets the value for Txn to be an explicit nil
-
-### UnsetTxn
-`func (o *PushUriResponse) UnsetTxn()`
-
-UnsetTxn ensures that no value is present for Txn, not even an explicit nil
 ### GetOrgId
 
 `func (o *PushUriResponse) GetOrgId() string`
@@ -266,16 +206,6 @@ SetOrgId sets OrgId field to given value.
 
 HasOrgId returns a boolean if a field has been set.
 
-### SetOrgIdNil
-
-`func (o *PushUriResponse) SetOrgIdNil(b bool)`
-
- SetOrgIdNil sets the value for OrgId to be an explicit nil
-
-### UnsetOrgId
-`func (o *PushUriResponse) UnsetOrgId()`
-
-UnsetOrgId ensures that no value is present for OrgId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

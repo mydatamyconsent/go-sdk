@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -20,27 +20,25 @@ type DataProvider struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
 	Category string `json:"category"`
-	LogoUrl NullableString `json:"logoUrl,omitempty"`
-	Website NullableString `json:"website,omitempty"`
-	SupportEmail NullableString `json:"supportEmail,omitempty"`
-	HelpLineNumber NullableString `json:"helpLineNumber,omitempty"`
-	PrivacyPolicy NullableString `json:"privacyPolicy,omitempty"`
-	TermOfService NullableString `json:"termOfService,omitempty"`
-	DataProtectionOfficer *DataProtectionOfficer `json:"dataProtectionOfficer,omitempty"`
-	SupportedDocumentTypes []string `json:"supportedDocumentTypes"`
-	SupportedAccountTypes []string `json:"supportedAccountTypes,omitempty"`
+	LogoUrl *string `json:"logoUrl,omitempty"`
+	Website *string `json:"website,omitempty"`
+	SupportEmail *string `json:"supportEmail,omitempty"`
+	HelpLineNumber *string `json:"helpLineNumber,omitempty"`
+	PrivacyPolicy *string `json:"privacyPolicy,omitempty"`
+	TermOfService *string `json:"termOfService,omitempty"`
+	DataProtectionOfficer DataProtectionOfficer `json:"dataProtectionOfficer"`
 }
 
 // NewDataProvider instantiates a new DataProvider object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDataProvider(id string, name string, category string, supportedDocumentTypes []string) *DataProvider {
+func NewDataProvider(id string, name string, category string, dataProtectionOfficer DataProtectionOfficer) *DataProvider {
 	this := DataProvider{}
 	this.Id = id
 	this.Name = name
 	this.Category = category
-	this.SupportedDocumentTypes = supportedDocumentTypes
+	this.DataProtectionOfficer = dataProtectionOfficer
 	return &this
 }
 
@@ -124,345 +122,220 @@ func (o *DataProvider) SetCategory(v string) {
 	o.Category = v
 }
 
-// GetLogoUrl returns the LogoUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLogoUrl returns the LogoUrl field value if set, zero value otherwise.
 func (o *DataProvider) GetLogoUrl() string {
-	if o == nil || o.LogoUrl.Get() == nil {
+	if o == nil || o.LogoUrl == nil {
 		var ret string
 		return ret
 	}
-	return *o.LogoUrl.Get()
+	return *o.LogoUrl
 }
 
 // GetLogoUrlOk returns a tuple with the LogoUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProvider) GetLogoUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.LogoUrl == nil {
 		return nil, false
 	}
-	return o.LogoUrl.Get(), o.LogoUrl.IsSet()
+	return o.LogoUrl, true
 }
 
 // HasLogoUrl returns a boolean if a field has been set.
 func (o *DataProvider) HasLogoUrl() bool {
-	if o != nil && o.LogoUrl.IsSet() {
+	if o != nil && o.LogoUrl != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetLogoUrl gets a reference to the given NullableString and assigns it to the LogoUrl field.
+// SetLogoUrl gets a reference to the given string and assigns it to the LogoUrl field.
 func (o *DataProvider) SetLogoUrl(v string) {
-	o.LogoUrl.Set(&v)
-}
-// SetLogoUrlNil sets the value for LogoUrl to be an explicit nil
-func (o *DataProvider) SetLogoUrlNil() {
-	o.LogoUrl.Set(nil)
+	o.LogoUrl = &v
 }
 
-// UnsetLogoUrl ensures that no value is present for LogoUrl, not even an explicit nil
-func (o *DataProvider) UnsetLogoUrl() {
-	o.LogoUrl.Unset()
-}
-
-// GetWebsite returns the Website field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetWebsite returns the Website field value if set, zero value otherwise.
 func (o *DataProvider) GetWebsite() string {
-	if o == nil || o.Website.Get() == nil {
+	if o == nil || o.Website == nil {
 		var ret string
 		return ret
 	}
-	return *o.Website.Get()
+	return *o.Website
 }
 
 // GetWebsiteOk returns a tuple with the Website field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProvider) GetWebsiteOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Website == nil {
 		return nil, false
 	}
-	return o.Website.Get(), o.Website.IsSet()
+	return o.Website, true
 }
 
 // HasWebsite returns a boolean if a field has been set.
 func (o *DataProvider) HasWebsite() bool {
-	if o != nil && o.Website.IsSet() {
+	if o != nil && o.Website != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetWebsite gets a reference to the given NullableString and assigns it to the Website field.
+// SetWebsite gets a reference to the given string and assigns it to the Website field.
 func (o *DataProvider) SetWebsite(v string) {
-	o.Website.Set(&v)
-}
-// SetWebsiteNil sets the value for Website to be an explicit nil
-func (o *DataProvider) SetWebsiteNil() {
-	o.Website.Set(nil)
+	o.Website = &v
 }
 
-// UnsetWebsite ensures that no value is present for Website, not even an explicit nil
-func (o *DataProvider) UnsetWebsite() {
-	o.Website.Unset()
-}
-
-// GetSupportEmail returns the SupportEmail field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSupportEmail returns the SupportEmail field value if set, zero value otherwise.
 func (o *DataProvider) GetSupportEmail() string {
-	if o == nil || o.SupportEmail.Get() == nil {
+	if o == nil || o.SupportEmail == nil {
 		var ret string
 		return ret
 	}
-	return *o.SupportEmail.Get()
+	return *o.SupportEmail
 }
 
 // GetSupportEmailOk returns a tuple with the SupportEmail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProvider) GetSupportEmailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.SupportEmail == nil {
 		return nil, false
 	}
-	return o.SupportEmail.Get(), o.SupportEmail.IsSet()
+	return o.SupportEmail, true
 }
 
 // HasSupportEmail returns a boolean if a field has been set.
 func (o *DataProvider) HasSupportEmail() bool {
-	if o != nil && o.SupportEmail.IsSet() {
+	if o != nil && o.SupportEmail != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetSupportEmail gets a reference to the given NullableString and assigns it to the SupportEmail field.
+// SetSupportEmail gets a reference to the given string and assigns it to the SupportEmail field.
 func (o *DataProvider) SetSupportEmail(v string) {
-	o.SupportEmail.Set(&v)
-}
-// SetSupportEmailNil sets the value for SupportEmail to be an explicit nil
-func (o *DataProvider) SetSupportEmailNil() {
-	o.SupportEmail.Set(nil)
+	o.SupportEmail = &v
 }
 
-// UnsetSupportEmail ensures that no value is present for SupportEmail, not even an explicit nil
-func (o *DataProvider) UnsetSupportEmail() {
-	o.SupportEmail.Unset()
-}
-
-// GetHelpLineNumber returns the HelpLineNumber field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHelpLineNumber returns the HelpLineNumber field value if set, zero value otherwise.
 func (o *DataProvider) GetHelpLineNumber() string {
-	if o == nil || o.HelpLineNumber.Get() == nil {
+	if o == nil || o.HelpLineNumber == nil {
 		var ret string
 		return ret
 	}
-	return *o.HelpLineNumber.Get()
+	return *o.HelpLineNumber
 }
 
 // GetHelpLineNumberOk returns a tuple with the HelpLineNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProvider) GetHelpLineNumberOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.HelpLineNumber == nil {
 		return nil, false
 	}
-	return o.HelpLineNumber.Get(), o.HelpLineNumber.IsSet()
+	return o.HelpLineNumber, true
 }
 
 // HasHelpLineNumber returns a boolean if a field has been set.
 func (o *DataProvider) HasHelpLineNumber() bool {
-	if o != nil && o.HelpLineNumber.IsSet() {
+	if o != nil && o.HelpLineNumber != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetHelpLineNumber gets a reference to the given NullableString and assigns it to the HelpLineNumber field.
+// SetHelpLineNumber gets a reference to the given string and assigns it to the HelpLineNumber field.
 func (o *DataProvider) SetHelpLineNumber(v string) {
-	o.HelpLineNumber.Set(&v)
-}
-// SetHelpLineNumberNil sets the value for HelpLineNumber to be an explicit nil
-func (o *DataProvider) SetHelpLineNumberNil() {
-	o.HelpLineNumber.Set(nil)
+	o.HelpLineNumber = &v
 }
 
-// UnsetHelpLineNumber ensures that no value is present for HelpLineNumber, not even an explicit nil
-func (o *DataProvider) UnsetHelpLineNumber() {
-	o.HelpLineNumber.Unset()
-}
-
-// GetPrivacyPolicy returns the PrivacyPolicy field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPrivacyPolicy returns the PrivacyPolicy field value if set, zero value otherwise.
 func (o *DataProvider) GetPrivacyPolicy() string {
-	if o == nil || o.PrivacyPolicy.Get() == nil {
+	if o == nil || o.PrivacyPolicy == nil {
 		var ret string
 		return ret
 	}
-	return *o.PrivacyPolicy.Get()
+	return *o.PrivacyPolicy
 }
 
 // GetPrivacyPolicyOk returns a tuple with the PrivacyPolicy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProvider) GetPrivacyPolicyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.PrivacyPolicy == nil {
 		return nil, false
 	}
-	return o.PrivacyPolicy.Get(), o.PrivacyPolicy.IsSet()
+	return o.PrivacyPolicy, true
 }
 
 // HasPrivacyPolicy returns a boolean if a field has been set.
 func (o *DataProvider) HasPrivacyPolicy() bool {
-	if o != nil && o.PrivacyPolicy.IsSet() {
+	if o != nil && o.PrivacyPolicy != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetPrivacyPolicy gets a reference to the given NullableString and assigns it to the PrivacyPolicy field.
+// SetPrivacyPolicy gets a reference to the given string and assigns it to the PrivacyPolicy field.
 func (o *DataProvider) SetPrivacyPolicy(v string) {
-	o.PrivacyPolicy.Set(&v)
-}
-// SetPrivacyPolicyNil sets the value for PrivacyPolicy to be an explicit nil
-func (o *DataProvider) SetPrivacyPolicyNil() {
-	o.PrivacyPolicy.Set(nil)
+	o.PrivacyPolicy = &v
 }
 
-// UnsetPrivacyPolicy ensures that no value is present for PrivacyPolicy, not even an explicit nil
-func (o *DataProvider) UnsetPrivacyPolicy() {
-	o.PrivacyPolicy.Unset()
-}
-
-// GetTermOfService returns the TermOfService field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTermOfService returns the TermOfService field value if set, zero value otherwise.
 func (o *DataProvider) GetTermOfService() string {
-	if o == nil || o.TermOfService.Get() == nil {
+	if o == nil || o.TermOfService == nil {
 		var ret string
 		return ret
 	}
-	return *o.TermOfService.Get()
+	return *o.TermOfService
 }
 
 // GetTermOfServiceOk returns a tuple with the TermOfService field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProvider) GetTermOfServiceOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.TermOfService == nil {
 		return nil, false
 	}
-	return o.TermOfService.Get(), o.TermOfService.IsSet()
+	return o.TermOfService, true
 }
 
 // HasTermOfService returns a boolean if a field has been set.
 func (o *DataProvider) HasTermOfService() bool {
-	if o != nil && o.TermOfService.IsSet() {
+	if o != nil && o.TermOfService != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetTermOfService gets a reference to the given NullableString and assigns it to the TermOfService field.
+// SetTermOfService gets a reference to the given string and assigns it to the TermOfService field.
 func (o *DataProvider) SetTermOfService(v string) {
-	o.TermOfService.Set(&v)
-}
-// SetTermOfServiceNil sets the value for TermOfService to be an explicit nil
-func (o *DataProvider) SetTermOfServiceNil() {
-	o.TermOfService.Set(nil)
+	o.TermOfService = &v
 }
 
-// UnsetTermOfService ensures that no value is present for TermOfService, not even an explicit nil
-func (o *DataProvider) UnsetTermOfService() {
-	o.TermOfService.Unset()
-}
-
-// GetDataProtectionOfficer returns the DataProtectionOfficer field value if set, zero value otherwise.
+// GetDataProtectionOfficer returns the DataProtectionOfficer field value
 func (o *DataProvider) GetDataProtectionOfficer() DataProtectionOfficer {
-	if o == nil || o.DataProtectionOfficer == nil {
+	if o == nil {
 		var ret DataProtectionOfficer
 		return ret
 	}
-	return *o.DataProtectionOfficer
+
+	return o.DataProtectionOfficer
 }
 
-// GetDataProtectionOfficerOk returns a tuple with the DataProtectionOfficer field value if set, nil otherwise
+// GetDataProtectionOfficerOk returns a tuple with the DataProtectionOfficer field value
 // and a boolean to check if the value has been set.
 func (o *DataProvider) GetDataProtectionOfficerOk() (*DataProtectionOfficer, bool) {
-	if o == nil || o.DataProtectionOfficer == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.DataProtectionOfficer, true
+	return &o.DataProtectionOfficer, true
 }
 
-// HasDataProtectionOfficer returns a boolean if a field has been set.
-func (o *DataProvider) HasDataProtectionOfficer() bool {
-	if o != nil && o.DataProtectionOfficer != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetDataProtectionOfficer gets a reference to the given DataProtectionOfficer and assigns it to the DataProtectionOfficer field.
+// SetDataProtectionOfficer sets field value
 func (o *DataProvider) SetDataProtectionOfficer(v DataProtectionOfficer) {
-	o.DataProtectionOfficer = &v
-}
-
-// GetSupportedDocumentTypes returns the SupportedDocumentTypes field value
-func (o *DataProvider) GetSupportedDocumentTypes() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-
-	return o.SupportedDocumentTypes
-}
-
-// GetSupportedDocumentTypesOk returns a tuple with the SupportedDocumentTypes field value
-// and a boolean to check if the value has been set.
-func (o *DataProvider) GetSupportedDocumentTypesOk() ([]string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.SupportedDocumentTypes, true
-}
-
-// SetSupportedDocumentTypes sets field value
-func (o *DataProvider) SetSupportedDocumentTypes(v []string) {
-	o.SupportedDocumentTypes = v
-}
-
-// GetSupportedAccountTypes returns the SupportedAccountTypes field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataProvider) GetSupportedAccountTypes() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-	return o.SupportedAccountTypes
-}
-
-// GetSupportedAccountTypesOk returns a tuple with the SupportedAccountTypes field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataProvider) GetSupportedAccountTypesOk() ([]string, bool) {
-	if o == nil || o.SupportedAccountTypes == nil {
-		return nil, false
-	}
-	return o.SupportedAccountTypes, true
-}
-
-// HasSupportedAccountTypes returns a boolean if a field has been set.
-func (o *DataProvider) HasSupportedAccountTypes() bool {
-	if o != nil && o.SupportedAccountTypes != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetSupportedAccountTypes gets a reference to the given []string and assigns it to the SupportedAccountTypes field.
-func (o *DataProvider) SetSupportedAccountTypes(v []string) {
-	o.SupportedAccountTypes = v
+	o.DataProtectionOfficer = v
 }
 
 func (o DataProvider) MarshalJSON() ([]byte, error) {
@@ -476,32 +349,26 @@ func (o DataProvider) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["category"] = o.Category
 	}
-	if o.LogoUrl.IsSet() {
-		toSerialize["logoUrl"] = o.LogoUrl.Get()
+	if o.LogoUrl != nil {
+		toSerialize["logoUrl"] = o.LogoUrl
 	}
-	if o.Website.IsSet() {
-		toSerialize["website"] = o.Website.Get()
+	if o.Website != nil {
+		toSerialize["website"] = o.Website
 	}
-	if o.SupportEmail.IsSet() {
-		toSerialize["supportEmail"] = o.SupportEmail.Get()
+	if o.SupportEmail != nil {
+		toSerialize["supportEmail"] = o.SupportEmail
 	}
-	if o.HelpLineNumber.IsSet() {
-		toSerialize["helpLineNumber"] = o.HelpLineNumber.Get()
+	if o.HelpLineNumber != nil {
+		toSerialize["helpLineNumber"] = o.HelpLineNumber
 	}
-	if o.PrivacyPolicy.IsSet() {
-		toSerialize["privacyPolicy"] = o.PrivacyPolicy.Get()
+	if o.PrivacyPolicy != nil {
+		toSerialize["privacyPolicy"] = o.PrivacyPolicy
 	}
-	if o.TermOfService.IsSet() {
-		toSerialize["termOfService"] = o.TermOfService.Get()
-	}
-	if o.DataProtectionOfficer != nil {
-		toSerialize["dataProtectionOfficer"] = o.DataProtectionOfficer
+	if o.TermOfService != nil {
+		toSerialize["termOfService"] = o.TermOfService
 	}
 	if true {
-		toSerialize["supportedDocumentTypes"] = o.SupportedDocumentTypes
-	}
-	if o.SupportedAccountTypes != nil {
-		toSerialize["supportedAccountTypes"] = o.SupportedAccountTypes
+		toSerialize["dataProtectionOfficer"] = o.DataProtectionOfficer
 	}
 	return json.Marshal(toSerialize)
 }

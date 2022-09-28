@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CountryIso2Code** | **string** |  | 
-**Identifiers** | [**[]StringStringKeyValuePair**](StringStringKeyValuePair.md) |  | 
+**Identifiers** | [**[]KeyValuePair**](KeyValuePair.md) |  | 
 **IdentificationStrategy** | [**IdentificationStrategy**](IdentificationStrategy.md) |  | 
 
 ## Methods
 
 ### NewDocumentReceiver
 
-`func NewDocumentReceiver(countryIso2Code string, identifiers []StringStringKeyValuePair, identificationStrategy IdentificationStrategy, ) *DocumentReceiver`
+`func NewDocumentReceiver(countryIso2Code string, identifiers []KeyValuePair, identificationStrategy IdentificationStrategy, ) *DocumentReceiver`
 
 NewDocumentReceiver instantiates a new DocumentReceiver object
 This constructor will assign default values to properties that have it defined,
@@ -49,20 +49,20 @@ SetCountryIso2Code sets CountryIso2Code field to given value.
 
 ### GetIdentifiers
 
-`func (o *DocumentReceiver) GetIdentifiers() []StringStringKeyValuePair`
+`func (o *DocumentReceiver) GetIdentifiers() []KeyValuePair`
 
 GetIdentifiers returns the Identifiers field if non-nil, zero value otherwise.
 
 ### GetIdentifiersOk
 
-`func (o *DocumentReceiver) GetIdentifiersOk() (*[]StringStringKeyValuePair, bool)`
+`func (o *DocumentReceiver) GetIdentifiersOk() (*[]KeyValuePair, bool)`
 
 GetIdentifiersOk returns a tuple with the Identifiers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIdentifiers
 
-`func (o *DocumentReceiver) SetIdentifiers(v []StringStringKeyValuePair)`
+`func (o *DocumentReceiver) SetIdentifiers(v []KeyValuePair)`
 
 SetIdentifiers sets Identifiers field to given value.
 

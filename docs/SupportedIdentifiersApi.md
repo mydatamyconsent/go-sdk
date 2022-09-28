@@ -4,17 +4,15 @@ All URIs are relative to *https://api.mydatamyconsent.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAllSupportedIdentifiers**](SupportedIdentifiersApi.md#GetAllSupportedIdentifiers) | **Get** /v1/supported-identifiers/{countryIso2Code} | Get all supported identifiers by country.
+[**V1SupportedIdentifiersCountryIso2CodeGet**](SupportedIdentifiersApi.md#V1SupportedIdentifiersCountryIso2CodeGet) | **Get** /v1/supported-identifiers/{country_iso2_code} | Get all supported identifiers by country.
 
 
 
-## GetAllSupportedIdentifiers
+## V1SupportedIdentifiersCountryIso2CodeGet
 
-> SupportedIdentifier GetAllSupportedIdentifiers(ctx, countryIso2Code).Execute()
+> SupportedIdentifier V1SupportedIdentifiersCountryIso2CodeGet(ctx, countryIso2Code).Execute()
 
 Get all supported identifiers by country.
-
-
 
 ### Example
 
@@ -29,17 +27,17 @@ import (
 )
 
 func main() {
-    countryIso2Code := "countryIso2Code_example" // string | Country ISO 2 code.
+    countryIso2Code := "countryIso2Code_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SupportedIdentifiersApi.GetAllSupportedIdentifiers(context.Background(), countryIso2Code).Execute()
+    resp, r, err := apiClient.SupportedIdentifiersApi.V1SupportedIdentifiersCountryIso2CodeGet(context.Background(), countryIso2Code).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SupportedIdentifiersApi.GetAllSupportedIdentifiers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SupportedIdentifiersApi.V1SupportedIdentifiersCountryIso2CodeGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetAllSupportedIdentifiers`: SupportedIdentifier
-    fmt.Fprintf(os.Stdout, "Response from `SupportedIdentifiersApi.GetAllSupportedIdentifiers`: %v\n", resp)
+    // response from `V1SupportedIdentifiersCountryIso2CodeGet`: SupportedIdentifier
+    fmt.Fprintf(os.Stdout, "Response from `SupportedIdentifiersApi.V1SupportedIdentifiersCountryIso2CodeGet`: %v\n", resp)
 }
 ```
 
@@ -49,11 +47,11 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**countryIso2Code** | **string** | Country ISO 2 code. | 
+**countryIso2Code** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetAllSupportedIdentifiersRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiV1SupportedIdentifiersCountryIso2CodeGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -66,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2ClientCredentials](../README.md#OAuth2ClientCredentials)
 
 ### HTTP request headers
 

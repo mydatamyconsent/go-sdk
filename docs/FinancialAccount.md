@@ -4,27 +4,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**Issuer** | Pointer to **NullableString** |  | [optional] 
-**LogoUrl** | Pointer to **NullableString** |  | [optional] 
-**CategoryId** | Pointer to **NullableString** |  | [optional] 
-**CategoryName** | Pointer to **NullableString** |  | [optional] 
-**AccountName** | Pointer to **NullableString** |  | [optional] 
-**AccountLogoUrl** | Pointer to **NullableString** |  | [optional] 
-**Balance** | Pointer to **NullableString** |  | [optional] 
-**BalanceType** | Pointer to **NullableString** |  | [optional] 
-**IsShared** | Pointer to **bool** |  | [optional] 
-**SharedWith** | Pointer to [**[]SharedWith**](SharedWith.md) |  | [optional] 
-**IsReceived** | Pointer to **bool** |  | [optional] 
-**ExpiresAtUtc** | Pointer to **time.Time** |  | [optional] 
-**Activities** | Pointer to [**[]Activity**](Activity.md) |  | [optional] 
-**ApprovedConsentRequests** | Pointer to [**[]ApprovedConsentRequest**](ApprovedConsentRequest.md) |  | [optional] 
+**Type** | **string** |  | 
+**Id** | **string** |  | 
+**Name** | **string** |  | 
+**Identifier** | **string** |  | 
+**Balance** | **float64** |  | 
+**Profile** | [**Profile**](Profile.md) |  | 
+**Summary** | [**EquitySummary**](EquitySummary.md) |  | 
+**MaskedAccountNumber** | **string** |  | 
+**LinkedAccountRef** | **string** |  | 
+**Version** | **float32** |  | 
+**Amount** | **float64** |  | 
 
 ## Methods
 
 ### NewFinancialAccount
 
-`func NewFinancialAccount() *FinancialAccount`
+`func NewFinancialAccount(type_ string, id string, name string, identifier string, balance float64, profile Profile, summary EquitySummary, maskedAccountNumber string, linkedAccountRef string, version float32, amount float64, ) *FinancialAccount`
 
 NewFinancialAccount instantiates a new FinancialAccount object
 This constructor will assign default values to properties that have it defined,
@@ -38,6 +34,26 @@ will change when the set of required properties is changed
 NewFinancialAccountWithDefaults instantiates a new FinancialAccount object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetType
+
+`func (o *FinancialAccount) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *FinancialAccount) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *FinancialAccount) SetType(v string)`
+
+SetType sets Type field to given value.
+
 
 ### GetId
 
@@ -58,472 +74,187 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
 
-`func (o *FinancialAccount) HasId() bool`
+### GetName
 
-HasId returns a boolean if a field has been set.
+`func (o *FinancialAccount) GetName() string`
 
-### GetIssuer
+GetName returns the Name field if non-nil, zero value otherwise.
 
-`func (o *FinancialAccount) GetIssuer() string`
+### GetNameOk
 
-GetIssuer returns the Issuer field if non-nil, zero value otherwise.
+`func (o *FinancialAccount) GetNameOk() (*string, bool)`
 
-### GetIssuerOk
-
-`func (o *FinancialAccount) GetIssuerOk() (*string, bool)`
-
-GetIssuerOk returns a tuple with the Issuer field if it's non-nil, zero value otherwise
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIssuer
+### SetName
 
-`func (o *FinancialAccount) SetIssuer(v string)`
+`func (o *FinancialAccount) SetName(v string)`
 
-SetIssuer sets Issuer field to given value.
+SetName sets Name field to given value.
 
-### HasIssuer
 
-`func (o *FinancialAccount) HasIssuer() bool`
+### GetIdentifier
 
-HasIssuer returns a boolean if a field has been set.
+`func (o *FinancialAccount) GetIdentifier() string`
 
-### SetIssuerNil
+GetIdentifier returns the Identifier field if non-nil, zero value otherwise.
 
-`func (o *FinancialAccount) SetIssuerNil(b bool)`
+### GetIdentifierOk
 
- SetIssuerNil sets the value for Issuer to be an explicit nil
+`func (o *FinancialAccount) GetIdentifierOk() (*string, bool)`
 
-### UnsetIssuer
-`func (o *FinancialAccount) UnsetIssuer()`
-
-UnsetIssuer ensures that no value is present for Issuer, not even an explicit nil
-### GetLogoUrl
-
-`func (o *FinancialAccount) GetLogoUrl() string`
-
-GetLogoUrl returns the LogoUrl field if non-nil, zero value otherwise.
-
-### GetLogoUrlOk
-
-`func (o *FinancialAccount) GetLogoUrlOk() (*string, bool)`
-
-GetLogoUrlOk returns a tuple with the LogoUrl field if it's non-nil, zero value otherwise
+GetIdentifierOk returns a tuple with the Identifier field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLogoUrl
+### SetIdentifier
 
-`func (o *FinancialAccount) SetLogoUrl(v string)`
+`func (o *FinancialAccount) SetIdentifier(v string)`
 
-SetLogoUrl sets LogoUrl field to given value.
+SetIdentifier sets Identifier field to given value.
 
-### HasLogoUrl
 
-`func (o *FinancialAccount) HasLogoUrl() bool`
-
-HasLogoUrl returns a boolean if a field has been set.
-
-### SetLogoUrlNil
-
-`func (o *FinancialAccount) SetLogoUrlNil(b bool)`
-
- SetLogoUrlNil sets the value for LogoUrl to be an explicit nil
-
-### UnsetLogoUrl
-`func (o *FinancialAccount) UnsetLogoUrl()`
-
-UnsetLogoUrl ensures that no value is present for LogoUrl, not even an explicit nil
-### GetCategoryId
-
-`func (o *FinancialAccount) GetCategoryId() string`
-
-GetCategoryId returns the CategoryId field if non-nil, zero value otherwise.
-
-### GetCategoryIdOk
-
-`func (o *FinancialAccount) GetCategoryIdOk() (*string, bool)`
-
-GetCategoryIdOk returns a tuple with the CategoryId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCategoryId
-
-`func (o *FinancialAccount) SetCategoryId(v string)`
-
-SetCategoryId sets CategoryId field to given value.
-
-### HasCategoryId
-
-`func (o *FinancialAccount) HasCategoryId() bool`
-
-HasCategoryId returns a boolean if a field has been set.
-
-### SetCategoryIdNil
-
-`func (o *FinancialAccount) SetCategoryIdNil(b bool)`
-
- SetCategoryIdNil sets the value for CategoryId to be an explicit nil
-
-### UnsetCategoryId
-`func (o *FinancialAccount) UnsetCategoryId()`
-
-UnsetCategoryId ensures that no value is present for CategoryId, not even an explicit nil
-### GetCategoryName
-
-`func (o *FinancialAccount) GetCategoryName() string`
-
-GetCategoryName returns the CategoryName field if non-nil, zero value otherwise.
-
-### GetCategoryNameOk
-
-`func (o *FinancialAccount) GetCategoryNameOk() (*string, bool)`
-
-GetCategoryNameOk returns a tuple with the CategoryName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCategoryName
-
-`func (o *FinancialAccount) SetCategoryName(v string)`
-
-SetCategoryName sets CategoryName field to given value.
-
-### HasCategoryName
-
-`func (o *FinancialAccount) HasCategoryName() bool`
-
-HasCategoryName returns a boolean if a field has been set.
-
-### SetCategoryNameNil
-
-`func (o *FinancialAccount) SetCategoryNameNil(b bool)`
-
- SetCategoryNameNil sets the value for CategoryName to be an explicit nil
-
-### UnsetCategoryName
-`func (o *FinancialAccount) UnsetCategoryName()`
-
-UnsetCategoryName ensures that no value is present for CategoryName, not even an explicit nil
-### GetAccountName
-
-`func (o *FinancialAccount) GetAccountName() string`
-
-GetAccountName returns the AccountName field if non-nil, zero value otherwise.
-
-### GetAccountNameOk
-
-`func (o *FinancialAccount) GetAccountNameOk() (*string, bool)`
-
-GetAccountNameOk returns a tuple with the AccountName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountName
-
-`func (o *FinancialAccount) SetAccountName(v string)`
-
-SetAccountName sets AccountName field to given value.
-
-### HasAccountName
-
-`func (o *FinancialAccount) HasAccountName() bool`
-
-HasAccountName returns a boolean if a field has been set.
-
-### SetAccountNameNil
-
-`func (o *FinancialAccount) SetAccountNameNil(b bool)`
-
- SetAccountNameNil sets the value for AccountName to be an explicit nil
-
-### UnsetAccountName
-`func (o *FinancialAccount) UnsetAccountName()`
-
-UnsetAccountName ensures that no value is present for AccountName, not even an explicit nil
-### GetAccountLogoUrl
-
-`func (o *FinancialAccount) GetAccountLogoUrl() string`
-
-GetAccountLogoUrl returns the AccountLogoUrl field if non-nil, zero value otherwise.
-
-### GetAccountLogoUrlOk
-
-`func (o *FinancialAccount) GetAccountLogoUrlOk() (*string, bool)`
-
-GetAccountLogoUrlOk returns a tuple with the AccountLogoUrl field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountLogoUrl
-
-`func (o *FinancialAccount) SetAccountLogoUrl(v string)`
-
-SetAccountLogoUrl sets AccountLogoUrl field to given value.
-
-### HasAccountLogoUrl
-
-`func (o *FinancialAccount) HasAccountLogoUrl() bool`
-
-HasAccountLogoUrl returns a boolean if a field has been set.
-
-### SetAccountLogoUrlNil
-
-`func (o *FinancialAccount) SetAccountLogoUrlNil(b bool)`
-
- SetAccountLogoUrlNil sets the value for AccountLogoUrl to be an explicit nil
-
-### UnsetAccountLogoUrl
-`func (o *FinancialAccount) UnsetAccountLogoUrl()`
-
-UnsetAccountLogoUrl ensures that no value is present for AccountLogoUrl, not even an explicit nil
 ### GetBalance
 
-`func (o *FinancialAccount) GetBalance() string`
+`func (o *FinancialAccount) GetBalance() float64`
 
 GetBalance returns the Balance field if non-nil, zero value otherwise.
 
 ### GetBalanceOk
 
-`func (o *FinancialAccount) GetBalanceOk() (*string, bool)`
+`func (o *FinancialAccount) GetBalanceOk() (*float64, bool)`
 
 GetBalanceOk returns a tuple with the Balance field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBalance
 
-`func (o *FinancialAccount) SetBalance(v string)`
+`func (o *FinancialAccount) SetBalance(v float64)`
 
 SetBalance sets Balance field to given value.
 
-### HasBalance
 
-`func (o *FinancialAccount) HasBalance() bool`
+### GetProfile
 
-HasBalance returns a boolean if a field has been set.
+`func (o *FinancialAccount) GetProfile() Profile`
 
-### SetBalanceNil
+GetProfile returns the Profile field if non-nil, zero value otherwise.
 
-`func (o *FinancialAccount) SetBalanceNil(b bool)`
+### GetProfileOk
 
- SetBalanceNil sets the value for Balance to be an explicit nil
+`func (o *FinancialAccount) GetProfileOk() (*Profile, bool)`
 
-### UnsetBalance
-`func (o *FinancialAccount) UnsetBalance()`
-
-UnsetBalance ensures that no value is present for Balance, not even an explicit nil
-### GetBalanceType
-
-`func (o *FinancialAccount) GetBalanceType() string`
-
-GetBalanceType returns the BalanceType field if non-nil, zero value otherwise.
-
-### GetBalanceTypeOk
-
-`func (o *FinancialAccount) GetBalanceTypeOk() (*string, bool)`
-
-GetBalanceTypeOk returns a tuple with the BalanceType field if it's non-nil, zero value otherwise
+GetProfileOk returns a tuple with the Profile field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBalanceType
+### SetProfile
 
-`func (o *FinancialAccount) SetBalanceType(v string)`
+`func (o *FinancialAccount) SetProfile(v Profile)`
 
-SetBalanceType sets BalanceType field to given value.
+SetProfile sets Profile field to given value.
 
-### HasBalanceType
 
-`func (o *FinancialAccount) HasBalanceType() bool`
+### GetSummary
 
-HasBalanceType returns a boolean if a field has been set.
+`func (o *FinancialAccount) GetSummary() EquitySummary`
 
-### SetBalanceTypeNil
+GetSummary returns the Summary field if non-nil, zero value otherwise.
 
-`func (o *FinancialAccount) SetBalanceTypeNil(b bool)`
+### GetSummaryOk
 
- SetBalanceTypeNil sets the value for BalanceType to be an explicit nil
+`func (o *FinancialAccount) GetSummaryOk() (*EquitySummary, bool)`
 
-### UnsetBalanceType
-`func (o *FinancialAccount) UnsetBalanceType()`
-
-UnsetBalanceType ensures that no value is present for BalanceType, not even an explicit nil
-### GetIsShared
-
-`func (o *FinancialAccount) GetIsShared() bool`
-
-GetIsShared returns the IsShared field if non-nil, zero value otherwise.
-
-### GetIsSharedOk
-
-`func (o *FinancialAccount) GetIsSharedOk() (*bool, bool)`
-
-GetIsSharedOk returns a tuple with the IsShared field if it's non-nil, zero value otherwise
+GetSummaryOk returns a tuple with the Summary field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIsShared
+### SetSummary
 
-`func (o *FinancialAccount) SetIsShared(v bool)`
+`func (o *FinancialAccount) SetSummary(v EquitySummary)`
 
-SetIsShared sets IsShared field to given value.
+SetSummary sets Summary field to given value.
 
-### HasIsShared
 
-`func (o *FinancialAccount) HasIsShared() bool`
+### GetMaskedAccountNumber
 
-HasIsShared returns a boolean if a field has been set.
+`func (o *FinancialAccount) GetMaskedAccountNumber() string`
 
-### GetSharedWith
+GetMaskedAccountNumber returns the MaskedAccountNumber field if non-nil, zero value otherwise.
 
-`func (o *FinancialAccount) GetSharedWith() []SharedWith`
+### GetMaskedAccountNumberOk
 
-GetSharedWith returns the SharedWith field if non-nil, zero value otherwise.
+`func (o *FinancialAccount) GetMaskedAccountNumberOk() (*string, bool)`
 
-### GetSharedWithOk
-
-`func (o *FinancialAccount) GetSharedWithOk() (*[]SharedWith, bool)`
-
-GetSharedWithOk returns a tuple with the SharedWith field if it's non-nil, zero value otherwise
+GetMaskedAccountNumberOk returns a tuple with the MaskedAccountNumber field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSharedWith
+### SetMaskedAccountNumber
 
-`func (o *FinancialAccount) SetSharedWith(v []SharedWith)`
+`func (o *FinancialAccount) SetMaskedAccountNumber(v string)`
 
-SetSharedWith sets SharedWith field to given value.
+SetMaskedAccountNumber sets MaskedAccountNumber field to given value.
 
-### HasSharedWith
 
-`func (o *FinancialAccount) HasSharedWith() bool`
+### GetLinkedAccountRef
 
-HasSharedWith returns a boolean if a field has been set.
+`func (o *FinancialAccount) GetLinkedAccountRef() string`
 
-### SetSharedWithNil
+GetLinkedAccountRef returns the LinkedAccountRef field if non-nil, zero value otherwise.
 
-`func (o *FinancialAccount) SetSharedWithNil(b bool)`
+### GetLinkedAccountRefOk
 
- SetSharedWithNil sets the value for SharedWith to be an explicit nil
+`func (o *FinancialAccount) GetLinkedAccountRefOk() (*string, bool)`
 
-### UnsetSharedWith
-`func (o *FinancialAccount) UnsetSharedWith()`
-
-UnsetSharedWith ensures that no value is present for SharedWith, not even an explicit nil
-### GetIsReceived
-
-`func (o *FinancialAccount) GetIsReceived() bool`
-
-GetIsReceived returns the IsReceived field if non-nil, zero value otherwise.
-
-### GetIsReceivedOk
-
-`func (o *FinancialAccount) GetIsReceivedOk() (*bool, bool)`
-
-GetIsReceivedOk returns a tuple with the IsReceived field if it's non-nil, zero value otherwise
+GetLinkedAccountRefOk returns a tuple with the LinkedAccountRef field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIsReceived
+### SetLinkedAccountRef
 
-`func (o *FinancialAccount) SetIsReceived(v bool)`
+`func (o *FinancialAccount) SetLinkedAccountRef(v string)`
 
-SetIsReceived sets IsReceived field to given value.
+SetLinkedAccountRef sets LinkedAccountRef field to given value.
 
-### HasIsReceived
 
-`func (o *FinancialAccount) HasIsReceived() bool`
+### GetVersion
 
-HasIsReceived returns a boolean if a field has been set.
+`func (o *FinancialAccount) GetVersion() float32`
 
-### GetExpiresAtUtc
+GetVersion returns the Version field if non-nil, zero value otherwise.
 
-`func (o *FinancialAccount) GetExpiresAtUtc() time.Time`
+### GetVersionOk
 
-GetExpiresAtUtc returns the ExpiresAtUtc field if non-nil, zero value otherwise.
+`func (o *FinancialAccount) GetVersionOk() (*float32, bool)`
 
-### GetExpiresAtUtcOk
-
-`func (o *FinancialAccount) GetExpiresAtUtcOk() (*time.Time, bool)`
-
-GetExpiresAtUtcOk returns a tuple with the ExpiresAtUtc field if it's non-nil, zero value otherwise
+GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetExpiresAtUtc
+### SetVersion
 
-`func (o *FinancialAccount) SetExpiresAtUtc(v time.Time)`
+`func (o *FinancialAccount) SetVersion(v float32)`
 
-SetExpiresAtUtc sets ExpiresAtUtc field to given value.
+SetVersion sets Version field to given value.
 
-### HasExpiresAtUtc
 
-`func (o *FinancialAccount) HasExpiresAtUtc() bool`
+### GetAmount
 
-HasExpiresAtUtc returns a boolean if a field has been set.
+`func (o *FinancialAccount) GetAmount() float64`
 
-### GetActivities
+GetAmount returns the Amount field if non-nil, zero value otherwise.
 
-`func (o *FinancialAccount) GetActivities() []Activity`
+### GetAmountOk
 
-GetActivities returns the Activities field if non-nil, zero value otherwise.
+`func (o *FinancialAccount) GetAmountOk() (*float64, bool)`
 
-### GetActivitiesOk
-
-`func (o *FinancialAccount) GetActivitiesOk() (*[]Activity, bool)`
-
-GetActivitiesOk returns a tuple with the Activities field if it's non-nil, zero value otherwise
+GetAmountOk returns a tuple with the Amount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetActivities
+### SetAmount
 
-`func (o *FinancialAccount) SetActivities(v []Activity)`
+`func (o *FinancialAccount) SetAmount(v float64)`
 
-SetActivities sets Activities field to given value.
+SetAmount sets Amount field to given value.
 
-### HasActivities
 
-`func (o *FinancialAccount) HasActivities() bool`
-
-HasActivities returns a boolean if a field has been set.
-
-### SetActivitiesNil
-
-`func (o *FinancialAccount) SetActivitiesNil(b bool)`
-
- SetActivitiesNil sets the value for Activities to be an explicit nil
-
-### UnsetActivities
-`func (o *FinancialAccount) UnsetActivities()`
-
-UnsetActivities ensures that no value is present for Activities, not even an explicit nil
-### GetApprovedConsentRequests
-
-`func (o *FinancialAccount) GetApprovedConsentRequests() []ApprovedConsentRequest`
-
-GetApprovedConsentRequests returns the ApprovedConsentRequests field if non-nil, zero value otherwise.
-
-### GetApprovedConsentRequestsOk
-
-`func (o *FinancialAccount) GetApprovedConsentRequestsOk() (*[]ApprovedConsentRequest, bool)`
-
-GetApprovedConsentRequestsOk returns a tuple with the ApprovedConsentRequests field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApprovedConsentRequests
-
-`func (o *FinancialAccount) SetApprovedConsentRequests(v []ApprovedConsentRequest)`
-
-SetApprovedConsentRequests sets ApprovedConsentRequests field to given value.
-
-### HasApprovedConsentRequests
-
-`func (o *FinancialAccount) HasApprovedConsentRequests() bool`
-
-HasApprovedConsentRequests returns a boolean if a field has been set.
-
-### SetApprovedConsentRequestsNil
-
-`func (o *FinancialAccount) SetApprovedConsentRequestsNil(b bool)`
-
- SetApprovedConsentRequestsNil sets the value for ApprovedConsentRequests to be an explicit nil
-
-### UnsetApprovedConsentRequests
-`func (o *FinancialAccount) UnsetApprovedConsentRequests()`
-
-UnsetApprovedConsentRequests ensures that no value is present for ApprovedConsentRequests, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

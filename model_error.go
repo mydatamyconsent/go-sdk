@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -17,21 +17,20 @@ import (
 
 // Error struct for Error
 type Error struct {
-	Type *ErrorType `json:"type,omitempty"`
-	Title NullableString `json:"title,omitempty"`
-	Status NullableInt32 `json:"status,omitempty"`
-	Code NullableInt32 `json:"code,omitempty"`
-	Detail NullableString `json:"detail,omitempty"`
-	TraceId NullableString `json:"traceId,omitempty"`
-	Errors []string `json:"errors,omitempty"`
+	Title string `json:"title"`
+	Status int32 `json:"status"`
+	ErrorType ApiErrorType `json:"error_type"`
 }
 
 // NewError instantiates a new Error object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewError() *Error {
+func NewError(title string, status int32, errorType ApiErrorType) *Error {
 	this := Error{}
+	this.Title = title
+	this.Status = status
+	this.ErrorType = errorType
 	return &this
 }
 
@@ -43,303 +42,88 @@ func NewErrorWithDefaults() *Error {
 	return &this
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *Error) GetType() ErrorType {
-	if o == nil || o.Type == nil {
-		var ret ErrorType
-		return ret
-	}
-	return *o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Error) GetTypeOk() (*ErrorType, bool) {
-	if o == nil || o.Type == nil {
-		return nil, false
-	}
-	return o.Type, true
-}
-
-// HasType returns a boolean if a field has been set.
-func (o *Error) HasType() bool {
-	if o != nil && o.Type != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given ErrorType and assigns it to the Type field.
-func (o *Error) SetType(v ErrorType) {
-	o.Type = &v
-}
-
-// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTitle returns the Title field value
 func (o *Error) GetTitle() string {
-	if o == nil || o.Title.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Title.Get()
+
+	return o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// GetTitleOk returns a tuple with the Title field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Error) GetTitleOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Title.Get(), o.Title.IsSet()
+	return &o.Title, true
 }
 
-// HasTitle returns a boolean if a field has been set.
-func (o *Error) HasTitle() bool {
-	if o != nil && o.Title.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+// SetTitle sets field value
 func (o *Error) SetTitle(v string) {
-	o.Title.Set(&v)
-}
-// SetTitleNil sets the value for Title to be an explicit nil
-func (o *Error) SetTitleNil() {
-	o.Title.Set(nil)
+	o.Title = v
 }
 
-// UnsetTitle ensures that no value is present for Title, not even an explicit nil
-func (o *Error) UnsetTitle() {
-	o.Title.Unset()
-}
-
-// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStatus returns the Status field value
 func (o *Error) GetStatus() int32 {
-	if o == nil || o.Status.Get() == nil {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Status.Get()
+
+	return o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Error) GetStatusOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Status.Get(), o.Status.IsSet()
+	return &o.Status, true
 }
 
-// HasStatus returns a boolean if a field has been set.
-func (o *Error) HasStatus() bool {
-	if o != nil && o.Status.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetStatus gets a reference to the given NullableInt32 and assigns it to the Status field.
+// SetStatus sets field value
 func (o *Error) SetStatus(v int32) {
-	o.Status.Set(&v)
-}
-// SetStatusNil sets the value for Status to be an explicit nil
-func (o *Error) SetStatusNil() {
-	o.Status.Set(nil)
+	o.Status = v
 }
 
-// UnsetStatus ensures that no value is present for Status, not even an explicit nil
-func (o *Error) UnsetStatus() {
-	o.Status.Unset()
-}
-
-// GetCode returns the Code field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Error) GetCode() int32 {
-	if o == nil || o.Code.Get() == nil {
-		var ret int32
+// GetErrorType returns the ErrorType field value
+func (o *Error) GetErrorType() ApiErrorType {
+	if o == nil {
+		var ret ApiErrorType
 		return ret
 	}
-	return *o.Code.Get()
+
+	return o.ErrorType
 }
 
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// GetErrorTypeOk returns a tuple with the ErrorType field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Error) GetCodeOk() (*int32, bool) {
+func (o *Error) GetErrorTypeOk() (*ApiErrorType, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Code.Get(), o.Code.IsSet()
+	return &o.ErrorType, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *Error) HasCode() bool {
-	if o != nil && o.Code.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given NullableInt32 and assigns it to the Code field.
-func (o *Error) SetCode(v int32) {
-	o.Code.Set(&v)
-}
-// SetCodeNil sets the value for Code to be an explicit nil
-func (o *Error) SetCodeNil() {
-	o.Code.Set(nil)
-}
-
-// UnsetCode ensures that no value is present for Code, not even an explicit nil
-func (o *Error) UnsetCode() {
-	o.Code.Unset()
-}
-
-// GetDetail returns the Detail field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Error) GetDetail() string {
-	if o == nil || o.Detail.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.Detail.Get()
-}
-
-// GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Error) GetDetailOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Detail.Get(), o.Detail.IsSet()
-}
-
-// HasDetail returns a boolean if a field has been set.
-func (o *Error) HasDetail() bool {
-	if o != nil && o.Detail.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDetail gets a reference to the given NullableString and assigns it to the Detail field.
-func (o *Error) SetDetail(v string) {
-	o.Detail.Set(&v)
-}
-// SetDetailNil sets the value for Detail to be an explicit nil
-func (o *Error) SetDetailNil() {
-	o.Detail.Set(nil)
-}
-
-// UnsetDetail ensures that no value is present for Detail, not even an explicit nil
-func (o *Error) UnsetDetail() {
-	o.Detail.Unset()
-}
-
-// GetTraceId returns the TraceId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Error) GetTraceId() string {
-	if o == nil || o.TraceId.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.TraceId.Get()
-}
-
-// GetTraceIdOk returns a tuple with the TraceId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Error) GetTraceIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TraceId.Get(), o.TraceId.IsSet()
-}
-
-// HasTraceId returns a boolean if a field has been set.
-func (o *Error) HasTraceId() bool {
-	if o != nil && o.TraceId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTraceId gets a reference to the given NullableString and assigns it to the TraceId field.
-func (o *Error) SetTraceId(v string) {
-	o.TraceId.Set(&v)
-}
-// SetTraceIdNil sets the value for TraceId to be an explicit nil
-func (o *Error) SetTraceIdNil() {
-	o.TraceId.Set(nil)
-}
-
-// UnsetTraceId ensures that no value is present for TraceId, not even an explicit nil
-func (o *Error) UnsetTraceId() {
-	o.TraceId.Unset()
-}
-
-// GetErrors returns the Errors field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Error) GetErrors() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-	return o.Errors
-}
-
-// GetErrorsOk returns a tuple with the Errors field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Error) GetErrorsOk() ([]string, bool) {
-	if o == nil || o.Errors == nil {
-		return nil, false
-	}
-	return o.Errors, true
-}
-
-// HasErrors returns a boolean if a field has been set.
-func (o *Error) HasErrors() bool {
-	if o != nil && o.Errors != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetErrors gets a reference to the given []string and assigns it to the Errors field.
-func (o *Error) SetErrors(v []string) {
-	o.Errors = v
+// SetErrorType sets field value
+func (o *Error) SetErrorType(v ApiErrorType) {
+	o.ErrorType = v
 }
 
 func (o Error) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Type != nil {
-		toSerialize["type"] = o.Type
+	if true {
+		toSerialize["title"] = o.Title
 	}
-	if o.Title.IsSet() {
-		toSerialize["title"] = o.Title.Get()
+	if true {
+		toSerialize["status"] = o.Status
 	}
-	if o.Status.IsSet() {
-		toSerialize["status"] = o.Status.Get()
-	}
-	if o.Code.IsSet() {
-		toSerialize["code"] = o.Code.Get()
-	}
-	if o.Detail.IsSet() {
-		toSerialize["detail"] = o.Detail.Get()
-	}
-	if o.TraceId.IsSet() {
-		toSerialize["traceId"] = o.TraceId.Get()
-	}
-	if o.Errors != nil {
-		toSerialize["errors"] = o.Errors
+	if true {
+		toSerialize["error_type"] = o.ErrorType
 	}
 	return json.Marshal(toSerialize)
 }

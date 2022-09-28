@@ -3,7 +3,7 @@
 ## Enum
 
 
-* `PERSONAL_DETAILS` (value: `"PersonalDetails"`)
+* `IDENTITY` (value: `"Identity"`)
 
 * `DOCUMENTS` (value: `"Documents"`)
 

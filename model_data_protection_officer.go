@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -17,11 +17,10 @@ import (
 
 // DataProtectionOfficer struct for DataProtectionOfficer
 type DataProtectionOfficer struct {
-	Name NullableString `json:"name,omitempty"`
-	Email NullableString `json:"email,omitempty"`
-	PhoneNumber NullableString `json:"phoneNumber,omitempty"`
-	Website NullableString `json:"website,omitempty"`
-	PostalAddress NullableString `json:"postalAddress,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Email *string `json:"email,omitempty"`
+	PhoneNumber *string `json:"phoneNumber,omitempty"`
+	Website *string `json:"website,omitempty"`
 }
 
 // NewDataProtectionOfficer instantiates a new DataProtectionOfficer object
@@ -41,232 +40,147 @@ func NewDataProtectionOfficerWithDefaults() *DataProtectionOfficer {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *DataProtectionOfficer) GetName() string {
-	if o == nil || o.Name.Get() == nil {
+	if o == nil || o.Name == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProtectionOfficer) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Name == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *DataProtectionOfficer) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && o.Name != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *DataProtectionOfficer) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *DataProtectionOfficer) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *DataProtectionOfficer) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEmail returns the Email field value if set, zero value otherwise.
 func (o *DataProtectionOfficer) GetEmail() string {
-	if o == nil || o.Email.Get() == nil {
+	if o == nil || o.Email == nil {
 		var ret string
 		return ret
 	}
-	return *o.Email.Get()
+	return *o.Email
 }
 
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProtectionOfficer) GetEmailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Email == nil {
 		return nil, false
 	}
-	return o.Email.Get(), o.Email.IsSet()
+	return o.Email, true
 }
 
 // HasEmail returns a boolean if a field has been set.
 func (o *DataProtectionOfficer) HasEmail() bool {
-	if o != nil && o.Email.IsSet() {
+	if o != nil && o.Email != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetEmail gets a reference to the given NullableString and assigns it to the Email field.
+// SetEmail gets a reference to the given string and assigns it to the Email field.
 func (o *DataProtectionOfficer) SetEmail(v string) {
-	o.Email.Set(&v)
-}
-// SetEmailNil sets the value for Email to be an explicit nil
-func (o *DataProtectionOfficer) SetEmailNil() {
-	o.Email.Set(nil)
+	o.Email = &v
 }
 
-// UnsetEmail ensures that no value is present for Email, not even an explicit nil
-func (o *DataProtectionOfficer) UnsetEmail() {
-	o.Email.Unset()
-}
-
-// GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPhoneNumber returns the PhoneNumber field value if set, zero value otherwise.
 func (o *DataProtectionOfficer) GetPhoneNumber() string {
-	if o == nil || o.PhoneNumber.Get() == nil {
+	if o == nil || o.PhoneNumber == nil {
 		var ret string
 		return ret
 	}
-	return *o.PhoneNumber.Get()
+	return *o.PhoneNumber
 }
 
 // GetPhoneNumberOk returns a tuple with the PhoneNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProtectionOfficer) GetPhoneNumberOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.PhoneNumber == nil {
 		return nil, false
 	}
-	return o.PhoneNumber.Get(), o.PhoneNumber.IsSet()
+	return o.PhoneNumber, true
 }
 
 // HasPhoneNumber returns a boolean if a field has been set.
 func (o *DataProtectionOfficer) HasPhoneNumber() bool {
-	if o != nil && o.PhoneNumber.IsSet() {
+	if o != nil && o.PhoneNumber != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetPhoneNumber gets a reference to the given NullableString and assigns it to the PhoneNumber field.
+// SetPhoneNumber gets a reference to the given string and assigns it to the PhoneNumber field.
 func (o *DataProtectionOfficer) SetPhoneNumber(v string) {
-	o.PhoneNumber.Set(&v)
-}
-// SetPhoneNumberNil sets the value for PhoneNumber to be an explicit nil
-func (o *DataProtectionOfficer) SetPhoneNumberNil() {
-	o.PhoneNumber.Set(nil)
+	o.PhoneNumber = &v
 }
 
-// UnsetPhoneNumber ensures that no value is present for PhoneNumber, not even an explicit nil
-func (o *DataProtectionOfficer) UnsetPhoneNumber() {
-	o.PhoneNumber.Unset()
-}
-
-// GetWebsite returns the Website field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetWebsite returns the Website field value if set, zero value otherwise.
 func (o *DataProtectionOfficer) GetWebsite() string {
-	if o == nil || o.Website.Get() == nil {
+	if o == nil || o.Website == nil {
 		var ret string
 		return ret
 	}
-	return *o.Website.Get()
+	return *o.Website
 }
 
 // GetWebsiteOk returns a tuple with the Website field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DataProtectionOfficer) GetWebsiteOk() (*string, bool) {
-	if o == nil {
+	if o == nil || o.Website == nil {
 		return nil, false
 	}
-	return o.Website.Get(), o.Website.IsSet()
+	return o.Website, true
 }
 
 // HasWebsite returns a boolean if a field has been set.
 func (o *DataProtectionOfficer) HasWebsite() bool {
-	if o != nil && o.Website.IsSet() {
+	if o != nil && o.Website != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetWebsite gets a reference to the given NullableString and assigns it to the Website field.
+// SetWebsite gets a reference to the given string and assigns it to the Website field.
 func (o *DataProtectionOfficer) SetWebsite(v string) {
-	o.Website.Set(&v)
-}
-// SetWebsiteNil sets the value for Website to be an explicit nil
-func (o *DataProtectionOfficer) SetWebsiteNil() {
-	o.Website.Set(nil)
-}
-
-// UnsetWebsite ensures that no value is present for Website, not even an explicit nil
-func (o *DataProtectionOfficer) UnsetWebsite() {
-	o.Website.Unset()
-}
-
-// GetPostalAddress returns the PostalAddress field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DataProtectionOfficer) GetPostalAddress() string {
-	if o == nil || o.PostalAddress.Get() == nil {
-		var ret string
-		return ret
-	}
-	return *o.PostalAddress.Get()
-}
-
-// GetPostalAddressOk returns a tuple with the PostalAddress field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DataProtectionOfficer) GetPostalAddressOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.PostalAddress.Get(), o.PostalAddress.IsSet()
-}
-
-// HasPostalAddress returns a boolean if a field has been set.
-func (o *DataProtectionOfficer) HasPostalAddress() bool {
-	if o != nil && o.PostalAddress.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPostalAddress gets a reference to the given NullableString and assigns it to the PostalAddress field.
-func (o *DataProtectionOfficer) SetPostalAddress(v string) {
-	o.PostalAddress.Set(&v)
-}
-// SetPostalAddressNil sets the value for PostalAddress to be an explicit nil
-func (o *DataProtectionOfficer) SetPostalAddressNil() {
-	o.PostalAddress.Set(nil)
-}
-
-// UnsetPostalAddress ensures that no value is present for PostalAddress, not even an explicit nil
-func (o *DataProtectionOfficer) UnsetPostalAddress() {
-	o.PostalAddress.Unset()
+	o.Website = &v
 }
 
 func (o DataProtectionOfficer) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if o.Name != nil {
+		toSerialize["name"] = o.Name
 	}
-	if o.Email.IsSet() {
-		toSerialize["email"] = o.Email.Get()
+	if o.Email != nil {
+		toSerialize["email"] = o.Email
 	}
-	if o.PhoneNumber.IsSet() {
-		toSerialize["phoneNumber"] = o.PhoneNumber.Get()
+	if o.PhoneNumber != nil {
+		toSerialize["phoneNumber"] = o.PhoneNumber
 	}
-	if o.Website.IsSet() {
-		toSerialize["website"] = o.Website.Get()
-	}
-	if o.PostalAddress.IsSet() {
-		toSerialize["postalAddress"] = o.PostalAddress.Get()
+	if o.Website != nil {
+		toSerialize["website"] = o.Website
 	}
 	return json.Marshal(toSerialize)
 }

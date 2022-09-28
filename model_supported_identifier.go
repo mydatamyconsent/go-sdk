@@ -1,9 +1,9 @@
 /*
 My Data My Consent - Developer API
 
-Unleashing the power of data consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
+Unleashing the power of consent by establishing trust. The Platform Core Developer API defines a set of capabilities that can be used to request, issue, manage and update data, documents and credentials by organizations. The API can be used to request, manage and update Decentralised Identifiers, Financial Data, Health Data issue Documents, Credentials directly or using OpenID Connect flows, and verify Messages signed with DIDs and much more.
 
-API version: v1
+API version: 1.0
 Contact: support@mydatamyconsent.com
 */
 
@@ -15,20 +15,28 @@ import (
 	"encoding/json"
 )
 
-// SupportedIdentifier struct for SupportedIdentifier
+// SupportedIdentifier Supported identifier details for a particular country.
 type SupportedIdentifier struct {
-	Iso2 NullableString `json:"iso2,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	IndividualIdentifiers []Identifier `json:"individualIdentifiers,omitempty"`
-	OrganizationIdentifiers []Identifier `json:"organizationIdentifiers,omitempty"`
+	// Country ISO 2 code. Example: IN, US, etc.
+	Iso2 string `json:"iso2"`
+	// Country name. Example: India, United States of America, etc.
+	Name string `json:"name"`
+	// List of supported identifiers for an individual.
+	IndividualIdentifiers []Identifier `json:"individualIdentifiers"`
+	// List of supported identifiers for an organization.
+	OrganizationIdentifiers []Identifier `json:"organizationIdentifiers"`
 }
 
 // NewSupportedIdentifier instantiates a new SupportedIdentifier object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSupportedIdentifier() *SupportedIdentifier {
+func NewSupportedIdentifier(iso2 string, name string, individualIdentifiers []Identifier, organizationIdentifiers []Identifier) *SupportedIdentifier {
 	this := SupportedIdentifier{}
+	this.Iso2 = iso2
+	this.Name = name
+	this.IndividualIdentifiers = individualIdentifiers
+	this.OrganizationIdentifiers = organizationIdentifiers
 	return &this
 }
 
@@ -40,168 +48,114 @@ func NewSupportedIdentifierWithDefaults() *SupportedIdentifier {
 	return &this
 }
 
-// GetIso2 returns the Iso2 field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIso2 returns the Iso2 field value
 func (o *SupportedIdentifier) GetIso2() string {
-	if o == nil || o.Iso2.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Iso2.Get()
+
+	return o.Iso2
 }
 
-// GetIso2Ok returns a tuple with the Iso2 field value if set, nil otherwise
+// GetIso2Ok returns a tuple with the Iso2 field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SupportedIdentifier) GetIso2Ok() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Iso2.Get(), o.Iso2.IsSet()
+	return &o.Iso2, true
 }
 
-// HasIso2 returns a boolean if a field has been set.
-func (o *SupportedIdentifier) HasIso2() bool {
-	if o != nil && o.Iso2.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIso2 gets a reference to the given NullableString and assigns it to the Iso2 field.
+// SetIso2 sets field value
 func (o *SupportedIdentifier) SetIso2(v string) {
-	o.Iso2.Set(&v)
-}
-// SetIso2Nil sets the value for Iso2 to be an explicit nil
-func (o *SupportedIdentifier) SetIso2Nil() {
-	o.Iso2.Set(nil)
+	o.Iso2 = v
 }
 
-// UnsetIso2 ensures that no value is present for Iso2, not even an explicit nil
-func (o *SupportedIdentifier) UnsetIso2() {
-	o.Iso2.Unset()
-}
-
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *SupportedIdentifier) GetName() string {
-	if o == nil || o.Name.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SupportedIdentifier) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *SupportedIdentifier) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *SupportedIdentifier) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *SupportedIdentifier) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *SupportedIdentifier) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetIndividualIdentifiers returns the IndividualIdentifiers field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIndividualIdentifiers returns the IndividualIdentifiers field value
 func (o *SupportedIdentifier) GetIndividualIdentifiers() []Identifier {
 	if o == nil {
 		var ret []Identifier
 		return ret
 	}
+
 	return o.IndividualIdentifiers
 }
 
-// GetIndividualIdentifiersOk returns a tuple with the IndividualIdentifiers field value if set, nil otherwise
+// GetIndividualIdentifiersOk returns a tuple with the IndividualIdentifiers field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SupportedIdentifier) GetIndividualIdentifiersOk() ([]Identifier, bool) {
-	if o == nil || o.IndividualIdentifiers == nil {
+	if o == nil {
 		return nil, false
 	}
 	return o.IndividualIdentifiers, true
 }
 
-// HasIndividualIdentifiers returns a boolean if a field has been set.
-func (o *SupportedIdentifier) HasIndividualIdentifiers() bool {
-	if o != nil && o.IndividualIdentifiers != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetIndividualIdentifiers gets a reference to the given []Identifier and assigns it to the IndividualIdentifiers field.
+// SetIndividualIdentifiers sets field value
 func (o *SupportedIdentifier) SetIndividualIdentifiers(v []Identifier) {
 	o.IndividualIdentifiers = v
 }
 
-// GetOrganizationIdentifiers returns the OrganizationIdentifiers field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOrganizationIdentifiers returns the OrganizationIdentifiers field value
 func (o *SupportedIdentifier) GetOrganizationIdentifiers() []Identifier {
 	if o == nil {
 		var ret []Identifier
 		return ret
 	}
+
 	return o.OrganizationIdentifiers
 }
 
-// GetOrganizationIdentifiersOk returns a tuple with the OrganizationIdentifiers field value if set, nil otherwise
+// GetOrganizationIdentifiersOk returns a tuple with the OrganizationIdentifiers field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SupportedIdentifier) GetOrganizationIdentifiersOk() ([]Identifier, bool) {
-	if o == nil || o.OrganizationIdentifiers == nil {
+	if o == nil {
 		return nil, false
 	}
 	return o.OrganizationIdentifiers, true
 }
 
-// HasOrganizationIdentifiers returns a boolean if a field has been set.
-func (o *SupportedIdentifier) HasOrganizationIdentifiers() bool {
-	if o != nil && o.OrganizationIdentifiers != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetOrganizationIdentifiers gets a reference to the given []Identifier and assigns it to the OrganizationIdentifiers field.
+// SetOrganizationIdentifiers sets field value
 func (o *SupportedIdentifier) SetOrganizationIdentifiers(v []Identifier) {
 	o.OrganizationIdentifiers = v
 }
 
 func (o SupportedIdentifier) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Iso2.IsSet() {
-		toSerialize["iso2"] = o.Iso2.Get()
+	if true {
+		toSerialize["iso2"] = o.Iso2
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if true {
+		toSerialize["name"] = o.Name
 	}
-	if o.IndividualIdentifiers != nil {
+	if true {
 		toSerialize["individualIdentifiers"] = o.IndividualIdentifiers
 	}
-	if o.OrganizationIdentifiers != nil {
+	if true {
 		toSerialize["organizationIdentifiers"] = o.OrganizationIdentifiers
 	}
 	return json.Marshal(toSerialize)
