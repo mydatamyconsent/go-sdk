@@ -6,19 +6,21 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Identifier** | **string** |  | 
-**Balance** | **float64** |  | 
-**Profile** | [**Profile**](Profile.md) |  | 
-**Summary** | [**EquitySummary**](EquitySummary.md) |  | 
-**MaskedAccountNumber** | **string** |  | 
-**LinkedAccountRef** | **string** |  | 
-**Version** | **float32** |  | 
+**IssuerName** | **string** |  | 
+**Exchange** | **string** |  | 
+**Isin** | **string** |  | 
+**Units** | **int64** |  | 
+**InvestmentValue** | **float64** |  | 
+**CurrentValue** | **float64** |  | 
+**CurrencyCode** | **string** |  | 
+**Holder** | [**Holder**](Holder.md) |  | 
+**Transactions** | **bool** |  | 
 
 ## Methods
 
 ### NewEquity
 
-`func NewEquity(id string, name string, identifier string, balance float64, profile Profile, summary EquitySummary, maskedAccountNumber string, linkedAccountRef string, version float32, ) *Equity`
+`func NewEquity(id string, name string, issuerName string, exchange string, isin string, units int64, investmentValue float64, currentValue float64, currencyCode string, holder Holder, transactions bool, ) *Equity`
 
 NewEquity instantiates a new Equity object
 This constructor will assign default values to properties that have it defined,
@@ -73,144 +75,184 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
-### GetIdentifier
+### GetIssuerName
 
-`func (o *Equity) GetIdentifier() string`
+`func (o *Equity) GetIssuerName() string`
 
-GetIdentifier returns the Identifier field if non-nil, zero value otherwise.
+GetIssuerName returns the IssuerName field if non-nil, zero value otherwise.
 
-### GetIdentifierOk
+### GetIssuerNameOk
 
-`func (o *Equity) GetIdentifierOk() (*string, bool)`
+`func (o *Equity) GetIssuerNameOk() (*string, bool)`
 
-GetIdentifierOk returns a tuple with the Identifier field if it's non-nil, zero value otherwise
+GetIssuerNameOk returns a tuple with the IssuerName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIdentifier
+### SetIssuerName
 
-`func (o *Equity) SetIdentifier(v string)`
+`func (o *Equity) SetIssuerName(v string)`
 
-SetIdentifier sets Identifier field to given value.
+SetIssuerName sets IssuerName field to given value.
 
 
-### GetBalance
+### GetExchange
 
-`func (o *Equity) GetBalance() float64`
+`func (o *Equity) GetExchange() string`
 
-GetBalance returns the Balance field if non-nil, zero value otherwise.
+GetExchange returns the Exchange field if non-nil, zero value otherwise.
 
-### GetBalanceOk
+### GetExchangeOk
 
-`func (o *Equity) GetBalanceOk() (*float64, bool)`
+`func (o *Equity) GetExchangeOk() (*string, bool)`
 
-GetBalanceOk returns a tuple with the Balance field if it's non-nil, zero value otherwise
+GetExchangeOk returns a tuple with the Exchange field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBalance
+### SetExchange
 
-`func (o *Equity) SetBalance(v float64)`
+`func (o *Equity) SetExchange(v string)`
 
-SetBalance sets Balance field to given value.
+SetExchange sets Exchange field to given value.
 
 
-### GetProfile
+### GetIsin
 
-`func (o *Equity) GetProfile() Profile`
+`func (o *Equity) GetIsin() string`
 
-GetProfile returns the Profile field if non-nil, zero value otherwise.
+GetIsin returns the Isin field if non-nil, zero value otherwise.
 
-### GetProfileOk
+### GetIsinOk
 
-`func (o *Equity) GetProfileOk() (*Profile, bool)`
+`func (o *Equity) GetIsinOk() (*string, bool)`
 
-GetProfileOk returns a tuple with the Profile field if it's non-nil, zero value otherwise
+GetIsinOk returns a tuple with the Isin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProfile
+### SetIsin
 
-`func (o *Equity) SetProfile(v Profile)`
+`func (o *Equity) SetIsin(v string)`
 
-SetProfile sets Profile field to given value.
+SetIsin sets Isin field to given value.
 
 
-### GetSummary
+### GetUnits
 
-`func (o *Equity) GetSummary() EquitySummary`
+`func (o *Equity) GetUnits() int64`
 
-GetSummary returns the Summary field if non-nil, zero value otherwise.
+GetUnits returns the Units field if non-nil, zero value otherwise.
 
-### GetSummaryOk
+### GetUnitsOk
 
-`func (o *Equity) GetSummaryOk() (*EquitySummary, bool)`
+`func (o *Equity) GetUnitsOk() (*int64, bool)`
 
-GetSummaryOk returns a tuple with the Summary field if it's non-nil, zero value otherwise
+GetUnitsOk returns a tuple with the Units field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSummary
+### SetUnits
 
-`func (o *Equity) SetSummary(v EquitySummary)`
+`func (o *Equity) SetUnits(v int64)`
 
-SetSummary sets Summary field to given value.
+SetUnits sets Units field to given value.
 
 
-### GetMaskedAccountNumber
+### GetInvestmentValue
 
-`func (o *Equity) GetMaskedAccountNumber() string`
+`func (o *Equity) GetInvestmentValue() float64`
 
-GetMaskedAccountNumber returns the MaskedAccountNumber field if non-nil, zero value otherwise.
+GetInvestmentValue returns the InvestmentValue field if non-nil, zero value otherwise.
 
-### GetMaskedAccountNumberOk
+### GetInvestmentValueOk
 
-`func (o *Equity) GetMaskedAccountNumberOk() (*string, bool)`
+`func (o *Equity) GetInvestmentValueOk() (*float64, bool)`
 
-GetMaskedAccountNumberOk returns a tuple with the MaskedAccountNumber field if it's non-nil, zero value otherwise
+GetInvestmentValueOk returns a tuple with the InvestmentValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMaskedAccountNumber
+### SetInvestmentValue
 
-`func (o *Equity) SetMaskedAccountNumber(v string)`
+`func (o *Equity) SetInvestmentValue(v float64)`
 
-SetMaskedAccountNumber sets MaskedAccountNumber field to given value.
+SetInvestmentValue sets InvestmentValue field to given value.
 
 
-### GetLinkedAccountRef
+### GetCurrentValue
 
-`func (o *Equity) GetLinkedAccountRef() string`
+`func (o *Equity) GetCurrentValue() float64`
 
-GetLinkedAccountRef returns the LinkedAccountRef field if non-nil, zero value otherwise.
+GetCurrentValue returns the CurrentValue field if non-nil, zero value otherwise.
 
-### GetLinkedAccountRefOk
+### GetCurrentValueOk
 
-`func (o *Equity) GetLinkedAccountRefOk() (*string, bool)`
+`func (o *Equity) GetCurrentValueOk() (*float64, bool)`
 
-GetLinkedAccountRefOk returns a tuple with the LinkedAccountRef field if it's non-nil, zero value otherwise
+GetCurrentValueOk returns a tuple with the CurrentValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLinkedAccountRef
+### SetCurrentValue
 
-`func (o *Equity) SetLinkedAccountRef(v string)`
+`func (o *Equity) SetCurrentValue(v float64)`
 
-SetLinkedAccountRef sets LinkedAccountRef field to given value.
+SetCurrentValue sets CurrentValue field to given value.
 
 
-### GetVersion
+### GetCurrencyCode
 
-`func (o *Equity) GetVersion() float32`
+`func (o *Equity) GetCurrencyCode() string`
 
-GetVersion returns the Version field if non-nil, zero value otherwise.
+GetCurrencyCode returns the CurrencyCode field if non-nil, zero value otherwise.
 
-### GetVersionOk
+### GetCurrencyCodeOk
 
-`func (o *Equity) GetVersionOk() (*float32, bool)`
+`func (o *Equity) GetCurrencyCodeOk() (*string, bool)`
 
-GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+GetCurrencyCodeOk returns a tuple with the CurrencyCode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetVersion
+### SetCurrencyCode
 
-`func (o *Equity) SetVersion(v float32)`
+`func (o *Equity) SetCurrencyCode(v string)`
 
-SetVersion sets Version field to given value.
+SetCurrencyCode sets CurrencyCode field to given value.
+
+
+### GetHolder
+
+`func (o *Equity) GetHolder() Holder`
+
+GetHolder returns the Holder field if non-nil, zero value otherwise.
+
+### GetHolderOk
+
+`func (o *Equity) GetHolderOk() (*Holder, bool)`
+
+GetHolderOk returns a tuple with the Holder field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHolder
+
+`func (o *Equity) SetHolder(v Holder)`
+
+SetHolder sets Holder field to given value.
+
+
+### GetTransactions
+
+`func (o *Equity) GetTransactions() bool`
+
+GetTransactions returns the Transactions field if non-nil, zero value otherwise.
+
+### GetTransactionsOk
+
+`func (o *Equity) GetTransactionsOk() (*bool, bool)`
+
+GetTransactionsOk returns a tuple with the Transactions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTransactions
+
+`func (o *Equity) SetTransactions(v bool)`
+
+SetTransactions sets Transactions field to given value.
 
 
 

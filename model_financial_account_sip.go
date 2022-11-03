@@ -20,21 +20,31 @@ type FinancialAccountSip struct {
 	Type string `json:"type"`
 	Id string `json:"id"`
 	Name string `json:"name"`
-	Identifier string `json:"identifier"`
-	Amount float64 `json:"amount"`
+	InvestmentValue float64 `json:"investment_value"`
+	CurrentValue float64 `json:"current_value"`
+	CurrencyCode string `json:"currency_code"`
+	PlanInfo SipPlanInformation `json:"plan_info"`
+	InvestmentInfo SipInvestmentInformation `json:"investment_info"`
+	Holder Holder `json:"holder"`
+	Transactions bool `json:"transactions"`
 }
 
 // NewFinancialAccountSip instantiates a new FinancialAccountSip object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFinancialAccountSip(type_ string, id string, name string, identifier string, amount float64) *FinancialAccountSip {
+func NewFinancialAccountSip(type_ string, id string, name string, investmentValue float64, currentValue float64, currencyCode string, planInfo SipPlanInformation, investmentInfo SipInvestmentInformation, holder Holder, transactions bool) *FinancialAccountSip {
 	this := FinancialAccountSip{}
 	this.Type = type_
 	this.Id = id
 	this.Name = name
-	this.Identifier = identifier
-	this.Amount = amount
+	this.InvestmentValue = investmentValue
+	this.CurrentValue = currentValue
+	this.CurrencyCode = currencyCode
+	this.PlanInfo = planInfo
+	this.InvestmentInfo = investmentInfo
+	this.Holder = holder
+	this.Transactions = transactions
 	return &this
 }
 
@@ -118,52 +128,172 @@ func (o *FinancialAccountSip) SetName(v string) {
 	o.Name = v
 }
 
-// GetIdentifier returns the Identifier field value
-func (o *FinancialAccountSip) GetIdentifier() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Identifier
-}
-
-// GetIdentifierOk returns a tuple with the Identifier field value
-// and a boolean to check if the value has been set.
-func (o *FinancialAccountSip) GetIdentifierOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Identifier, true
-}
-
-// SetIdentifier sets field value
-func (o *FinancialAccountSip) SetIdentifier(v string) {
-	o.Identifier = v
-}
-
-// GetAmount returns the Amount field value
-func (o *FinancialAccountSip) GetAmount() float64 {
+// GetInvestmentValue returns the InvestmentValue field value
+func (o *FinancialAccountSip) GetInvestmentValue() float64 {
 	if o == nil {
 		var ret float64
 		return ret
 	}
 
-	return o.Amount
+	return o.InvestmentValue
 }
 
-// GetAmountOk returns a tuple with the Amount field value
+// GetInvestmentValueOk returns a tuple with the InvestmentValue field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountSip) GetAmountOk() (*float64, bool) {
+func (o *FinancialAccountSip) GetInvestmentValueOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Amount, true
+	return &o.InvestmentValue, true
 }
 
-// SetAmount sets field value
-func (o *FinancialAccountSip) SetAmount(v float64) {
-	o.Amount = v
+// SetInvestmentValue sets field value
+func (o *FinancialAccountSip) SetInvestmentValue(v float64) {
+	o.InvestmentValue = v
+}
+
+// GetCurrentValue returns the CurrentValue field value
+func (o *FinancialAccountSip) GetCurrentValue() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.CurrentValue
+}
+
+// GetCurrentValueOk returns a tuple with the CurrentValue field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountSip) GetCurrentValueOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CurrentValue, true
+}
+
+// SetCurrentValue sets field value
+func (o *FinancialAccountSip) SetCurrentValue(v float64) {
+	o.CurrentValue = v
+}
+
+// GetCurrencyCode returns the CurrencyCode field value
+func (o *FinancialAccountSip) GetCurrencyCode() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CurrencyCode
+}
+
+// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountSip) GetCurrencyCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CurrencyCode, true
+}
+
+// SetCurrencyCode sets field value
+func (o *FinancialAccountSip) SetCurrencyCode(v string) {
+	o.CurrencyCode = v
+}
+
+// GetPlanInfo returns the PlanInfo field value
+func (o *FinancialAccountSip) GetPlanInfo() SipPlanInformation {
+	if o == nil {
+		var ret SipPlanInformation
+		return ret
+	}
+
+	return o.PlanInfo
+}
+
+// GetPlanInfoOk returns a tuple with the PlanInfo field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountSip) GetPlanInfoOk() (*SipPlanInformation, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PlanInfo, true
+}
+
+// SetPlanInfo sets field value
+func (o *FinancialAccountSip) SetPlanInfo(v SipPlanInformation) {
+	o.PlanInfo = v
+}
+
+// GetInvestmentInfo returns the InvestmentInfo field value
+func (o *FinancialAccountSip) GetInvestmentInfo() SipInvestmentInformation {
+	if o == nil {
+		var ret SipInvestmentInformation
+		return ret
+	}
+
+	return o.InvestmentInfo
+}
+
+// GetInvestmentInfoOk returns a tuple with the InvestmentInfo field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountSip) GetInvestmentInfoOk() (*SipInvestmentInformation, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.InvestmentInfo, true
+}
+
+// SetInvestmentInfo sets field value
+func (o *FinancialAccountSip) SetInvestmentInfo(v SipInvestmentInformation) {
+	o.InvestmentInfo = v
+}
+
+// GetHolder returns the Holder field value
+func (o *FinancialAccountSip) GetHolder() Holder {
+	if o == nil {
+		var ret Holder
+		return ret
+	}
+
+	return o.Holder
+}
+
+// GetHolderOk returns a tuple with the Holder field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountSip) GetHolderOk() (*Holder, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Holder, true
+}
+
+// SetHolder sets field value
+func (o *FinancialAccountSip) SetHolder(v Holder) {
+	o.Holder = v
+}
+
+// GetTransactions returns the Transactions field value
+func (o *FinancialAccountSip) GetTransactions() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Transactions
+}
+
+// GetTransactionsOk returns a tuple with the Transactions field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountSip) GetTransactionsOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Transactions, true
+}
+
+// SetTransactions sets field value
+func (o *FinancialAccountSip) SetTransactions(v bool) {
+	o.Transactions = v
 }
 
 func (o FinancialAccountSip) MarshalJSON() ([]byte, error) {
@@ -178,10 +308,25 @@ func (o FinancialAccountSip) MarshalJSON() ([]byte, error) {
 		toSerialize["name"] = o.Name
 	}
 	if true {
-		toSerialize["identifier"] = o.Identifier
+		toSerialize["investment_value"] = o.InvestmentValue
 	}
 	if true {
-		toSerialize["amount"] = o.Amount
+		toSerialize["current_value"] = o.CurrentValue
+	}
+	if true {
+		toSerialize["currency_code"] = o.CurrencyCode
+	}
+	if true {
+		toSerialize["plan_info"] = o.PlanInfo
+	}
+	if true {
+		toSerialize["investment_info"] = o.InvestmentInfo
+	}
+	if true {
+		toSerialize["holder"] = o.Holder
+	}
+	if true {
+		toSerialize["transactions"] = o.Transactions
 	}
 	return json.Marshal(toSerialize)
 }

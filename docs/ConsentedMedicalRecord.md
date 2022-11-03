@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | Health id. | [optional] 
 **FieldTitle** | **string** | Health field title. | 
 **FieldSlug** | **string** | Health field slug. | 
+**IssuerId** | **string** | Issuer id. | 
+**IssuerName** | **string** | Issuer name. | 
 **Category** | **string** | health category type. | 
 **ToDate** | Pointer to **time.Time** | To Date | [optional] 
 **FromDate** | Pointer to **time.Time** | From Date | [optional] 
@@ -15,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewConsentedMedicalRecord
 
-`func NewConsentedMedicalRecord(fieldTitle string, fieldSlug string, category string, ) *ConsentedMedicalRecord`
+`func NewConsentedMedicalRecord(fieldTitle string, fieldSlug string, issuerId string, issuerName string, category string, ) *ConsentedMedicalRecord`
 
 NewConsentedMedicalRecord instantiates a new ConsentedMedicalRecord object
 This constructor will assign default values to properties that have it defined,
@@ -93,6 +95,46 @@ and a boolean to check if the value has been set.
 `func (o *ConsentedMedicalRecord) SetFieldSlug(v string)`
 
 SetFieldSlug sets FieldSlug field to given value.
+
+
+### GetIssuerId
+
+`func (o *ConsentedMedicalRecord) GetIssuerId() string`
+
+GetIssuerId returns the IssuerId field if non-nil, zero value otherwise.
+
+### GetIssuerIdOk
+
+`func (o *ConsentedMedicalRecord) GetIssuerIdOk() (*string, bool)`
+
+GetIssuerIdOk returns a tuple with the IssuerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIssuerId
+
+`func (o *ConsentedMedicalRecord) SetIssuerId(v string)`
+
+SetIssuerId sets IssuerId field to given value.
+
+
+### GetIssuerName
+
+`func (o *ConsentedMedicalRecord) GetIssuerName() string`
+
+GetIssuerName returns the IssuerName field if non-nil, zero value otherwise.
+
+### GetIssuerNameOk
+
+`func (o *ConsentedMedicalRecord) GetIssuerNameOk() (*string, bool)`
+
+GetIssuerNameOk returns a tuple with the IssuerName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIssuerName
+
+`func (o *ConsentedMedicalRecord) SetIssuerName(v string)`
+
+SetIssuerName sets IssuerName field to given value.
 
 
 ### GetCategory

@@ -7,14 +7,19 @@ Name | Type | Description | Notes
 **Type** | **string** |  | 
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Identifier** | **string** |  | 
-**Amount** | **float64** |  | 
+**InvestmentValue** | **float64** |  | 
+**CurrentValue** | **float64** |  | 
+**CurrencyCode** | **string** |  | 
+**PlanInfo** | [**SipPlanInformation**](SipPlanInformation.md) |  | 
+**InvestmentInfo** | [**SipInvestmentInformation**](SipInvestmentInformation.md) |  | 
+**Holder** | [**Holder**](Holder.md) |  | 
+**Transactions** | **bool** |  | 
 
 ## Methods
 
 ### NewFinancialAccountSip
 
-`func NewFinancialAccountSip(type_ string, id string, name string, identifier string, amount float64, ) *FinancialAccountSip`
+`func NewFinancialAccountSip(type_ string, id string, name string, investmentValue float64, currentValue float64, currencyCode string, planInfo SipPlanInformation, investmentInfo SipInvestmentInformation, holder Holder, transactions bool, ) *FinancialAccountSip`
 
 NewFinancialAccountSip instantiates a new FinancialAccountSip object
 This constructor will assign default values to properties that have it defined,
@@ -89,44 +94,144 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
-### GetIdentifier
+### GetInvestmentValue
 
-`func (o *FinancialAccountSip) GetIdentifier() string`
+`func (o *FinancialAccountSip) GetInvestmentValue() float64`
 
-GetIdentifier returns the Identifier field if non-nil, zero value otherwise.
+GetInvestmentValue returns the InvestmentValue field if non-nil, zero value otherwise.
 
-### GetIdentifierOk
+### GetInvestmentValueOk
 
-`func (o *FinancialAccountSip) GetIdentifierOk() (*string, bool)`
+`func (o *FinancialAccountSip) GetInvestmentValueOk() (*float64, bool)`
 
-GetIdentifierOk returns a tuple with the Identifier field if it's non-nil, zero value otherwise
+GetInvestmentValueOk returns a tuple with the InvestmentValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIdentifier
+### SetInvestmentValue
 
-`func (o *FinancialAccountSip) SetIdentifier(v string)`
+`func (o *FinancialAccountSip) SetInvestmentValue(v float64)`
 
-SetIdentifier sets Identifier field to given value.
+SetInvestmentValue sets InvestmentValue field to given value.
 
 
-### GetAmount
+### GetCurrentValue
 
-`func (o *FinancialAccountSip) GetAmount() float64`
+`func (o *FinancialAccountSip) GetCurrentValue() float64`
 
-GetAmount returns the Amount field if non-nil, zero value otherwise.
+GetCurrentValue returns the CurrentValue field if non-nil, zero value otherwise.
 
-### GetAmountOk
+### GetCurrentValueOk
 
-`func (o *FinancialAccountSip) GetAmountOk() (*float64, bool)`
+`func (o *FinancialAccountSip) GetCurrentValueOk() (*float64, bool)`
 
-GetAmountOk returns a tuple with the Amount field if it's non-nil, zero value otherwise
+GetCurrentValueOk returns a tuple with the CurrentValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAmount
+### SetCurrentValue
 
-`func (o *FinancialAccountSip) SetAmount(v float64)`
+`func (o *FinancialAccountSip) SetCurrentValue(v float64)`
 
-SetAmount sets Amount field to given value.
+SetCurrentValue sets CurrentValue field to given value.
+
+
+### GetCurrencyCode
+
+`func (o *FinancialAccountSip) GetCurrencyCode() string`
+
+GetCurrencyCode returns the CurrencyCode field if non-nil, zero value otherwise.
+
+### GetCurrencyCodeOk
+
+`func (o *FinancialAccountSip) GetCurrencyCodeOk() (*string, bool)`
+
+GetCurrencyCodeOk returns a tuple with the CurrencyCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrencyCode
+
+`func (o *FinancialAccountSip) SetCurrencyCode(v string)`
+
+SetCurrencyCode sets CurrencyCode field to given value.
+
+
+### GetPlanInfo
+
+`func (o *FinancialAccountSip) GetPlanInfo() SipPlanInformation`
+
+GetPlanInfo returns the PlanInfo field if non-nil, zero value otherwise.
+
+### GetPlanInfoOk
+
+`func (o *FinancialAccountSip) GetPlanInfoOk() (*SipPlanInformation, bool)`
+
+GetPlanInfoOk returns a tuple with the PlanInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlanInfo
+
+`func (o *FinancialAccountSip) SetPlanInfo(v SipPlanInformation)`
+
+SetPlanInfo sets PlanInfo field to given value.
+
+
+### GetInvestmentInfo
+
+`func (o *FinancialAccountSip) GetInvestmentInfo() SipInvestmentInformation`
+
+GetInvestmentInfo returns the InvestmentInfo field if non-nil, zero value otherwise.
+
+### GetInvestmentInfoOk
+
+`func (o *FinancialAccountSip) GetInvestmentInfoOk() (*SipInvestmentInformation, bool)`
+
+GetInvestmentInfoOk returns a tuple with the InvestmentInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInvestmentInfo
+
+`func (o *FinancialAccountSip) SetInvestmentInfo(v SipInvestmentInformation)`
+
+SetInvestmentInfo sets InvestmentInfo field to given value.
+
+
+### GetHolder
+
+`func (o *FinancialAccountSip) GetHolder() Holder`
+
+GetHolder returns the Holder field if non-nil, zero value otherwise.
+
+### GetHolderOk
+
+`func (o *FinancialAccountSip) GetHolderOk() (*Holder, bool)`
+
+GetHolderOk returns a tuple with the Holder field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHolder
+
+`func (o *FinancialAccountSip) SetHolder(v Holder)`
+
+SetHolder sets Holder field to given value.
+
+
+### GetTransactions
+
+`func (o *FinancialAccountSip) GetTransactions() bool`
+
+GetTransactions returns the Transactions field if non-nil, zero value otherwise.
+
+### GetTransactionsOk
+
+`func (o *FinancialAccountSip) GetTransactionsOk() (*bool, bool)`
+
+GetTransactionsOk returns a tuple with the Transactions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTransactions
+
+`func (o *FinancialAccountSip) SetTransactions(v bool)`
+
+SetTransactions sets Transactions field to given value.
 
 
 

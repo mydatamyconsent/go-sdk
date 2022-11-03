@@ -6,14 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** |  | 
 **Id** | **string** |  | 
-**TxnType** | [**CreditCardTransactionType**](CreditCardTransactionType.md) |  | 
-**TxnDate** | **time.Time** |  | 
-**Amount** | **string** |  | 
-**ValueDate** | **time.Time** |  | 
-**Narration** | **string** |  | 
-**StatementDate** | **time.Time** |  | 
-**Mcc** | **string** |  | 
-**MaskedCardNumber** | **string** |  | 
 **Amc** | **string** |  | 
 **Registrar** | **string** |  | 
 **SchemeCode** | **string** |  | 
@@ -25,6 +17,7 @@ Name | Type | Description | Notes
 **SchemeTypes** | [**MutualFundSchemeType**](MutualFundSchemeType.md) |  | 
 **SchemeCategory** | [**MutualFundSchemeCategory**](MutualFundSchemeCategory.md) |  | 
 **Ucc** | **string** |  | 
+**Amount** | **string** |  | 
 **ClosingUnits** | **string** |  | 
 **LienUnits** | **string** |  | 
 **Nav** | **string** |  | 
@@ -34,12 +27,13 @@ Name | Type | Description | Notes
 **LockinFlag** | **string** |  | 
 **LockinDays** | **string** |  | 
 **Mode** | [**MutualFundHoldingMode**](MutualFundHoldingMode.md) |  | 
+**Narration** | **string** |  | 
 
 ## Methods
 
 ### NewFinancialAccountTransaction
 
-`func NewFinancialAccountTransaction(type_ string, id string, txnType CreditCardTransactionType, txnDate time.Time, amount string, valueDate time.Time, narration string, statementDate time.Time, mcc string, maskedCardNumber string, amc string, registrar string, schemeCode string, schemePlan MutualFundSchemePlan, isin string, amfiCode string, fundType MutualFundFundType, schemeOption MutualFundSchemeOption, schemeTypes MutualFundSchemeType, schemeCategory MutualFundSchemeCategory, ucc string, closingUnits string, lienUnits string, nav string, navDate time.Time, orderDate time.Time, executionDate time.Time, lockinFlag string, lockinDays string, mode MutualFundHoldingMode, ) *FinancialAccountTransaction`
+`func NewFinancialAccountTransaction(type_ string, id string, amc string, registrar string, schemeCode string, schemePlan MutualFundSchemePlan, isin string, amfiCode string, fundType MutualFundFundType, schemeOption MutualFundSchemeOption, schemeTypes MutualFundSchemeType, schemeCategory MutualFundSchemeCategory, ucc string, amount string, closingUnits string, lienUnits string, nav string, navDate time.Time, orderDate time.Time, executionDate time.Time, lockinFlag string, lockinDays string, mode MutualFundHoldingMode, narration string, ) *FinancialAccountTransaction`
 
 NewFinancialAccountTransaction instantiates a new FinancialAccountTransaction object
 This constructor will assign default values to properties that have it defined,
@@ -92,166 +86,6 @@ and a boolean to check if the value has been set.
 `func (o *FinancialAccountTransaction) SetId(v string)`
 
 SetId sets Id field to given value.
-
-
-### GetTxnType
-
-`func (o *FinancialAccountTransaction) GetTxnType() CreditCardTransactionType`
-
-GetTxnType returns the TxnType field if non-nil, zero value otherwise.
-
-### GetTxnTypeOk
-
-`func (o *FinancialAccountTransaction) GetTxnTypeOk() (*CreditCardTransactionType, bool)`
-
-GetTxnTypeOk returns a tuple with the TxnType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTxnType
-
-`func (o *FinancialAccountTransaction) SetTxnType(v CreditCardTransactionType)`
-
-SetTxnType sets TxnType field to given value.
-
-
-### GetTxnDate
-
-`func (o *FinancialAccountTransaction) GetTxnDate() time.Time`
-
-GetTxnDate returns the TxnDate field if non-nil, zero value otherwise.
-
-### GetTxnDateOk
-
-`func (o *FinancialAccountTransaction) GetTxnDateOk() (*time.Time, bool)`
-
-GetTxnDateOk returns a tuple with the TxnDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTxnDate
-
-`func (o *FinancialAccountTransaction) SetTxnDate(v time.Time)`
-
-SetTxnDate sets TxnDate field to given value.
-
-
-### GetAmount
-
-`func (o *FinancialAccountTransaction) GetAmount() string`
-
-GetAmount returns the Amount field if non-nil, zero value otherwise.
-
-### GetAmountOk
-
-`func (o *FinancialAccountTransaction) GetAmountOk() (*string, bool)`
-
-GetAmountOk returns a tuple with the Amount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAmount
-
-`func (o *FinancialAccountTransaction) SetAmount(v string)`
-
-SetAmount sets Amount field to given value.
-
-
-### GetValueDate
-
-`func (o *FinancialAccountTransaction) GetValueDate() time.Time`
-
-GetValueDate returns the ValueDate field if non-nil, zero value otherwise.
-
-### GetValueDateOk
-
-`func (o *FinancialAccountTransaction) GetValueDateOk() (*time.Time, bool)`
-
-GetValueDateOk returns a tuple with the ValueDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetValueDate
-
-`func (o *FinancialAccountTransaction) SetValueDate(v time.Time)`
-
-SetValueDate sets ValueDate field to given value.
-
-
-### GetNarration
-
-`func (o *FinancialAccountTransaction) GetNarration() string`
-
-GetNarration returns the Narration field if non-nil, zero value otherwise.
-
-### GetNarrationOk
-
-`func (o *FinancialAccountTransaction) GetNarrationOk() (*string, bool)`
-
-GetNarrationOk returns a tuple with the Narration field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNarration
-
-`func (o *FinancialAccountTransaction) SetNarration(v string)`
-
-SetNarration sets Narration field to given value.
-
-
-### GetStatementDate
-
-`func (o *FinancialAccountTransaction) GetStatementDate() time.Time`
-
-GetStatementDate returns the StatementDate field if non-nil, zero value otherwise.
-
-### GetStatementDateOk
-
-`func (o *FinancialAccountTransaction) GetStatementDateOk() (*time.Time, bool)`
-
-GetStatementDateOk returns a tuple with the StatementDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStatementDate
-
-`func (o *FinancialAccountTransaction) SetStatementDate(v time.Time)`
-
-SetStatementDate sets StatementDate field to given value.
-
-
-### GetMcc
-
-`func (o *FinancialAccountTransaction) GetMcc() string`
-
-GetMcc returns the Mcc field if non-nil, zero value otherwise.
-
-### GetMccOk
-
-`func (o *FinancialAccountTransaction) GetMccOk() (*string, bool)`
-
-GetMccOk returns a tuple with the Mcc field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMcc
-
-`func (o *FinancialAccountTransaction) SetMcc(v string)`
-
-SetMcc sets Mcc field to given value.
-
-
-### GetMaskedCardNumber
-
-`func (o *FinancialAccountTransaction) GetMaskedCardNumber() string`
-
-GetMaskedCardNumber returns the MaskedCardNumber field if non-nil, zero value otherwise.
-
-### GetMaskedCardNumberOk
-
-`func (o *FinancialAccountTransaction) GetMaskedCardNumberOk() (*string, bool)`
-
-GetMaskedCardNumberOk returns a tuple with the MaskedCardNumber field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMaskedCardNumber
-
-`func (o *FinancialAccountTransaction) SetMaskedCardNumber(v string)`
-
-SetMaskedCardNumber sets MaskedCardNumber field to given value.
 
 
 ### GetAmc
@@ -474,6 +308,26 @@ and a boolean to check if the value has been set.
 SetUcc sets Ucc field to given value.
 
 
+### GetAmount
+
+`func (o *FinancialAccountTransaction) GetAmount() string`
+
+GetAmount returns the Amount field if non-nil, zero value otherwise.
+
+### GetAmountOk
+
+`func (o *FinancialAccountTransaction) GetAmountOk() (*string, bool)`
+
+GetAmountOk returns a tuple with the Amount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAmount
+
+`func (o *FinancialAccountTransaction) SetAmount(v string)`
+
+SetAmount sets Amount field to given value.
+
+
 ### GetClosingUnits
 
 `func (o *FinancialAccountTransaction) GetClosingUnits() string`
@@ -652,6 +506,26 @@ and a boolean to check if the value has been set.
 `func (o *FinancialAccountTransaction) SetMode(v MutualFundHoldingMode)`
 
 SetMode sets Mode field to given value.
+
+
+### GetNarration
+
+`func (o *FinancialAccountTransaction) GetNarration() string`
+
+GetNarration returns the Narration field if non-nil, zero value otherwise.
+
+### GetNarrationOk
+
+`func (o *FinancialAccountTransaction) GetNarrationOk() (*string, bool)`
+
+GetNarrationOk returns a tuple with the Narration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNarration
+
+`func (o *FinancialAccountTransaction) SetNarration(v string)`
+
+SetNarration sets Narration field to given value.
 
 
 

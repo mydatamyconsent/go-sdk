@@ -19,30 +19,34 @@ import (
 type Equity struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
-	Identifier string `json:"identifier"`
-	Balance float64 `json:"balance"`
-	Profile Profile `json:"profile"`
-	Summary EquitySummary `json:"summary"`
-	MaskedAccountNumber string `json:"masked_account_number"`
-	LinkedAccountRef string `json:"linked_account_ref"`
-	Version float32 `json:"version"`
+	IssuerName string `json:"issuer_name"`
+	Exchange string `json:"exchange"`
+	Isin string `json:"isin"`
+	Units int64 `json:"units"`
+	InvestmentValue float64 `json:"investment_value"`
+	CurrentValue float64 `json:"current_value"`
+	CurrencyCode string `json:"currency_code"`
+	Holder Holder `json:"holder"`
+	Transactions bool `json:"transactions"`
 }
 
 // NewEquity instantiates a new Equity object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEquity(id string, name string, identifier string, balance float64, profile Profile, summary EquitySummary, maskedAccountNumber string, linkedAccountRef string, version float32) *Equity {
+func NewEquity(id string, name string, issuerName string, exchange string, isin string, units int64, investmentValue float64, currentValue float64, currencyCode string, holder Holder, transactions bool) *Equity {
 	this := Equity{}
 	this.Id = id
 	this.Name = name
-	this.Identifier = identifier
-	this.Balance = balance
-	this.Profile = profile
-	this.Summary = summary
-	this.MaskedAccountNumber = maskedAccountNumber
-	this.LinkedAccountRef = linkedAccountRef
-	this.Version = version
+	this.IssuerName = issuerName
+	this.Exchange = exchange
+	this.Isin = isin
+	this.Units = units
+	this.InvestmentValue = investmentValue
+	this.CurrentValue = currentValue
+	this.CurrencyCode = currencyCode
+	this.Holder = holder
+	this.Transactions = transactions
 	return &this
 }
 
@@ -102,172 +106,220 @@ func (o *Equity) SetName(v string) {
 	o.Name = v
 }
 
-// GetIdentifier returns the Identifier field value
-func (o *Equity) GetIdentifier() string {
+// GetIssuerName returns the IssuerName field value
+func (o *Equity) GetIssuerName() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Identifier
+	return o.IssuerName
 }
 
-// GetIdentifierOk returns a tuple with the Identifier field value
+// GetIssuerNameOk returns a tuple with the IssuerName field value
 // and a boolean to check if the value has been set.
-func (o *Equity) GetIdentifierOk() (*string, bool) {
+func (o *Equity) GetIssuerNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Identifier, true
+	return &o.IssuerName, true
 }
 
-// SetIdentifier sets field value
-func (o *Equity) SetIdentifier(v string) {
-	o.Identifier = v
+// SetIssuerName sets field value
+func (o *Equity) SetIssuerName(v string) {
+	o.IssuerName = v
 }
 
-// GetBalance returns the Balance field value
-func (o *Equity) GetBalance() float64 {
+// GetExchange returns the Exchange field value
+func (o *Equity) GetExchange() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Exchange
+}
+
+// GetExchangeOk returns a tuple with the Exchange field value
+// and a boolean to check if the value has been set.
+func (o *Equity) GetExchangeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Exchange, true
+}
+
+// SetExchange sets field value
+func (o *Equity) SetExchange(v string) {
+	o.Exchange = v
+}
+
+// GetIsin returns the Isin field value
+func (o *Equity) GetIsin() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Isin
+}
+
+// GetIsinOk returns a tuple with the Isin field value
+// and a boolean to check if the value has been set.
+func (o *Equity) GetIsinOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Isin, true
+}
+
+// SetIsin sets field value
+func (o *Equity) SetIsin(v string) {
+	o.Isin = v
+}
+
+// GetUnits returns the Units field value
+func (o *Equity) GetUnits() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.Units
+}
+
+// GetUnitsOk returns a tuple with the Units field value
+// and a boolean to check if the value has been set.
+func (o *Equity) GetUnitsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Units, true
+}
+
+// SetUnits sets field value
+func (o *Equity) SetUnits(v int64) {
+	o.Units = v
+}
+
+// GetInvestmentValue returns the InvestmentValue field value
+func (o *Equity) GetInvestmentValue() float64 {
 	if o == nil {
 		var ret float64
 		return ret
 	}
 
-	return o.Balance
+	return o.InvestmentValue
 }
 
-// GetBalanceOk returns a tuple with the Balance field value
+// GetInvestmentValueOk returns a tuple with the InvestmentValue field value
 // and a boolean to check if the value has been set.
-func (o *Equity) GetBalanceOk() (*float64, bool) {
+func (o *Equity) GetInvestmentValueOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Balance, true
+	return &o.InvestmentValue, true
 }
 
-// SetBalance sets field value
-func (o *Equity) SetBalance(v float64) {
-	o.Balance = v
+// SetInvestmentValue sets field value
+func (o *Equity) SetInvestmentValue(v float64) {
+	o.InvestmentValue = v
 }
 
-// GetProfile returns the Profile field value
-func (o *Equity) GetProfile() Profile {
+// GetCurrentValue returns the CurrentValue field value
+func (o *Equity) GetCurrentValue() float64 {
 	if o == nil {
-		var ret Profile
+		var ret float64
 		return ret
 	}
 
-	return o.Profile
+	return o.CurrentValue
 }
 
-// GetProfileOk returns a tuple with the Profile field value
+// GetCurrentValueOk returns a tuple with the CurrentValue field value
 // and a boolean to check if the value has been set.
-func (o *Equity) GetProfileOk() (*Profile, bool) {
+func (o *Equity) GetCurrentValueOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Profile, true
+	return &o.CurrentValue, true
 }
 
-// SetProfile sets field value
-func (o *Equity) SetProfile(v Profile) {
-	o.Profile = v
+// SetCurrentValue sets field value
+func (o *Equity) SetCurrentValue(v float64) {
+	o.CurrentValue = v
 }
 
-// GetSummary returns the Summary field value
-func (o *Equity) GetSummary() EquitySummary {
-	if o == nil {
-		var ret EquitySummary
-		return ret
-	}
-
-	return o.Summary
-}
-
-// GetSummaryOk returns a tuple with the Summary field value
-// and a boolean to check if the value has been set.
-func (o *Equity) GetSummaryOk() (*EquitySummary, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Summary, true
-}
-
-// SetSummary sets field value
-func (o *Equity) SetSummary(v EquitySummary) {
-	o.Summary = v
-}
-
-// GetMaskedAccountNumber returns the MaskedAccountNumber field value
-func (o *Equity) GetMaskedAccountNumber() string {
+// GetCurrencyCode returns the CurrencyCode field value
+func (o *Equity) GetCurrencyCode() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.MaskedAccountNumber
+	return o.CurrencyCode
 }
 
-// GetMaskedAccountNumberOk returns a tuple with the MaskedAccountNumber field value
+// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value
 // and a boolean to check if the value has been set.
-func (o *Equity) GetMaskedAccountNumberOk() (*string, bool) {
+func (o *Equity) GetCurrencyCodeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.MaskedAccountNumber, true
+	return &o.CurrencyCode, true
 }
 
-// SetMaskedAccountNumber sets field value
-func (o *Equity) SetMaskedAccountNumber(v string) {
-	o.MaskedAccountNumber = v
+// SetCurrencyCode sets field value
+func (o *Equity) SetCurrencyCode(v string) {
+	o.CurrencyCode = v
 }
 
-// GetLinkedAccountRef returns the LinkedAccountRef field value
-func (o *Equity) GetLinkedAccountRef() string {
+// GetHolder returns the Holder field value
+func (o *Equity) GetHolder() Holder {
 	if o == nil {
-		var ret string
+		var ret Holder
 		return ret
 	}
 
-	return o.LinkedAccountRef
+	return o.Holder
 }
 
-// GetLinkedAccountRefOk returns a tuple with the LinkedAccountRef field value
+// GetHolderOk returns a tuple with the Holder field value
 // and a boolean to check if the value has been set.
-func (o *Equity) GetLinkedAccountRefOk() (*string, bool) {
+func (o *Equity) GetHolderOk() (*Holder, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.LinkedAccountRef, true
+	return &o.Holder, true
 }
 
-// SetLinkedAccountRef sets field value
-func (o *Equity) SetLinkedAccountRef(v string) {
-	o.LinkedAccountRef = v
+// SetHolder sets field value
+func (o *Equity) SetHolder(v Holder) {
+	o.Holder = v
 }
 
-// GetVersion returns the Version field value
-func (o *Equity) GetVersion() float32 {
+// GetTransactions returns the Transactions field value
+func (o *Equity) GetTransactions() bool {
 	if o == nil {
-		var ret float32
+		var ret bool
 		return ret
 	}
 
-	return o.Version
+	return o.Transactions
 }
 
-// GetVersionOk returns a tuple with the Version field value
+// GetTransactionsOk returns a tuple with the Transactions field value
 // and a boolean to check if the value has been set.
-func (o *Equity) GetVersionOk() (*float32, bool) {
+func (o *Equity) GetTransactionsOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Version, true
+	return &o.Transactions, true
 }
 
-// SetVersion sets field value
-func (o *Equity) SetVersion(v float32) {
-	o.Version = v
+// SetTransactions sets field value
+func (o *Equity) SetTransactions(v bool) {
+	o.Transactions = v
 }
 
 func (o Equity) MarshalJSON() ([]byte, error) {
@@ -279,25 +331,31 @@ func (o Equity) MarshalJSON() ([]byte, error) {
 		toSerialize["name"] = o.Name
 	}
 	if true {
-		toSerialize["identifier"] = o.Identifier
+		toSerialize["issuer_name"] = o.IssuerName
 	}
 	if true {
-		toSerialize["balance"] = o.Balance
+		toSerialize["exchange"] = o.Exchange
 	}
 	if true {
-		toSerialize["profile"] = o.Profile
+		toSerialize["isin"] = o.Isin
 	}
 	if true {
-		toSerialize["summary"] = o.Summary
+		toSerialize["units"] = o.Units
 	}
 	if true {
-		toSerialize["masked_account_number"] = o.MaskedAccountNumber
+		toSerialize["investment_value"] = o.InvestmentValue
 	}
 	if true {
-		toSerialize["linked_account_ref"] = o.LinkedAccountRef
+		toSerialize["current_value"] = o.CurrentValue
 	}
 	if true {
-		toSerialize["version"] = o.Version
+		toSerialize["currency_code"] = o.CurrencyCode
+	}
+	if true {
+		toSerialize["holder"] = o.Holder
+	}
+	if true {
+		toSerialize["transactions"] = o.Transactions
 	}
 	return json.Marshal(toSerialize)
 }

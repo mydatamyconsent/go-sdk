@@ -6,19 +6,28 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Identifier** | **string** |  | 
-**Balance** | **float64** |  | 
-**Profile** | [**Profile**](Profile.md) |  | 
-**Summary** | [**MutualFundSummary**](MutualFundSummary.md) |  | 
-**MaskedAccountNumber** | **string** |  | 
-**LinkedAccountRef** | **string** |  | 
-**Version** | **float32** |  | 
+**InvestmentValue** | **float64** |  | 
+**CurrentValue** | **float64** |  | 
+**CurrencyCode** | **string** |  | 
+**Amc** | Pointer to **string** |  | [optional] 
+**Registrar** | Pointer to **string** |  | [optional] 
+**FundName** | **string** |  | 
+**Isin** | **string** |  | 
+**FolioNumber** | **string** |  | 
+**SchemeCode** | Pointer to **string** |  | [optional] 
+**FundType** | Pointer to **string** |  | [optional] 
+**FundCategory** | Pointer to **string** |  | [optional] 
+**Units** | **float64** |  | 
+**LienUnits** | Pointer to **string** |  | [optional] 
+**CreationDate** | Pointer to **time.Time** |  | [optional] 
+**Holder** | [**Holder**](Holder.md) |  | 
+**Transactions** | **bool** |  | 
 
 ## Methods
 
 ### NewMutualFund
 
-`func NewMutualFund(id string, name string, identifier string, balance float64, profile Profile, summary MutualFundSummary, maskedAccountNumber string, linkedAccountRef string, version float32, ) *MutualFund`
+`func NewMutualFund(id string, name string, investmentValue float64, currentValue float64, currencyCode string, fundName string, isin string, folioNumber string, units float64, holder Holder, transactions bool, ) *MutualFund`
 
 NewMutualFund instantiates a new MutualFund object
 This constructor will assign default values to properties that have it defined,
@@ -73,144 +82,359 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
-### GetIdentifier
+### GetInvestmentValue
 
-`func (o *MutualFund) GetIdentifier() string`
+`func (o *MutualFund) GetInvestmentValue() float64`
 
-GetIdentifier returns the Identifier field if non-nil, zero value otherwise.
+GetInvestmentValue returns the InvestmentValue field if non-nil, zero value otherwise.
 
-### GetIdentifierOk
+### GetInvestmentValueOk
 
-`func (o *MutualFund) GetIdentifierOk() (*string, bool)`
+`func (o *MutualFund) GetInvestmentValueOk() (*float64, bool)`
 
-GetIdentifierOk returns a tuple with the Identifier field if it's non-nil, zero value otherwise
+GetInvestmentValueOk returns a tuple with the InvestmentValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIdentifier
+### SetInvestmentValue
 
-`func (o *MutualFund) SetIdentifier(v string)`
+`func (o *MutualFund) SetInvestmentValue(v float64)`
 
-SetIdentifier sets Identifier field to given value.
+SetInvestmentValue sets InvestmentValue field to given value.
 
 
-### GetBalance
+### GetCurrentValue
 
-`func (o *MutualFund) GetBalance() float64`
+`func (o *MutualFund) GetCurrentValue() float64`
 
-GetBalance returns the Balance field if non-nil, zero value otherwise.
+GetCurrentValue returns the CurrentValue field if non-nil, zero value otherwise.
 
-### GetBalanceOk
+### GetCurrentValueOk
 
-`func (o *MutualFund) GetBalanceOk() (*float64, bool)`
+`func (o *MutualFund) GetCurrentValueOk() (*float64, bool)`
 
-GetBalanceOk returns a tuple with the Balance field if it's non-nil, zero value otherwise
+GetCurrentValueOk returns a tuple with the CurrentValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBalance
+### SetCurrentValue
 
-`func (o *MutualFund) SetBalance(v float64)`
+`func (o *MutualFund) SetCurrentValue(v float64)`
 
-SetBalance sets Balance field to given value.
+SetCurrentValue sets CurrentValue field to given value.
 
 
-### GetProfile
+### GetCurrencyCode
 
-`func (o *MutualFund) GetProfile() Profile`
+`func (o *MutualFund) GetCurrencyCode() string`
 
-GetProfile returns the Profile field if non-nil, zero value otherwise.
+GetCurrencyCode returns the CurrencyCode field if non-nil, zero value otherwise.
 
-### GetProfileOk
+### GetCurrencyCodeOk
 
-`func (o *MutualFund) GetProfileOk() (*Profile, bool)`
+`func (o *MutualFund) GetCurrencyCodeOk() (*string, bool)`
 
-GetProfileOk returns a tuple with the Profile field if it's non-nil, zero value otherwise
+GetCurrencyCodeOk returns a tuple with the CurrencyCode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProfile
+### SetCurrencyCode
 
-`func (o *MutualFund) SetProfile(v Profile)`
+`func (o *MutualFund) SetCurrencyCode(v string)`
 
-SetProfile sets Profile field to given value.
+SetCurrencyCode sets CurrencyCode field to given value.
 
 
-### GetSummary
+### GetAmc
 
-`func (o *MutualFund) GetSummary() MutualFundSummary`
+`func (o *MutualFund) GetAmc() string`
 
-GetSummary returns the Summary field if non-nil, zero value otherwise.
+GetAmc returns the Amc field if non-nil, zero value otherwise.
 
-### GetSummaryOk
+### GetAmcOk
 
-`func (o *MutualFund) GetSummaryOk() (*MutualFundSummary, bool)`
+`func (o *MutualFund) GetAmcOk() (*string, bool)`
 
-GetSummaryOk returns a tuple with the Summary field if it's non-nil, zero value otherwise
+GetAmcOk returns a tuple with the Amc field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSummary
+### SetAmc
 
-`func (o *MutualFund) SetSummary(v MutualFundSummary)`
+`func (o *MutualFund) SetAmc(v string)`
 
-SetSummary sets Summary field to given value.
+SetAmc sets Amc field to given value.
 
+### HasAmc
 
-### GetMaskedAccountNumber
+`func (o *MutualFund) HasAmc() bool`
 
-`func (o *MutualFund) GetMaskedAccountNumber() string`
+HasAmc returns a boolean if a field has been set.
 
-GetMaskedAccountNumber returns the MaskedAccountNumber field if non-nil, zero value otherwise.
+### GetRegistrar
 
-### GetMaskedAccountNumberOk
+`func (o *MutualFund) GetRegistrar() string`
 
-`func (o *MutualFund) GetMaskedAccountNumberOk() (*string, bool)`
+GetRegistrar returns the Registrar field if non-nil, zero value otherwise.
 
-GetMaskedAccountNumberOk returns a tuple with the MaskedAccountNumber field if it's non-nil, zero value otherwise
+### GetRegistrarOk
+
+`func (o *MutualFund) GetRegistrarOk() (*string, bool)`
+
+GetRegistrarOk returns a tuple with the Registrar field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMaskedAccountNumber
+### SetRegistrar
 
-`func (o *MutualFund) SetMaskedAccountNumber(v string)`
+`func (o *MutualFund) SetRegistrar(v string)`
 
-SetMaskedAccountNumber sets MaskedAccountNumber field to given value.
+SetRegistrar sets Registrar field to given value.
 
+### HasRegistrar
 
-### GetLinkedAccountRef
+`func (o *MutualFund) HasRegistrar() bool`
 
-`func (o *MutualFund) GetLinkedAccountRef() string`
+HasRegistrar returns a boolean if a field has been set.
 
-GetLinkedAccountRef returns the LinkedAccountRef field if non-nil, zero value otherwise.
+### GetFundName
 
-### GetLinkedAccountRefOk
+`func (o *MutualFund) GetFundName() string`
 
-`func (o *MutualFund) GetLinkedAccountRefOk() (*string, bool)`
+GetFundName returns the FundName field if non-nil, zero value otherwise.
 
-GetLinkedAccountRefOk returns a tuple with the LinkedAccountRef field if it's non-nil, zero value otherwise
+### GetFundNameOk
+
+`func (o *MutualFund) GetFundNameOk() (*string, bool)`
+
+GetFundNameOk returns a tuple with the FundName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLinkedAccountRef
+### SetFundName
 
-`func (o *MutualFund) SetLinkedAccountRef(v string)`
+`func (o *MutualFund) SetFundName(v string)`
 
-SetLinkedAccountRef sets LinkedAccountRef field to given value.
+SetFundName sets FundName field to given value.
 
 
-### GetVersion
+### GetIsin
 
-`func (o *MutualFund) GetVersion() float32`
+`func (o *MutualFund) GetIsin() string`
 
-GetVersion returns the Version field if non-nil, zero value otherwise.
+GetIsin returns the Isin field if non-nil, zero value otherwise.
 
-### GetVersionOk
+### GetIsinOk
 
-`func (o *MutualFund) GetVersionOk() (*float32, bool)`
+`func (o *MutualFund) GetIsinOk() (*string, bool)`
 
-GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+GetIsinOk returns a tuple with the Isin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetVersion
+### SetIsin
 
-`func (o *MutualFund) SetVersion(v float32)`
+`func (o *MutualFund) SetIsin(v string)`
 
-SetVersion sets Version field to given value.
+SetIsin sets Isin field to given value.
+
+
+### GetFolioNumber
+
+`func (o *MutualFund) GetFolioNumber() string`
+
+GetFolioNumber returns the FolioNumber field if non-nil, zero value otherwise.
+
+### GetFolioNumberOk
+
+`func (o *MutualFund) GetFolioNumberOk() (*string, bool)`
+
+GetFolioNumberOk returns a tuple with the FolioNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFolioNumber
+
+`func (o *MutualFund) SetFolioNumber(v string)`
+
+SetFolioNumber sets FolioNumber field to given value.
+
+
+### GetSchemeCode
+
+`func (o *MutualFund) GetSchemeCode() string`
+
+GetSchemeCode returns the SchemeCode field if non-nil, zero value otherwise.
+
+### GetSchemeCodeOk
+
+`func (o *MutualFund) GetSchemeCodeOk() (*string, bool)`
+
+GetSchemeCodeOk returns a tuple with the SchemeCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSchemeCode
+
+`func (o *MutualFund) SetSchemeCode(v string)`
+
+SetSchemeCode sets SchemeCode field to given value.
+
+### HasSchemeCode
+
+`func (o *MutualFund) HasSchemeCode() bool`
+
+HasSchemeCode returns a boolean if a field has been set.
+
+### GetFundType
+
+`func (o *MutualFund) GetFundType() string`
+
+GetFundType returns the FundType field if non-nil, zero value otherwise.
+
+### GetFundTypeOk
+
+`func (o *MutualFund) GetFundTypeOk() (*string, bool)`
+
+GetFundTypeOk returns a tuple with the FundType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFundType
+
+`func (o *MutualFund) SetFundType(v string)`
+
+SetFundType sets FundType field to given value.
+
+### HasFundType
+
+`func (o *MutualFund) HasFundType() bool`
+
+HasFundType returns a boolean if a field has been set.
+
+### GetFundCategory
+
+`func (o *MutualFund) GetFundCategory() string`
+
+GetFundCategory returns the FundCategory field if non-nil, zero value otherwise.
+
+### GetFundCategoryOk
+
+`func (o *MutualFund) GetFundCategoryOk() (*string, bool)`
+
+GetFundCategoryOk returns a tuple with the FundCategory field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFundCategory
+
+`func (o *MutualFund) SetFundCategory(v string)`
+
+SetFundCategory sets FundCategory field to given value.
+
+### HasFundCategory
+
+`func (o *MutualFund) HasFundCategory() bool`
+
+HasFundCategory returns a boolean if a field has been set.
+
+### GetUnits
+
+`func (o *MutualFund) GetUnits() float64`
+
+GetUnits returns the Units field if non-nil, zero value otherwise.
+
+### GetUnitsOk
+
+`func (o *MutualFund) GetUnitsOk() (*float64, bool)`
+
+GetUnitsOk returns a tuple with the Units field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnits
+
+`func (o *MutualFund) SetUnits(v float64)`
+
+SetUnits sets Units field to given value.
+
+
+### GetLienUnits
+
+`func (o *MutualFund) GetLienUnits() string`
+
+GetLienUnits returns the LienUnits field if non-nil, zero value otherwise.
+
+### GetLienUnitsOk
+
+`func (o *MutualFund) GetLienUnitsOk() (*string, bool)`
+
+GetLienUnitsOk returns a tuple with the LienUnits field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLienUnits
+
+`func (o *MutualFund) SetLienUnits(v string)`
+
+SetLienUnits sets LienUnits field to given value.
+
+### HasLienUnits
+
+`func (o *MutualFund) HasLienUnits() bool`
+
+HasLienUnits returns a boolean if a field has been set.
+
+### GetCreationDate
+
+`func (o *MutualFund) GetCreationDate() time.Time`
+
+GetCreationDate returns the CreationDate field if non-nil, zero value otherwise.
+
+### GetCreationDateOk
+
+`func (o *MutualFund) GetCreationDateOk() (*time.Time, bool)`
+
+GetCreationDateOk returns a tuple with the CreationDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreationDate
+
+`func (o *MutualFund) SetCreationDate(v time.Time)`
+
+SetCreationDate sets CreationDate field to given value.
+
+### HasCreationDate
+
+`func (o *MutualFund) HasCreationDate() bool`
+
+HasCreationDate returns a boolean if a field has been set.
+
+### GetHolder
+
+`func (o *MutualFund) GetHolder() Holder`
+
+GetHolder returns the Holder field if non-nil, zero value otherwise.
+
+### GetHolderOk
+
+`func (o *MutualFund) GetHolderOk() (*Holder, bool)`
+
+GetHolderOk returns a tuple with the Holder field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHolder
+
+`func (o *MutualFund) SetHolder(v Holder)`
+
+SetHolder sets Holder field to given value.
+
+
+### GetTransactions
+
+`func (o *MutualFund) GetTransactions() bool`
+
+GetTransactions returns the Transactions field if non-nil, zero value otherwise.
+
+### GetTransactionsOk
+
+`func (o *MutualFund) GetTransactionsOk() (*bool, bool)`
+
+GetTransactionsOk returns a tuple with the Transactions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTransactions
+
+`func (o *MutualFund) SetTransactions(v bool)`
+
+SetTransactions sets Transactions field to given value.
 
 
 

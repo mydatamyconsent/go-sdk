@@ -24,6 +24,10 @@ type ConsentedMedicalRecord struct {
 	FieldTitle string `json:"fieldTitle"`
 	// Health field slug.
 	FieldSlug string `json:"fieldSlug"`
+	// Issuer id.
+	IssuerId string `json:"issuerId"`
+	// Issuer name.
+	IssuerName string `json:"issuerName"`
 	// health category type.
 	Category string `json:"category"`
 	// To Date
@@ -36,10 +40,12 @@ type ConsentedMedicalRecord struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConsentedMedicalRecord(fieldTitle string, fieldSlug string, category string) *ConsentedMedicalRecord {
+func NewConsentedMedicalRecord(fieldTitle string, fieldSlug string, issuerId string, issuerName string, category string) *ConsentedMedicalRecord {
 	this := ConsentedMedicalRecord{}
 	this.FieldTitle = fieldTitle
 	this.FieldSlug = fieldSlug
+	this.IssuerId = issuerId
+	this.IssuerName = issuerName
 	this.Category = category
 	return &this
 }
@@ -130,6 +136,54 @@ func (o *ConsentedMedicalRecord) GetFieldSlugOk() (*string, bool) {
 // SetFieldSlug sets field value
 func (o *ConsentedMedicalRecord) SetFieldSlug(v string) {
 	o.FieldSlug = v
+}
+
+// GetIssuerId returns the IssuerId field value
+func (o *ConsentedMedicalRecord) GetIssuerId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.IssuerId
+}
+
+// GetIssuerIdOk returns a tuple with the IssuerId field value
+// and a boolean to check if the value has been set.
+func (o *ConsentedMedicalRecord) GetIssuerIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IssuerId, true
+}
+
+// SetIssuerId sets field value
+func (o *ConsentedMedicalRecord) SetIssuerId(v string) {
+	o.IssuerId = v
+}
+
+// GetIssuerName returns the IssuerName field value
+func (o *ConsentedMedicalRecord) GetIssuerName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.IssuerName
+}
+
+// GetIssuerNameOk returns a tuple with the IssuerName field value
+// and a boolean to check if the value has been set.
+func (o *ConsentedMedicalRecord) GetIssuerNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IssuerName, true
+}
+
+// SetIssuerName sets field value
+func (o *ConsentedMedicalRecord) SetIssuerName(v string) {
+	o.IssuerName = v
 }
 
 // GetCategory returns the Category field value
@@ -230,6 +284,12 @@ func (o ConsentedMedicalRecord) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["fieldSlug"] = o.FieldSlug
+	}
+	if true {
+		toSerialize["issuerId"] = o.IssuerId
+	}
+	if true {
+		toSerialize["issuerName"] = o.IssuerName
 	}
 	if true {
 		toSerialize["category"] = o.Category

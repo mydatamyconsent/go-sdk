@@ -13,6 +13,7 @@ package github.com/mydatamyconsent/sdk
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // FinancialAccountMutualFund struct for FinancialAccountMutualFund
@@ -20,31 +21,42 @@ type FinancialAccountMutualFund struct {
 	Type string `json:"type"`
 	Id string `json:"id"`
 	Name string `json:"name"`
-	Identifier string `json:"identifier"`
-	Balance float64 `json:"balance"`
-	Profile Profile `json:"profile"`
-	Summary MutualFundSummary `json:"summary"`
-	MaskedAccountNumber string `json:"masked_account_number"`
-	LinkedAccountRef string `json:"linked_account_ref"`
-	Version float32 `json:"version"`
+	InvestmentValue float64 `json:"investment_value"`
+	CurrentValue float64 `json:"current_value"`
+	CurrencyCode string `json:"currency_code"`
+	Amc *string `json:"amc,omitempty"`
+	Registrar *string `json:"registrar,omitempty"`
+	FundName string `json:"fund_name"`
+	Isin string `json:"isin"`
+	FolioNumber string `json:"folio_number"`
+	SchemeCode *string `json:"scheme_code,omitempty"`
+	FundType *string `json:"fund_type,omitempty"`
+	FundCategory *string `json:"fund_category,omitempty"`
+	Units float64 `json:"units"`
+	LienUnits *string `json:"lien_units,omitempty"`
+	CreationDate *time.Time `json:"creation_date,omitempty"`
+	Holder Holder `json:"holder"`
+	Transactions bool `json:"transactions"`
 }
 
 // NewFinancialAccountMutualFund instantiates a new FinancialAccountMutualFund object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFinancialAccountMutualFund(type_ string, id string, name string, identifier string, balance float64, profile Profile, summary MutualFundSummary, maskedAccountNumber string, linkedAccountRef string, version float32) *FinancialAccountMutualFund {
+func NewFinancialAccountMutualFund(type_ string, id string, name string, investmentValue float64, currentValue float64, currencyCode string, fundName string, isin string, folioNumber string, units float64, holder Holder, transactions bool) *FinancialAccountMutualFund {
 	this := FinancialAccountMutualFund{}
 	this.Type = type_
 	this.Id = id
 	this.Name = name
-	this.Identifier = identifier
-	this.Balance = balance
-	this.Profile = profile
-	this.Summary = summary
-	this.MaskedAccountNumber = maskedAccountNumber
-	this.LinkedAccountRef = linkedAccountRef
-	this.Version = version
+	this.InvestmentValue = investmentValue
+	this.CurrentValue = currentValue
+	this.CurrencyCode = currencyCode
+	this.FundName = fundName
+	this.Isin = isin
+	this.FolioNumber = folioNumber
+	this.Units = units
+	this.Holder = holder
+	this.Transactions = transactions
 	return &this
 }
 
@@ -128,172 +140,444 @@ func (o *FinancialAccountMutualFund) SetName(v string) {
 	o.Name = v
 }
 
-// GetIdentifier returns the Identifier field value
-func (o *FinancialAccountMutualFund) GetIdentifier() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Identifier
-}
-
-// GetIdentifierOk returns a tuple with the Identifier field value
-// and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFund) GetIdentifierOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Identifier, true
-}
-
-// SetIdentifier sets field value
-func (o *FinancialAccountMutualFund) SetIdentifier(v string) {
-	o.Identifier = v
-}
-
-// GetBalance returns the Balance field value
-func (o *FinancialAccountMutualFund) GetBalance() float64 {
+// GetInvestmentValue returns the InvestmentValue field value
+func (o *FinancialAccountMutualFund) GetInvestmentValue() float64 {
 	if o == nil {
 		var ret float64
 		return ret
 	}
 
-	return o.Balance
+	return o.InvestmentValue
 }
 
-// GetBalanceOk returns a tuple with the Balance field value
+// GetInvestmentValueOk returns a tuple with the InvestmentValue field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFund) GetBalanceOk() (*float64, bool) {
+func (o *FinancialAccountMutualFund) GetInvestmentValueOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Balance, true
+	return &o.InvestmentValue, true
 }
 
-// SetBalance sets field value
-func (o *FinancialAccountMutualFund) SetBalance(v float64) {
-	o.Balance = v
+// SetInvestmentValue sets field value
+func (o *FinancialAccountMutualFund) SetInvestmentValue(v float64) {
+	o.InvestmentValue = v
 }
 
-// GetProfile returns the Profile field value
-func (o *FinancialAccountMutualFund) GetProfile() Profile {
+// GetCurrentValue returns the CurrentValue field value
+func (o *FinancialAccountMutualFund) GetCurrentValue() float64 {
 	if o == nil {
-		var ret Profile
+		var ret float64
 		return ret
 	}
 
-	return o.Profile
+	return o.CurrentValue
 }
 
-// GetProfileOk returns a tuple with the Profile field value
+// GetCurrentValueOk returns a tuple with the CurrentValue field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFund) GetProfileOk() (*Profile, bool) {
+func (o *FinancialAccountMutualFund) GetCurrentValueOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Profile, true
+	return &o.CurrentValue, true
 }
 
-// SetProfile sets field value
-func (o *FinancialAccountMutualFund) SetProfile(v Profile) {
-	o.Profile = v
+// SetCurrentValue sets field value
+func (o *FinancialAccountMutualFund) SetCurrentValue(v float64) {
+	o.CurrentValue = v
 }
 
-// GetSummary returns the Summary field value
-func (o *FinancialAccountMutualFund) GetSummary() MutualFundSummary {
-	if o == nil {
-		var ret MutualFundSummary
-		return ret
-	}
-
-	return o.Summary
-}
-
-// GetSummaryOk returns a tuple with the Summary field value
-// and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFund) GetSummaryOk() (*MutualFundSummary, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Summary, true
-}
-
-// SetSummary sets field value
-func (o *FinancialAccountMutualFund) SetSummary(v MutualFundSummary) {
-	o.Summary = v
-}
-
-// GetMaskedAccountNumber returns the MaskedAccountNumber field value
-func (o *FinancialAccountMutualFund) GetMaskedAccountNumber() string {
+// GetCurrencyCode returns the CurrencyCode field value
+func (o *FinancialAccountMutualFund) GetCurrencyCode() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.MaskedAccountNumber
+	return o.CurrencyCode
 }
 
-// GetMaskedAccountNumberOk returns a tuple with the MaskedAccountNumber field value
+// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFund) GetMaskedAccountNumberOk() (*string, bool) {
+func (o *FinancialAccountMutualFund) GetCurrencyCodeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.MaskedAccountNumber, true
+	return &o.CurrencyCode, true
 }
 
-// SetMaskedAccountNumber sets field value
-func (o *FinancialAccountMutualFund) SetMaskedAccountNumber(v string) {
-	o.MaskedAccountNumber = v
+// SetCurrencyCode sets field value
+func (o *FinancialAccountMutualFund) SetCurrencyCode(v string) {
+	o.CurrencyCode = v
 }
 
-// GetLinkedAccountRef returns the LinkedAccountRef field value
-func (o *FinancialAccountMutualFund) GetLinkedAccountRef() string {
+// GetAmc returns the Amc field value if set, zero value otherwise.
+func (o *FinancialAccountMutualFund) GetAmc() string {
+	if o == nil || o.Amc == nil {
+		var ret string
+		return ret
+	}
+	return *o.Amc
+}
+
+// GetAmcOk returns a tuple with the Amc field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountMutualFund) GetAmcOk() (*string, bool) {
+	if o == nil || o.Amc == nil {
+		return nil, false
+	}
+	return o.Amc, true
+}
+
+// HasAmc returns a boolean if a field has been set.
+func (o *FinancialAccountMutualFund) HasAmc() bool {
+	if o != nil && o.Amc != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAmc gets a reference to the given string and assigns it to the Amc field.
+func (o *FinancialAccountMutualFund) SetAmc(v string) {
+	o.Amc = &v
+}
+
+// GetRegistrar returns the Registrar field value if set, zero value otherwise.
+func (o *FinancialAccountMutualFund) GetRegistrar() string {
+	if o == nil || o.Registrar == nil {
+		var ret string
+		return ret
+	}
+	return *o.Registrar
+}
+
+// GetRegistrarOk returns a tuple with the Registrar field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountMutualFund) GetRegistrarOk() (*string, bool) {
+	if o == nil || o.Registrar == nil {
+		return nil, false
+	}
+	return o.Registrar, true
+}
+
+// HasRegistrar returns a boolean if a field has been set.
+func (o *FinancialAccountMutualFund) HasRegistrar() bool {
+	if o != nil && o.Registrar != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRegistrar gets a reference to the given string and assigns it to the Registrar field.
+func (o *FinancialAccountMutualFund) SetRegistrar(v string) {
+	o.Registrar = &v
+}
+
+// GetFundName returns the FundName field value
+func (o *FinancialAccountMutualFund) GetFundName() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.LinkedAccountRef
+	return o.FundName
 }
 
-// GetLinkedAccountRefOk returns a tuple with the LinkedAccountRef field value
+// GetFundNameOk returns a tuple with the FundName field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFund) GetLinkedAccountRefOk() (*string, bool) {
+func (o *FinancialAccountMutualFund) GetFundNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.LinkedAccountRef, true
+	return &o.FundName, true
 }
 
-// SetLinkedAccountRef sets field value
-func (o *FinancialAccountMutualFund) SetLinkedAccountRef(v string) {
-	o.LinkedAccountRef = v
+// SetFundName sets field value
+func (o *FinancialAccountMutualFund) SetFundName(v string) {
+	o.FundName = v
 }
 
-// GetVersion returns the Version field value
-func (o *FinancialAccountMutualFund) GetVersion() float32 {
+// GetIsin returns the Isin field value
+func (o *FinancialAccountMutualFund) GetIsin() string {
 	if o == nil {
-		var ret float32
+		var ret string
 		return ret
 	}
 
-	return o.Version
+	return o.Isin
 }
 
-// GetVersionOk returns a tuple with the Version field value
+// GetIsinOk returns a tuple with the Isin field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFund) GetVersionOk() (*float32, bool) {
+func (o *FinancialAccountMutualFund) GetIsinOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Version, true
+	return &o.Isin, true
 }
 
-// SetVersion sets field value
-func (o *FinancialAccountMutualFund) SetVersion(v float32) {
-	o.Version = v
+// SetIsin sets field value
+func (o *FinancialAccountMutualFund) SetIsin(v string) {
+	o.Isin = v
+}
+
+// GetFolioNumber returns the FolioNumber field value
+func (o *FinancialAccountMutualFund) GetFolioNumber() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.FolioNumber
+}
+
+// GetFolioNumberOk returns a tuple with the FolioNumber field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountMutualFund) GetFolioNumberOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FolioNumber, true
+}
+
+// SetFolioNumber sets field value
+func (o *FinancialAccountMutualFund) SetFolioNumber(v string) {
+	o.FolioNumber = v
+}
+
+// GetSchemeCode returns the SchemeCode field value if set, zero value otherwise.
+func (o *FinancialAccountMutualFund) GetSchemeCode() string {
+	if o == nil || o.SchemeCode == nil {
+		var ret string
+		return ret
+	}
+	return *o.SchemeCode
+}
+
+// GetSchemeCodeOk returns a tuple with the SchemeCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountMutualFund) GetSchemeCodeOk() (*string, bool) {
+	if o == nil || o.SchemeCode == nil {
+		return nil, false
+	}
+	return o.SchemeCode, true
+}
+
+// HasSchemeCode returns a boolean if a field has been set.
+func (o *FinancialAccountMutualFund) HasSchemeCode() bool {
+	if o != nil && o.SchemeCode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSchemeCode gets a reference to the given string and assigns it to the SchemeCode field.
+func (o *FinancialAccountMutualFund) SetSchemeCode(v string) {
+	o.SchemeCode = &v
+}
+
+// GetFundType returns the FundType field value if set, zero value otherwise.
+func (o *FinancialAccountMutualFund) GetFundType() string {
+	if o == nil || o.FundType == nil {
+		var ret string
+		return ret
+	}
+	return *o.FundType
+}
+
+// GetFundTypeOk returns a tuple with the FundType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountMutualFund) GetFundTypeOk() (*string, bool) {
+	if o == nil || o.FundType == nil {
+		return nil, false
+	}
+	return o.FundType, true
+}
+
+// HasFundType returns a boolean if a field has been set.
+func (o *FinancialAccountMutualFund) HasFundType() bool {
+	if o != nil && o.FundType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFundType gets a reference to the given string and assigns it to the FundType field.
+func (o *FinancialAccountMutualFund) SetFundType(v string) {
+	o.FundType = &v
+}
+
+// GetFundCategory returns the FundCategory field value if set, zero value otherwise.
+func (o *FinancialAccountMutualFund) GetFundCategory() string {
+	if o == nil || o.FundCategory == nil {
+		var ret string
+		return ret
+	}
+	return *o.FundCategory
+}
+
+// GetFundCategoryOk returns a tuple with the FundCategory field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountMutualFund) GetFundCategoryOk() (*string, bool) {
+	if o == nil || o.FundCategory == nil {
+		return nil, false
+	}
+	return o.FundCategory, true
+}
+
+// HasFundCategory returns a boolean if a field has been set.
+func (o *FinancialAccountMutualFund) HasFundCategory() bool {
+	if o != nil && o.FundCategory != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFundCategory gets a reference to the given string and assigns it to the FundCategory field.
+func (o *FinancialAccountMutualFund) SetFundCategory(v string) {
+	o.FundCategory = &v
+}
+
+// GetUnits returns the Units field value
+func (o *FinancialAccountMutualFund) GetUnits() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.Units
+}
+
+// GetUnitsOk returns a tuple with the Units field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountMutualFund) GetUnitsOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Units, true
+}
+
+// SetUnits sets field value
+func (o *FinancialAccountMutualFund) SetUnits(v float64) {
+	o.Units = v
+}
+
+// GetLienUnits returns the LienUnits field value if set, zero value otherwise.
+func (o *FinancialAccountMutualFund) GetLienUnits() string {
+	if o == nil || o.LienUnits == nil {
+		var ret string
+		return ret
+	}
+	return *o.LienUnits
+}
+
+// GetLienUnitsOk returns a tuple with the LienUnits field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountMutualFund) GetLienUnitsOk() (*string, bool) {
+	if o == nil || o.LienUnits == nil {
+		return nil, false
+	}
+	return o.LienUnits, true
+}
+
+// HasLienUnits returns a boolean if a field has been set.
+func (o *FinancialAccountMutualFund) HasLienUnits() bool {
+	if o != nil && o.LienUnits != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLienUnits gets a reference to the given string and assigns it to the LienUnits field.
+func (o *FinancialAccountMutualFund) SetLienUnits(v string) {
+	o.LienUnits = &v
+}
+
+// GetCreationDate returns the CreationDate field value if set, zero value otherwise.
+func (o *FinancialAccountMutualFund) GetCreationDate() time.Time {
+	if o == nil || o.CreationDate == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.CreationDate
+}
+
+// GetCreationDateOk returns a tuple with the CreationDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountMutualFund) GetCreationDateOk() (*time.Time, bool) {
+	if o == nil || o.CreationDate == nil {
+		return nil, false
+	}
+	return o.CreationDate, true
+}
+
+// HasCreationDate returns a boolean if a field has been set.
+func (o *FinancialAccountMutualFund) HasCreationDate() bool {
+	if o != nil && o.CreationDate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCreationDate gets a reference to the given time.Time and assigns it to the CreationDate field.
+func (o *FinancialAccountMutualFund) SetCreationDate(v time.Time) {
+	o.CreationDate = &v
+}
+
+// GetHolder returns the Holder field value
+func (o *FinancialAccountMutualFund) GetHolder() Holder {
+	if o == nil {
+		var ret Holder
+		return ret
+	}
+
+	return o.Holder
+}
+
+// GetHolderOk returns a tuple with the Holder field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountMutualFund) GetHolderOk() (*Holder, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Holder, true
+}
+
+// SetHolder sets field value
+func (o *FinancialAccountMutualFund) SetHolder(v Holder) {
+	o.Holder = v
+}
+
+// GetTransactions returns the Transactions field value
+func (o *FinancialAccountMutualFund) GetTransactions() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Transactions
+}
+
+// GetTransactionsOk returns a tuple with the Transactions field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountMutualFund) GetTransactionsOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Transactions, true
+}
+
+// SetTransactions sets field value
+func (o *FinancialAccountMutualFund) SetTransactions(v bool) {
+	o.Transactions = v
 }
 
 func (o FinancialAccountMutualFund) MarshalJSON() ([]byte, error) {
@@ -308,25 +592,52 @@ func (o FinancialAccountMutualFund) MarshalJSON() ([]byte, error) {
 		toSerialize["name"] = o.Name
 	}
 	if true {
-		toSerialize["identifier"] = o.Identifier
+		toSerialize["investment_value"] = o.InvestmentValue
 	}
 	if true {
-		toSerialize["balance"] = o.Balance
+		toSerialize["current_value"] = o.CurrentValue
 	}
 	if true {
-		toSerialize["profile"] = o.Profile
+		toSerialize["currency_code"] = o.CurrencyCode
+	}
+	if o.Amc != nil {
+		toSerialize["amc"] = o.Amc
+	}
+	if o.Registrar != nil {
+		toSerialize["registrar"] = o.Registrar
 	}
 	if true {
-		toSerialize["summary"] = o.Summary
+		toSerialize["fund_name"] = o.FundName
 	}
 	if true {
-		toSerialize["masked_account_number"] = o.MaskedAccountNumber
+		toSerialize["isin"] = o.Isin
 	}
 	if true {
-		toSerialize["linked_account_ref"] = o.LinkedAccountRef
+		toSerialize["folio_number"] = o.FolioNumber
+	}
+	if o.SchemeCode != nil {
+		toSerialize["scheme_code"] = o.SchemeCode
+	}
+	if o.FundType != nil {
+		toSerialize["fund_type"] = o.FundType
+	}
+	if o.FundCategory != nil {
+		toSerialize["fund_category"] = o.FundCategory
 	}
 	if true {
-		toSerialize["version"] = o.Version
+		toSerialize["units"] = o.Units
+	}
+	if o.LienUnits != nil {
+		toSerialize["lien_units"] = o.LienUnits
+	}
+	if o.CreationDate != nil {
+		toSerialize["creation_date"] = o.CreationDate
+	}
+	if true {
+		toSerialize["holder"] = o.Holder
+	}
+	if true {
+		toSerialize["transactions"] = o.Transactions
 	}
 	return json.Marshal(toSerialize)
 }

@@ -19,27 +19,22 @@ import (
 // Holder struct for Holder
 type Holder struct {
 	Name string `json:"name"`
-	Dob *time.Time `json:"dob,omitempty"`
+	DateOfBirth *time.Time `json:"date_of_birth,omitempty"`
 	Mobile *string `json:"mobile,omitempty"`
-	Nominee *HoldingNominee `json:"nominee,omitempty"`
-	DematId string `json:"dematId"`
-	Landline *string `json:"landline,omitempty"`
-	Address *string `json:"address,omitempty"`
+	DematId string `json:"demat_id"`
 	Email string `json:"email"`
 	Pan *string `json:"pan,omitempty"`
-	CkycCompliance bool `json:"ckycCompliance"`
 }
 
 // NewHolder instantiates a new Holder object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHolder(name string, dematId string, email string, ckycCompliance bool) *Holder {
+func NewHolder(name string, dematId string, email string) *Holder {
 	this := Holder{}
 	this.Name = name
 	this.DematId = dematId
 	this.Email = email
-	this.CkycCompliance = ckycCompliance
 	return &this
 }
 
@@ -75,36 +70,36 @@ func (o *Holder) SetName(v string) {
 	o.Name = v
 }
 
-// GetDob returns the Dob field value if set, zero value otherwise.
-func (o *Holder) GetDob() time.Time {
-	if o == nil || o.Dob == nil {
+// GetDateOfBirth returns the DateOfBirth field value if set, zero value otherwise.
+func (o *Holder) GetDateOfBirth() time.Time {
+	if o == nil || o.DateOfBirth == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.Dob
+	return *o.DateOfBirth
 }
 
-// GetDobOk returns a tuple with the Dob field value if set, nil otherwise
+// GetDateOfBirthOk returns a tuple with the DateOfBirth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Holder) GetDobOk() (*time.Time, bool) {
-	if o == nil || o.Dob == nil {
+func (o *Holder) GetDateOfBirthOk() (*time.Time, bool) {
+	if o == nil || o.DateOfBirth == nil {
 		return nil, false
 	}
-	return o.Dob, true
+	return o.DateOfBirth, true
 }
 
-// HasDob returns a boolean if a field has been set.
-func (o *Holder) HasDob() bool {
-	if o != nil && o.Dob != nil {
+// HasDateOfBirth returns a boolean if a field has been set.
+func (o *Holder) HasDateOfBirth() bool {
+	if o != nil && o.DateOfBirth != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetDob gets a reference to the given time.Time and assigns it to the Dob field.
-func (o *Holder) SetDob(v time.Time) {
-	o.Dob = &v
+// SetDateOfBirth gets a reference to the given time.Time and assigns it to the DateOfBirth field.
+func (o *Holder) SetDateOfBirth(v time.Time) {
+	o.DateOfBirth = &v
 }
 
 // GetMobile returns the Mobile field value if set, zero value otherwise.
@@ -139,38 +134,6 @@ func (o *Holder) SetMobile(v string) {
 	o.Mobile = &v
 }
 
-// GetNominee returns the Nominee field value if set, zero value otherwise.
-func (o *Holder) GetNominee() HoldingNominee {
-	if o == nil || o.Nominee == nil {
-		var ret HoldingNominee
-		return ret
-	}
-	return *o.Nominee
-}
-
-// GetNomineeOk returns a tuple with the Nominee field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Holder) GetNomineeOk() (*HoldingNominee, bool) {
-	if o == nil || o.Nominee == nil {
-		return nil, false
-	}
-	return o.Nominee, true
-}
-
-// HasNominee returns a boolean if a field has been set.
-func (o *Holder) HasNominee() bool {
-	if o != nil && o.Nominee != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetNominee gets a reference to the given HoldingNominee and assigns it to the Nominee field.
-func (o *Holder) SetNominee(v HoldingNominee) {
-	o.Nominee = &v
-}
-
 // GetDematId returns the DematId field value
 func (o *Holder) GetDematId() string {
 	if o == nil {
@@ -193,70 +156,6 @@ func (o *Holder) GetDematIdOk() (*string, bool) {
 // SetDematId sets field value
 func (o *Holder) SetDematId(v string) {
 	o.DematId = v
-}
-
-// GetLandline returns the Landline field value if set, zero value otherwise.
-func (o *Holder) GetLandline() string {
-	if o == nil || o.Landline == nil {
-		var ret string
-		return ret
-	}
-	return *o.Landline
-}
-
-// GetLandlineOk returns a tuple with the Landline field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Holder) GetLandlineOk() (*string, bool) {
-	if o == nil || o.Landline == nil {
-		return nil, false
-	}
-	return o.Landline, true
-}
-
-// HasLandline returns a boolean if a field has been set.
-func (o *Holder) HasLandline() bool {
-	if o != nil && o.Landline != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetLandline gets a reference to the given string and assigns it to the Landline field.
-func (o *Holder) SetLandline(v string) {
-	o.Landline = &v
-}
-
-// GetAddress returns the Address field value if set, zero value otherwise.
-func (o *Holder) GetAddress() string {
-	if o == nil || o.Address == nil {
-		var ret string
-		return ret
-	}
-	return *o.Address
-}
-
-// GetAddressOk returns a tuple with the Address field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Holder) GetAddressOk() (*string, bool) {
-	if o == nil || o.Address == nil {
-		return nil, false
-	}
-	return o.Address, true
-}
-
-// HasAddress returns a boolean if a field has been set.
-func (o *Holder) HasAddress() bool {
-	if o != nil && o.Address != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetAddress gets a reference to the given string and assigns it to the Address field.
-func (o *Holder) SetAddress(v string) {
-	o.Address = &v
 }
 
 // GetEmail returns the Email field value
@@ -315,61 +214,25 @@ func (o *Holder) SetPan(v string) {
 	o.Pan = &v
 }
 
-// GetCkycCompliance returns the CkycCompliance field value
-func (o *Holder) GetCkycCompliance() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.CkycCompliance
-}
-
-// GetCkycComplianceOk returns a tuple with the CkycCompliance field value
-// and a boolean to check if the value has been set.
-func (o *Holder) GetCkycComplianceOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CkycCompliance, true
-}
-
-// SetCkycCompliance sets field value
-func (o *Holder) SetCkycCompliance(v bool) {
-	o.CkycCompliance = v
-}
-
 func (o Holder) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["name"] = o.Name
 	}
-	if o.Dob != nil {
-		toSerialize["dob"] = o.Dob
+	if o.DateOfBirth != nil {
+		toSerialize["date_of_birth"] = o.DateOfBirth
 	}
 	if o.Mobile != nil {
 		toSerialize["mobile"] = o.Mobile
 	}
-	if o.Nominee != nil {
-		toSerialize["nominee"] = o.Nominee
-	}
 	if true {
-		toSerialize["dematId"] = o.DematId
-	}
-	if o.Landline != nil {
-		toSerialize["landline"] = o.Landline
-	}
-	if o.Address != nil {
-		toSerialize["address"] = o.Address
+		toSerialize["demat_id"] = o.DematId
 	}
 	if true {
 		toSerialize["email"] = o.Email
 	}
 	if o.Pan != nil {
 		toSerialize["pan"] = o.Pan
-	}
-	if true {
-		toSerialize["ckycCompliance"] = o.CkycCompliance
 	}
 	return json.Marshal(toSerialize)
 }
