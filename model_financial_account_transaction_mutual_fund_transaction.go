@@ -16,8 +16,8 @@ import (
 	"time"
 )
 
-// FinancialAccountMutualFundTransaction struct for FinancialAccountMutualFundTransaction
-type FinancialAccountMutualFundTransaction struct {
+// FinancialAccountTransactionMutualFundTransaction struct for FinancialAccountTransactionMutualFundTransaction
+type FinancialAccountTransactionMutualFundTransaction struct {
 	Type MutualFundTransactionType `json:"type"`
 	Id string `json:"id"`
 	Amc string `json:"amc"`
@@ -44,12 +44,12 @@ type FinancialAccountMutualFundTransaction struct {
 	Narration string `json:"narration"`
 }
 
-// NewFinancialAccountMutualFundTransaction instantiates a new FinancialAccountMutualFundTransaction object
+// NewFinancialAccountTransactionMutualFundTransaction instantiates a new FinancialAccountTransactionMutualFundTransaction object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFinancialAccountMutualFundTransaction(type_ MutualFundTransactionType, id string, amc string, registrar string, schemeCode string, schemePlan MutualFundSchemePlan, isin string, amfiCode string, fundType MutualFundFundType, schemeOption MutualFundSchemeOption, schemeTypes MutualFundSchemeType, schemeCategory MutualFundSchemeCategory, ucc string, amount string, closingUnits string, lienUnits string, nav string, navDate time.Time, orderDate time.Time, executionDate time.Time, lockinFlag string, lockinDays string, mode MutualFundHoldingMode, narration string) *FinancialAccountMutualFundTransaction {
-	this := FinancialAccountMutualFundTransaction{}
+func NewFinancialAccountTransactionMutualFundTransaction(type_ MutualFundTransactionType, id string, amc string, registrar string, schemeCode string, schemePlan MutualFundSchemePlan, isin string, amfiCode string, fundType MutualFundFundType, schemeOption MutualFundSchemeOption, schemeTypes MutualFundSchemeType, schemeCategory MutualFundSchemeCategory, ucc string, amount string, closingUnits string, lienUnits string, nav string, navDate time.Time, orderDate time.Time, executionDate time.Time, lockinFlag string, lockinDays string, mode MutualFundHoldingMode, narration string) *FinancialAccountTransactionMutualFundTransaction {
+	this := FinancialAccountTransactionMutualFundTransaction{}
 	this.Type = type_
 	this.Id = id
 	this.Amc = amc
@@ -77,16 +77,16 @@ func NewFinancialAccountMutualFundTransaction(type_ MutualFundTransactionType, i
 	return &this
 }
 
-// NewFinancialAccountMutualFundTransactionWithDefaults instantiates a new FinancialAccountMutualFundTransaction object
+// NewFinancialAccountTransactionMutualFundTransactionWithDefaults instantiates a new FinancialAccountTransactionMutualFundTransaction object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewFinancialAccountMutualFundTransactionWithDefaults() *FinancialAccountMutualFundTransaction {
-	this := FinancialAccountMutualFundTransaction{}
+func NewFinancialAccountTransactionMutualFundTransactionWithDefaults() *FinancialAccountTransactionMutualFundTransaction {
+	this := FinancialAccountTransactionMutualFundTransaction{}
 	return &this
 }
 
 // GetType returns the Type field value
-func (o *FinancialAccountMutualFundTransaction) GetType() MutualFundTransactionType {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetType() MutualFundTransactionType {
 	if o == nil {
 		var ret MutualFundTransactionType
 		return ret
@@ -97,7 +97,7 @@ func (o *FinancialAccountMutualFundTransaction) GetType() MutualFundTransactionT
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetTypeOk() (*MutualFundTransactionType, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetTypeOk() (*MutualFundTransactionType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -105,12 +105,12 @@ func (o *FinancialAccountMutualFundTransaction) GetTypeOk() (*MutualFundTransact
 }
 
 // SetType sets field value
-func (o *FinancialAccountMutualFundTransaction) SetType(v MutualFundTransactionType) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetType(v MutualFundTransactionType) {
 	o.Type = v
 }
 
 // GetId returns the Id field value
-func (o *FinancialAccountMutualFundTransaction) GetId() string {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -121,7 +121,7 @@ func (o *FinancialAccountMutualFundTransaction) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetIdOk() (*string, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -129,12 +129,12 @@ func (o *FinancialAccountMutualFundTransaction) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *FinancialAccountMutualFundTransaction) SetId(v string) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetId(v string) {
 	o.Id = v
 }
 
 // GetAmc returns the Amc field value
-func (o *FinancialAccountMutualFundTransaction) GetAmc() string {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetAmc() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -145,7 +145,7 @@ func (o *FinancialAccountMutualFundTransaction) GetAmc() string {
 
 // GetAmcOk returns a tuple with the Amc field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetAmcOk() (*string, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetAmcOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -153,12 +153,12 @@ func (o *FinancialAccountMutualFundTransaction) GetAmcOk() (*string, bool) {
 }
 
 // SetAmc sets field value
-func (o *FinancialAccountMutualFundTransaction) SetAmc(v string) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetAmc(v string) {
 	o.Amc = v
 }
 
 // GetRegistrar returns the Registrar field value
-func (o *FinancialAccountMutualFundTransaction) GetRegistrar() string {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetRegistrar() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -169,7 +169,7 @@ func (o *FinancialAccountMutualFundTransaction) GetRegistrar() string {
 
 // GetRegistrarOk returns a tuple with the Registrar field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetRegistrarOk() (*string, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetRegistrarOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -177,12 +177,12 @@ func (o *FinancialAccountMutualFundTransaction) GetRegistrarOk() (*string, bool)
 }
 
 // SetRegistrar sets field value
-func (o *FinancialAccountMutualFundTransaction) SetRegistrar(v string) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetRegistrar(v string) {
 	o.Registrar = v
 }
 
 // GetSchemeCode returns the SchemeCode field value
-func (o *FinancialAccountMutualFundTransaction) GetSchemeCode() string {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetSchemeCode() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -193,7 +193,7 @@ func (o *FinancialAccountMutualFundTransaction) GetSchemeCode() string {
 
 // GetSchemeCodeOk returns a tuple with the SchemeCode field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetSchemeCodeOk() (*string, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetSchemeCodeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -201,12 +201,12 @@ func (o *FinancialAccountMutualFundTransaction) GetSchemeCodeOk() (*string, bool
 }
 
 // SetSchemeCode sets field value
-func (o *FinancialAccountMutualFundTransaction) SetSchemeCode(v string) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetSchemeCode(v string) {
 	o.SchemeCode = v
 }
 
 // GetSchemePlan returns the SchemePlan field value
-func (o *FinancialAccountMutualFundTransaction) GetSchemePlan() MutualFundSchemePlan {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetSchemePlan() MutualFundSchemePlan {
 	if o == nil {
 		var ret MutualFundSchemePlan
 		return ret
@@ -217,7 +217,7 @@ func (o *FinancialAccountMutualFundTransaction) GetSchemePlan() MutualFundScheme
 
 // GetSchemePlanOk returns a tuple with the SchemePlan field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetSchemePlanOk() (*MutualFundSchemePlan, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetSchemePlanOk() (*MutualFundSchemePlan, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -225,12 +225,12 @@ func (o *FinancialAccountMutualFundTransaction) GetSchemePlanOk() (*MutualFundSc
 }
 
 // SetSchemePlan sets field value
-func (o *FinancialAccountMutualFundTransaction) SetSchemePlan(v MutualFundSchemePlan) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetSchemePlan(v MutualFundSchemePlan) {
 	o.SchemePlan = v
 }
 
 // GetIsin returns the Isin field value
-func (o *FinancialAccountMutualFundTransaction) GetIsin() string {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetIsin() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -241,7 +241,7 @@ func (o *FinancialAccountMutualFundTransaction) GetIsin() string {
 
 // GetIsinOk returns a tuple with the Isin field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetIsinOk() (*string, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetIsinOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -249,12 +249,12 @@ func (o *FinancialAccountMutualFundTransaction) GetIsinOk() (*string, bool) {
 }
 
 // SetIsin sets field value
-func (o *FinancialAccountMutualFundTransaction) SetIsin(v string) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetIsin(v string) {
 	o.Isin = v
 }
 
 // GetAmfiCode returns the AmfiCode field value
-func (o *FinancialAccountMutualFundTransaction) GetAmfiCode() string {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetAmfiCode() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -265,7 +265,7 @@ func (o *FinancialAccountMutualFundTransaction) GetAmfiCode() string {
 
 // GetAmfiCodeOk returns a tuple with the AmfiCode field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetAmfiCodeOk() (*string, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetAmfiCodeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -273,12 +273,12 @@ func (o *FinancialAccountMutualFundTransaction) GetAmfiCodeOk() (*string, bool) 
 }
 
 // SetAmfiCode sets field value
-func (o *FinancialAccountMutualFundTransaction) SetAmfiCode(v string) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetAmfiCode(v string) {
 	o.AmfiCode = v
 }
 
 // GetFundType returns the FundType field value
-func (o *FinancialAccountMutualFundTransaction) GetFundType() MutualFundFundType {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetFundType() MutualFundFundType {
 	if o == nil {
 		var ret MutualFundFundType
 		return ret
@@ -289,7 +289,7 @@ func (o *FinancialAccountMutualFundTransaction) GetFundType() MutualFundFundType
 
 // GetFundTypeOk returns a tuple with the FundType field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetFundTypeOk() (*MutualFundFundType, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetFundTypeOk() (*MutualFundFundType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -297,12 +297,12 @@ func (o *FinancialAccountMutualFundTransaction) GetFundTypeOk() (*MutualFundFund
 }
 
 // SetFundType sets field value
-func (o *FinancialAccountMutualFundTransaction) SetFundType(v MutualFundFundType) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetFundType(v MutualFundFundType) {
 	o.FundType = v
 }
 
 // GetSchemeOption returns the SchemeOption field value
-func (o *FinancialAccountMutualFundTransaction) GetSchemeOption() MutualFundSchemeOption {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetSchemeOption() MutualFundSchemeOption {
 	if o == nil {
 		var ret MutualFundSchemeOption
 		return ret
@@ -313,7 +313,7 @@ func (o *FinancialAccountMutualFundTransaction) GetSchemeOption() MutualFundSche
 
 // GetSchemeOptionOk returns a tuple with the SchemeOption field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetSchemeOptionOk() (*MutualFundSchemeOption, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetSchemeOptionOk() (*MutualFundSchemeOption, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -321,12 +321,12 @@ func (o *FinancialAccountMutualFundTransaction) GetSchemeOptionOk() (*MutualFund
 }
 
 // SetSchemeOption sets field value
-func (o *FinancialAccountMutualFundTransaction) SetSchemeOption(v MutualFundSchemeOption) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetSchemeOption(v MutualFundSchemeOption) {
 	o.SchemeOption = v
 }
 
 // GetSchemeTypes returns the SchemeTypes field value
-func (o *FinancialAccountMutualFundTransaction) GetSchemeTypes() MutualFundSchemeType {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetSchemeTypes() MutualFundSchemeType {
 	if o == nil {
 		var ret MutualFundSchemeType
 		return ret
@@ -337,7 +337,7 @@ func (o *FinancialAccountMutualFundTransaction) GetSchemeTypes() MutualFundSchem
 
 // GetSchemeTypesOk returns a tuple with the SchemeTypes field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetSchemeTypesOk() (*MutualFundSchemeType, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetSchemeTypesOk() (*MutualFundSchemeType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -345,12 +345,12 @@ func (o *FinancialAccountMutualFundTransaction) GetSchemeTypesOk() (*MutualFundS
 }
 
 // SetSchemeTypes sets field value
-func (o *FinancialAccountMutualFundTransaction) SetSchemeTypes(v MutualFundSchemeType) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetSchemeTypes(v MutualFundSchemeType) {
 	o.SchemeTypes = v
 }
 
 // GetSchemeCategory returns the SchemeCategory field value
-func (o *FinancialAccountMutualFundTransaction) GetSchemeCategory() MutualFundSchemeCategory {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetSchemeCategory() MutualFundSchemeCategory {
 	if o == nil {
 		var ret MutualFundSchemeCategory
 		return ret
@@ -361,7 +361,7 @@ func (o *FinancialAccountMutualFundTransaction) GetSchemeCategory() MutualFundSc
 
 // GetSchemeCategoryOk returns a tuple with the SchemeCategory field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetSchemeCategoryOk() (*MutualFundSchemeCategory, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetSchemeCategoryOk() (*MutualFundSchemeCategory, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -369,12 +369,12 @@ func (o *FinancialAccountMutualFundTransaction) GetSchemeCategoryOk() (*MutualFu
 }
 
 // SetSchemeCategory sets field value
-func (o *FinancialAccountMutualFundTransaction) SetSchemeCategory(v MutualFundSchemeCategory) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetSchemeCategory(v MutualFundSchemeCategory) {
 	o.SchemeCategory = v
 }
 
 // GetUcc returns the Ucc field value
-func (o *FinancialAccountMutualFundTransaction) GetUcc() string {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetUcc() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -385,7 +385,7 @@ func (o *FinancialAccountMutualFundTransaction) GetUcc() string {
 
 // GetUccOk returns a tuple with the Ucc field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetUccOk() (*string, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetUccOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -393,12 +393,12 @@ func (o *FinancialAccountMutualFundTransaction) GetUccOk() (*string, bool) {
 }
 
 // SetUcc sets field value
-func (o *FinancialAccountMutualFundTransaction) SetUcc(v string) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetUcc(v string) {
 	o.Ucc = v
 }
 
 // GetAmount returns the Amount field value
-func (o *FinancialAccountMutualFundTransaction) GetAmount() string {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetAmount() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -409,7 +409,7 @@ func (o *FinancialAccountMutualFundTransaction) GetAmount() string {
 
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetAmountOk() (*string, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetAmountOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -417,12 +417,12 @@ func (o *FinancialAccountMutualFundTransaction) GetAmountOk() (*string, bool) {
 }
 
 // SetAmount sets field value
-func (o *FinancialAccountMutualFundTransaction) SetAmount(v string) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetAmount(v string) {
 	o.Amount = v
 }
 
 // GetClosingUnits returns the ClosingUnits field value
-func (o *FinancialAccountMutualFundTransaction) GetClosingUnits() string {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetClosingUnits() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -433,7 +433,7 @@ func (o *FinancialAccountMutualFundTransaction) GetClosingUnits() string {
 
 // GetClosingUnitsOk returns a tuple with the ClosingUnits field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetClosingUnitsOk() (*string, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetClosingUnitsOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -441,12 +441,12 @@ func (o *FinancialAccountMutualFundTransaction) GetClosingUnitsOk() (*string, bo
 }
 
 // SetClosingUnits sets field value
-func (o *FinancialAccountMutualFundTransaction) SetClosingUnits(v string) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetClosingUnits(v string) {
 	o.ClosingUnits = v
 }
 
 // GetLienUnits returns the LienUnits field value
-func (o *FinancialAccountMutualFundTransaction) GetLienUnits() string {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetLienUnits() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -457,7 +457,7 @@ func (o *FinancialAccountMutualFundTransaction) GetLienUnits() string {
 
 // GetLienUnitsOk returns a tuple with the LienUnits field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetLienUnitsOk() (*string, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetLienUnitsOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -465,12 +465,12 @@ func (o *FinancialAccountMutualFundTransaction) GetLienUnitsOk() (*string, bool)
 }
 
 // SetLienUnits sets field value
-func (o *FinancialAccountMutualFundTransaction) SetLienUnits(v string) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetLienUnits(v string) {
 	o.LienUnits = v
 }
 
 // GetNav returns the Nav field value
-func (o *FinancialAccountMutualFundTransaction) GetNav() string {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetNav() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -481,7 +481,7 @@ func (o *FinancialAccountMutualFundTransaction) GetNav() string {
 
 // GetNavOk returns a tuple with the Nav field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetNavOk() (*string, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetNavOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -489,12 +489,12 @@ func (o *FinancialAccountMutualFundTransaction) GetNavOk() (*string, bool) {
 }
 
 // SetNav sets field value
-func (o *FinancialAccountMutualFundTransaction) SetNav(v string) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetNav(v string) {
 	o.Nav = v
 }
 
 // GetNavDate returns the NavDate field value
-func (o *FinancialAccountMutualFundTransaction) GetNavDate() time.Time {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetNavDate() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
@@ -505,7 +505,7 @@ func (o *FinancialAccountMutualFundTransaction) GetNavDate() time.Time {
 
 // GetNavDateOk returns a tuple with the NavDate field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetNavDateOk() (*time.Time, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetNavDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -513,12 +513,12 @@ func (o *FinancialAccountMutualFundTransaction) GetNavDateOk() (*time.Time, bool
 }
 
 // SetNavDate sets field value
-func (o *FinancialAccountMutualFundTransaction) SetNavDate(v time.Time) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetNavDate(v time.Time) {
 	o.NavDate = v
 }
 
 // GetOrderDate returns the OrderDate field value
-func (o *FinancialAccountMutualFundTransaction) GetOrderDate() time.Time {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetOrderDate() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
@@ -529,7 +529,7 @@ func (o *FinancialAccountMutualFundTransaction) GetOrderDate() time.Time {
 
 // GetOrderDateOk returns a tuple with the OrderDate field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetOrderDateOk() (*time.Time, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetOrderDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -537,12 +537,12 @@ func (o *FinancialAccountMutualFundTransaction) GetOrderDateOk() (*time.Time, bo
 }
 
 // SetOrderDate sets field value
-func (o *FinancialAccountMutualFundTransaction) SetOrderDate(v time.Time) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetOrderDate(v time.Time) {
 	o.OrderDate = v
 }
 
 // GetExecutionDate returns the ExecutionDate field value
-func (o *FinancialAccountMutualFundTransaction) GetExecutionDate() time.Time {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetExecutionDate() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
@@ -553,7 +553,7 @@ func (o *FinancialAccountMutualFundTransaction) GetExecutionDate() time.Time {
 
 // GetExecutionDateOk returns a tuple with the ExecutionDate field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetExecutionDateOk() (*time.Time, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetExecutionDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -561,12 +561,12 @@ func (o *FinancialAccountMutualFundTransaction) GetExecutionDateOk() (*time.Time
 }
 
 // SetExecutionDate sets field value
-func (o *FinancialAccountMutualFundTransaction) SetExecutionDate(v time.Time) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetExecutionDate(v time.Time) {
 	o.ExecutionDate = v
 }
 
 // GetLockinFlag returns the LockinFlag field value
-func (o *FinancialAccountMutualFundTransaction) GetLockinFlag() string {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetLockinFlag() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -577,7 +577,7 @@ func (o *FinancialAccountMutualFundTransaction) GetLockinFlag() string {
 
 // GetLockinFlagOk returns a tuple with the LockinFlag field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetLockinFlagOk() (*string, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetLockinFlagOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -585,12 +585,12 @@ func (o *FinancialAccountMutualFundTransaction) GetLockinFlagOk() (*string, bool
 }
 
 // SetLockinFlag sets field value
-func (o *FinancialAccountMutualFundTransaction) SetLockinFlag(v string) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetLockinFlag(v string) {
 	o.LockinFlag = v
 }
 
 // GetLockinDays returns the LockinDays field value
-func (o *FinancialAccountMutualFundTransaction) GetLockinDays() string {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetLockinDays() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -601,7 +601,7 @@ func (o *FinancialAccountMutualFundTransaction) GetLockinDays() string {
 
 // GetLockinDaysOk returns a tuple with the LockinDays field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetLockinDaysOk() (*string, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetLockinDaysOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -609,12 +609,12 @@ func (o *FinancialAccountMutualFundTransaction) GetLockinDaysOk() (*string, bool
 }
 
 // SetLockinDays sets field value
-func (o *FinancialAccountMutualFundTransaction) SetLockinDays(v string) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetLockinDays(v string) {
 	o.LockinDays = v
 }
 
 // GetMode returns the Mode field value
-func (o *FinancialAccountMutualFundTransaction) GetMode() MutualFundHoldingMode {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetMode() MutualFundHoldingMode {
 	if o == nil {
 		var ret MutualFundHoldingMode
 		return ret
@@ -625,7 +625,7 @@ func (o *FinancialAccountMutualFundTransaction) GetMode() MutualFundHoldingMode 
 
 // GetModeOk returns a tuple with the Mode field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetModeOk() (*MutualFundHoldingMode, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetModeOk() (*MutualFundHoldingMode, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -633,12 +633,12 @@ func (o *FinancialAccountMutualFundTransaction) GetModeOk() (*MutualFundHoldingM
 }
 
 // SetMode sets field value
-func (o *FinancialAccountMutualFundTransaction) SetMode(v MutualFundHoldingMode) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetMode(v MutualFundHoldingMode) {
 	o.Mode = v
 }
 
 // GetNarration returns the Narration field value
-func (o *FinancialAccountMutualFundTransaction) GetNarration() string {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetNarration() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -649,7 +649,7 @@ func (o *FinancialAccountMutualFundTransaction) GetNarration() string {
 
 // GetNarrationOk returns a tuple with the Narration field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountMutualFundTransaction) GetNarrationOk() (*string, bool) {
+func (o *FinancialAccountTransactionMutualFundTransaction) GetNarrationOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -657,11 +657,11 @@ func (o *FinancialAccountMutualFundTransaction) GetNarrationOk() (*string, bool)
 }
 
 // SetNarration sets field value
-func (o *FinancialAccountMutualFundTransaction) SetNarration(v string) {
+func (o *FinancialAccountTransactionMutualFundTransaction) SetNarration(v string) {
 	o.Narration = v
 }
 
-func (o FinancialAccountMutualFundTransaction) MarshalJSON() ([]byte, error) {
+func (o FinancialAccountTransactionMutualFundTransaction) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["type"] = o.Type
@@ -738,38 +738,38 @@ func (o FinancialAccountMutualFundTransaction) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableFinancialAccountMutualFundTransaction struct {
-	value *FinancialAccountMutualFundTransaction
+type NullableFinancialAccountTransactionMutualFundTransaction struct {
+	value *FinancialAccountTransactionMutualFundTransaction
 	isSet bool
 }
 
-func (v NullableFinancialAccountMutualFundTransaction) Get() *FinancialAccountMutualFundTransaction {
+func (v NullableFinancialAccountTransactionMutualFundTransaction) Get() *FinancialAccountTransactionMutualFundTransaction {
 	return v.value
 }
 
-func (v *NullableFinancialAccountMutualFundTransaction) Set(val *FinancialAccountMutualFundTransaction) {
+func (v *NullableFinancialAccountTransactionMutualFundTransaction) Set(val *FinancialAccountTransactionMutualFundTransaction) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableFinancialAccountMutualFundTransaction) IsSet() bool {
+func (v NullableFinancialAccountTransactionMutualFundTransaction) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableFinancialAccountMutualFundTransaction) Unset() {
+func (v *NullableFinancialAccountTransactionMutualFundTransaction) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableFinancialAccountMutualFundTransaction(val *FinancialAccountMutualFundTransaction) *NullableFinancialAccountMutualFundTransaction {
-	return &NullableFinancialAccountMutualFundTransaction{value: val, isSet: true}
+func NewNullableFinancialAccountTransactionMutualFundTransaction(val *FinancialAccountTransactionMutualFundTransaction) *NullableFinancialAccountTransactionMutualFundTransaction {
+	return &NullableFinancialAccountTransactionMutualFundTransaction{value: val, isSet: true}
 }
 
-func (v NullableFinancialAccountMutualFundTransaction) MarshalJSON() ([]byte, error) {
+func (v NullableFinancialAccountTransactionMutualFundTransaction) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableFinancialAccountMutualFundTransaction) UnmarshalJSON(src []byte) error {
+func (v *NullableFinancialAccountTransactionMutualFundTransaction) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

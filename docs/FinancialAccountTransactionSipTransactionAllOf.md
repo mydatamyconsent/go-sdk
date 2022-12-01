@@ -1,4 +1,4 @@
-# FinancialAccountSipTransactionAllOf
+# FinancialAccountTransactionSipTransactionAllOf
 
 ## Properties
 
@@ -8,39 +8,39 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewFinancialAccountSipTransactionAllOf
+### NewFinancialAccountTransactionSipTransactionAllOf
 
-`func NewFinancialAccountSipTransactionAllOf(type_ string, ) *FinancialAccountSipTransactionAllOf`
+`func NewFinancialAccountTransactionSipTransactionAllOf(type_ string, ) *FinancialAccountTransactionSipTransactionAllOf`
 
-NewFinancialAccountSipTransactionAllOf instantiates a new FinancialAccountSipTransactionAllOf object
+NewFinancialAccountTransactionSipTransactionAllOf instantiates a new FinancialAccountTransactionSipTransactionAllOf object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewFinancialAccountSipTransactionAllOfWithDefaults
+### NewFinancialAccountTransactionSipTransactionAllOfWithDefaults
 
-`func NewFinancialAccountSipTransactionAllOfWithDefaults() *FinancialAccountSipTransactionAllOf`
+`func NewFinancialAccountTransactionSipTransactionAllOfWithDefaults() *FinancialAccountTransactionSipTransactionAllOf`
 
-NewFinancialAccountSipTransactionAllOfWithDefaults instantiates a new FinancialAccountSipTransactionAllOf object
+NewFinancialAccountTransactionSipTransactionAllOfWithDefaults instantiates a new FinancialAccountTransactionSipTransactionAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *FinancialAccountSipTransactionAllOf) GetType() string`
+`func (o *FinancialAccountTransactionSipTransactionAllOf) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *FinancialAccountSipTransactionAllOf) GetTypeOk() (*string, bool)`
+`func (o *FinancialAccountTransactionSipTransactionAllOf) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *FinancialAccountSipTransactionAllOf) SetType(v string)`
+`func (o *FinancialAccountTransactionSipTransactionAllOf) SetType(v string)`
 
 SetType sets Type field to given value.
 

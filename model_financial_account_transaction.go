@@ -19,9 +19,9 @@ import (
 
 // FinancialAccountTransaction struct for FinancialAccountTransaction
 type FinancialAccountTransaction struct {
-	FinancialAccountEquityTransaction *FinancialAccountEquityTransaction
-	FinancialAccountMutualFundTransaction *FinancialAccountMutualFundTransaction
-	FinancialAccountSipTransaction *FinancialAccountSipTransaction
+	FinancialAccountTransactionEquityTransaction *FinancialAccountTransactionEquityTransaction
+	FinancialAccountTransactionMutualFundTransaction *FinancialAccountTransactionMutualFundTransaction
+	FinancialAccountTransactionSipTransaction *FinancialAccountTransactionSipTransaction
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
@@ -36,137 +36,137 @@ func (dst *FinancialAccountTransaction) UnmarshalJSON(data []byte) error {
 
 	// check if the discriminator value is 'EquityTransaction'
 	if jsonDict["type"] == "EquityTransaction" {
-		// try to unmarshal JSON data into FinancialAccountEquityTransaction
-		err = json.Unmarshal(data, &dst.FinancialAccountEquityTransaction);
+		// try to unmarshal JSON data into FinancialAccountTransactionEquityTransaction
+		err = json.Unmarshal(data, &dst.FinancialAccountTransactionEquityTransaction);
 		if err == nil {
-			jsonFinancialAccountEquityTransaction, _ := json.Marshal(dst.FinancialAccountEquityTransaction)
-			if string(jsonFinancialAccountEquityTransaction) == "{}" { // empty struct
-				dst.FinancialAccountEquityTransaction = nil
+			jsonFinancialAccountTransactionEquityTransaction, _ := json.Marshal(dst.FinancialAccountTransactionEquityTransaction)
+			if string(jsonFinancialAccountTransactionEquityTransaction) == "{}" { // empty struct
+				dst.FinancialAccountTransactionEquityTransaction = nil
 			} else {
-				return nil // data stored in dst.FinancialAccountEquityTransaction, return on the first match
+				return nil // data stored in dst.FinancialAccountTransactionEquityTransaction, return on the first match
 			}
 		} else {
-			dst.FinancialAccountEquityTransaction = nil
+			dst.FinancialAccountTransactionEquityTransaction = nil
 		}
 	}
 
-	// check if the discriminator value is 'FinancialAccountEquityTransaction'
-	if jsonDict["type"] == "FinancialAccountEquityTransaction" {
-		// try to unmarshal JSON data into FinancialAccountEquityTransaction
-		err = json.Unmarshal(data, &dst.FinancialAccountEquityTransaction);
+	// check if the discriminator value is 'FinancialAccountTransaction_EquityTransaction'
+	if jsonDict["type"] == "FinancialAccountTransaction_EquityTransaction" {
+		// try to unmarshal JSON data into FinancialAccountTransactionEquityTransaction
+		err = json.Unmarshal(data, &dst.FinancialAccountTransactionEquityTransaction);
 		if err == nil {
-			jsonFinancialAccountEquityTransaction, _ := json.Marshal(dst.FinancialAccountEquityTransaction)
-			if string(jsonFinancialAccountEquityTransaction) == "{}" { // empty struct
-				dst.FinancialAccountEquityTransaction = nil
+			jsonFinancialAccountTransactionEquityTransaction, _ := json.Marshal(dst.FinancialAccountTransactionEquityTransaction)
+			if string(jsonFinancialAccountTransactionEquityTransaction) == "{}" { // empty struct
+				dst.FinancialAccountTransactionEquityTransaction = nil
 			} else {
-				return nil // data stored in dst.FinancialAccountEquityTransaction, return on the first match
+				return nil // data stored in dst.FinancialAccountTransactionEquityTransaction, return on the first match
 			}
 		} else {
-			dst.FinancialAccountEquityTransaction = nil
+			dst.FinancialAccountTransactionEquityTransaction = nil
 		}
 	}
 
-	// check if the discriminator value is 'FinancialAccountMutualFundTransaction'
-	if jsonDict["type"] == "FinancialAccountMutualFundTransaction" {
-		// try to unmarshal JSON data into FinancialAccountMutualFundTransaction
-		err = json.Unmarshal(data, &dst.FinancialAccountMutualFundTransaction);
+	// check if the discriminator value is 'FinancialAccountTransaction_MutualFundTransaction'
+	if jsonDict["type"] == "FinancialAccountTransaction_MutualFundTransaction" {
+		// try to unmarshal JSON data into FinancialAccountTransactionMutualFundTransaction
+		err = json.Unmarshal(data, &dst.FinancialAccountTransactionMutualFundTransaction);
 		if err == nil {
-			jsonFinancialAccountMutualFundTransaction, _ := json.Marshal(dst.FinancialAccountMutualFundTransaction)
-			if string(jsonFinancialAccountMutualFundTransaction) == "{}" { // empty struct
-				dst.FinancialAccountMutualFundTransaction = nil
+			jsonFinancialAccountTransactionMutualFundTransaction, _ := json.Marshal(dst.FinancialAccountTransactionMutualFundTransaction)
+			if string(jsonFinancialAccountTransactionMutualFundTransaction) == "{}" { // empty struct
+				dst.FinancialAccountTransactionMutualFundTransaction = nil
 			} else {
-				return nil // data stored in dst.FinancialAccountMutualFundTransaction, return on the first match
+				return nil // data stored in dst.FinancialAccountTransactionMutualFundTransaction, return on the first match
 			}
 		} else {
-			dst.FinancialAccountMutualFundTransaction = nil
+			dst.FinancialAccountTransactionMutualFundTransaction = nil
 		}
 	}
 
-	// check if the discriminator value is 'FinancialAccountSipTransaction'
-	if jsonDict["type"] == "FinancialAccountSipTransaction" {
-		// try to unmarshal JSON data into FinancialAccountSipTransaction
-		err = json.Unmarshal(data, &dst.FinancialAccountSipTransaction);
+	// check if the discriminator value is 'FinancialAccountTransaction_SipTransaction'
+	if jsonDict["type"] == "FinancialAccountTransaction_SipTransaction" {
+		// try to unmarshal JSON data into FinancialAccountTransactionSipTransaction
+		err = json.Unmarshal(data, &dst.FinancialAccountTransactionSipTransaction);
 		if err == nil {
-			jsonFinancialAccountSipTransaction, _ := json.Marshal(dst.FinancialAccountSipTransaction)
-			if string(jsonFinancialAccountSipTransaction) == "{}" { // empty struct
-				dst.FinancialAccountSipTransaction = nil
+			jsonFinancialAccountTransactionSipTransaction, _ := json.Marshal(dst.FinancialAccountTransactionSipTransaction)
+			if string(jsonFinancialAccountTransactionSipTransaction) == "{}" { // empty struct
+				dst.FinancialAccountTransactionSipTransaction = nil
 			} else {
-				return nil // data stored in dst.FinancialAccountSipTransaction, return on the first match
+				return nil // data stored in dst.FinancialAccountTransactionSipTransaction, return on the first match
 			}
 		} else {
-			dst.FinancialAccountSipTransaction = nil
+			dst.FinancialAccountTransactionSipTransaction = nil
 		}
 	}
 
 	// check if the discriminator value is 'MutualFundTransaction'
 	if jsonDict["type"] == "MutualFundTransaction" {
-		// try to unmarshal JSON data into FinancialAccountMutualFundTransaction
-		err = json.Unmarshal(data, &dst.FinancialAccountMutualFundTransaction);
+		// try to unmarshal JSON data into FinancialAccountTransactionMutualFundTransaction
+		err = json.Unmarshal(data, &dst.FinancialAccountTransactionMutualFundTransaction);
 		if err == nil {
-			jsonFinancialAccountMutualFundTransaction, _ := json.Marshal(dst.FinancialAccountMutualFundTransaction)
-			if string(jsonFinancialAccountMutualFundTransaction) == "{}" { // empty struct
-				dst.FinancialAccountMutualFundTransaction = nil
+			jsonFinancialAccountTransactionMutualFundTransaction, _ := json.Marshal(dst.FinancialAccountTransactionMutualFundTransaction)
+			if string(jsonFinancialAccountTransactionMutualFundTransaction) == "{}" { // empty struct
+				dst.FinancialAccountTransactionMutualFundTransaction = nil
 			} else {
-				return nil // data stored in dst.FinancialAccountMutualFundTransaction, return on the first match
+				return nil // data stored in dst.FinancialAccountTransactionMutualFundTransaction, return on the first match
 			}
 		} else {
-			dst.FinancialAccountMutualFundTransaction = nil
+			dst.FinancialAccountTransactionMutualFundTransaction = nil
 		}
 	}
 
 	// check if the discriminator value is 'SipTransaction'
 	if jsonDict["type"] == "SipTransaction" {
-		// try to unmarshal JSON data into FinancialAccountSipTransaction
-		err = json.Unmarshal(data, &dst.FinancialAccountSipTransaction);
+		// try to unmarshal JSON data into FinancialAccountTransactionSipTransaction
+		err = json.Unmarshal(data, &dst.FinancialAccountTransactionSipTransaction);
 		if err == nil {
-			jsonFinancialAccountSipTransaction, _ := json.Marshal(dst.FinancialAccountSipTransaction)
-			if string(jsonFinancialAccountSipTransaction) == "{}" { // empty struct
-				dst.FinancialAccountSipTransaction = nil
+			jsonFinancialAccountTransactionSipTransaction, _ := json.Marshal(dst.FinancialAccountTransactionSipTransaction)
+			if string(jsonFinancialAccountTransactionSipTransaction) == "{}" { // empty struct
+				dst.FinancialAccountTransactionSipTransaction = nil
 			} else {
-				return nil // data stored in dst.FinancialAccountSipTransaction, return on the first match
+				return nil // data stored in dst.FinancialAccountTransactionSipTransaction, return on the first match
 			}
 		} else {
-			dst.FinancialAccountSipTransaction = nil
+			dst.FinancialAccountTransactionSipTransaction = nil
 		}
 	}
 
-	// try to unmarshal JSON data into FinancialAccountEquityTransaction
-	err = json.Unmarshal(data, &dst.FinancialAccountEquityTransaction);
+	// try to unmarshal JSON data into FinancialAccountTransactionEquityTransaction
+	err = json.Unmarshal(data, &dst.FinancialAccountTransactionEquityTransaction);
 	if err == nil {
-		jsonFinancialAccountEquityTransaction, _ := json.Marshal(dst.FinancialAccountEquityTransaction)
-		if string(jsonFinancialAccountEquityTransaction) == "{}" { // empty struct
-			dst.FinancialAccountEquityTransaction = nil
+		jsonFinancialAccountTransactionEquityTransaction, _ := json.Marshal(dst.FinancialAccountTransactionEquityTransaction)
+		if string(jsonFinancialAccountTransactionEquityTransaction) == "{}" { // empty struct
+			dst.FinancialAccountTransactionEquityTransaction = nil
 		} else {
-			return nil // data stored in dst.FinancialAccountEquityTransaction, return on the first match
+			return nil // data stored in dst.FinancialAccountTransactionEquityTransaction, return on the first match
 		}
 	} else {
-		dst.FinancialAccountEquityTransaction = nil
+		dst.FinancialAccountTransactionEquityTransaction = nil
 	}
 
-	// try to unmarshal JSON data into FinancialAccountMutualFundTransaction
-	err = json.Unmarshal(data, &dst.FinancialAccountMutualFundTransaction);
+	// try to unmarshal JSON data into FinancialAccountTransactionMutualFundTransaction
+	err = json.Unmarshal(data, &dst.FinancialAccountTransactionMutualFundTransaction);
 	if err == nil {
-		jsonFinancialAccountMutualFundTransaction, _ := json.Marshal(dst.FinancialAccountMutualFundTransaction)
-		if string(jsonFinancialAccountMutualFundTransaction) == "{}" { // empty struct
-			dst.FinancialAccountMutualFundTransaction = nil
+		jsonFinancialAccountTransactionMutualFundTransaction, _ := json.Marshal(dst.FinancialAccountTransactionMutualFundTransaction)
+		if string(jsonFinancialAccountTransactionMutualFundTransaction) == "{}" { // empty struct
+			dst.FinancialAccountTransactionMutualFundTransaction = nil
 		} else {
-			return nil // data stored in dst.FinancialAccountMutualFundTransaction, return on the first match
+			return nil // data stored in dst.FinancialAccountTransactionMutualFundTransaction, return on the first match
 		}
 	} else {
-		dst.FinancialAccountMutualFundTransaction = nil
+		dst.FinancialAccountTransactionMutualFundTransaction = nil
 	}
 
-	// try to unmarshal JSON data into FinancialAccountSipTransaction
-	err = json.Unmarshal(data, &dst.FinancialAccountSipTransaction);
+	// try to unmarshal JSON data into FinancialAccountTransactionSipTransaction
+	err = json.Unmarshal(data, &dst.FinancialAccountTransactionSipTransaction);
 	if err == nil {
-		jsonFinancialAccountSipTransaction, _ := json.Marshal(dst.FinancialAccountSipTransaction)
-		if string(jsonFinancialAccountSipTransaction) == "{}" { // empty struct
-			dst.FinancialAccountSipTransaction = nil
+		jsonFinancialAccountTransactionSipTransaction, _ := json.Marshal(dst.FinancialAccountTransactionSipTransaction)
+		if string(jsonFinancialAccountTransactionSipTransaction) == "{}" { // empty struct
+			dst.FinancialAccountTransactionSipTransaction = nil
 		} else {
-			return nil // data stored in dst.FinancialAccountSipTransaction, return on the first match
+			return nil // data stored in dst.FinancialAccountTransactionSipTransaction, return on the first match
 		}
 	} else {
-		dst.FinancialAccountSipTransaction = nil
+		dst.FinancialAccountTransactionSipTransaction = nil
 	}
 
 	return fmt.Errorf("Data failed to match schemas in anyOf(FinancialAccountTransaction)")
@@ -174,16 +174,16 @@ func (dst *FinancialAccountTransaction) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src *FinancialAccountTransaction) MarshalJSON() ([]byte, error) {
-	if src.FinancialAccountEquityTransaction != nil {
-		return json.Marshal(&src.FinancialAccountEquityTransaction)
+	if src.FinancialAccountTransactionEquityTransaction != nil {
+		return json.Marshal(&src.FinancialAccountTransactionEquityTransaction)
 	}
 
-	if src.FinancialAccountMutualFundTransaction != nil {
-		return json.Marshal(&src.FinancialAccountMutualFundTransaction)
+	if src.FinancialAccountTransactionMutualFundTransaction != nil {
+		return json.Marshal(&src.FinancialAccountTransactionMutualFundTransaction)
 	}
 
-	if src.FinancialAccountSipTransaction != nil {
-		return json.Marshal(&src.FinancialAccountSipTransaction)
+	if src.FinancialAccountTransactionSipTransaction != nil {
+		return json.Marshal(&src.FinancialAccountTransactionSipTransaction)
 	}
 
 	return nil, nil // no data in anyOf schemas

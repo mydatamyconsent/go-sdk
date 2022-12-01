@@ -15,33 +15,33 @@ import (
 	"encoding/json"
 )
 
-// FinancialAccountSipTransaction struct for FinancialAccountSipTransaction
-type FinancialAccountSipTransaction struct {
+// FinancialAccountTransactionSipTransaction struct for FinancialAccountTransactionSipTransaction
+type FinancialAccountTransactionSipTransaction struct {
 	Type string `json:"type"`
 	Id string `json:"id"`
 }
 
-// NewFinancialAccountSipTransaction instantiates a new FinancialAccountSipTransaction object
+// NewFinancialAccountTransactionSipTransaction instantiates a new FinancialAccountTransactionSipTransaction object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFinancialAccountSipTransaction(type_ string, id string) *FinancialAccountSipTransaction {
-	this := FinancialAccountSipTransaction{}
+func NewFinancialAccountTransactionSipTransaction(type_ string, id string) *FinancialAccountTransactionSipTransaction {
+	this := FinancialAccountTransactionSipTransaction{}
 	this.Type = type_
 	this.Id = id
 	return &this
 }
 
-// NewFinancialAccountSipTransactionWithDefaults instantiates a new FinancialAccountSipTransaction object
+// NewFinancialAccountTransactionSipTransactionWithDefaults instantiates a new FinancialAccountTransactionSipTransaction object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewFinancialAccountSipTransactionWithDefaults() *FinancialAccountSipTransaction {
-	this := FinancialAccountSipTransaction{}
+func NewFinancialAccountTransactionSipTransactionWithDefaults() *FinancialAccountTransactionSipTransaction {
+	this := FinancialAccountTransactionSipTransaction{}
 	return &this
 }
 
 // GetType returns the Type field value
-func (o *FinancialAccountSipTransaction) GetType() string {
+func (o *FinancialAccountTransactionSipTransaction) GetType() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -52,7 +52,7 @@ func (o *FinancialAccountSipTransaction) GetType() string {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountSipTransaction) GetTypeOk() (*string, bool) {
+func (o *FinancialAccountTransactionSipTransaction) GetTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -60,12 +60,12 @@ func (o *FinancialAccountSipTransaction) GetTypeOk() (*string, bool) {
 }
 
 // SetType sets field value
-func (o *FinancialAccountSipTransaction) SetType(v string) {
+func (o *FinancialAccountTransactionSipTransaction) SetType(v string) {
 	o.Type = v
 }
 
 // GetId returns the Id field value
-func (o *FinancialAccountSipTransaction) GetId() string {
+func (o *FinancialAccountTransactionSipTransaction) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -76,7 +76,7 @@ func (o *FinancialAccountSipTransaction) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *FinancialAccountSipTransaction) GetIdOk() (*string, bool) {
+func (o *FinancialAccountTransactionSipTransaction) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -84,11 +84,11 @@ func (o *FinancialAccountSipTransaction) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *FinancialAccountSipTransaction) SetId(v string) {
+func (o *FinancialAccountTransactionSipTransaction) SetId(v string) {
 	o.Id = v
 }
 
-func (o FinancialAccountSipTransaction) MarshalJSON() ([]byte, error) {
+func (o FinancialAccountTransactionSipTransaction) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["type"] = o.Type
@@ -99,38 +99,38 @@ func (o FinancialAccountSipTransaction) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableFinancialAccountSipTransaction struct {
-	value *FinancialAccountSipTransaction
+type NullableFinancialAccountTransactionSipTransaction struct {
+	value *FinancialAccountTransactionSipTransaction
 	isSet bool
 }
 
-func (v NullableFinancialAccountSipTransaction) Get() *FinancialAccountSipTransaction {
+func (v NullableFinancialAccountTransactionSipTransaction) Get() *FinancialAccountTransactionSipTransaction {
 	return v.value
 }
 
-func (v *NullableFinancialAccountSipTransaction) Set(val *FinancialAccountSipTransaction) {
+func (v *NullableFinancialAccountTransactionSipTransaction) Set(val *FinancialAccountTransactionSipTransaction) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableFinancialAccountSipTransaction) IsSet() bool {
+func (v NullableFinancialAccountTransactionSipTransaction) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableFinancialAccountSipTransaction) Unset() {
+func (v *NullableFinancialAccountTransactionSipTransaction) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableFinancialAccountSipTransaction(val *FinancialAccountSipTransaction) *NullableFinancialAccountSipTransaction {
-	return &NullableFinancialAccountSipTransaction{value: val, isSet: true}
+func NewNullableFinancialAccountTransactionSipTransaction(val *FinancialAccountTransactionSipTransaction) *NullableFinancialAccountTransactionSipTransaction {
+	return &NullableFinancialAccountTransactionSipTransaction{value: val, isSet: true}
 }
 
-func (v NullableFinancialAccountSipTransaction) MarshalJSON() ([]byte, error) {
+func (v NullableFinancialAccountTransactionSipTransaction) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableFinancialAccountSipTransaction) UnmarshalJSON(src []byte) error {
+func (v *NullableFinancialAccountTransactionSipTransaction) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -81,7 +81,7 @@ func (a *SupportedIdentifiersApiService) V1SupportedIdentifiersCountryIso2CodeGe
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json; charset=utf-8"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

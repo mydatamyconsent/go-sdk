@@ -50,8 +50,8 @@ func (dst *FinancialAccount) UnmarshalJSON(data []byte) error {
 		}
 	}
 
-	// check if the discriminator value is 'FinancialAccountEquity'
-	if jsonDict["type"] == "FinancialAccountEquity" {
+	// check if the discriminator value is 'FinancialAccount_Equity'
+	if jsonDict["type"] == "FinancialAccount_Equity" {
 		// try to unmarshal JSON data into FinancialAccountEquity
 		err = json.Unmarshal(data, &dst.FinancialAccountEquity);
 		if err == nil {
@@ -66,8 +66,8 @@ func (dst *FinancialAccount) UnmarshalJSON(data []byte) error {
 		}
 	}
 
-	// check if the discriminator value is 'FinancialAccountMutualFund'
-	if jsonDict["type"] == "FinancialAccountMutualFund" {
+	// check if the discriminator value is 'FinancialAccount_MutualFund'
+	if jsonDict["type"] == "FinancialAccount_MutualFund" {
 		// try to unmarshal JSON data into FinancialAccountMutualFund
 		err = json.Unmarshal(data, &dst.FinancialAccountMutualFund);
 		if err == nil {
@@ -82,8 +82,8 @@ func (dst *FinancialAccount) UnmarshalJSON(data []byte) error {
 		}
 	}
 
-	// check if the discriminator value is 'FinancialAccountSip'
-	if jsonDict["type"] == "FinancialAccountSip" {
+	// check if the discriminator value is 'FinancialAccount_Sip'
+	if jsonDict["type"] == "FinancialAccount_Sip" {
 		// try to unmarshal JSON data into FinancialAccountSip
 		err = json.Unmarshal(data, &dst.FinancialAccountSip);
 		if err == nil {

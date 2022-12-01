@@ -105,7 +105,7 @@ func (a *DataProvidersDiscoveryApiService) V1DataProvidersGetExecute(r ApiV1Data
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json; charset=utf-8"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -245,7 +245,7 @@ func (a *DataProvidersDiscoveryApiService) V1DataProvidersIdGetExecute(r ApiV1Da
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json; charset=utf-8"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
