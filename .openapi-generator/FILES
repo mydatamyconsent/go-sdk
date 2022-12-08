@@ -7,7 +7,11 @@ api_organizations.go
 api_supported_identifiers.go
 client.go
 configuration.go
+docs/AllergyDetails.md
+docs/AllergyIntoleranceReaction.md
 docs/ApiErrorType.md
+docs/CodeableConcept.md
+docs/Coding.md
 docs/CollectibleTypes.md
 docs/Consent.md
 docs/ConsentDetails.md
@@ -64,6 +68,9 @@ docs/FinancialAccountTransactionMutualFundTransactionAllOf.md
 docs/FinancialAccountTransactionPeriod.md
 docs/FinancialAccountTransactionSipTransaction.md
 docs/FinancialAccountTransactionSipTransactionAllOf.md
+docs/HealthRecord.md
+docs/HealthRecordAllergyDetails.md
+docs/HealthRecordAllergyDetailsAllOf.md
 docs/Holder.md
 docs/IdentificationStrategy.md
 docs/Identifier.md
@@ -117,7 +124,11 @@ docs/UploadDocumentResponse.md
 docs/UriDetails.md
 go.mod
 go.sum
+model_allergy_details.go
+model_allergy_intolerance_reaction.go
 model_api_error_type.go
+model_codeable_concept.go
+model_coding.go
 model_collectible_types.go
 model_consent.go
 model_consent_details.go
@@ -172,6 +183,9 @@ model_financial_account_transaction_mutual_fund_transaction_all_of.go
 model_financial_account_transaction_period.go
 model_financial_account_transaction_sip_transaction.go
 model_financial_account_transaction_sip_transaction_all_of.go
+model_health_record.go
+model_health_record_allergy_details.go
+model_health_record_allergy_details_all_of.go
 model_holder.go
 model_identification_strategy.go
 model_identifier.go

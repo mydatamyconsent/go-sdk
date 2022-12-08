@@ -652,7 +652,7 @@ func (r ApiV1IndividualsConsentRequestsRequestIdGetRequest) Execute() (*ConsentR
 }
 
 /*
-V1IndividualsConsentRequestsRequestIdGet Get Individual data request by id.
+V1IndividualsConsentRequestsRequestIdGet Get Individual data consent request by id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param requestId
@@ -2122,12 +2122,12 @@ type ApiV1IndividualsConsentsConsentIdHealthFhirBundleGetRequest struct {
 	consentId string
 }
 
-func (r ApiV1IndividualsConsentsConsentIdHealthFhirBundleGetRequest) Execute() (interface{}, *http.Response, error) {
+func (r ApiV1IndividualsConsentsConsentIdHealthFhirBundleGetRequest) Execute() ([]HealthRecord, *http.Response, error) {
 	return r.ApiService.V1IndividualsConsentsConsentIdHealthFhirBundleGetExecute(r)
 }
 
 /*
-V1IndividualsConsentsConsentIdHealthFhirBundleGet Get Individual consented document by consent id.
+V1IndividualsConsentsConsentIdHealthFhirBundleGet Get Individual consented Health Records by consent id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param consentId
@@ -2142,13 +2142,13 @@ func (a *IndividualsApiService) V1IndividualsConsentsConsentIdHealthFhirBundleGe
 }
 
 // Execute executes the request
-//  @return interface{}
-func (a *IndividualsApiService) V1IndividualsConsentsConsentIdHealthFhirBundleGetExecute(r ApiV1IndividualsConsentsConsentIdHealthFhirBundleGetRequest) (interface{}, *http.Response, error) {
+//  @return []HealthRecord
+func (a *IndividualsApiService) V1IndividualsConsentsConsentIdHealthFhirBundleGetExecute(r ApiV1IndividualsConsentsConsentIdHealthFhirBundleGetRequest) ([]HealthRecord, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  interface{}
+		localVarReturnValue  []HealthRecord
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IndividualsApiService.V1IndividualsConsentsConsentIdHealthFhirBundleGet")

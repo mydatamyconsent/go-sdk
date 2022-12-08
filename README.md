@@ -91,7 +91,7 @@ Class | Method | HTTP request | Description
 *IndividualsApi* | [**V1IndividualsConsentRequestsGet**](docs/IndividualsApi.md#v1individualsconsentrequestsget) | **Get** /v1/individuals/consent-requests | Get all consent requests sent to Individuals.
 *IndividualsApi* | [**V1IndividualsConsentRequestsPost**](docs/IndividualsApi.md#v1individualsconsentrequestspost) | **Post** /v1/individuals/consent-requests | Create individual consent request.
 *IndividualsApi* | [**V1IndividualsConsentRequestsRequestIdCancelPut**](docs/IndividualsApi.md#v1individualsconsentrequestsrequestidcancelput) | **Put** /v1/individuals/consent-requests/{request_id}/cancel | Cancel the Individual data request by id.
-*IndividualsApi* | [**V1IndividualsConsentRequestsRequestIdGet**](docs/IndividualsApi.md#v1individualsconsentrequestsrequestidget) | **Get** /v1/individuals/consent-requests/{request_id} | Get Individual data request by id.
+*IndividualsApi* | [**V1IndividualsConsentRequestsRequestIdGet**](docs/IndividualsApi.md#v1individualsconsentrequestsrequestidget) | **Get** /v1/individuals/consent-requests/{request_id} | Get Individual data consent request by id.
 *IndividualsApi* | [**V1IndividualsConsentTemplatesGet**](docs/IndividualsApi.md#v1individualsconsenttemplatesget) | **Get** /v1/individuals/consent-templates | Get the paginated list of individual consent templates.
 *IndividualsApi* | [**V1IndividualsConsentTemplatesTemplateIdGet**](docs/IndividualsApi.md#v1individualsconsenttemplatestemplateidget) | **Get** /v1/individuals/consent-templates/{template_id} | Get Individual consent template details by consent id.
 *IndividualsApi* | [**V1IndividualsConsentsConsentIdDocumentsDocumentIdDownloadGet**](docs/IndividualsApi.md#v1individualsconsentsconsentiddocumentsdocumentiddownloadget) | **Get** /v1/individuals/consents/{consent_id}/documents/{document_id}/download | Download Individual consented document by document id.
@@ -101,7 +101,7 @@ Class | Method | HTTP request | Description
 *IndividualsApi* | [**V1IndividualsConsentsConsentIdFinancialAccountsAccountIdTransactionsGet**](docs/IndividualsApi.md#v1individualsconsentsconsentidfinancialaccountsaccountidtransactionsget) | **Get** /v1/individuals/consents/{consent_id}/financial-accounts/{account_id}/transactions | Get individual consented financial account transactions.
 *IndividualsApi* | [**V1IndividualsConsentsConsentIdFinancialAccountsGet**](docs/IndividualsApi.md#v1individualsconsentsconsentidfinancialaccountsget) | **Get** /v1/individuals/consents/{consent_id}/financial-accounts | Get all individual consented financial accounts.
 *IndividualsApi* | [**V1IndividualsConsentsConsentIdGet**](docs/IndividualsApi.md#v1individualsconsentsconsentidget) | **Get** /v1/individuals/consents/{consent_id} | Get Individuals consent details by consent id.
-*IndividualsApi* | [**V1IndividualsConsentsConsentIdHealthFhirBundleGet**](docs/IndividualsApi.md#v1individualsconsentsconsentidhealthfhirbundleget) | **Get** /v1/individuals/consents/{consent_id}/health/fhir/bundle | Get Individual consented document by consent id.
+*IndividualsApi* | [**V1IndividualsConsentsConsentIdHealthFhirBundleGet**](docs/IndividualsApi.md#v1individualsconsentsconsentidhealthfhirbundleget) | **Get** /v1/individuals/consents/{consent_id}/health/fhir/bundle | Get Individual consented Health Records by consent id.
 *IndividualsApi* | [**V1IndividualsConsentsGet**](docs/IndividualsApi.md#v1individualsconsentsget) | **Get** /v1/individuals/consents | Get the paginated list of Individual consents.
 *IndividualsApi* | [**V1IndividualsDocumentsIssueIssueRequestIdUploadPost**](docs/IndividualsApi.md#v1individualsdocumentsissueissuerequestiduploadpost) | **Post** /v1/individuals/documents/issue/{issue_request_id}/upload | Upload a document for issuance request of individual.
 *IndividualsApi* | [**V1IndividualsDocumentsIssuePost**](docs/IndividualsApi.md#v1individualsdocumentsissuepost) | **Post** /v1/individuals/documents/issue | Issue a new document to an individual user.
@@ -132,7 +132,11 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AllergyDetails](docs/AllergyDetails.md)
+ - [AllergyIntoleranceReaction](docs/AllergyIntoleranceReaction.md)
  - [ApiErrorType](docs/ApiErrorType.md)
+ - [CodeableConcept](docs/CodeableConcept.md)
+ - [Coding](docs/Coding.md)
  - [CollectibleTypes](docs/CollectibleTypes.md)
  - [Consent](docs/Consent.md)
  - [ConsentDetails](docs/ConsentDetails.md)
@@ -187,6 +191,9 @@ Class | Method | HTTP request | Description
  - [FinancialAccountTransactionPeriod](docs/FinancialAccountTransactionPeriod.md)
  - [FinancialAccountTransactionSipTransaction](docs/FinancialAccountTransactionSipTransaction.md)
  - [FinancialAccountTransactionSipTransactionAllOf](docs/FinancialAccountTransactionSipTransactionAllOf.md)
+ - [HealthRecord](docs/HealthRecord.md)
+ - [HealthRecordAllergyDetails](docs/HealthRecordAllergyDetails.md)
+ - [HealthRecordAllergyDetailsAllOf](docs/HealthRecordAllergyDetailsAllOf.md)
  - [Holder](docs/Holder.md)
  - [IdentificationStrategy](docs/IdentificationStrategy.md)
  - [Identifier](docs/Identifier.md)

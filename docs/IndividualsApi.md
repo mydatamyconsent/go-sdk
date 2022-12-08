@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**V1IndividualsConsentRequestsGet**](IndividualsApi.md#V1IndividualsConsentRequestsGet) | **Get** /v1/individuals/consent-requests | Get all consent requests sent to Individuals.
 [**V1IndividualsConsentRequestsPost**](IndividualsApi.md#V1IndividualsConsentRequestsPost) | **Post** /v1/individuals/consent-requests | Create individual consent request.
 [**V1IndividualsConsentRequestsRequestIdCancelPut**](IndividualsApi.md#V1IndividualsConsentRequestsRequestIdCancelPut) | **Put** /v1/individuals/consent-requests/{request_id}/cancel | Cancel the Individual data request by id.
-[**V1IndividualsConsentRequestsRequestIdGet**](IndividualsApi.md#V1IndividualsConsentRequestsRequestIdGet) | **Get** /v1/individuals/consent-requests/{request_id} | Get Individual data request by id.
+[**V1IndividualsConsentRequestsRequestIdGet**](IndividualsApi.md#V1IndividualsConsentRequestsRequestIdGet) | **Get** /v1/individuals/consent-requests/{request_id} | Get Individual data consent request by id.
 [**V1IndividualsConsentTemplatesGet**](IndividualsApi.md#V1IndividualsConsentTemplatesGet) | **Get** /v1/individuals/consent-templates | Get the paginated list of individual consent templates.
 [**V1IndividualsConsentTemplatesTemplateIdGet**](IndividualsApi.md#V1IndividualsConsentTemplatesTemplateIdGet) | **Get** /v1/individuals/consent-templates/{template_id} | Get Individual consent template details by consent id.
 [**V1IndividualsConsentsConsentIdDocumentsDocumentIdDownloadGet**](IndividualsApi.md#V1IndividualsConsentsConsentIdDocumentsDocumentIdDownloadGet) | **Get** /v1/individuals/consents/{consent_id}/documents/{document_id}/download | Download Individual consented document by document id.
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**V1IndividualsConsentsConsentIdFinancialAccountsAccountIdTransactionsGet**](IndividualsApi.md#V1IndividualsConsentsConsentIdFinancialAccountsAccountIdTransactionsGet) | **Get** /v1/individuals/consents/{consent_id}/financial-accounts/{account_id}/transactions | Get individual consented financial account transactions.
 [**V1IndividualsConsentsConsentIdFinancialAccountsGet**](IndividualsApi.md#V1IndividualsConsentsConsentIdFinancialAccountsGet) | **Get** /v1/individuals/consents/{consent_id}/financial-accounts | Get all individual consented financial accounts.
 [**V1IndividualsConsentsConsentIdGet**](IndividualsApi.md#V1IndividualsConsentsConsentIdGet) | **Get** /v1/individuals/consents/{consent_id} | Get Individuals consent details by consent id.
-[**V1IndividualsConsentsConsentIdHealthFhirBundleGet**](IndividualsApi.md#V1IndividualsConsentsConsentIdHealthFhirBundleGet) | **Get** /v1/individuals/consents/{consent_id}/health/fhir/bundle | Get Individual consented document by consent id.
+[**V1IndividualsConsentsConsentIdHealthFhirBundleGet**](IndividualsApi.md#V1IndividualsConsentsConsentIdHealthFhirBundleGet) | **Get** /v1/individuals/consents/{consent_id}/health/fhir/bundle | Get Individual consented Health Records by consent id.
 [**V1IndividualsConsentsGet**](IndividualsApi.md#V1IndividualsConsentsGet) | **Get** /v1/individuals/consents | Get the paginated list of Individual consents.
 [**V1IndividualsDocumentsIssueIssueRequestIdUploadPost**](IndividualsApi.md#V1IndividualsDocumentsIssueIssueRequestIdUploadPost) | **Post** /v1/individuals/documents/issue/{issue_request_id}/upload | Upload a document for issuance request of individual.
 [**V1IndividualsDocumentsIssuePost**](IndividualsApi.md#V1IndividualsDocumentsIssuePost) | **Post** /v1/individuals/documents/issue | Issue a new document to an individual user.
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 > ConsentRequest V1IndividualsConsentRequestsRequestIdGet(ctx, requestId).Execute()
 
-Get Individual data request by id.
+Get Individual data consent request by id.
 
 ### Example
 
@@ -999,9 +999,9 @@ Name | Type | Description  | Notes
 
 ## V1IndividualsConsentsConsentIdHealthFhirBundleGet
 
-> interface{} V1IndividualsConsentsConsentIdHealthFhirBundleGet(ctx, consentId).Execute()
+> []HealthRecord V1IndividualsConsentsConsentIdHealthFhirBundleGet(ctx, consentId).Execute()
 
-Get Individual consented document by consent id.
+Get Individual consented Health Records by consent id.
 
 ### Example
 
@@ -1025,7 +1025,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `IndividualsApi.V1IndividualsConsentsConsentIdHealthFhirBundleGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `V1IndividualsConsentsConsentIdHealthFhirBundleGet`: interface{}
+    // response from `V1IndividualsConsentsConsentIdHealthFhirBundleGet`: []HealthRecord
     fmt.Fprintf(os.Stdout, "Response from `IndividualsApi.V1IndividualsConsentsConsentIdHealthFhirBundleGet`: %v\n", resp)
 }
 ```
@@ -1049,7 +1049,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**[]HealthRecord**](HealthRecord.md)
 
 ### Authorization
 
