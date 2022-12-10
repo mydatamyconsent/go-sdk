@@ -45,6 +45,7 @@ docs/DocumentType.md
 docs/Equity.md
 docs/EquityTransaction.md
 docs/Error.md
+docs/FhirBundleany.md
 docs/FinancialAccount.md
 docs/FinancialAccountCategoryType.md
 docs/FinancialAccountDetailsRequired.md
@@ -153,6 +154,7 @@ model_document_type.go
 model_equity.go
 model_equity_transaction.go
 model_error.go
+model_fhir_bundleany.go
 model_financial_account.go
 model_financial_account_category_type.go
 model_financial_account_details_required.go

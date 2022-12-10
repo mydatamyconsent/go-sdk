@@ -2122,7 +2122,7 @@ type ApiV1IndividualsConsentsConsentIdHealthFhirBundleGetRequest struct {
 	consentId string
 }
 
-func (r ApiV1IndividualsConsentsConsentIdHealthFhirBundleGetRequest) Execute() (interface{}, *http.Response, error) {
+func (r ApiV1IndividualsConsentsConsentIdHealthFhirBundleGetRequest) Execute() (*FhirBundleany, *http.Response, error) {
 	return r.ApiService.V1IndividualsConsentsConsentIdHealthFhirBundleGetExecute(r)
 }
 
@@ -2142,13 +2142,13 @@ func (a *IndividualsApiService) V1IndividualsConsentsConsentIdHealthFhirBundleGe
 }
 
 // Execute executes the request
-//  @return interface{}
-func (a *IndividualsApiService) V1IndividualsConsentsConsentIdHealthFhirBundleGetExecute(r ApiV1IndividualsConsentsConsentIdHealthFhirBundleGetRequest) (interface{}, *http.Response, error) {
+//  @return FhirBundleany
+func (a *IndividualsApiService) V1IndividualsConsentsConsentIdHealthFhirBundleGetExecute(r ApiV1IndividualsConsentsConsentIdHealthFhirBundleGetRequest) (*FhirBundleany, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  interface{}
+		localVarReturnValue  *FhirBundleany
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IndividualsApiService.V1IndividualsConsentsConsentIdHealthFhirBundleGet")

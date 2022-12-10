@@ -999,7 +999,7 @@ Name | Type | Description  | Notes
 
 ## V1IndividualsConsentsConsentIdHealthFhirBundleGet
 
-> interface{} V1IndividualsConsentsConsentIdHealthFhirBundleGet(ctx, consentId).Execute()
+> FhirBundleany V1IndividualsConsentsConsentIdHealthFhirBundleGet(ctx, consentId).Execute()
 
 Get Individual consented Health Records by consent id.
 
@@ -1025,7 +1025,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `IndividualsApi.V1IndividualsConsentsConsentIdHealthFhirBundleGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `V1IndividualsConsentsConsentIdHealthFhirBundleGet`: interface{}
+    // response from `V1IndividualsConsentsConsentIdHealthFhirBundleGet`: FhirBundleany
     fmt.Fprintf(os.Stdout, "Response from `IndividualsApi.V1IndividualsConsentsConsentIdHealthFhirBundleGet`: %v\n", resp)
 }
 ```
@@ -1049,7 +1049,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**FhirBundleany**](FhirBundleany.md)
 
 ### Authorization
 
