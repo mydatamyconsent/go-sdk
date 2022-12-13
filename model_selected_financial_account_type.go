@@ -17,7 +17,7 @@ import (
 
 // SelectedFinancialAccountType SelectedFinancialAccountType : Selected financial account type of financial account field of consent request template.
 type SelectedFinancialAccountType struct {
-	SubCategory FinancialAccountSubCategoryType `json:"subCategory"`
+	SubCategory *FinancialAccountSubCategoryType `json:"subCategory,omitempty"`
 	// DRNs.
 	Drns []string `json:"drns"`
 }
@@ -26,9 +26,8 @@ type SelectedFinancialAccountType struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSelectedFinancialAccountType(subCategory FinancialAccountSubCategoryType, drns []string) *SelectedFinancialAccountType {
+func NewSelectedFinancialAccountType(drns []string) *SelectedFinancialAccountType {
 	this := SelectedFinancialAccountType{}
-	this.SubCategory = subCategory
 	this.Drns = drns
 	return &this
 }
@@ -41,28 +40,36 @@ func NewSelectedFinancialAccountTypeWithDefaults() *SelectedFinancialAccountType
 	return &this
 }
 
-// GetSubCategory returns the SubCategory field value
+// GetSubCategory returns the SubCategory field value if set, zero value otherwise.
 func (o *SelectedFinancialAccountType) GetSubCategory() FinancialAccountSubCategoryType {
-	if o == nil {
+	if o == nil || o.SubCategory == nil {
 		var ret FinancialAccountSubCategoryType
 		return ret
 	}
-
-	return o.SubCategory
+	return *o.SubCategory
 }
 
-// GetSubCategoryOk returns a tuple with the SubCategory field value
+// GetSubCategoryOk returns a tuple with the SubCategory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SelectedFinancialAccountType) GetSubCategoryOk() (*FinancialAccountSubCategoryType, bool) {
-	if o == nil {
+	if o == nil || o.SubCategory == nil {
 		return nil, false
 	}
-	return &o.SubCategory, true
+	return o.SubCategory, true
 }
 
-// SetSubCategory sets field value
+// HasSubCategory returns a boolean if a field has been set.
+func (o *SelectedFinancialAccountType) HasSubCategory() bool {
+	if o != nil && o.SubCategory != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSubCategory gets a reference to the given FinancialAccountSubCategoryType and assigns it to the SubCategory field.
 func (o *SelectedFinancialAccountType) SetSubCategory(v FinancialAccountSubCategoryType) {
-	o.SubCategory = v
+	o.SubCategory = &v
 }
 
 // GetDrns returns the Drns field value
@@ -91,7 +98,7 @@ func (o *SelectedFinancialAccountType) SetDrns(v []string) {
 
 func (o SelectedFinancialAccountType) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
+	if o.SubCategory != nil {
 		toSerialize["subCategory"] = o.SubCategory
 	}
 	if true {

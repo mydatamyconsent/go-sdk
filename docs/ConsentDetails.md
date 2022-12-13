@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Identifiers** | Pointer to [**[]ConsentedIdentifier**](ConsentedIdentifier.md) | Consented identity details. | [optional] 
 **Documents** | Pointer to [**[]ConsentedDocument**](ConsentedDocument.md) | List of consented documents. | [optional] 
 **MedicalRecords** | Pointer to [**[]ConsentedMedicalRecord**](ConsentedMedicalRecord.md) | List of consented medical records. | [optional] 
-**FinancialAccounts** | Pointer to [**[]ConsentedFinancialAccount**](ConsentedFinancialAccount.md) | List of consented financial accounts. | [optional] 
+**FinancialAccounts** | Pointer to [**[]ConsentedFinancialAccountField**](ConsentedFinancialAccountField.md) | List of consented financial accounts. | [optional] 
 
 ## Methods
 
@@ -377,20 +377,20 @@ HasMedicalRecords returns a boolean if a field has been set.
 
 ### GetFinancialAccounts
 
-`func (o *ConsentDetails) GetFinancialAccounts() []ConsentedFinancialAccount`
+`func (o *ConsentDetails) GetFinancialAccounts() []ConsentedFinancialAccountField`
 
 GetFinancialAccounts returns the FinancialAccounts field if non-nil, zero value otherwise.
 
 ### GetFinancialAccountsOk
 
-`func (o *ConsentDetails) GetFinancialAccountsOk() (*[]ConsentedFinancialAccount, bool)`
+`func (o *ConsentDetails) GetFinancialAccountsOk() (*[]ConsentedFinancialAccountField, bool)`
 
 GetFinancialAccountsOk returns a tuple with the FinancialAccounts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFinancialAccounts
 
-`func (o *ConsentDetails) SetFinancialAccounts(v []ConsentedFinancialAccount)`
+`func (o *ConsentDetails) SetFinancialAccounts(v []ConsentedFinancialAccountField)`
 
 SetFinancialAccounts sets FinancialAccounts field to given value.
 

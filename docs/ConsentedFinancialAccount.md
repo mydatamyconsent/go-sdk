@@ -9,10 +9,6 @@ Name | Type | Description | Notes
 **Category** | [**FinancialAccountCategoryType**](FinancialAccountCategoryType.md) |  | 
 **SubCategory** | [**FinancialAccountSubCategoryType**](FinancialAccountSubCategoryType.md) |  | 
 **Identifier** | **string** | Financial account identifier. | 
-**FieldTitle** | **string** | Financial account field title. | 
-**FieldSlug** | **string** | Financial account field slug. | 
-**RequestedDetails** | [**[]FinancialAccountDetailsRequired**](FinancialAccountDetailsRequired.md) | Requested financial account details. | 
-**TransactionPeriod** | Pointer to [**ConsentedFinancialAccountTransactionPeriod**](ConsentedFinancialAccountTransactionPeriod.md) |  | [optional] 
 **IssuerId** | **string** | Financial account issuer id. | 
 **IssuerName** | **string** | Financial account issuer name. | 
 
@@ -20,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewConsentedFinancialAccount
 
-`func NewConsentedFinancialAccount(id string, name string, category FinancialAccountCategoryType, subCategory FinancialAccountSubCategoryType, identifier string, fieldTitle string, fieldSlug string, requestedDetails []FinancialAccountDetailsRequired, issuerId string, issuerName string, ) *ConsentedFinancialAccount`
+`func NewConsentedFinancialAccount(id string, name string, category FinancialAccountCategoryType, subCategory FinancialAccountSubCategoryType, identifier string, issuerId string, issuerName string, ) *ConsentedFinancialAccount`
 
 NewConsentedFinancialAccount instantiates a new ConsentedFinancialAccount object
 This constructor will assign default values to properties that have it defined,
@@ -134,91 +130,6 @@ and a boolean to check if the value has been set.
 
 SetIdentifier sets Identifier field to given value.
 
-
-### GetFieldTitle
-
-`func (o *ConsentedFinancialAccount) GetFieldTitle() string`
-
-GetFieldTitle returns the FieldTitle field if non-nil, zero value otherwise.
-
-### GetFieldTitleOk
-
-`func (o *ConsentedFinancialAccount) GetFieldTitleOk() (*string, bool)`
-
-GetFieldTitleOk returns a tuple with the FieldTitle field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFieldTitle
-
-`func (o *ConsentedFinancialAccount) SetFieldTitle(v string)`
-
-SetFieldTitle sets FieldTitle field to given value.
-
-
-### GetFieldSlug
-
-`func (o *ConsentedFinancialAccount) GetFieldSlug() string`
-
-GetFieldSlug returns the FieldSlug field if non-nil, zero value otherwise.
-
-### GetFieldSlugOk
-
-`func (o *ConsentedFinancialAccount) GetFieldSlugOk() (*string, bool)`
-
-GetFieldSlugOk returns a tuple with the FieldSlug field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFieldSlug
-
-`func (o *ConsentedFinancialAccount) SetFieldSlug(v string)`
-
-SetFieldSlug sets FieldSlug field to given value.
-
-
-### GetRequestedDetails
-
-`func (o *ConsentedFinancialAccount) GetRequestedDetails() []FinancialAccountDetailsRequired`
-
-GetRequestedDetails returns the RequestedDetails field if non-nil, zero value otherwise.
-
-### GetRequestedDetailsOk
-
-`func (o *ConsentedFinancialAccount) GetRequestedDetailsOk() (*[]FinancialAccountDetailsRequired, bool)`
-
-GetRequestedDetailsOk returns a tuple with the RequestedDetails field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRequestedDetails
-
-`func (o *ConsentedFinancialAccount) SetRequestedDetails(v []FinancialAccountDetailsRequired)`
-
-SetRequestedDetails sets RequestedDetails field to given value.
-
-
-### GetTransactionPeriod
-
-`func (o *ConsentedFinancialAccount) GetTransactionPeriod() ConsentedFinancialAccountTransactionPeriod`
-
-GetTransactionPeriod returns the TransactionPeriod field if non-nil, zero value otherwise.
-
-### GetTransactionPeriodOk
-
-`func (o *ConsentedFinancialAccount) GetTransactionPeriodOk() (*ConsentedFinancialAccountTransactionPeriod, bool)`
-
-GetTransactionPeriodOk returns a tuple with the TransactionPeriod field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTransactionPeriod
-
-`func (o *ConsentedFinancialAccount) SetTransactionPeriod(v ConsentedFinancialAccountTransactionPeriod)`
-
-SetTransactionPeriod sets TransactionPeriod field to given value.
-
-### HasTransactionPeriod
-
-`func (o *ConsentedFinancialAccount) HasTransactionPeriod() bool`
-
-HasTransactionPeriod returns a boolean if a field has been set.
 
 ### GetIssuerId
 

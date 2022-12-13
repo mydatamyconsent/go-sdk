@@ -25,13 +25,6 @@ type ConsentedFinancialAccount struct {
 	SubCategory FinancialAccountSubCategoryType `json:"subCategory"`
 	// Financial account identifier.
 	Identifier string `json:"identifier"`
-	// Financial account field title.
-	FieldTitle string `json:"fieldTitle"`
-	// Financial account field slug.
-	FieldSlug string `json:"fieldSlug"`
-	// Requested financial account details.
-	RequestedDetails []FinancialAccountDetailsRequired `json:"requestedDetails"`
-	TransactionPeriod *ConsentedFinancialAccountTransactionPeriod `json:"transactionPeriod,omitempty"`
 	// Financial account issuer id.
 	IssuerId string `json:"issuerId"`
 	// Financial account issuer name.
@@ -42,16 +35,13 @@ type ConsentedFinancialAccount struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConsentedFinancialAccount(id string, name string, category FinancialAccountCategoryType, subCategory FinancialAccountSubCategoryType, identifier string, fieldTitle string, fieldSlug string, requestedDetails []FinancialAccountDetailsRequired, issuerId string, issuerName string) *ConsentedFinancialAccount {
+func NewConsentedFinancialAccount(id string, name string, category FinancialAccountCategoryType, subCategory FinancialAccountSubCategoryType, identifier string, issuerId string, issuerName string) *ConsentedFinancialAccount {
 	this := ConsentedFinancialAccount{}
 	this.Id = id
 	this.Name = name
 	this.Category = category
 	this.SubCategory = subCategory
 	this.Identifier = identifier
-	this.FieldTitle = fieldTitle
-	this.FieldSlug = fieldSlug
-	this.RequestedDetails = requestedDetails
 	this.IssuerId = issuerId
 	this.IssuerName = issuerName
 	return &this
@@ -185,110 +175,6 @@ func (o *ConsentedFinancialAccount) SetIdentifier(v string) {
 	o.Identifier = v
 }
 
-// GetFieldTitle returns the FieldTitle field value
-func (o *ConsentedFinancialAccount) GetFieldTitle() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.FieldTitle
-}
-
-// GetFieldTitleOk returns a tuple with the FieldTitle field value
-// and a boolean to check if the value has been set.
-func (o *ConsentedFinancialAccount) GetFieldTitleOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FieldTitle, true
-}
-
-// SetFieldTitle sets field value
-func (o *ConsentedFinancialAccount) SetFieldTitle(v string) {
-	o.FieldTitle = v
-}
-
-// GetFieldSlug returns the FieldSlug field value
-func (o *ConsentedFinancialAccount) GetFieldSlug() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.FieldSlug
-}
-
-// GetFieldSlugOk returns a tuple with the FieldSlug field value
-// and a boolean to check if the value has been set.
-func (o *ConsentedFinancialAccount) GetFieldSlugOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FieldSlug, true
-}
-
-// SetFieldSlug sets field value
-func (o *ConsentedFinancialAccount) SetFieldSlug(v string) {
-	o.FieldSlug = v
-}
-
-// GetRequestedDetails returns the RequestedDetails field value
-func (o *ConsentedFinancialAccount) GetRequestedDetails() []FinancialAccountDetailsRequired {
-	if o == nil {
-		var ret []FinancialAccountDetailsRequired
-		return ret
-	}
-
-	return o.RequestedDetails
-}
-
-// GetRequestedDetailsOk returns a tuple with the RequestedDetails field value
-// and a boolean to check if the value has been set.
-func (o *ConsentedFinancialAccount) GetRequestedDetailsOk() ([]FinancialAccountDetailsRequired, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.RequestedDetails, true
-}
-
-// SetRequestedDetails sets field value
-func (o *ConsentedFinancialAccount) SetRequestedDetails(v []FinancialAccountDetailsRequired) {
-	o.RequestedDetails = v
-}
-
-// GetTransactionPeriod returns the TransactionPeriod field value if set, zero value otherwise.
-func (o *ConsentedFinancialAccount) GetTransactionPeriod() ConsentedFinancialAccountTransactionPeriod {
-	if o == nil || o.TransactionPeriod == nil {
-		var ret ConsentedFinancialAccountTransactionPeriod
-		return ret
-	}
-	return *o.TransactionPeriod
-}
-
-// GetTransactionPeriodOk returns a tuple with the TransactionPeriod field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ConsentedFinancialAccount) GetTransactionPeriodOk() (*ConsentedFinancialAccountTransactionPeriod, bool) {
-	if o == nil || o.TransactionPeriod == nil {
-		return nil, false
-	}
-	return o.TransactionPeriod, true
-}
-
-// HasTransactionPeriod returns a boolean if a field has been set.
-func (o *ConsentedFinancialAccount) HasTransactionPeriod() bool {
-	if o != nil && o.TransactionPeriod != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTransactionPeriod gets a reference to the given ConsentedFinancialAccountTransactionPeriod and assigns it to the TransactionPeriod field.
-func (o *ConsentedFinancialAccount) SetTransactionPeriod(v ConsentedFinancialAccountTransactionPeriod) {
-	o.TransactionPeriod = &v
-}
-
 // GetIssuerId returns the IssuerId field value
 func (o *ConsentedFinancialAccount) GetIssuerId() string {
 	if o == nil {
@@ -353,18 +239,6 @@ func (o ConsentedFinancialAccount) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["identifier"] = o.Identifier
-	}
-	if true {
-		toSerialize["fieldTitle"] = o.FieldTitle
-	}
-	if true {
-		toSerialize["fieldSlug"] = o.FieldSlug
-	}
-	if true {
-		toSerialize["requestedDetails"] = o.RequestedDetails
-	}
-	if o.TransactionPeriod != nil {
-		toSerialize["transactionPeriod"] = o.TransactionPeriod
 	}
 	if true {
 		toSerialize["issuerId"] = o.IssuerId

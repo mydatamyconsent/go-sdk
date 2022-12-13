@@ -48,7 +48,7 @@ type ConsentDetails struct {
 	// List of consented medical records.
 	MedicalRecords []ConsentedMedicalRecord `json:"medicalRecords,omitempty"`
 	// List of consented financial accounts.
-	FinancialAccounts []ConsentedFinancialAccount `json:"financialAccounts,omitempty"`
+	FinancialAccounts []ConsentedFinancialAccountField `json:"financialAccounts,omitempty"`
 }
 
 // NewConsentDetails instantiates a new ConsentDetails object
@@ -493,9 +493,9 @@ func (o *ConsentDetails) SetMedicalRecords(v []ConsentedMedicalRecord) {
 }
 
 // GetFinancialAccounts returns the FinancialAccounts field value if set, zero value otherwise.
-func (o *ConsentDetails) GetFinancialAccounts() []ConsentedFinancialAccount {
+func (o *ConsentDetails) GetFinancialAccounts() []ConsentedFinancialAccountField {
 	if o == nil || o.FinancialAccounts == nil {
-		var ret []ConsentedFinancialAccount
+		var ret []ConsentedFinancialAccountField
 		return ret
 	}
 	return o.FinancialAccounts
@@ -503,7 +503,7 @@ func (o *ConsentDetails) GetFinancialAccounts() []ConsentedFinancialAccount {
 
 // GetFinancialAccountsOk returns a tuple with the FinancialAccounts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConsentDetails) GetFinancialAccountsOk() ([]ConsentedFinancialAccount, bool) {
+func (o *ConsentDetails) GetFinancialAccountsOk() ([]ConsentedFinancialAccountField, bool) {
 	if o == nil || o.FinancialAccounts == nil {
 		return nil, false
 	}
@@ -519,8 +519,8 @@ func (o *ConsentDetails) HasFinancialAccounts() bool {
 	return false
 }
 
-// SetFinancialAccounts gets a reference to the given []ConsentedFinancialAccount and assigns it to the FinancialAccounts field.
-func (o *ConsentDetails) SetFinancialAccounts(v []ConsentedFinancialAccount) {
+// SetFinancialAccounts gets a reference to the given []ConsentedFinancialAccountField and assigns it to the FinancialAccounts field.
+func (o *ConsentDetails) SetFinancialAccounts(v []ConsentedFinancialAccountField) {
 	o.FinancialAccounts = v
 }
 

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SubCategory** | [**FinancialAccountSubCategoryType**](FinancialAccountSubCategoryType.md) |  | 
+**SubCategory** | Pointer to [**FinancialAccountSubCategoryType**](FinancialAccountSubCategoryType.md) |  | [optional] 
 **Drns** | **[]string** | DRNs. | 
 
 ## Methods
 
 ### NewSelectedFinancialAccountType
 
-`func NewSelectedFinancialAccountType(subCategory FinancialAccountSubCategoryType, drns []string, ) *SelectedFinancialAccountType`
+`func NewSelectedFinancialAccountType(drns []string, ) *SelectedFinancialAccountType`
 
 NewSelectedFinancialAccountType instantiates a new SelectedFinancialAccountType object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetSubCategory sets SubCategory field to given value.
 
+### HasSubCategory
+
+`func (o *SelectedFinancialAccountType) HasSubCategory() bool`
+
+HasSubCategory returns a boolean if a field has been set.
 
 ### GetDrns
 
