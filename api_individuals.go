@@ -1729,19 +1729,19 @@ func (a *IndividualsApiService) V1IndividualsConsentsConsentIdFinancialAccountsA
 	localVarFormParams := url.Values{}
 
 	if r.filters != nil {
-		localVarQueryParams.Add("filters", parameterToString(*r.filters, ""))
+		localVarQueryParams.Add("_filters", parameterToString(*r.filters, ""))
 	}
 	if r.fromDateTime != nil {
-		localVarQueryParams.Add("from_date_time", parameterToString(*r.fromDateTime, ""))
+		localVarQueryParams.Add("_from_date_time", parameterToString(*r.fromDateTime, ""))
 	}
 	if r.toDateTime != nil {
-		localVarQueryParams.Add("to_date_time", parameterToString(*r.toDateTime, ""))
+		localVarQueryParams.Add("_to_date_time", parameterToString(*r.toDateTime, ""))
 	}
 	if r.pageNo != nil {
-		localVarQueryParams.Add("page_no", parameterToString(*r.pageNo, ""))
+		localVarQueryParams.Add("_page_no", parameterToString(*r.pageNo, ""))
 	}
 	if r.pageSize != nil {
-		localVarQueryParams.Add("page_size", parameterToString(*r.pageSize, ""))
+		localVarQueryParams.Add("_page_size", parameterToString(*r.pageSize, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
