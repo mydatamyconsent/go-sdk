@@ -17,23 +17,22 @@ import (
 
 // CreateDataProcessingAgreement CreateDataProcessingAgreement : Create data processing agreement details.
 type CreateDataProcessingAgreement struct {
-	// Agreement version.
-	Version string `json:"version"`
-	// Agreement body content.
-	Body string `json:"body"`
+	// Agreement version. Agreement body content.
+	Name string `json:"name"`
+	IssuerType IssuerType `json:"issuerType"`
 	// Agreement attachment file URL.
-	AttachmentUrl string `json:"attachmentUrl"`
+	AgreementUrl string `json:"agreementUrl"`
 }
 
 // NewCreateDataProcessingAgreement instantiates a new CreateDataProcessingAgreement object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateDataProcessingAgreement(version string, body string, attachmentUrl string) *CreateDataProcessingAgreement {
+func NewCreateDataProcessingAgreement(name string, issuerType IssuerType, agreementUrl string) *CreateDataProcessingAgreement {
 	this := CreateDataProcessingAgreement{}
-	this.Version = version
-	this.Body = body
-	this.AttachmentUrl = attachmentUrl
+	this.Name = name
+	this.IssuerType = issuerType
+	this.AgreementUrl = agreementUrl
 	return &this
 }
 
@@ -45,88 +44,88 @@ func NewCreateDataProcessingAgreementWithDefaults() *CreateDataProcessingAgreeme
 	return &this
 }
 
-// GetVersion returns the Version field value
-func (o *CreateDataProcessingAgreement) GetVersion() string {
+// GetName returns the Name field value
+func (o *CreateDataProcessingAgreement) GetName() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Version
+	return o.Name
 }
 
-// GetVersionOk returns a tuple with the Version field value
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *CreateDataProcessingAgreement) GetVersionOk() (*string, bool) {
+func (o *CreateDataProcessingAgreement) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Version, true
+	return &o.Name, true
 }
 
-// SetVersion sets field value
-func (o *CreateDataProcessingAgreement) SetVersion(v string) {
-	o.Version = v
+// SetName sets field value
+func (o *CreateDataProcessingAgreement) SetName(v string) {
+	o.Name = v
 }
 
-// GetBody returns the Body field value
-func (o *CreateDataProcessingAgreement) GetBody() string {
+// GetIssuerType returns the IssuerType field value
+func (o *CreateDataProcessingAgreement) GetIssuerType() IssuerType {
+	if o == nil {
+		var ret IssuerType
+		return ret
+	}
+
+	return o.IssuerType
+}
+
+// GetIssuerTypeOk returns a tuple with the IssuerType field value
+// and a boolean to check if the value has been set.
+func (o *CreateDataProcessingAgreement) GetIssuerTypeOk() (*IssuerType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IssuerType, true
+}
+
+// SetIssuerType sets field value
+func (o *CreateDataProcessingAgreement) SetIssuerType(v IssuerType) {
+	o.IssuerType = v
+}
+
+// GetAgreementUrl returns the AgreementUrl field value
+func (o *CreateDataProcessingAgreement) GetAgreementUrl() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Body
+	return o.AgreementUrl
 }
 
-// GetBodyOk returns a tuple with the Body field value
+// GetAgreementUrlOk returns a tuple with the AgreementUrl field value
 // and a boolean to check if the value has been set.
-func (o *CreateDataProcessingAgreement) GetBodyOk() (*string, bool) {
+func (o *CreateDataProcessingAgreement) GetAgreementUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Body, true
+	return &o.AgreementUrl, true
 }
 
-// SetBody sets field value
-func (o *CreateDataProcessingAgreement) SetBody(v string) {
-	o.Body = v
-}
-
-// GetAttachmentUrl returns the AttachmentUrl field value
-func (o *CreateDataProcessingAgreement) GetAttachmentUrl() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.AttachmentUrl
-}
-
-// GetAttachmentUrlOk returns a tuple with the AttachmentUrl field value
-// and a boolean to check if the value has been set.
-func (o *CreateDataProcessingAgreement) GetAttachmentUrlOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AttachmentUrl, true
-}
-
-// SetAttachmentUrl sets field value
-func (o *CreateDataProcessingAgreement) SetAttachmentUrl(v string) {
-	o.AttachmentUrl = v
+// SetAgreementUrl sets field value
+func (o *CreateDataProcessingAgreement) SetAgreementUrl(v string) {
+	o.AgreementUrl = v
 }
 
 func (o CreateDataProcessingAgreement) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["version"] = o.Version
+		toSerialize["name"] = o.Name
 	}
 	if true {
-		toSerialize["body"] = o.Body
+		toSerialize["issuerType"] = o.IssuerType
 	}
 	if true {
-		toSerialize["attachmentUrl"] = o.AttachmentUrl
+		toSerialize["agreementUrl"] = o.AgreementUrl
 	}
 	return json.Marshal(toSerialize)
 }

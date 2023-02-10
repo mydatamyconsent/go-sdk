@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Version** | **string** | Agreement version. | 
-**Body** | **string** | Agreement body content. | 
-**AttachmentUrl** | **string** | Agreement attachment file URL. | 
+**Name** | **string** | Agreement version. Agreement body content. | 
+**IssuerType** | [**IssuerType**](IssuerType.md) |  | 
+**AgreementUrl** | **string** | Agreement attachment file URL. | 
 
 ## Methods
 
 ### NewCreateDataProcessingAgreement
 
-`func NewCreateDataProcessingAgreement(version string, body string, attachmentUrl string, ) *CreateDataProcessingAgreement`
+`func NewCreateDataProcessingAgreement(name string, issuerType IssuerType, agreementUrl string, ) *CreateDataProcessingAgreement`
 
 NewCreateDataProcessingAgreement instantiates a new CreateDataProcessingAgreement object
 This constructor will assign default values to properties that have it defined,
@@ -27,64 +27,64 @@ NewCreateDataProcessingAgreementWithDefaults instantiates a new CreateDataProces
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetVersion
+### GetName
 
-`func (o *CreateDataProcessingAgreement) GetVersion() string`
+`func (o *CreateDataProcessingAgreement) GetName() string`
 
-GetVersion returns the Version field if non-nil, zero value otherwise.
+GetName returns the Name field if non-nil, zero value otherwise.
 
-### GetVersionOk
+### GetNameOk
 
-`func (o *CreateDataProcessingAgreement) GetVersionOk() (*string, bool)`
+`func (o *CreateDataProcessingAgreement) GetNameOk() (*string, bool)`
 
-GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetVersion
+### SetName
 
-`func (o *CreateDataProcessingAgreement) SetVersion(v string)`
+`func (o *CreateDataProcessingAgreement) SetName(v string)`
 
-SetVersion sets Version field to given value.
+SetName sets Name field to given value.
 
 
-### GetBody
+### GetIssuerType
 
-`func (o *CreateDataProcessingAgreement) GetBody() string`
+`func (o *CreateDataProcessingAgreement) GetIssuerType() IssuerType`
 
-GetBody returns the Body field if non-nil, zero value otherwise.
+GetIssuerType returns the IssuerType field if non-nil, zero value otherwise.
 
-### GetBodyOk
+### GetIssuerTypeOk
 
-`func (o *CreateDataProcessingAgreement) GetBodyOk() (*string, bool)`
+`func (o *CreateDataProcessingAgreement) GetIssuerTypeOk() (*IssuerType, bool)`
 
-GetBodyOk returns a tuple with the Body field if it's non-nil, zero value otherwise
+GetIssuerTypeOk returns a tuple with the IssuerType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBody
+### SetIssuerType
 
-`func (o *CreateDataProcessingAgreement) SetBody(v string)`
+`func (o *CreateDataProcessingAgreement) SetIssuerType(v IssuerType)`
 
-SetBody sets Body field to given value.
+SetIssuerType sets IssuerType field to given value.
 
 
-### GetAttachmentUrl
+### GetAgreementUrl
 
-`func (o *CreateDataProcessingAgreement) GetAttachmentUrl() string`
+`func (o *CreateDataProcessingAgreement) GetAgreementUrl() string`
 
-GetAttachmentUrl returns the AttachmentUrl field if non-nil, zero value otherwise.
+GetAgreementUrl returns the AgreementUrl field if non-nil, zero value otherwise.
 
-### GetAttachmentUrlOk
+### GetAgreementUrlOk
 
-`func (o *CreateDataProcessingAgreement) GetAttachmentUrlOk() (*string, bool)`
+`func (o *CreateDataProcessingAgreement) GetAgreementUrlOk() (*string, bool)`
 
-GetAttachmentUrlOk returns a tuple with the AttachmentUrl field if it's non-nil, zero value otherwise
+GetAgreementUrlOk returns a tuple with the AgreementUrl field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAttachmentUrl
+### SetAgreementUrl
 
-`func (o *CreateDataProcessingAgreement) SetAttachmentUrl(v string)`
+`func (o *CreateDataProcessingAgreement) SetAgreementUrl(v string)`
 
-SetAttachmentUrl sets AttachmentUrl field to given value.
+SetAgreementUrl sets AgreementUrl field to given value.
 
 
 

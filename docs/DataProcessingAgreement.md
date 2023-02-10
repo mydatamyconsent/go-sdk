@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Agreement id. | 
-**Version** | **string** | Agreement version. | 
-**Body** | **string** | Agreement body content. | 
-**AttachmentUrl** | **string** | Agreement attachment file URL. | 
+**Name** | **string** | Agreement name. | 
+**IssuerType** | [**IssuerType**](IssuerType.md) |  | 
+**AgreementUrl** | **string** | Agreement attachment file URL. | 
 
 ## Methods
 
 ### NewDataProcessingAgreement
 
-`func NewDataProcessingAgreement(id string, version string, body string, attachmentUrl string, ) *DataProcessingAgreement`
+`func NewDataProcessingAgreement(id string, name string, issuerType IssuerType, agreementUrl string, ) *DataProcessingAgreement`
 
 NewDataProcessingAgreement instantiates a new DataProcessingAgreement object
 This constructor will assign default values to properties that have it defined,
@@ -48,64 +48,64 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetVersion
+### GetName
 
-`func (o *DataProcessingAgreement) GetVersion() string`
+`func (o *DataProcessingAgreement) GetName() string`
 
-GetVersion returns the Version field if non-nil, zero value otherwise.
+GetName returns the Name field if non-nil, zero value otherwise.
 
-### GetVersionOk
+### GetNameOk
 
-`func (o *DataProcessingAgreement) GetVersionOk() (*string, bool)`
+`func (o *DataProcessingAgreement) GetNameOk() (*string, bool)`
 
-GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetVersion
+### SetName
 
-`func (o *DataProcessingAgreement) SetVersion(v string)`
+`func (o *DataProcessingAgreement) SetName(v string)`
 
-SetVersion sets Version field to given value.
+SetName sets Name field to given value.
 
 
-### GetBody
+### GetIssuerType
 
-`func (o *DataProcessingAgreement) GetBody() string`
+`func (o *DataProcessingAgreement) GetIssuerType() IssuerType`
 
-GetBody returns the Body field if non-nil, zero value otherwise.
+GetIssuerType returns the IssuerType field if non-nil, zero value otherwise.
 
-### GetBodyOk
+### GetIssuerTypeOk
 
-`func (o *DataProcessingAgreement) GetBodyOk() (*string, bool)`
+`func (o *DataProcessingAgreement) GetIssuerTypeOk() (*IssuerType, bool)`
 
-GetBodyOk returns a tuple with the Body field if it's non-nil, zero value otherwise
+GetIssuerTypeOk returns a tuple with the IssuerType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBody
+### SetIssuerType
 
-`func (o *DataProcessingAgreement) SetBody(v string)`
+`func (o *DataProcessingAgreement) SetIssuerType(v IssuerType)`
 
-SetBody sets Body field to given value.
+SetIssuerType sets IssuerType field to given value.
 
 
-### GetAttachmentUrl
+### GetAgreementUrl
 
-`func (o *DataProcessingAgreement) GetAttachmentUrl() string`
+`func (o *DataProcessingAgreement) GetAgreementUrl() string`
 
-GetAttachmentUrl returns the AttachmentUrl field if non-nil, zero value otherwise.
+GetAgreementUrl returns the AgreementUrl field if non-nil, zero value otherwise.
 
-### GetAttachmentUrlOk
+### GetAgreementUrlOk
 
-`func (o *DataProcessingAgreement) GetAttachmentUrlOk() (*string, bool)`
+`func (o *DataProcessingAgreement) GetAgreementUrlOk() (*string, bool)`
 
-GetAttachmentUrlOk returns a tuple with the AttachmentUrl field if it's non-nil, zero value otherwise
+GetAgreementUrlOk returns a tuple with the AgreementUrl field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAttachmentUrl
+### SetAgreementUrl
 
-`func (o *DataProcessingAgreement) SetAttachmentUrl(v string)`
+`func (o *DataProcessingAgreement) SetAgreementUrl(v string)`
 
-SetAttachmentUrl sets AttachmentUrl field to given value.
+SetAgreementUrl sets AgreementUrl field to given value.
 
 
 

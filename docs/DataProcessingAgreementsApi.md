@@ -235,7 +235,7 @@ import (
 
 func main() {
     id := "id_example" // string | 
-    updateDataProcessingAgreement := *openapiclient.NewUpdateDataProcessingAgreement("Version_example", "Body_example", "AttachmentUrl_example") // UpdateDataProcessingAgreement | 
+    updateDataProcessingAgreement := *openapiclient.NewUpdateDataProcessingAgreement("Name_example", openapiclient.IssuerType("Individual"), "AgreementUrl_example") // UpdateDataProcessingAgreement | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -372,7 +372,7 @@ import (
 )
 
 func main() {
-    createDataProcessingAgreement := *openapiclient.NewCreateDataProcessingAgreement("Version_example", "Body_example", "AttachmentUrl_example") // CreateDataProcessingAgreement | 
+    createDataProcessingAgreement := *openapiclient.NewCreateDataProcessingAgreement("Name_example", openapiclient.IssuerType("Individual"), "AgreementUrl_example") // CreateDataProcessingAgreement | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
