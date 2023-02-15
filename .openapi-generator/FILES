@@ -23,7 +23,6 @@ docs/ConsentedFinancialAccountFieldTransactionPeriod.md
 docs/ConsentedIdentifier.md
 docs/ConsentedMedicalRecord.md
 docs/CreateConsentRequest.md
-docs/CreateDataProcessingAgreement.md
 docs/DataConsentStatus.md
 docs/DataProcessingAgreement.md
 docs/DataProcessingAgreementsApi.md
@@ -115,7 +114,6 @@ docs/SupportedDocumentType.md
 docs/SupportedEntityType.md
 docs/SupportedIdentifier.md
 docs/SupportedIdentifiersApi.md
-docs/UpdateDataProcessingAgreement.md
 docs/UploadDocumentResponse.md
 docs/UriDetails.md
 go.mod
@@ -136,7 +134,6 @@ model_consented_financial_account_field_transaction_period.go
 model_consented_identifier.go
 model_consented_medical_record.go
 model_create_consent_request.go
-model_create_data_processing_agreement.go
 model_data_consent_status.go
 model_data_processing_agreement.go
 model_data_protection_officer.go
@@ -223,7 +220,6 @@ model_sip_transaction.go
 model_supported_document_type.go
 model_supported_entity_type.go
 model_supported_identifier.go
-model_update_data_processing_agreement.go
 model_upload_document_response.go
 model_uri_details.go
 response.go
