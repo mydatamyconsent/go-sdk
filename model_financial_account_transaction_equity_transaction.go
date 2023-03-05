@@ -13,22 +13,33 @@ package github.com/mydatamyconsent/sdk
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // FinancialAccountTransactionEquityTransaction struct for FinancialAccountTransactionEquityTransaction
 type FinancialAccountTransactionEquityTransaction struct {
 	Type string `json:"type"`
 	Id string `json:"id"`
+	Amount string `json:"amount"`
+	CurrencyCode string `json:"currency_code"`
+	TxnType EquityTransactionsType `json:"txn_type"`
+	Units string `json:"units"`
+	TransactedAtUtc time.Time `json:"transacted_at_utc"`
 }
 
 // NewFinancialAccountTransactionEquityTransaction instantiates a new FinancialAccountTransactionEquityTransaction object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFinancialAccountTransactionEquityTransaction(type_ string, id string) *FinancialAccountTransactionEquityTransaction {
+func NewFinancialAccountTransactionEquityTransaction(type_ string, id string, amount string, currencyCode string, txnType EquityTransactionsType, units string, transactedAtUtc time.Time) *FinancialAccountTransactionEquityTransaction {
 	this := FinancialAccountTransactionEquityTransaction{}
 	this.Type = type_
 	this.Id = id
+	this.Amount = amount
+	this.CurrencyCode = currencyCode
+	this.TxnType = txnType
+	this.Units = units
+	this.TransactedAtUtc = transactedAtUtc
 	return &this
 }
 
@@ -88,6 +99,126 @@ func (o *FinancialAccountTransactionEquityTransaction) SetId(v string) {
 	o.Id = v
 }
 
+// GetAmount returns the Amount field value
+func (o *FinancialAccountTransactionEquityTransaction) GetAmount() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Amount
+}
+
+// GetAmountOk returns a tuple with the Amount field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountTransactionEquityTransaction) GetAmountOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Amount, true
+}
+
+// SetAmount sets field value
+func (o *FinancialAccountTransactionEquityTransaction) SetAmount(v string) {
+	o.Amount = v
+}
+
+// GetCurrencyCode returns the CurrencyCode field value
+func (o *FinancialAccountTransactionEquityTransaction) GetCurrencyCode() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CurrencyCode
+}
+
+// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountTransactionEquityTransaction) GetCurrencyCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CurrencyCode, true
+}
+
+// SetCurrencyCode sets field value
+func (o *FinancialAccountTransactionEquityTransaction) SetCurrencyCode(v string) {
+	o.CurrencyCode = v
+}
+
+// GetTxnType returns the TxnType field value
+func (o *FinancialAccountTransactionEquityTransaction) GetTxnType() EquityTransactionsType {
+	if o == nil {
+		var ret EquityTransactionsType
+		return ret
+	}
+
+	return o.TxnType
+}
+
+// GetTxnTypeOk returns a tuple with the TxnType field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountTransactionEquityTransaction) GetTxnTypeOk() (*EquityTransactionsType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TxnType, true
+}
+
+// SetTxnType sets field value
+func (o *FinancialAccountTransactionEquityTransaction) SetTxnType(v EquityTransactionsType) {
+	o.TxnType = v
+}
+
+// GetUnits returns the Units field value
+func (o *FinancialAccountTransactionEquityTransaction) GetUnits() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Units
+}
+
+// GetUnitsOk returns a tuple with the Units field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountTransactionEquityTransaction) GetUnitsOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Units, true
+}
+
+// SetUnits sets field value
+func (o *FinancialAccountTransactionEquityTransaction) SetUnits(v string) {
+	o.Units = v
+}
+
+// GetTransactedAtUtc returns the TransactedAtUtc field value
+func (o *FinancialAccountTransactionEquityTransaction) GetTransactedAtUtc() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.TransactedAtUtc
+}
+
+// GetTransactedAtUtcOk returns a tuple with the TransactedAtUtc field value
+// and a boolean to check if the value has been set.
+func (o *FinancialAccountTransactionEquityTransaction) GetTransactedAtUtcOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TransactedAtUtc, true
+}
+
+// SetTransactedAtUtc sets field value
+func (o *FinancialAccountTransactionEquityTransaction) SetTransactedAtUtc(v time.Time) {
+	o.TransactedAtUtc = v
+}
+
 func (o FinancialAccountTransactionEquityTransaction) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -95,6 +226,21 @@ func (o FinancialAccountTransactionEquityTransaction) MarshalJSON() ([]byte, err
 	}
 	if true {
 		toSerialize["id"] = o.Id
+	}
+	if true {
+		toSerialize["amount"] = o.Amount
+	}
+	if true {
+		toSerialize["currency_code"] = o.CurrencyCode
+	}
+	if true {
+		toSerialize["txn_type"] = o.TxnType
+	}
+	if true {
+		toSerialize["units"] = o.Units
+	}
+	if true {
+		toSerialize["transacted_at_utc"] = o.TransactedAtUtc
 	}
 	return json.Marshal(toSerialize)
 }

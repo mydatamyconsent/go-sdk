@@ -716,7 +716,7 @@ Name | Type | Description  | Notes
 
 ## V1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGet
 
-> PaginatedListOfFinancialAccountTransactions V1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGet(ctx, consentId, accountId).Filters(filters).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
+> PaginatedListOfFinancialAccountTransactions V1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGet(ctx, consentId, accountId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
 
 Get organization consented financial account transactions.
 
@@ -729,21 +729,21 @@ import (
     "context"
     "fmt"
     "os"
+    "time"
     openapiclient "./openapi"
 )
 
 func main() {
     consentId := "consentId_example" // string | 
     accountId := "accountId_example" // string | 
-    filters := "filters_example" // string |  (optional)
-    fromDateTime := "fromDateTime_example" // string |  (optional)
-    toDateTime := "toDateTime_example" // string |  (optional)
+    fromDateTime := time.Now() // time.Time |  (optional)
+    toDateTime := time.Now() // time.Time |  (optional)
     pageNo := int32(56) // int32 |  (optional)
     pageSize := int32(56) // int32 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OrganizationsApi.V1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGet(context.Background(), consentId, accountId).Filters(filters).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
+    resp, r, err := apiClient.OrganizationsApi.V1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGet(context.Background(), consentId, accountId).FromDateTime(fromDateTime).ToDateTime(toDateTime).PageNo(pageNo).PageSize(pageSize).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `OrganizationsApi.V1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -771,9 +771,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **filters** | **string** |  | 
- **fromDateTime** | **string** |  | 
- **toDateTime** | **string** |  | 
+ **fromDateTime** | **time.Time** |  | 
+ **toDateTime** | **time.Time** |  | 
  **pageNo** | **int32** |  | 
  **pageSize** | **int32** |  | 
 

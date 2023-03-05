@@ -6,12 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** |  | 
 **Id** | **string** |  | 
+**Amount** | **string** |  | 
+**CurrencyCode** | **string** |  | 
+**TxnType** | [**EquityTransactionsType**](EquityTransactionsType.md) |  | 
+**Units** | **string** |  | 
+**TransactedAtUtc** | **time.Time** |  | 
 
 ## Methods
 
 ### NewFinancialAccountTransactionEquityTransaction
 
-`func NewFinancialAccountTransactionEquityTransaction(type_ string, id string, ) *FinancialAccountTransactionEquityTransaction`
+`func NewFinancialAccountTransactionEquityTransaction(type_ string, id string, amount string, currencyCode string, txnType EquityTransactionsType, units string, transactedAtUtc time.Time, ) *FinancialAccountTransactionEquityTransaction`
 
 NewFinancialAccountTransactionEquityTransaction instantiates a new FinancialAccountTransactionEquityTransaction object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +69,106 @@ and a boolean to check if the value has been set.
 `func (o *FinancialAccountTransactionEquityTransaction) SetId(v string)`
 
 SetId sets Id field to given value.
+
+
+### GetAmount
+
+`func (o *FinancialAccountTransactionEquityTransaction) GetAmount() string`
+
+GetAmount returns the Amount field if non-nil, zero value otherwise.
+
+### GetAmountOk
+
+`func (o *FinancialAccountTransactionEquityTransaction) GetAmountOk() (*string, bool)`
+
+GetAmountOk returns a tuple with the Amount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAmount
+
+`func (o *FinancialAccountTransactionEquityTransaction) SetAmount(v string)`
+
+SetAmount sets Amount field to given value.
+
+
+### GetCurrencyCode
+
+`func (o *FinancialAccountTransactionEquityTransaction) GetCurrencyCode() string`
+
+GetCurrencyCode returns the CurrencyCode field if non-nil, zero value otherwise.
+
+### GetCurrencyCodeOk
+
+`func (o *FinancialAccountTransactionEquityTransaction) GetCurrencyCodeOk() (*string, bool)`
+
+GetCurrencyCodeOk returns a tuple with the CurrencyCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrencyCode
+
+`func (o *FinancialAccountTransactionEquityTransaction) SetCurrencyCode(v string)`
+
+SetCurrencyCode sets CurrencyCode field to given value.
+
+
+### GetTxnType
+
+`func (o *FinancialAccountTransactionEquityTransaction) GetTxnType() EquityTransactionsType`
+
+GetTxnType returns the TxnType field if non-nil, zero value otherwise.
+
+### GetTxnTypeOk
+
+`func (o *FinancialAccountTransactionEquityTransaction) GetTxnTypeOk() (*EquityTransactionsType, bool)`
+
+GetTxnTypeOk returns a tuple with the TxnType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTxnType
+
+`func (o *FinancialAccountTransactionEquityTransaction) SetTxnType(v EquityTransactionsType)`
+
+SetTxnType sets TxnType field to given value.
+
+
+### GetUnits
+
+`func (o *FinancialAccountTransactionEquityTransaction) GetUnits() string`
+
+GetUnits returns the Units field if non-nil, zero value otherwise.
+
+### GetUnitsOk
+
+`func (o *FinancialAccountTransactionEquityTransaction) GetUnitsOk() (*string, bool)`
+
+GetUnitsOk returns a tuple with the Units field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnits
+
+`func (o *FinancialAccountTransactionEquityTransaction) SetUnits(v string)`
+
+SetUnits sets Units field to given value.
+
+
+### GetTransactedAtUtc
+
+`func (o *FinancialAccountTransactionEquityTransaction) GetTransactedAtUtc() time.Time`
+
+GetTransactedAtUtc returns the TransactedAtUtc field if non-nil, zero value otherwise.
+
+### GetTransactedAtUtcOk
+
+`func (o *FinancialAccountTransactionEquityTransaction) GetTransactedAtUtcOk() (*time.Time, bool)`
+
+GetTransactedAtUtcOk returns a tuple with the TransactedAtUtc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTransactedAtUtc
+
+`func (o *FinancialAccountTransactionEquityTransaction) SetTransactedAtUtc(v time.Time)`
+
+SetTransactedAtUtc sets TransactedAtUtc field to given value.
 
 
 

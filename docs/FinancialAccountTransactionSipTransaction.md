@@ -6,12 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** |  | 
 **Id** | **string** |  | 
+**Amount** | **float64** |  | 
+**CurrencyCode** | **string** |  | 
+**TxnType** | [**SipTransactionType**](SipTransactionType.md) |  | 
+**TransactedAtUtc** | **time.Time** |  | 
 
 ## Methods
 
 ### NewFinancialAccountTransactionSipTransaction
 
-`func NewFinancialAccountTransactionSipTransaction(type_ string, id string, ) *FinancialAccountTransactionSipTransaction`
+`func NewFinancialAccountTransactionSipTransaction(type_ string, id string, amount float64, currencyCode string, txnType SipTransactionType, transactedAtUtc time.Time, ) *FinancialAccountTransactionSipTransaction`
 
 NewFinancialAccountTransactionSipTransaction instantiates a new FinancialAccountTransactionSipTransaction object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +68,86 @@ and a boolean to check if the value has been set.
 `func (o *FinancialAccountTransactionSipTransaction) SetId(v string)`
 
 SetId sets Id field to given value.
+
+
+### GetAmount
+
+`func (o *FinancialAccountTransactionSipTransaction) GetAmount() float64`
+
+GetAmount returns the Amount field if non-nil, zero value otherwise.
+
+### GetAmountOk
+
+`func (o *FinancialAccountTransactionSipTransaction) GetAmountOk() (*float64, bool)`
+
+GetAmountOk returns a tuple with the Amount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAmount
+
+`func (o *FinancialAccountTransactionSipTransaction) SetAmount(v float64)`
+
+SetAmount sets Amount field to given value.
+
+
+### GetCurrencyCode
+
+`func (o *FinancialAccountTransactionSipTransaction) GetCurrencyCode() string`
+
+GetCurrencyCode returns the CurrencyCode field if non-nil, zero value otherwise.
+
+### GetCurrencyCodeOk
+
+`func (o *FinancialAccountTransactionSipTransaction) GetCurrencyCodeOk() (*string, bool)`
+
+GetCurrencyCodeOk returns a tuple with the CurrencyCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrencyCode
+
+`func (o *FinancialAccountTransactionSipTransaction) SetCurrencyCode(v string)`
+
+SetCurrencyCode sets CurrencyCode field to given value.
+
+
+### GetTxnType
+
+`func (o *FinancialAccountTransactionSipTransaction) GetTxnType() SipTransactionType`
+
+GetTxnType returns the TxnType field if non-nil, zero value otherwise.
+
+### GetTxnTypeOk
+
+`func (o *FinancialAccountTransactionSipTransaction) GetTxnTypeOk() (*SipTransactionType, bool)`
+
+GetTxnTypeOk returns a tuple with the TxnType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTxnType
+
+`func (o *FinancialAccountTransactionSipTransaction) SetTxnType(v SipTransactionType)`
+
+SetTxnType sets TxnType field to given value.
+
+
+### GetTransactedAtUtc
+
+`func (o *FinancialAccountTransactionSipTransaction) GetTransactedAtUtc() time.Time`
+
+GetTransactedAtUtc returns the TransactedAtUtc field if non-nil, zero value otherwise.
+
+### GetTransactedAtUtcOk
+
+`func (o *FinancialAccountTransactionSipTransaction) GetTransactedAtUtcOk() (*time.Time, bool)`
+
+GetTransactedAtUtcOk returns a tuple with the TransactedAtUtc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTransactedAtUtc
+
+`func (o *FinancialAccountTransactionSipTransaction) SetTransactedAtUtc(v time.Time)`
+
+SetTransactedAtUtc sets TransactedAtUtc field to given value.
 
 
 

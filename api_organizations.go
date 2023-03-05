@@ -1505,24 +1505,18 @@ type ApiV1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGe
 	ApiService *OrganizationsApiService
 	consentId string
 	accountId string
-	filters *string
-	fromDateTime *string
-	toDateTime *string
+	fromDateTime *time.Time
+	toDateTime *time.Time
 	pageNo *int32
 	pageSize *int32
 }
 
-func (r ApiV1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGetRequest) Filters(filters string) ApiV1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGetRequest {
-	r.filters = &filters
-	return r
-}
-
-func (r ApiV1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGetRequest) FromDateTime(fromDateTime string) ApiV1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGetRequest {
+func (r ApiV1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGetRequest) FromDateTime(fromDateTime time.Time) ApiV1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGetRequest {
 	r.fromDateTime = &fromDateTime
 	return r
 }
 
-func (r ApiV1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGetRequest) ToDateTime(toDateTime string) ApiV1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGetRequest {
+func (r ApiV1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGetRequest) ToDateTime(toDateTime time.Time) ApiV1OrganizationsConsentsConsentIdFinancialAccountsAccountIdTransactionsGetRequest {
 	r.toDateTime = &toDateTime
 	return r
 }
@@ -1581,20 +1575,17 @@ func (a *OrganizationsApiService) V1OrganizationsConsentsConsentIdFinancialAccou
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.filters != nil {
-		localVarQueryParams.Add("_filters", parameterToString(*r.filters, ""))
-	}
 	if r.fromDateTime != nil {
-		localVarQueryParams.Add("_from_date_time", parameterToString(*r.fromDateTime, ""))
+		localVarQueryParams.Add("from_date_time", parameterToString(*r.fromDateTime, ""))
 	}
 	if r.toDateTime != nil {
-		localVarQueryParams.Add("_to_date_time", parameterToString(*r.toDateTime, ""))
+		localVarQueryParams.Add("to_date_time", parameterToString(*r.toDateTime, ""))
 	}
 	if r.pageNo != nil {
-		localVarQueryParams.Add("_page_no", parameterToString(*r.pageNo, ""))
+		localVarQueryParams.Add("page_no", parameterToString(*r.pageNo, ""))
 	}
 	if r.pageSize != nil {
-		localVarQueryParams.Add("_page_size", parameterToString(*r.pageSize, ""))
+		localVarQueryParams.Add("page_size", parameterToString(*r.pageSize, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

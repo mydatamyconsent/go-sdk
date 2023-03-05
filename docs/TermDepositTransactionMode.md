@@ -1,15 +1,17 @@
-# MutualFundFundType
+# TermDepositTransactionMode
 
 ## Enum
 
 
-* `EQUITY` (value: `"Equity"`)
+* `CASH` (value: `"Cash"`)
 
-* `DEBT` (value: `"Debt"`)
+* `ATM` (value: `"Atm"`)
 
-* `HYBRID` (value: `"Hybrid"`)
+* `CARD_PAYMENT` (value: `"CardPayment"`)
 
-* `SOLUTION_ORIENTED_SCHEMES` (value: `"SolutionOrientedSchemes"`)
+* `UPI` (value: `"Upi"`)
+
+* `FT` (value: `"Ft"`)
 
 * `OTHERS` (value: `"Others"`)
 

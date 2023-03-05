@@ -16,41 +16,43 @@ import (
 	"time"
 )
 
-// EquityTransaction struct for EquityTransaction
-type EquityTransaction struct {
+// TermDepositTransaction struct for TermDepositTransaction
+type TermDepositTransaction struct {
 	Id string `json:"id"`
-	Amount string `json:"amount"`
+	Amount float64 `json:"amount"`
 	CurrencyCode string `json:"currency_code"`
-	TxnType EquityTransactionsType `json:"txn_type"`
-	Units string `json:"units"`
+	Narration string `json:"narration"`
+	TxnType TermDepositTransactionType `json:"txn_type"`
+	Mode TermDepositTransactionMode `json:"mode"`
 	TransactedAtUtc time.Time `json:"transacted_at_utc"`
 }
 
-// NewEquityTransaction instantiates a new EquityTransaction object
+// NewTermDepositTransaction instantiates a new TermDepositTransaction object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEquityTransaction(id string, amount string, currencyCode string, txnType EquityTransactionsType, units string, transactedAtUtc time.Time) *EquityTransaction {
-	this := EquityTransaction{}
+func NewTermDepositTransaction(id string, amount float64, currencyCode string, narration string, txnType TermDepositTransactionType, mode TermDepositTransactionMode, transactedAtUtc time.Time) *TermDepositTransaction {
+	this := TermDepositTransaction{}
 	this.Id = id
 	this.Amount = amount
 	this.CurrencyCode = currencyCode
+	this.Narration = narration
 	this.TxnType = txnType
-	this.Units = units
+	this.Mode = mode
 	this.TransactedAtUtc = transactedAtUtc
 	return &this
 }
 
-// NewEquityTransactionWithDefaults instantiates a new EquityTransaction object
+// NewTermDepositTransactionWithDefaults instantiates a new TermDepositTransaction object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewEquityTransactionWithDefaults() *EquityTransaction {
-	this := EquityTransaction{}
+func NewTermDepositTransactionWithDefaults() *TermDepositTransaction {
+	this := TermDepositTransaction{}
 	return &this
 }
 
 // GetId returns the Id field value
-func (o *EquityTransaction) GetId() string {
+func (o *TermDepositTransaction) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -61,7 +63,7 @@ func (o *EquityTransaction) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *EquityTransaction) GetIdOk() (*string, bool) {
+func (o *TermDepositTransaction) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -69,14 +71,14 @@ func (o *EquityTransaction) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *EquityTransaction) SetId(v string) {
+func (o *TermDepositTransaction) SetId(v string) {
 	o.Id = v
 }
 
 // GetAmount returns the Amount field value
-func (o *EquityTransaction) GetAmount() string {
+func (o *TermDepositTransaction) GetAmount() float64 {
 	if o == nil {
-		var ret string
+		var ret float64
 		return ret
 	}
 
@@ -85,7 +87,7 @@ func (o *EquityTransaction) GetAmount() string {
 
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
-func (o *EquityTransaction) GetAmountOk() (*string, bool) {
+func (o *TermDepositTransaction) GetAmountOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -93,12 +95,12 @@ func (o *EquityTransaction) GetAmountOk() (*string, bool) {
 }
 
 // SetAmount sets field value
-func (o *EquityTransaction) SetAmount(v string) {
+func (o *TermDepositTransaction) SetAmount(v float64) {
 	o.Amount = v
 }
 
 // GetCurrencyCode returns the CurrencyCode field value
-func (o *EquityTransaction) GetCurrencyCode() string {
+func (o *TermDepositTransaction) GetCurrencyCode() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -109,7 +111,7 @@ func (o *EquityTransaction) GetCurrencyCode() string {
 
 // GetCurrencyCodeOk returns a tuple with the CurrencyCode field value
 // and a boolean to check if the value has been set.
-func (o *EquityTransaction) GetCurrencyCodeOk() (*string, bool) {
+func (o *TermDepositTransaction) GetCurrencyCodeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -117,14 +119,38 @@ func (o *EquityTransaction) GetCurrencyCodeOk() (*string, bool) {
 }
 
 // SetCurrencyCode sets field value
-func (o *EquityTransaction) SetCurrencyCode(v string) {
+func (o *TermDepositTransaction) SetCurrencyCode(v string) {
 	o.CurrencyCode = v
 }
 
-// GetTxnType returns the TxnType field value
-func (o *EquityTransaction) GetTxnType() EquityTransactionsType {
+// GetNarration returns the Narration field value
+func (o *TermDepositTransaction) GetNarration() string {
 	if o == nil {
-		var ret EquityTransactionsType
+		var ret string
+		return ret
+	}
+
+	return o.Narration
+}
+
+// GetNarrationOk returns a tuple with the Narration field value
+// and a boolean to check if the value has been set.
+func (o *TermDepositTransaction) GetNarrationOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Narration, true
+}
+
+// SetNarration sets field value
+func (o *TermDepositTransaction) SetNarration(v string) {
+	o.Narration = v
+}
+
+// GetTxnType returns the TxnType field value
+func (o *TermDepositTransaction) GetTxnType() TermDepositTransactionType {
+	if o == nil {
+		var ret TermDepositTransactionType
 		return ret
 	}
 
@@ -133,7 +159,7 @@ func (o *EquityTransaction) GetTxnType() EquityTransactionsType {
 
 // GetTxnTypeOk returns a tuple with the TxnType field value
 // and a boolean to check if the value has been set.
-func (o *EquityTransaction) GetTxnTypeOk() (*EquityTransactionsType, bool) {
+func (o *TermDepositTransaction) GetTxnTypeOk() (*TermDepositTransactionType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -141,36 +167,36 @@ func (o *EquityTransaction) GetTxnTypeOk() (*EquityTransactionsType, bool) {
 }
 
 // SetTxnType sets field value
-func (o *EquityTransaction) SetTxnType(v EquityTransactionsType) {
+func (o *TermDepositTransaction) SetTxnType(v TermDepositTransactionType) {
 	o.TxnType = v
 }
 
-// GetUnits returns the Units field value
-func (o *EquityTransaction) GetUnits() string {
+// GetMode returns the Mode field value
+func (o *TermDepositTransaction) GetMode() TermDepositTransactionMode {
 	if o == nil {
-		var ret string
+		var ret TermDepositTransactionMode
 		return ret
 	}
 
-	return o.Units
+	return o.Mode
 }
 
-// GetUnitsOk returns a tuple with the Units field value
+// GetModeOk returns a tuple with the Mode field value
 // and a boolean to check if the value has been set.
-func (o *EquityTransaction) GetUnitsOk() (*string, bool) {
+func (o *TermDepositTransaction) GetModeOk() (*TermDepositTransactionMode, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Units, true
+	return &o.Mode, true
 }
 
-// SetUnits sets field value
-func (o *EquityTransaction) SetUnits(v string) {
-	o.Units = v
+// SetMode sets field value
+func (o *TermDepositTransaction) SetMode(v TermDepositTransactionMode) {
+	o.Mode = v
 }
 
 // GetTransactedAtUtc returns the TransactedAtUtc field value
-func (o *EquityTransaction) GetTransactedAtUtc() time.Time {
+func (o *TermDepositTransaction) GetTransactedAtUtc() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
@@ -181,7 +207,7 @@ func (o *EquityTransaction) GetTransactedAtUtc() time.Time {
 
 // GetTransactedAtUtcOk returns a tuple with the TransactedAtUtc field value
 // and a boolean to check if the value has been set.
-func (o *EquityTransaction) GetTransactedAtUtcOk() (*time.Time, bool) {
+func (o *TermDepositTransaction) GetTransactedAtUtcOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -189,11 +215,11 @@ func (o *EquityTransaction) GetTransactedAtUtcOk() (*time.Time, bool) {
 }
 
 // SetTransactedAtUtc sets field value
-func (o *EquityTransaction) SetTransactedAtUtc(v time.Time) {
+func (o *TermDepositTransaction) SetTransactedAtUtc(v time.Time) {
 	o.TransactedAtUtc = v
 }
 
-func (o EquityTransaction) MarshalJSON() ([]byte, error) {
+func (o TermDepositTransaction) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["id"] = o.Id
@@ -205,10 +231,13 @@ func (o EquityTransaction) MarshalJSON() ([]byte, error) {
 		toSerialize["currency_code"] = o.CurrencyCode
 	}
 	if true {
+		toSerialize["narration"] = o.Narration
+	}
+	if true {
 		toSerialize["txn_type"] = o.TxnType
 	}
 	if true {
-		toSerialize["units"] = o.Units
+		toSerialize["mode"] = o.Mode
 	}
 	if true {
 		toSerialize["transacted_at_utc"] = o.TransactedAtUtc
@@ -216,38 +245,38 @@ func (o EquityTransaction) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableEquityTransaction struct {
-	value *EquityTransaction
+type NullableTermDepositTransaction struct {
+	value *TermDepositTransaction
 	isSet bool
 }
 
-func (v NullableEquityTransaction) Get() *EquityTransaction {
+func (v NullableTermDepositTransaction) Get() *TermDepositTransaction {
 	return v.value
 }
 
-func (v *NullableEquityTransaction) Set(val *EquityTransaction) {
+func (v *NullableTermDepositTransaction) Set(val *TermDepositTransaction) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableEquityTransaction) IsSet() bool {
+func (v NullableTermDepositTransaction) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableEquityTransaction) Unset() {
+func (v *NullableTermDepositTransaction) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableEquityTransaction(val *EquityTransaction) *NullableEquityTransaction {
-	return &NullableEquityTransaction{value: val, isSet: true}
+func NewNullableTermDepositTransaction(val *TermDepositTransaction) *NullableTermDepositTransaction {
+	return &NullableTermDepositTransaction{value: val, isSet: true}
 }
 
-func (v NullableEquityTransaction) MarshalJSON() ([]byte, error) {
+func (v NullableTermDepositTransaction) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableEquityTransaction) UnmarshalJSON(src []byte) error {
+func (v *NullableTermDepositTransaction) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

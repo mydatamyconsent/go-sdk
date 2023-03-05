@@ -22,6 +22,7 @@ type FinancialAccountTransaction struct {
 	FinancialAccountTransactionEquityTransaction *FinancialAccountTransactionEquityTransaction
 	FinancialAccountTransactionMutualFundTransaction *FinancialAccountTransactionMutualFundTransaction
 	FinancialAccountTransactionSipTransaction *FinancialAccountTransactionSipTransaction
+	FinancialAccountTransactionTermDepositTransaction *FinancialAccountTransactionTermDepositTransaction
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
@@ -98,6 +99,22 @@ func (dst *FinancialAccountTransaction) UnmarshalJSON(data []byte) error {
 		}
 	}
 
+	// check if the discriminator value is 'FinancialAccountTransaction_TermDepositTransaction'
+	if jsonDict["type"] == "FinancialAccountTransaction_TermDepositTransaction" {
+		// try to unmarshal JSON data into FinancialAccountTransactionTermDepositTransaction
+		err = json.Unmarshal(data, &dst.FinancialAccountTransactionTermDepositTransaction);
+		if err == nil {
+			jsonFinancialAccountTransactionTermDepositTransaction, _ := json.Marshal(dst.FinancialAccountTransactionTermDepositTransaction)
+			if string(jsonFinancialAccountTransactionTermDepositTransaction) == "{}" { // empty struct
+				dst.FinancialAccountTransactionTermDepositTransaction = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountTransactionTermDepositTransaction, return on the first match
+			}
+		} else {
+			dst.FinancialAccountTransactionTermDepositTransaction = nil
+		}
+	}
+
 	// check if the discriminator value is 'MutualFundTransaction'
 	if jsonDict["type"] == "MutualFundTransaction" {
 		// try to unmarshal JSON data into FinancialAccountTransactionMutualFundTransaction
@@ -127,6 +144,22 @@ func (dst *FinancialAccountTransaction) UnmarshalJSON(data []byte) error {
 			}
 		} else {
 			dst.FinancialAccountTransactionSipTransaction = nil
+		}
+	}
+
+	// check if the discriminator value is 'TermDepositTransaction'
+	if jsonDict["type"] == "TermDepositTransaction" {
+		// try to unmarshal JSON data into FinancialAccountTransactionTermDepositTransaction
+		err = json.Unmarshal(data, &dst.FinancialAccountTransactionTermDepositTransaction);
+		if err == nil {
+			jsonFinancialAccountTransactionTermDepositTransaction, _ := json.Marshal(dst.FinancialAccountTransactionTermDepositTransaction)
+			if string(jsonFinancialAccountTransactionTermDepositTransaction) == "{}" { // empty struct
+				dst.FinancialAccountTransactionTermDepositTransaction = nil
+			} else {
+				return nil // data stored in dst.FinancialAccountTransactionTermDepositTransaction, return on the first match
+			}
+		} else {
+			dst.FinancialAccountTransactionTermDepositTransaction = nil
 		}
 	}
 
@@ -169,6 +202,19 @@ func (dst *FinancialAccountTransaction) UnmarshalJSON(data []byte) error {
 		dst.FinancialAccountTransactionSipTransaction = nil
 	}
 
+	// try to unmarshal JSON data into FinancialAccountTransactionTermDepositTransaction
+	err = json.Unmarshal(data, &dst.FinancialAccountTransactionTermDepositTransaction);
+	if err == nil {
+		jsonFinancialAccountTransactionTermDepositTransaction, _ := json.Marshal(dst.FinancialAccountTransactionTermDepositTransaction)
+		if string(jsonFinancialAccountTransactionTermDepositTransaction) == "{}" { // empty struct
+			dst.FinancialAccountTransactionTermDepositTransaction = nil
+		} else {
+			return nil // data stored in dst.FinancialAccountTransactionTermDepositTransaction, return on the first match
+		}
+	} else {
+		dst.FinancialAccountTransactionTermDepositTransaction = nil
+	}
+
 	return fmt.Errorf("Data failed to match schemas in anyOf(FinancialAccountTransaction)")
 }
 
@@ -184,6 +230,10 @@ func (src *FinancialAccountTransaction) MarshalJSON() ([]byte, error) {
 
 	if src.FinancialAccountTransactionSipTransaction != nil {
 		return json.Marshal(&src.FinancialAccountTransactionSipTransaction)
+	}
+
+	if src.FinancialAccountTransactionTermDepositTransaction != nil {
+		return json.Marshal(&src.FinancialAccountTransactionTermDepositTransaction)
 	}
 
 	return nil, nil // no data in anyOf schemas

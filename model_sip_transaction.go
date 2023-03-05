@@ -13,20 +13,29 @@ package github.com/mydatamyconsent/sdk
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // SipTransaction struct for SipTransaction
 type SipTransaction struct {
 	Id string `json:"id"`
+	Amount float64 `json:"amount"`
+	CurrencyCode string `json:"currency_code"`
+	TxnType SipTransactionType `json:"txn_type"`
+	TransactedAtUtc time.Time `json:"transacted_at_utc"`
 }
 
 // NewSipTransaction instantiates a new SipTransaction object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSipTransaction(id string) *SipTransaction {
+func NewSipTransaction(id string, amount float64, currencyCode string, txnType SipTransactionType, transactedAtUtc time.Time) *SipTransaction {
 	this := SipTransaction{}
 	this.Id = id
+	this.Amount = amount
+	this.CurrencyCode = currencyCode
+	this.TxnType = txnType
+	this.TransactedAtUtc = transactedAtUtc
 	return &this
 }
 
@@ -62,10 +71,118 @@ func (o *SipTransaction) SetId(v string) {
 	o.Id = v
 }
 
+// GetAmount returns the Amount field value
+func (o *SipTransaction) GetAmount() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.Amount
+}
+
+// GetAmountOk returns a tuple with the Amount field value
+// and a boolean to check if the value has been set.
+func (o *SipTransaction) GetAmountOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Amount, true
+}
+
+// SetAmount sets field value
+func (o *SipTransaction) SetAmount(v float64) {
+	o.Amount = v
+}
+
+// GetCurrencyCode returns the CurrencyCode field value
+func (o *SipTransaction) GetCurrencyCode() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CurrencyCode
+}
+
+// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value
+// and a boolean to check if the value has been set.
+func (o *SipTransaction) GetCurrencyCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CurrencyCode, true
+}
+
+// SetCurrencyCode sets field value
+func (o *SipTransaction) SetCurrencyCode(v string) {
+	o.CurrencyCode = v
+}
+
+// GetTxnType returns the TxnType field value
+func (o *SipTransaction) GetTxnType() SipTransactionType {
+	if o == nil {
+		var ret SipTransactionType
+		return ret
+	}
+
+	return o.TxnType
+}
+
+// GetTxnTypeOk returns a tuple with the TxnType field value
+// and a boolean to check if the value has been set.
+func (o *SipTransaction) GetTxnTypeOk() (*SipTransactionType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TxnType, true
+}
+
+// SetTxnType sets field value
+func (o *SipTransaction) SetTxnType(v SipTransactionType) {
+	o.TxnType = v
+}
+
+// GetTransactedAtUtc returns the TransactedAtUtc field value
+func (o *SipTransaction) GetTransactedAtUtc() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.TransactedAtUtc
+}
+
+// GetTransactedAtUtcOk returns a tuple with the TransactedAtUtc field value
+// and a boolean to check if the value has been set.
+func (o *SipTransaction) GetTransactedAtUtcOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TransactedAtUtc, true
+}
+
+// SetTransactedAtUtc sets field value
+func (o *SipTransaction) SetTransactedAtUtc(v time.Time) {
+	o.TransactedAtUtc = v
+}
+
 func (o SipTransaction) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["id"] = o.Id
+	}
+	if true {
+		toSerialize["amount"] = o.Amount
+	}
+	if true {
+		toSerialize["currency_code"] = o.CurrencyCode
+	}
+	if true {
+		toSerialize["txn_type"] = o.TxnType
+	}
+	if true {
+		toSerialize["transacted_at_utc"] = o.TransactedAtUtc
 	}
 	return json.Marshal(toSerialize)
 }

@@ -19,61 +19,25 @@ import (
 // MutualFundTransaction struct for MutualFundTransaction
 type MutualFundTransaction struct {
 	Id string `json:"id"`
-	Amc string `json:"amc"`
-	Registrar string `json:"registrar"`
-	SchemeCode string `json:"scheme_code"`
-	SchemePlan MutualFundSchemePlan `json:"scheme_plan"`
-	Isin string `json:"isin"`
-	AmfiCode string `json:"amfi_code"`
-	FundType MutualFundFundType `json:"fund_type"`
-	SchemeOption MutualFundSchemeOption `json:"scheme_option"`
-	SchemeTypes MutualFundSchemeType `json:"scheme_types"`
-	SchemeCategory MutualFundSchemeCategory `json:"scheme_category"`
-	Ucc string `json:"ucc"`
 	Amount string `json:"amount"`
-	ClosingUnits string `json:"closing_units"`
-	LienUnits string `json:"lien_units"`
-	Nav string `json:"nav"`
-	NavDate time.Time `json:"nav_date"`
-	Type MutualFundTransactionType `json:"type"`
-	OrderDate time.Time `json:"order_date"`
-	ExecutionDate time.Time `json:"execution_date"`
-	LockinFlag string `json:"lockin_flag"`
-	LockinDays string `json:"lockin_days"`
-	Mode MutualFundHoldingMode `json:"mode"`
-	Narration string `json:"narration"`
+	CurrencyCode string `json:"currency_code"`
+	TxnType MutualFundTransactionType `json:"txn_type"`
+	Units string `json:"units"`
+	TransactedAtUtc time.Time `json:"transacted_at_utc"`
 }
 
 // NewMutualFundTransaction instantiates a new MutualFundTransaction object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMutualFundTransaction(id string, amc string, registrar string, schemeCode string, schemePlan MutualFundSchemePlan, isin string, amfiCode string, fundType MutualFundFundType, schemeOption MutualFundSchemeOption, schemeTypes MutualFundSchemeType, schemeCategory MutualFundSchemeCategory, ucc string, amount string, closingUnits string, lienUnits string, nav string, navDate time.Time, type_ MutualFundTransactionType, orderDate time.Time, executionDate time.Time, lockinFlag string, lockinDays string, mode MutualFundHoldingMode, narration string) *MutualFundTransaction {
+func NewMutualFundTransaction(id string, amount string, currencyCode string, txnType MutualFundTransactionType, units string, transactedAtUtc time.Time) *MutualFundTransaction {
 	this := MutualFundTransaction{}
 	this.Id = id
-	this.Amc = amc
-	this.Registrar = registrar
-	this.SchemeCode = schemeCode
-	this.SchemePlan = schemePlan
-	this.Isin = isin
-	this.AmfiCode = amfiCode
-	this.FundType = fundType
-	this.SchemeOption = schemeOption
-	this.SchemeTypes = schemeTypes
-	this.SchemeCategory = schemeCategory
-	this.Ucc = ucc
 	this.Amount = amount
-	this.ClosingUnits = closingUnits
-	this.LienUnits = lienUnits
-	this.Nav = nav
-	this.NavDate = navDate
-	this.Type = type_
-	this.OrderDate = orderDate
-	this.ExecutionDate = executionDate
-	this.LockinFlag = lockinFlag
-	this.LockinDays = lockinDays
-	this.Mode = mode
-	this.Narration = narration
+	this.CurrencyCode = currencyCode
+	this.TxnType = txnType
+	this.Units = units
+	this.TransactedAtUtc = transactedAtUtc
 	return &this
 }
 
@@ -109,270 +73,6 @@ func (o *MutualFundTransaction) SetId(v string) {
 	o.Id = v
 }
 
-// GetAmc returns the Amc field value
-func (o *MutualFundTransaction) GetAmc() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Amc
-}
-
-// GetAmcOk returns a tuple with the Amc field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetAmcOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Amc, true
-}
-
-// SetAmc sets field value
-func (o *MutualFundTransaction) SetAmc(v string) {
-	o.Amc = v
-}
-
-// GetRegistrar returns the Registrar field value
-func (o *MutualFundTransaction) GetRegistrar() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Registrar
-}
-
-// GetRegistrarOk returns a tuple with the Registrar field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetRegistrarOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Registrar, true
-}
-
-// SetRegistrar sets field value
-func (o *MutualFundTransaction) SetRegistrar(v string) {
-	o.Registrar = v
-}
-
-// GetSchemeCode returns the SchemeCode field value
-func (o *MutualFundTransaction) GetSchemeCode() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SchemeCode
-}
-
-// GetSchemeCodeOk returns a tuple with the SchemeCode field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetSchemeCodeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SchemeCode, true
-}
-
-// SetSchemeCode sets field value
-func (o *MutualFundTransaction) SetSchemeCode(v string) {
-	o.SchemeCode = v
-}
-
-// GetSchemePlan returns the SchemePlan field value
-func (o *MutualFundTransaction) GetSchemePlan() MutualFundSchemePlan {
-	if o == nil {
-		var ret MutualFundSchemePlan
-		return ret
-	}
-
-	return o.SchemePlan
-}
-
-// GetSchemePlanOk returns a tuple with the SchemePlan field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetSchemePlanOk() (*MutualFundSchemePlan, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SchemePlan, true
-}
-
-// SetSchemePlan sets field value
-func (o *MutualFundTransaction) SetSchemePlan(v MutualFundSchemePlan) {
-	o.SchemePlan = v
-}
-
-// GetIsin returns the Isin field value
-func (o *MutualFundTransaction) GetIsin() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Isin
-}
-
-// GetIsinOk returns a tuple with the Isin field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetIsinOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Isin, true
-}
-
-// SetIsin sets field value
-func (o *MutualFundTransaction) SetIsin(v string) {
-	o.Isin = v
-}
-
-// GetAmfiCode returns the AmfiCode field value
-func (o *MutualFundTransaction) GetAmfiCode() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.AmfiCode
-}
-
-// GetAmfiCodeOk returns a tuple with the AmfiCode field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetAmfiCodeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AmfiCode, true
-}
-
-// SetAmfiCode sets field value
-func (o *MutualFundTransaction) SetAmfiCode(v string) {
-	o.AmfiCode = v
-}
-
-// GetFundType returns the FundType field value
-func (o *MutualFundTransaction) GetFundType() MutualFundFundType {
-	if o == nil {
-		var ret MutualFundFundType
-		return ret
-	}
-
-	return o.FundType
-}
-
-// GetFundTypeOk returns a tuple with the FundType field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetFundTypeOk() (*MutualFundFundType, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FundType, true
-}
-
-// SetFundType sets field value
-func (o *MutualFundTransaction) SetFundType(v MutualFundFundType) {
-	o.FundType = v
-}
-
-// GetSchemeOption returns the SchemeOption field value
-func (o *MutualFundTransaction) GetSchemeOption() MutualFundSchemeOption {
-	if o == nil {
-		var ret MutualFundSchemeOption
-		return ret
-	}
-
-	return o.SchemeOption
-}
-
-// GetSchemeOptionOk returns a tuple with the SchemeOption field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetSchemeOptionOk() (*MutualFundSchemeOption, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SchemeOption, true
-}
-
-// SetSchemeOption sets field value
-func (o *MutualFundTransaction) SetSchemeOption(v MutualFundSchemeOption) {
-	o.SchemeOption = v
-}
-
-// GetSchemeTypes returns the SchemeTypes field value
-func (o *MutualFundTransaction) GetSchemeTypes() MutualFundSchemeType {
-	if o == nil {
-		var ret MutualFundSchemeType
-		return ret
-	}
-
-	return o.SchemeTypes
-}
-
-// GetSchemeTypesOk returns a tuple with the SchemeTypes field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetSchemeTypesOk() (*MutualFundSchemeType, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SchemeTypes, true
-}
-
-// SetSchemeTypes sets field value
-func (o *MutualFundTransaction) SetSchemeTypes(v MutualFundSchemeType) {
-	o.SchemeTypes = v
-}
-
-// GetSchemeCategory returns the SchemeCategory field value
-func (o *MutualFundTransaction) GetSchemeCategory() MutualFundSchemeCategory {
-	if o == nil {
-		var ret MutualFundSchemeCategory
-		return ret
-	}
-
-	return o.SchemeCategory
-}
-
-// GetSchemeCategoryOk returns a tuple with the SchemeCategory field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetSchemeCategoryOk() (*MutualFundSchemeCategory, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SchemeCategory, true
-}
-
-// SetSchemeCategory sets field value
-func (o *MutualFundTransaction) SetSchemeCategory(v MutualFundSchemeCategory) {
-	o.SchemeCategory = v
-}
-
-// GetUcc returns the Ucc field value
-func (o *MutualFundTransaction) GetUcc() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Ucc
-}
-
-// GetUccOk returns a tuple with the Ucc field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetUccOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Ucc, true
-}
-
-// SetUcc sets field value
-func (o *MutualFundTransaction) SetUcc(v string) {
-	o.Ucc = v
-}
-
 // GetAmount returns the Amount field value
 func (o *MutualFundTransaction) GetAmount() string {
 	if o == nil {
@@ -397,268 +97,100 @@ func (o *MutualFundTransaction) SetAmount(v string) {
 	o.Amount = v
 }
 
-// GetClosingUnits returns the ClosingUnits field value
-func (o *MutualFundTransaction) GetClosingUnits() string {
+// GetCurrencyCode returns the CurrencyCode field value
+func (o *MutualFundTransaction) GetCurrencyCode() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.ClosingUnits
+	return o.CurrencyCode
 }
 
-// GetClosingUnitsOk returns a tuple with the ClosingUnits field value
+// GetCurrencyCodeOk returns a tuple with the CurrencyCode field value
 // and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetClosingUnitsOk() (*string, bool) {
+func (o *MutualFundTransaction) GetCurrencyCodeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ClosingUnits, true
+	return &o.CurrencyCode, true
 }
 
-// SetClosingUnits sets field value
-func (o *MutualFundTransaction) SetClosingUnits(v string) {
-	o.ClosingUnits = v
+// SetCurrencyCode sets field value
+func (o *MutualFundTransaction) SetCurrencyCode(v string) {
+	o.CurrencyCode = v
 }
 
-// GetLienUnits returns the LienUnits field value
-func (o *MutualFundTransaction) GetLienUnits() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.LienUnits
-}
-
-// GetLienUnitsOk returns a tuple with the LienUnits field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetLienUnitsOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.LienUnits, true
-}
-
-// SetLienUnits sets field value
-func (o *MutualFundTransaction) SetLienUnits(v string) {
-	o.LienUnits = v
-}
-
-// GetNav returns the Nav field value
-func (o *MutualFundTransaction) GetNav() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Nav
-}
-
-// GetNavOk returns a tuple with the Nav field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetNavOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Nav, true
-}
-
-// SetNav sets field value
-func (o *MutualFundTransaction) SetNav(v string) {
-	o.Nav = v
-}
-
-// GetNavDate returns the NavDate field value
-func (o *MutualFundTransaction) GetNavDate() time.Time {
-	if o == nil {
-		var ret time.Time
-		return ret
-	}
-
-	return o.NavDate
-}
-
-// GetNavDateOk returns a tuple with the NavDate field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetNavDateOk() (*time.Time, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.NavDate, true
-}
-
-// SetNavDate sets field value
-func (o *MutualFundTransaction) SetNavDate(v time.Time) {
-	o.NavDate = v
-}
-
-// GetType returns the Type field value
-func (o *MutualFundTransaction) GetType() MutualFundTransactionType {
+// GetTxnType returns the TxnType field value
+func (o *MutualFundTransaction) GetTxnType() MutualFundTransactionType {
 	if o == nil {
 		var ret MutualFundTransactionType
 		return ret
 	}
 
-	return o.Type
+	return o.TxnType
 }
 
-// GetTypeOk returns a tuple with the Type field value
+// GetTxnTypeOk returns a tuple with the TxnType field value
 // and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetTypeOk() (*MutualFundTransactionType, bool) {
+func (o *MutualFundTransaction) GetTxnTypeOk() (*MutualFundTransactionType, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Type, true
+	return &o.TxnType, true
 }
 
-// SetType sets field value
-func (o *MutualFundTransaction) SetType(v MutualFundTransactionType) {
-	o.Type = v
+// SetTxnType sets field value
+func (o *MutualFundTransaction) SetTxnType(v MutualFundTransactionType) {
+	o.TxnType = v
 }
 
-// GetOrderDate returns the OrderDate field value
-func (o *MutualFundTransaction) GetOrderDate() time.Time {
+// GetUnits returns the Units field value
+func (o *MutualFundTransaction) GetUnits() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Units
+}
+
+// GetUnitsOk returns a tuple with the Units field value
+// and a boolean to check if the value has been set.
+func (o *MutualFundTransaction) GetUnitsOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Units, true
+}
+
+// SetUnits sets field value
+func (o *MutualFundTransaction) SetUnits(v string) {
+	o.Units = v
+}
+
+// GetTransactedAtUtc returns the TransactedAtUtc field value
+func (o *MutualFundTransaction) GetTransactedAtUtc() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return o.OrderDate
+	return o.TransactedAtUtc
 }
 
-// GetOrderDateOk returns a tuple with the OrderDate field value
+// GetTransactedAtUtcOk returns a tuple with the TransactedAtUtc field value
 // and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetOrderDateOk() (*time.Time, bool) {
+func (o *MutualFundTransaction) GetTransactedAtUtcOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.OrderDate, true
+	return &o.TransactedAtUtc, true
 }
 
-// SetOrderDate sets field value
-func (o *MutualFundTransaction) SetOrderDate(v time.Time) {
-	o.OrderDate = v
-}
-
-// GetExecutionDate returns the ExecutionDate field value
-func (o *MutualFundTransaction) GetExecutionDate() time.Time {
-	if o == nil {
-		var ret time.Time
-		return ret
-	}
-
-	return o.ExecutionDate
-}
-
-// GetExecutionDateOk returns a tuple with the ExecutionDate field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetExecutionDateOk() (*time.Time, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ExecutionDate, true
-}
-
-// SetExecutionDate sets field value
-func (o *MutualFundTransaction) SetExecutionDate(v time.Time) {
-	o.ExecutionDate = v
-}
-
-// GetLockinFlag returns the LockinFlag field value
-func (o *MutualFundTransaction) GetLockinFlag() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.LockinFlag
-}
-
-// GetLockinFlagOk returns a tuple with the LockinFlag field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetLockinFlagOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.LockinFlag, true
-}
-
-// SetLockinFlag sets field value
-func (o *MutualFundTransaction) SetLockinFlag(v string) {
-	o.LockinFlag = v
-}
-
-// GetLockinDays returns the LockinDays field value
-func (o *MutualFundTransaction) GetLockinDays() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.LockinDays
-}
-
-// GetLockinDaysOk returns a tuple with the LockinDays field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetLockinDaysOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.LockinDays, true
-}
-
-// SetLockinDays sets field value
-func (o *MutualFundTransaction) SetLockinDays(v string) {
-	o.LockinDays = v
-}
-
-// GetMode returns the Mode field value
-func (o *MutualFundTransaction) GetMode() MutualFundHoldingMode {
-	if o == nil {
-		var ret MutualFundHoldingMode
-		return ret
-	}
-
-	return o.Mode
-}
-
-// GetModeOk returns a tuple with the Mode field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetModeOk() (*MutualFundHoldingMode, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Mode, true
-}
-
-// SetMode sets field value
-func (o *MutualFundTransaction) SetMode(v MutualFundHoldingMode) {
-	o.Mode = v
-}
-
-// GetNarration returns the Narration field value
-func (o *MutualFundTransaction) GetNarration() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Narration
-}
-
-// GetNarrationOk returns a tuple with the Narration field value
-// and a boolean to check if the value has been set.
-func (o *MutualFundTransaction) GetNarrationOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Narration, true
-}
-
-// SetNarration sets field value
-func (o *MutualFundTransaction) SetNarration(v string) {
-	o.Narration = v
+// SetTransactedAtUtc sets field value
+func (o *MutualFundTransaction) SetTransactedAtUtc(v time.Time) {
+	o.TransactedAtUtc = v
 }
 
 func (o MutualFundTransaction) MarshalJSON() ([]byte, error) {
@@ -667,73 +199,19 @@ func (o MutualFundTransaction) MarshalJSON() ([]byte, error) {
 		toSerialize["id"] = o.Id
 	}
 	if true {
-		toSerialize["amc"] = o.Amc
-	}
-	if true {
-		toSerialize["registrar"] = o.Registrar
-	}
-	if true {
-		toSerialize["scheme_code"] = o.SchemeCode
-	}
-	if true {
-		toSerialize["scheme_plan"] = o.SchemePlan
-	}
-	if true {
-		toSerialize["isin"] = o.Isin
-	}
-	if true {
-		toSerialize["amfi_code"] = o.AmfiCode
-	}
-	if true {
-		toSerialize["fund_type"] = o.FundType
-	}
-	if true {
-		toSerialize["scheme_option"] = o.SchemeOption
-	}
-	if true {
-		toSerialize["scheme_types"] = o.SchemeTypes
-	}
-	if true {
-		toSerialize["scheme_category"] = o.SchemeCategory
-	}
-	if true {
-		toSerialize["ucc"] = o.Ucc
-	}
-	if true {
 		toSerialize["amount"] = o.Amount
 	}
 	if true {
-		toSerialize["closing_units"] = o.ClosingUnits
+		toSerialize["currency_code"] = o.CurrencyCode
 	}
 	if true {
-		toSerialize["lien_units"] = o.LienUnits
+		toSerialize["txn_type"] = o.TxnType
 	}
 	if true {
-		toSerialize["nav"] = o.Nav
+		toSerialize["units"] = o.Units
 	}
 	if true {
-		toSerialize["nav_date"] = o.NavDate
-	}
-	if true {
-		toSerialize["type"] = o.Type
-	}
-	if true {
-		toSerialize["order_date"] = o.OrderDate
-	}
-	if true {
-		toSerialize["execution_date"] = o.ExecutionDate
-	}
-	if true {
-		toSerialize["lockin_flag"] = o.LockinFlag
-	}
-	if true {
-		toSerialize["lockin_days"] = o.LockinDays
-	}
-	if true {
-		toSerialize["mode"] = o.Mode
-	}
-	if true {
-		toSerialize["narration"] = o.Narration
+		toSerialize["transacted_at_utc"] = o.TransactedAtUtc
 	}
 	return json.Marshal(toSerialize)
 }
