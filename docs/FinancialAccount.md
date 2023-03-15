@@ -27,12 +27,16 @@ Name | Type | Description | Notes
 **CreationDate** | Pointer to **time.Time** |  | [optional] 
 **PlanInfo** | [**SipPlanInformation**](SipPlanInformation.md) |  | 
 **InvestmentInfo** | [**SipInvestmentInformation**](SipInvestmentInformation.md) |  | 
+**AccountNumber** | **string** |  | 
+**AccountType** | [**TermDepositAccountType**](TermDepositAccountType.md) |  | 
+**IssuerLogoUrl** | **string** |  | 
+**AccountDetails** | [**TermDepositAccountDetails**](TermDepositAccountDetails.md) |  | 
 
 ## Methods
 
 ### NewFinancialAccount
 
-`func NewFinancialAccount(type_ string, id string, name string, issuerName string, exchange string, isin string, units float64, investmentValue float64, currentValue float64, currencyCode string, holder Holder, transactions bool, fundName string, folioNumber string, planInfo SipPlanInformation, investmentInfo SipInvestmentInformation, ) *FinancialAccount`
+`func NewFinancialAccount(type_ string, id string, name string, issuerName string, exchange string, isin string, units float64, investmentValue float64, currentValue float64, currencyCode string, holder Holder, transactions bool, fundName string, folioNumber string, planInfo SipPlanInformation, investmentInfo SipInvestmentInformation, accountNumber string, accountType TermDepositAccountType, issuerLogoUrl string, accountDetails TermDepositAccountDetails, ) *FinancialAccount`
 
 NewFinancialAccount instantiates a new FinancialAccount object
 This constructor will assign default values to properties that have it defined,
@@ -540,6 +544,86 @@ and a boolean to check if the value has been set.
 `func (o *FinancialAccount) SetInvestmentInfo(v SipInvestmentInformation)`
 
 SetInvestmentInfo sets InvestmentInfo field to given value.
+
+
+### GetAccountNumber
+
+`func (o *FinancialAccount) GetAccountNumber() string`
+
+GetAccountNumber returns the AccountNumber field if non-nil, zero value otherwise.
+
+### GetAccountNumberOk
+
+`func (o *FinancialAccount) GetAccountNumberOk() (*string, bool)`
+
+GetAccountNumberOk returns a tuple with the AccountNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountNumber
+
+`func (o *FinancialAccount) SetAccountNumber(v string)`
+
+SetAccountNumber sets AccountNumber field to given value.
+
+
+### GetAccountType
+
+`func (o *FinancialAccount) GetAccountType() TermDepositAccountType`
+
+GetAccountType returns the AccountType field if non-nil, zero value otherwise.
+
+### GetAccountTypeOk
+
+`func (o *FinancialAccount) GetAccountTypeOk() (*TermDepositAccountType, bool)`
+
+GetAccountTypeOk returns a tuple with the AccountType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountType
+
+`func (o *FinancialAccount) SetAccountType(v TermDepositAccountType)`
+
+SetAccountType sets AccountType field to given value.
+
+
+### GetIssuerLogoUrl
+
+`func (o *FinancialAccount) GetIssuerLogoUrl() string`
+
+GetIssuerLogoUrl returns the IssuerLogoUrl field if non-nil, zero value otherwise.
+
+### GetIssuerLogoUrlOk
+
+`func (o *FinancialAccount) GetIssuerLogoUrlOk() (*string, bool)`
+
+GetIssuerLogoUrlOk returns a tuple with the IssuerLogoUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIssuerLogoUrl
+
+`func (o *FinancialAccount) SetIssuerLogoUrl(v string)`
+
+SetIssuerLogoUrl sets IssuerLogoUrl field to given value.
+
+
+### GetAccountDetails
+
+`func (o *FinancialAccount) GetAccountDetails() TermDepositAccountDetails`
+
+GetAccountDetails returns the AccountDetails field if non-nil, zero value otherwise.
+
+### GetAccountDetailsOk
+
+`func (o *FinancialAccount) GetAccountDetailsOk() (*TermDepositAccountDetails, bool)`
+
+GetAccountDetailsOk returns a tuple with the AccountDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountDetails
+
+`func (o *FinancialAccount) SetAccountDetails(v TermDepositAccountDetails)`
+
+SetAccountDetails sets AccountDetails field to given value.
 
 
 

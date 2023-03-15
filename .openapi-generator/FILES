@@ -58,6 +58,8 @@ docs/FinancialAccountMutualFundAllOf.md
 docs/FinancialAccountSip.md
 docs/FinancialAccountSipAllOf.md
 docs/FinancialAccountSubCategoryType.md
+docs/FinancialAccountTermDeposit.md
+docs/FinancialAccountTermDepositAllOf.md
 docs/FinancialAccountTransaction.md
 docs/FinancialAccountTransactionEquityTransaction.md
 docs/FinancialAccountTransactionEquityTransactionAllOf.md
@@ -112,6 +114,14 @@ docs/SupportedDocumentType.md
 docs/SupportedEntityType.md
 docs/SupportedIdentifier.md
 docs/SupportedIdentifiersApi.md
+docs/TermDeposit.md
+docs/TermDepositAccountDetails.md
+docs/TermDepositAccountType.md
+docs/TermDepositBankInformation.md
+docs/TermDepositCompoundingFrequency.md
+docs/TermDepositInformation.md
+docs/TermDepositInterestComputation.md
+docs/TermDepositInterestPayoutType.md
 docs/TermDepositTransaction.md
 docs/TermDepositTransactionMode.md
 docs/TermDepositTransactionType.md
@@ -168,6 +178,8 @@ model_financial_account_mutual_fund_all_of.go
 model_financial_account_sip.go
 model_financial_account_sip_all_of.go
 model_financial_account_sub_category_type.go
+model_financial_account_term_deposit.go
+model_financial_account_term_deposit_all_of.go
 model_financial_account_transaction.go
 model_financial_account_transaction_equity_transaction.go
 model_financial_account_transaction_equity_transaction_all_of.go
@@ -219,6 +231,14 @@ model_sip_transaction_type.go
 model_supported_document_type.go
 model_supported_entity_type.go
 model_supported_identifier.go
+model_term_deposit.go
+model_term_deposit_account_details.go
+model_term_deposit_account_type.go
+model_term_deposit_bank_information.go
+model_term_deposit_compounding_frequency.go
+model_term_deposit_information.go
+model_term_deposit_interest_computation.go
+model_term_deposit_interest_payout_type.go
 model_term_deposit_transaction.go
 model_term_deposit_transaction_mode.go
 model_term_deposit_transaction_type.go
