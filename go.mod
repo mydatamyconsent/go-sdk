@@ -3,5 +3,5 @@ module github.com/mydatamyconsent/go-sdk
 go 1.13
 
 require (
-	golang.org/x/oauth2 v0.7.0
+	golang.org/x/oauth2 v0.8.0
 )
