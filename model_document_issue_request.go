@@ -22,6 +22,8 @@ type DocumentIssueRequest struct {
 	DocumentTypeId string `json:"documentTypeId"`
 	// Document identifier.
 	Identifier string `json:"identifier"`
+	// Document name (Optional).
+	Name *string `json:"name,omitempty"`
 	// Document description.
 	Description string `json:"description"`
 	Receiver DocumentIssueRequestReceiver `json:"receiver"`
@@ -105,6 +107,38 @@ func (o *DocumentIssueRequest) GetIdentifierOk() (*string, bool) {
 // SetIdentifier sets field value
 func (o *DocumentIssueRequest) SetIdentifier(v string) {
 	o.Identifier = v
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *DocumentIssueRequest) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DocumentIssueRequest) GetNameOk() (*string, bool) {
+	if o == nil || o.Name == nil {
+		return nil, false
+	}
+	return o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *DocumentIssueRequest) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *DocumentIssueRequest) SetName(v string) {
+	o.Name = &v
 }
 
 // GetDescription returns the Description field value
@@ -306,6 +340,9 @@ func (o DocumentIssueRequest) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["identifier"] = o.Identifier
+	}
+	if o.Name != nil {
+		toSerialize["name"] = o.Name
 	}
 	if true {
 		toSerialize["description"] = o.Description

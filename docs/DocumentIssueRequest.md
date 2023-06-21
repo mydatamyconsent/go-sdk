@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DocumentTypeId** | **string** | Document type id. | 
 **Identifier** | **string** | Document identifier. | 
+**Name** | Pointer to **string** | Document name (Optional). | [optional] 
 **Description** | **string** | Document description. | 
 **Receiver** | [**DocumentIssueRequestReceiver**](DocumentIssueRequestReceiver.md) |  | 
 **PaymentRequest** | Pointer to [**DocumentIssueRequestPaymentRequest**](DocumentIssueRequestPaymentRequest.md) |  | [optional] 
@@ -72,6 +73,31 @@ and a boolean to check if the value has been set.
 
 SetIdentifier sets Identifier field to given value.
 
+
+### GetName
+
+`func (o *DocumentIssueRequest) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *DocumentIssueRequest) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *DocumentIssueRequest) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *DocumentIssueRequest) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetDescription
 
