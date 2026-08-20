@@ -2,7 +2,7 @@ module github.com/mydatamyconsent/go-sdk
 
 go 1.25.0
 
-toolchain go1.26.6
+toolchain go1.27.0
 
 require golang.org/x/oauth2 v0.36.0
 
